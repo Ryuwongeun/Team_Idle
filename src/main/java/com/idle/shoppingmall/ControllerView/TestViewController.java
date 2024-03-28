@@ -21,8 +21,7 @@ public class TestViewController {
         List<Test> testList = testService.getTestList();
         List<TestListResponse> list = new ArrayList<>();
         for(int i=0; i<testList.size(); i++) {
-            System.out.println(testList.get(i).getId());
-            list.add(new TestListResponse(200, "성공", i, testList.get(i).getId(), testList.get(i).getName()));
+            list.add(new TestListResponse(666, "성공", i, testList.get(i).getId(), testList.get(i).getName()));
         }
         model.addAttribute("data", list);
         return "Test/test";

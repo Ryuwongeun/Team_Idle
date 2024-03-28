@@ -17,14 +17,12 @@ public class TestApiController {
 
     @PostMapping("/addTest")
     public ResponseEntity<TestAddResponse> addTest(@RequestBody TestAddRequest request) {
-        System.out.println("11111111111");
         if(request.getId() == null || request.getName() == null)
             return ResponseEntity.ok().body(new TestAddResponse(400, "입력값이 부족해요!!", null));
         testService.addTest(Test.builder()
                 .id(request.getId())
                 .name(request.getName())
                 .build());
-        System.out.println("22222222222");
         return ResponseEntity.ok().body(new TestAddResponse(200, "입력에 성공했어요!!", request.getName()));
     }
 }
