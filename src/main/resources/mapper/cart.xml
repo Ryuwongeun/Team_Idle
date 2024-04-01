@@ -9,4 +9,12 @@
         values (#{cart.created_who}, #{cart.product_id}, #{cart.size}, #{cart.count})
     </insert>
 
+    <select id="selectCart" parameterType="java.util.List" resultType="com.idle.shoppingmall.Entity.Cart">
+        select * from cart where created_who=#{cartList.created_who}
+    </select>
+    
+    <update id="updateCart" parameterType="com.idle.shoppingmall.Entity.Cart">
+        update cart SET count = count + #{update.count} WHERE created_who=#{update.created_who} AND product_id=#{update.product_id} AND size=#{update.size}
+    </update>
+
 </mapper>
