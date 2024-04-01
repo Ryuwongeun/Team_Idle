@@ -18,4 +18,7 @@ public class ProductService {
         productMapper.saveProduct(productDTO);
     } // addProduct
 
+    public Product findById(Long productId) {
+        return productMapper.findById(productId);
+    }
 } // end class
