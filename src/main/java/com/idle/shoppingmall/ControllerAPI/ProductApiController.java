@@ -34,7 +34,7 @@ public class ProductApiController {
                         .build()
         );
         if(id== null) {
-            return ResponseEntity.badRequest().body(new ProductAddResponse(400, "상품 추가에 실패했습니다.", null));
+            return ResponseEntity.ok().body(new ProductAddResponse(400, "상품 추가에 실패했습니다.", null));
         }
         return ResponseEntity.ok().body(new ProductAddResponse(200, "상품 추가에 성공했습니다.", id.toString()));
     }
