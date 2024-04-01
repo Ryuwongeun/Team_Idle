@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.idle.shoppingmall.mapper.ProductDetailMapper">
+    <select id="saveProductDetail">
+        insert into product_detail(product_id, size, pd_before_count, pd_sell_count)
+        values (#{productDetail.product_id}, #{productDetail.size}, #{productDetail.pd_before_count}, #{productDetail.pd_sell_count})
+    </select>
+</mapper>

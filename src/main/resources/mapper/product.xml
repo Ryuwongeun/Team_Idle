@@ -9,6 +9,8 @@
                ,#{product.created_at})
     </insert>
 
+    <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Product">
+        select * from product where product_id = #{product.product_id}
     <select id="findAllProducts" resultType="com.idle.shoppingmall.Entity.Product">
         select * from product
     </select>

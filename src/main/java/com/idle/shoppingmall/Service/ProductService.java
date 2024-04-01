@@ -21,6 +21,9 @@ public class ProductService {
     } // addProduct
 
 
+    public Product findById(Long productId) {
+        return productMapper.findById(productId);
+    }
 
     public List<Product> findAllProducts() {
         return productMapper.findAllProducts();
