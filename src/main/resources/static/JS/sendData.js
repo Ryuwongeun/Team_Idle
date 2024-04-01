@@ -17,7 +17,7 @@ function sendData(url, data) {
             // 서버로부터 받은 데이터 처리
             if(data.code === 666){
                 alert(data.msg);
-                location.href='/productList';
+
             }
             if(data.code === 400){
                 alert(data.msg);
