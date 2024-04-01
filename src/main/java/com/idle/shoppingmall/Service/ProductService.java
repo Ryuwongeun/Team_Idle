@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -14,11 +16,16 @@ public class ProductService {
     private final ProductMapper productMapper;
 
     @Transactional
-    public void addProduct(Product productDTO) {
-        productMapper.saveProduct(productDTO);
+    public Long addProduct(Product productDTO) {
+        return productMapper.saveProduct(productDTO);
     } // addProduct
+
 
     public Product findById(Long productId) {
         return productMapper.findById(productId);
+    }
+
+    public List<Product> findAllProducts() {
+        return productMapper.findAllProducts();
     }
 } // end class

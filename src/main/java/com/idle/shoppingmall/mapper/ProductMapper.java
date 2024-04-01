@@ -6,11 +6,14 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Mapper
 public interface ProductMapper {
 
-    void saveProduct(@Param("product")Product productDTO);
+    Long saveProduct(@Param("product")Product productDTO);
 
     Product findById(Long productId);
+    List<Product> findAllProducts();
 } // end interface
