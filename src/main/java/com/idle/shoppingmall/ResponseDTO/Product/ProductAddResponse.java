@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.ResponseDTO.Test;
+package com.idle.shoppingmall.ResponseDTO.Product;
 
 
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
