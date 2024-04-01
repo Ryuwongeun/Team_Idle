@@ -19,12 +19,12 @@ public class ProductApiController {
     private final ProductService productService;
 
     @PostMapping("/api/POST/addProduct")
-    public ResponseEntity<?> addProduct(@RequestBody ProductAddRequest request) {
+    public ResponseEntity<ProductAddResponse> addProduct(@RequestBody ProductAddRequest request) {
         if (request.getPd_name() == null || request.getPd_name().isEmpty() || request.getPd_price() <= 0) {
             return ResponseEntity.badRequest().body(new ProductAddResponse(400, "상품 이름 또는 가격이 유효하지 않습니다.", null));
         }
 
-        productService.addProduct(
+        Long id = productService.addProduct(
                 Product.builder()
                         .brand_id(request.getBrand_id())
                         .pd_name(request.getPd_name())
@@ -33,8 +33,9 @@ public class ProductApiController {
                         .created_at(LocalDateTime.now())
                         .build()
         );
-
-        List<Product> productList = productService.findAllProducts();
-        return ResponseEntity.ok().body(productList);
+        if(id== null) {
+            return ResponseEntity.badRequest().body(new ProductAddResponse(400, "상품 추가에 실패했습니다.", null));
+        }
+        return ResponseEntity.ok().body(new ProductAddResponse(200, "상품 추가에 성공했습니다.", id.toString()));
     }
 }

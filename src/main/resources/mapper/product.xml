@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.idle.shoppingmall.mapper.ProductMapper">
-    <insert id="saveProduct">
+    <insert id="saveProduct" useGeneratedKeys="true" keyProperty="product_id">
         insert into product(pd_name, pd_price, brand_id, pd_category, created_at)
         values ( #{product.pd_name}, #{product.pd_price}, #{product.brand_id}, #{product.pd_category}
                ,#{product.created_at})
