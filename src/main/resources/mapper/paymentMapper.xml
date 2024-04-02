@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.idle.shoppingmall.mapper.PaymentMapper">
+    <insert id="savePayment">
+        insert into product_log(payment_id, created_who, product_id, total_price, size, count, created_at)
+        values(#{paymene.payment_id}, #{payment.created_who}, #{payment.product_id}, #{payment.total_price}, #{payment.size}, #{payment.count}, now())
+    </insert>
+</mapper>

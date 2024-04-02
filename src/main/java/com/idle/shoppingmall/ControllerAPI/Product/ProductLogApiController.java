@@ -1,13 +1,11 @@
 package com.idle.shoppingmall.ControllerAPI.Product;
 
-import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.Entity.Product.ProductLog;
 import com.idle.shoppingmall.RequestDTO.Product.ProductLogAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductLogAddResponse;
 import com.idle.shoppingmall.Service.product.ProductDetailService;
 import com.idle.shoppingmall.Service.product.ProductLogService;
-import com.idle.shoppingmall.Service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,10 +23,8 @@ public class ProductLogApiController {
     public ResponseEntity<ProductLogAddResponse>addProductLog(@RequestBody ProductLogAddRequest request) {
         ProductDetail productDetail = productDetailService.findDetail(request.getProduct_id(), request.getSize());
 
-        if(request.getProduct_id() == null)
-            return ResponseEntity.ok().body(new ProductLogAddResponse(200, "일련번호가 없습니다.", null));
-        else if(request.getSize() == null)
-            return ResponseEntity.ok().body(new ProductLogAddResponse(200, "사이즈가 없습니다.", null));
+        if(productDetail == null)
+            return ResponseEntity.ok().body(new ProductLogAddResponse(200, "물품이 없습니다.", null));
 
         productLogService.addProductLog(
                 ProductLog.builder()
