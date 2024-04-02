@@ -1,22 +1,20 @@
-package com.idle.shoppingmall.Entity;
-
+package com.idle.shoppingmall.Entity.Product;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.joda.time.DateTime;
 
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Cart {
-    private Long created_who;
+@Data
+@NoArgsConstructor
+public class ProductLog {
     private Long product_id;
     private String size;
     private int count;
+    private Long created_who;
+    private DateTime created_at;
 
-    public void updateCount(int count){
-        this.count = count;
-    }
-} // end class
+}

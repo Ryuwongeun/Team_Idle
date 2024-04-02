@@ -1,12 +1,12 @@
-package com.idle.shoppingmall.ControllerAPI;
+package com.idle.shoppingmall.ControllerAPI.Product;
 
-import com.idle.shoppingmall.Entity.Product;
-import com.idle.shoppingmall.Entity.ProductDetail;
-import com.idle.shoppingmall.RequestDTO.ProductDetailAddRequest;
+import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.Entity.Product.ProductDetail;
+import com.idle.shoppingmall.RequestDTO.Product.ProductDetailAddRequest;
 
-import com.idle.shoppingmall.ResponseDTO.Test.ProductDetailAddResponse;
-import com.idle.shoppingmall.Service.ProductDetailService;
-import com.idle.shoppingmall.Service.ProductService;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductDetailAddResponse;
+import com.idle.shoppingmall.Service.product.ProductDetailService;
+import com.idle.shoppingmall.Service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class ProductDetailController {
+public class ProductDetailApiController {
     private final ProductService productService;
     private final ProductDetailService productDetailService;
     @PostMapping("api/POST/addProductDetail")

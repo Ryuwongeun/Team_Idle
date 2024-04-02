@@ -2,17 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.idle.shoppingmall.mapper.ProductMapper">
+<mapper namespace="com.idle.shoppingmall.mapper.Product.ProductMapper">
     <insert id="saveProduct" useGeneratedKeys="true" keyProperty="product_id">
         insert into product(pd_name, pd_price, brand_id, pd_category, created_at)
         values ( #{product.pd_name}, #{product.pd_price}, #{product.brand_id}, #{product.pd_category}
                ,#{product.created_at})
     </insert>
 
-    <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Product">
+    <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product where product_id = #{product.product_id}
     </select>
-    <select id="findAllProducts" resultType="com.idle.shoppingmall.Entity.Product">
+
+    <select id="findAllProducts" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
     </select>
 </mapper>
