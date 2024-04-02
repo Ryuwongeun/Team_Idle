@@ -11,10 +11,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class Cart {
-
     private Long created_who;
     private Long product_id;
     private String size;
     private int count;
 
+    public void updateCount(int count){
+        this.count = count;
+    }
 } // end class
