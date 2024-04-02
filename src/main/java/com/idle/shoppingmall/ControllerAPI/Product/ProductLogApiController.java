@@ -21,7 +21,7 @@ public class ProductLogApiController {
 
     @PostMapping("/api/POST/addProductLog")
     public ResponseEntity<ProductLogAddResponse>addProductLog(@RequestBody ProductLogAddRequest request) {
-        ProductDetail productDetail = productDetailService.findBySize(request.getProduct_id(), request.getSize());
+        ProductDetail productDetail = productDetailService.findDetail(request.getProduct_id(), request.getSize());
 
         if(productDetail == null)
             return ResponseEntity.ok().body(new ProductLogAddResponse(200, "물품이 없습니다.", null));
