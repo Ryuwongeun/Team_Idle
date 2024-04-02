@@ -22,12 +22,8 @@ public class ProductDetailApiController {
     public ResponseEntity<ProductDetailAddResponse> addProductDetail(@RequestBody ProductDetailAddRequest request) {
         Product product = productService.findById(request.getProduct_id());
 
-        if(request.getProduct_id() == null)
-            return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "일련번호가 없습니다.",(Long) null));
-        else if(request.getSize() == null)
-            return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "사이즈가 없습니다." , (String) null));
-        else if(request.getPd_sell_count() == 0)
-            return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "수량이 없습니다", 0));
+        if(product == null)
+            return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "물품이 없습니다.", (Long) null));
 
         productDetailService.addProductDetail(
                 ProductDetail.builder()

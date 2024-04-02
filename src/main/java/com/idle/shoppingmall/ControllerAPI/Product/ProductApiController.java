@@ -20,7 +20,7 @@ public class ProductApiController {
     @PostMapping("/api/POST/addProduct")
     public ResponseEntity<ProductAddResponse> addProduct(@RequestBody ProductAddRequest request) {
         if (request.getPd_name() == null || request.getPd_name().isEmpty() || request.getPd_price() <= 0) {
-            return ResponseEntity.badRequest().body(new ProductAddResponse(400, "상품 이름 또는 가격이 유효하지 않습니다.", null));
+            return ResponseEntity.ok().body(new ProductAddResponse(400, "상품 이름 또는 가격이 유효하지 않습니다.", null));
         }
 
         Long id = productService.addProduct(

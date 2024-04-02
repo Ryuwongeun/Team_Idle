@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface ProductLogMapper {
-    void saveProductLog(@Param("productLog") ProductLog productLogDTO);
+    void saveProductLog(@Param("key") ProductLog key);
 }
