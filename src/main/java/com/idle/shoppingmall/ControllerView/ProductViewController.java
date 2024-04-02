@@ -1,8 +1,8 @@
 package com.idle.shoppingmall.ControllerView;
 
-import com.idle.shoppingmall.Entity.Product;
+import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
-import com.idle.shoppingmall.Service.ProductService;
+import com.idle.shoppingmall.Service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

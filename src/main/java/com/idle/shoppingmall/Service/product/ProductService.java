@@ -1,8 +1,8 @@
-package com.idle.shoppingmall.Service;
+package com.idle.shoppingmall.Service.product;
 
 
-import com.idle.shoppingmall.Entity.Product;
-import com.idle.shoppingmall.mapper.ProductMapper;
+import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
