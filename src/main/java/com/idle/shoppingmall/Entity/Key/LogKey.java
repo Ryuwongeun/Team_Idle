@@ -1,14 +1,14 @@
-package com.idle.shoppingmall.RequestDTO.Product;
+package com.idle.shoppingmall.Entity.Key;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Getter
 @NoArgsConstructor
-public class ProductDetailAddRequest {
+@AllArgsConstructor
+public class LogKey {
     private Long product_id;
+    private Long created_who;
     private String size;
-    private int pd_before_count;
 }

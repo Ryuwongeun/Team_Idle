@@ -19,4 +19,8 @@ public class ProductDetailService {
     public ProductDetail findDetail(Long productId, String size) {
         return productDetailMapper.findBySize(new DetailKey(productId, size));
     }
+
+    public void updateProductDetail(ProductDetail productDetail){
+        productDetailMapper.update(productDetail);
+    }
 }

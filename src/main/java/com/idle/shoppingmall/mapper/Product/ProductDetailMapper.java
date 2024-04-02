@@ -11,5 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface ProductDetailMapper {
     void saveProductDetail(@Param("productDetail")ProductDetail productDetailDTO);
 
-    ProductDetail findBySize(@Param("key")DetailKey key);
+    ProductDetail findBySize(@Param("key") DetailKey key);
+
+    void update(@Param("product")ProductDetail detail);
 }
