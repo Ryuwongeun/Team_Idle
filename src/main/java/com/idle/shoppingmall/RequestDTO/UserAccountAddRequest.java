@@ -1,6 +1,6 @@
 package com.idle.shoppingmall.RequestDTO;
 
-import com.idle.shoppingmall.Entity.User_Account;
+import com.idle.shoppingmall.Entity.User.User_Account;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

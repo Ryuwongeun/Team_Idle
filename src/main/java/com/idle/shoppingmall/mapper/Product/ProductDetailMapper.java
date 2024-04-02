@@ -9,9 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface ProductDetailMapper {
-    void saveProductDetail(@Param("productDetail")ProductDetail productDetailDTO);
+    Integer saveProductDetail(@Param("productDetail")ProductDetail productDetailDTO);
 
     ProductDetail findBySize(@Param("key") DetailKey key);
 
-    void update(@Param("product")ProductDetail detail);
+    void update(@Param("Product")ProductDetail detail);
 }

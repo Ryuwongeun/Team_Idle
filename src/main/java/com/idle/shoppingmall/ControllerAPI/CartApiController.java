@@ -4,17 +4,17 @@ package com.idle.shoppingmall.ControllerAPI;
 import com.idle.shoppingmall.Entity.Cart;
 import com.idle.shoppingmall.Entity.Key.CartKey;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
+import com.idle.shoppingmall.Entity.User.User_Info;
 import com.idle.shoppingmall.RequestDTO.CartAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Test.CartAddResponse;
 import com.idle.shoppingmall.Service.CartService;
-import com.idle.shoppingmall.Service.product.ProductDetailService;
+import com.idle.shoppingmall.Service.Product.ProductDetailService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,7 +24,12 @@ public class CartApiController {
     private final ProductDetailService productDetailService;
 
     @PostMapping("api/POST/addCart")
-    public ResponseEntity<CartAddResponse> addCart(@RequestBody CartAddRequest request){
+    public ResponseEntity<CartAddResponse> addCart(@RequestBody CartAddRequest request,
+                                                   HttpSession session){
+        User_Info user = (User_Info) session.getAttribute("user");
+        if(user==null){
+            return ResponseEntity.ok().body(new CartAddResponse(700, "로그인이 필요합니다.", null));
+        }
         ProductDetail productDetail =  productDetailService.findDetail(request.getProduct_id(), request.getSize());
         if(productDetail == null){
             return ResponseEntity.ok().body(new CartAddResponse(400, "상품이 없습니다.", request.getProduct_id()));
@@ -33,7 +38,7 @@ public class CartApiController {
         Cart cart = cartService.findCart(key);
         if(cart == null){
             cartService.addCart(Cart.builder()
-                    .created_who(1L)
+                    .created_who(user.getUser_id())
                     .product_id(request.getProduct_id())
                     .size(request.getSize())
                     .count(request.getCount())

@@ -3,7 +3,7 @@ package com.idle.shoppingmall.ControllerAPI.Product;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.RequestDTO.Product.ProductAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductAddResponse;
-import com.idle.shoppingmall.Service.product.ProductService;
+import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

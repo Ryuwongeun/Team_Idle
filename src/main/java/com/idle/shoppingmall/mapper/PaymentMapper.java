@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Mapper
 public interface PaymentMapper {
-    void savePayment(@Param("payment") Payment payment);
+    Long savePayment(@Param("payment") Payment payment);
 }

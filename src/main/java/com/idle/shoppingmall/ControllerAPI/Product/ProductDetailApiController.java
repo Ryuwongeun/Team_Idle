@@ -5,8 +5,8 @@ import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.RequestDTO.Product.ProductDetailAddRequest;
 
 import com.idle.shoppingmall.ResponseDTO.Product.ProductDetailAddResponse;
-import com.idle.shoppingmall.Service.product.ProductDetailService;
-import com.idle.shoppingmall.Service.product.ProductService;
+import com.idle.shoppingmall.Service.Product.ProductDetailService;
+import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +31,7 @@ public class ProductDetailApiController {
 
             return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "수량 추가 성공", request.getProduct_id(), request.getSize(), request.getPd_before_count()));
         }
-        productDetailService.addProductDetail(
+        Integer result = productDetailService.addProductDetail(
                 ProductDetail.builder()
                         .product_id(request.getProduct_id())
                         .size(request.getSize())
@@ -39,6 +39,8 @@ public class ProductDetailApiController {
                         .pd_sell_count(0)
                         .build()
         );
+        if(result==null)
+            return ResponseEntity.ok().body(new ProductDetailAddResponse(600, "등록 실패", null));
         return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "성공", request.getProduct_id(), request.getSize(), request.getPd_before_count()));
     }
 }

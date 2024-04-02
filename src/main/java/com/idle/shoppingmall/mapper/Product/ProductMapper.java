@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface ProductMapper {
 
-    Long saveProduct(@Param("product")Product productDTO);
+    Long saveProduct(@Param("Product")Product productDTO);
 
     Product findById(Long productId);
     List<Product> findAllProducts();
