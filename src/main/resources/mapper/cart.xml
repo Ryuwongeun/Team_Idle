@@ -9,6 +9,10 @@
         values (#{cart.created_who}, #{cart.product_id}, #{cart.size}, #{cart.count})
     </insert>
 
+    <select id="findCart" parameterType="com.idle.shoppingmall.Entity.Key.CartKey" resultType="com.idle.shoppingmall.Entity.Cart">
+        select * from cart where created_who=#{cart.created_who} AND product_id=#{cart.product_id} AND size=#{cart.size}
+    </select>
+
     <select id="selectCart" parameterType="java.util.List" resultType="com.idle.shoppingmall.Entity.Cart">
         select * from cart where created_who=#{cartList.created_who}
     </select>
