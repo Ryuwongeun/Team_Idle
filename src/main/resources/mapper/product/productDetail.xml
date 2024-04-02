@@ -11,4 +11,8 @@
     <select id="findBySize" parameterType="com.idle.shoppingmall.Entity.Key.DetailKey" resultType="com.idle.shoppingmall.Entity.Product.ProductDetail">
         select * from product_detail where product_id=#{key.product_id} and size=#{key.size}
     </select>
+
+    <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.ProductDetail">
+        update product_detail set pd_before_count = #{product.pd_before_count} where product_id=#{product.product_id} AND size = #{product.size}
+    </update>
 </mapper>

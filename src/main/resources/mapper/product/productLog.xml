@@ -7,4 +7,8 @@
         insert into product_log(product_id, size, count, created_who, created_at)
         values(#{productLog.product_id}, #{productLog.size}, #{productLog.count}, #{productLog.created_who}, now())
     </insert>
+
+    <select id="findById" parameterType="com.idle.shoppingmall.Entity.Key.LogKey" resultType="com.idle.shoppingmall.Entity.Product.ProductLog">
+        select * from product_log where created_who=#{key.created_who} and product_id=#{key.product_id} and size=#{key.size}
+    </select>
 </mapper>

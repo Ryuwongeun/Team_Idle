@@ -15,4 +15,8 @@ public class ProductDetail {
     private String size;
     private int pd_before_count;
     private int pd_sell_count;
+
+    public void updateCount(int count){
+        this.pd_before_count +=count;
+    }
 } // end class

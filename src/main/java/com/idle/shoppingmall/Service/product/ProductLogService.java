@@ -1,5 +1,6 @@
 package com.idle.shoppingmall.Service.product;
 
+import com.idle.shoppingmall.Entity.Key.LogKey;
 import com.idle.shoppingmall.Entity.Product.ProductLog;
 import com.idle.shoppingmall.mapper.Product.ProductLogMapper;
 import lombok.RequiredArgsConstructor;
@@ -12,5 +13,9 @@ public class ProductLogService {
 
     public void addProductLog(ProductLog productLogDTO) {
         productLogMapper.saveProductLog(productLogDTO);
+    }
+
+    public ProductLog findById(Long createdWho, Long productId, String size) {
+        return productLogMapper.findById(new LogKey(createdWho, productId, size));
     }
 }

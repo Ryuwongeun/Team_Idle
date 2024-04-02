@@ -21,10 +21,16 @@ public class ProductDetailApiController {
     @PostMapping("api/POST/addProductDetail")
     public ResponseEntity<ProductDetailAddResponse> addProductDetail(@RequestBody ProductDetailAddRequest request) {
         Product product = productService.findById(request.getProduct_id());
+        if(product==null){
+            return ResponseEntity.ok().body(new ProductDetailAddResponse(400, "물품이 없습니다.", null));
+        }
+        ProductDetail detail = productDetailService.findDetail(request.getProduct_id(), request.getSize());
+        if(detail!=null) {
+            detail.updateCount(request.getPd_before_count());
+            productDetailService.updateProductDetail(detail);
 
-        if(product == null)
-            return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "물품이 없습니다.", (Long) null));
-
+            return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "수량 추가 성공", request.getProduct_id(), request.getSize(), request.getPd_before_count()));
+        }
         productDetailService.addProductDetail(
                 ProductDetail.builder()
                         .product_id(request.getProduct_id())
@@ -33,7 +39,6 @@ public class ProductDetailApiController {
                         .pd_sell_count(0)
                         .build()
         );
-
-        return ResponseEntity.ok().body(new ProductDetailAddResponse(100, "성공", request.getProduct_id(), request.getSize(), request.getPd_sell_count()));
+        return ResponseEntity.ok().body(new ProductDetailAddResponse(200, "성공", request.getProduct_id(), request.getSize(), request.getPd_before_count()));
     }
 }

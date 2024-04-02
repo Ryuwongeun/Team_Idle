@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Getter
 @NoArgsConstructor
-public class ProductKey {
+@AllArgsConstructor
+public class LogKey {
     private Long product_id;
+    private Long created_who;
+    private String size;
 }
