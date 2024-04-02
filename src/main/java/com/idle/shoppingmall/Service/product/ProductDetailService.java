@@ -1,8 +1,8 @@
-package com.idle.shoppingmall.Service;
+package com.idle.shoppingmall.Service.product;
 
 
-import com.idle.shoppingmall.Entity.ProductDetail;
-import com.idle.shoppingmall.mapper.ProductDetailMapper;
+import com.idle.shoppingmall.Entity.Product.ProductDetail;
+import com.idle.shoppingmall.mapper.Product.ProductDetailMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,5 +13,9 @@ public class ProductDetailService {
 
     public void addProductDetail(ProductDetail productDetailDTO) {
         productDetailMapper.saveProductDetail(productDetailDTO);
+    }
+
+    public ProductDetail findBySize(Long productId, String size) {
+        return productDetailMapper.findBySize(productId, size);
     }
 }

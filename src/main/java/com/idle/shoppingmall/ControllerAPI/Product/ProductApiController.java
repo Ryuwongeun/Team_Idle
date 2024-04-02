@@ -1,9 +1,9 @@
-package com.idle.shoppingmall.ControllerAPI;
+package com.idle.shoppingmall.ControllerAPI.Product;
 
-import com.idle.shoppingmall.Entity.Product;
-import com.idle.shoppingmall.RequestDTO.ProductAddRequest;
+import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.RequestDTO.Product.ProductAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductAddResponse;
-import com.idle.shoppingmall.Service.ProductService;
+import com.idle.shoppingmall.Service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
