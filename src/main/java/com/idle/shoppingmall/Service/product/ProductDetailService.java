@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.Service.product;
 
 
+import com.idle.shoppingmall.Entity.Key.DetailKey;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.mapper.Product.ProductDetailMapper;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,6 @@ public class ProductDetailService {
     }
 
     public ProductDetail findBySize(Long productId, String size) {
-        return productDetailMapper.findBySize(productId, size);
+        return productDetailMapper.findBySize(new DetailKey(productId, size));
     }
 }

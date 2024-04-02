@@ -8,7 +8,7 @@
         values (#{productDetail.product_id}, #{productDetail.size}, #{productDetail.pd_before_count}, #{productDetail.pd_sell_count})
     </insert>
 
-    <select id="findBySize" parameterType="Long, String" resultType="com.idle.shoppingmall.Entity.Product.ProductDetail">
-        select * from product_detail where product_id=#{productDetail.product_id} and size=#{productDetail.size}
+    <select id="findBySize" parameterType="com.idle.shoppingmall.Entity.Key.DetailKey" resultType="com.idle.shoppingmall.Entity.Product.ProductDetail">
+        select * from product_detail where product_id=#{key.product_id} and size=#{key.size}
     </select>
 </mapper>

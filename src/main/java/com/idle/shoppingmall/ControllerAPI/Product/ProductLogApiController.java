@@ -35,7 +35,7 @@ public class ProductLogApiController {
                         .product_id(request.getProduct_id())
                         .size(request.getSize())
                         .count(request.getCount())
-                        .created_who(request.getCreated_who())
+                        .created_who(1L)
                         .build()
         );
 
