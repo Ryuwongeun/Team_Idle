@@ -21,7 +21,6 @@ public class CartApiController {
 
     @PostMapping("api/POST/addCart")
     public ResponseEntity<CartAddResponse> addCart(@RequestBody CartAddRequest request) {
-
         if(request.getProduct_id() == null) {
             return ResponseEntity.ok().body(new CartAddResponse(404, "상품이 없습니다.", request.getProduct_id()));
         } // if
