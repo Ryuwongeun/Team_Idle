@@ -37,7 +37,7 @@ public class CartApiController {
         if(productDetail == null){
             return ResponseEntity.ok().body(new CartAddResponse(400, "상품이 없습니다.", request.getProduct_id()));
         }
-        CartKey key = new CartKey(1L, request.getProduct_id(), request.getSize());
+        CartKey key = new CartKey(user.getUser_id(), request.getProduct_id(), request.getSize());
         Cart cart = cartService.findCart(key);
         if(cart == null){
             cartService.addCart(Cart.builder()
@@ -54,7 +54,7 @@ public class CartApiController {
     } // addCart
 
 
-    @PostMapping("api/POST/delCart")
+    @PostMapping("api/DELETE/Cart")
     public ResponseEntity<CartDeleteResponse> delCart(@RequestBody @Valid CartDeleteRequest request,
                                                       HttpSession session) {
 
@@ -64,23 +64,18 @@ public class CartApiController {
             return ResponseEntity.ok().body(new CartDeleteResponse(700, "로그인이 필요합니다.", null));
         } // if
 
-        CartKey key = new CartKey(1L, request.getProduct_id(), request.getSize());
+        CartKey key = new CartKey(user.getUser_id(), request.getProduct_id(), request.getSize());
         Cart cart = cartService.findCart(key);
 
         if(cart == null) {
             return ResponseEntity.ok().body(new CartDeleteResponse(400,"상품이 없습니다.", request.getProduct_id()));
         } // if
 
-        cartService.deleteCart(Cart.builder()
-                        .created_who(user.getUser_id())
-                        .product_id(cart.getProduct_id())
-                        .size(cart.getSize())
-                        .build());
+        cartService.deleteCart(cart);
 
         return ResponseEntity.ok().body(new CartDeleteResponse(200, "장바구니에서 삭제했습니다.", cart.getProduct_id()));
 
     } // delCart
-
 
 
 } // end class
