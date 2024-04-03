@@ -1,28 +1,21 @@
-package com.idle.shoppingmall.Entity;
+package com.idle.shoppingmall.RequestDTO.Cart;
 
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class Cart {
+public class CartAddRequest {
 
-    private Long created_who;
-
+    @NotNull
     private Long product_id;
-
+    @NotNull
     private String size;
-
+    @Min(1)
     private int count;
-
-    public void updateCount(int count){
-        this.count = count;
-    }
 } // end class

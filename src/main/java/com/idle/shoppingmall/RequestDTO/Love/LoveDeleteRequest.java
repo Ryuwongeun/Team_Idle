@@ -1,6 +1,7 @@
-package com.idle.shoppingmall.RequestDTO;
+package com.idle.shoppingmall.RequestDTO.Love;
 
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartAddRequest {
+public class LoveDeleteRequest {
+
+    @NotNull
     private Long product_id;
-    private String size;
-    private int count;
+
 } // end class

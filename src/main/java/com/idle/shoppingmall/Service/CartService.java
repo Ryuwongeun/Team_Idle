@@ -42,4 +42,11 @@ public class CartService {
 
     } // updateCart
 
+    @Transactional
+    public void deleteCart(Cart cartDTO) {
+
+        cartMapper.deleteCart(cartDTO);
+
+    } // deleteCart
+
 } // end class
