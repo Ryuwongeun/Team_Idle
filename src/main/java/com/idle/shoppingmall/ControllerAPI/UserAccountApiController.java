@@ -3,9 +3,9 @@ package com.idle.shoppingmall.ControllerAPI;
 import com.idle.shoppingmall.Entity.User.User_Account;
 import com.idle.shoppingmall.Entity.User.User_Info;
 import com.idle.shoppingmall.RequestDTO.User.UserAccountAddRequest;
-import com.idle.shoppingmall.RequestDTO.User.UserAccountDeleteRequest;
+
+
 import com.idle.shoppingmall.RequestDTO.User.UserAccountUpdateRequest;
-import com.idle.shoppingmall.ResponseDTO.Test.CartAddResponse;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountAddResponse;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountDeleteResponse;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountUpdateResponse;
@@ -60,7 +60,9 @@ public class UserAccountApiController {
 
     // 사용자 계정 업데이트
     @PostMapping("api/updateUserAccount")
-    public ResponseEntity<UserAccountUpdateResponse> updateUserAccount(HttpSession session, @RequestBody @Valid UserAccountUpdateRequest request) {
+    public ResponseEntity<UserAccountUpdateResponse> updateUserAccount(
+                                                                       @RequestBody @Valid UserAccountUpdateRequest request,
+                        HttpSession session) {
 
         User_Info user = (User_Info) session.getAttribute("user");
         if (user == null) {

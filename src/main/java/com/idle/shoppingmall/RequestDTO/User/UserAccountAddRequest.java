@@ -17,7 +17,7 @@ public class UserAccountAddRequest {
     @NotNull
     private String user_pnum;
 
-    private User_Account.UserRole user_role;
+
 
 
 }
