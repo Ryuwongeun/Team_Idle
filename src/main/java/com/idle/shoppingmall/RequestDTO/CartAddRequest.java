@@ -1,6 +1,5 @@
 package com.idle.shoppingmall.RequestDTO;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
