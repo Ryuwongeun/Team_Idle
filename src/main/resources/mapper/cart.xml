@@ -21,4 +21,8 @@
         update cart SET count = count + #{update.count} WHERE created_who=#{update.created_who} AND product_id=#{update.product_id} AND size=#{update.size}
     </update>
 
+    <delete id="deleteCart" parameterType="com.idle.shoppingmall.Entity.Cart">
+        delete from cart where created_who=#{remove.created_who} AND product_id=#{remove.product_id} AND size=#{remove.size}
+    </delete>
+
 </mapper>
