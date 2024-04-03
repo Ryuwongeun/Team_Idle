@@ -11,12 +11,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class UserDeatilsService implements UserDetailsService {
+public class UserDetailService implements UserDetailsService {
 
     private final UserAccountMapper userAccountMapper;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User_Account user = userAccountMapper.getUserByEmail(username);
+        //User = Security에서 제공해주는 객체
         return User.builder()
                 .username(user.getUser_email())
                 .password(user.getUser_password())

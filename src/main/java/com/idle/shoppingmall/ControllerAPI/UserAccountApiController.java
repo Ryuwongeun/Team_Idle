@@ -1,9 +1,12 @@
 package com.idle.shoppingmall.ControllerAPI;
 
 import com.idle.shoppingmall.Entity.User.User_Account;
+import com.idle.shoppingmall.Entity.User.User_Info;
 import com.idle.shoppingmall.RequestDTO.UserAccountAddRequest;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountAddResponse;
 import com.idle.shoppingmall.Service.User.UserAccountService;
+import com.idle.shoppingmall.Service.User.UserInfoService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +21,7 @@ import java.time.LocalDateTime;
 public class UserAccountApiController {
     private final UserAccountService userAccountService;
     private final PasswordEncoder passwordEncoder;
+    private final UserInfoService userInfoService;
 
     @PostMapping("/api/POST/addUserAccount")
     public ResponseEntity<UserAccountAddResponse> addUserAccount(@RequestBody UserAccountAddRequest request){
@@ -37,5 +41,11 @@ public class UserAccountApiController {
         }
 
         return ResponseEntity.ok().body(new UserAccountAddResponse(200,"성공", request.getUser_email()));
+    }
+
+    @PostMapping("/logintest")
+    public void login(HttpSession session){
+        User_Info user = userInfoService.getUserInfoById(1L);
+        session.setAttribute("user", user);
     }
 }

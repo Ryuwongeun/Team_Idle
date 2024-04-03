@@ -1,9 +1,8 @@
 package com.idle.shoppingmall.Config.Security;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.idle.shoppingmall.Service.LoginService;
-import com.idle.shoppingmall.Service.User.UserDeatilsService;
+import com.idle.shoppingmall.Service.User.UserDetailService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -27,7 +26,7 @@ import java.io.PrintWriter;
 public class SecurityConfig {
 
     private final LoginService loginService;
-    private final UserDeatilsService userDetailsService;
+    private final UserDetailService userDetailService;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
@@ -54,7 +53,7 @@ public class SecurityConfig {
                                 .logoutUrl("/api/POST/logout")
                                 .logoutSuccessUrl("/productList") //로그아웃 성공시 이동할 url
                                 .addLogoutHandler(new CustomLogoutHandler())
-                ).userDetailsService(userDetailsService);
+                ).userDetailsService(userDetailService);
         return http.build();
     }
 
