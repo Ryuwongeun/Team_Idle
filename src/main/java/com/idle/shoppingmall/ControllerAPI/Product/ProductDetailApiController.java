@@ -7,6 +7,7 @@ import com.idle.shoppingmall.RequestDTO.Product.ProductDetailAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductDetailAddResponse;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;
 import com.idle.shoppingmall.Service.Product.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +20,7 @@ public class ProductDetailApiController {
     private final ProductService productService;
     private final ProductDetailService productDetailService;
     @PostMapping("api/POST/addProductDetail")
-    public ResponseEntity<ProductDetailAddResponse> addProductDetail(@RequestBody ProductDetailAddRequest request) {
+    public ResponseEntity<ProductDetailAddResponse> addProductDetail(@RequestBody @Valid ProductDetailAddRequest request) {
         Product product = productService.findById(request.getProduct_id());
         if(product==null){
             return ResponseEntity.ok().body(new ProductDetailAddResponse(400, "물품이 없습니다.", null));
