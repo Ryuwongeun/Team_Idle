@@ -2,7 +2,7 @@ package com.idle.shoppingmall.ControllerAPI.Product;
 
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
-import com.idle.shoppingmall.RequestDTO.Product.ProductDetailAddRequest;
+import com.idle.shoppingmall.RequestDTO.Product.Add.ProductDetailAddRequest;
 
 import com.idle.shoppingmall.ResponseDTO.Product.ProductDetailAddResponse;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;

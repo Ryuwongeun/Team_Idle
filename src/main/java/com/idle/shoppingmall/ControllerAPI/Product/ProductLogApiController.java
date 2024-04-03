@@ -2,7 +2,7 @@ package com.idle.shoppingmall.ControllerAPI.Product;
 
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.Entity.Product.ProductLog;
-import com.idle.shoppingmall.RequestDTO.Product.ProductLogAddRequest;
+import com.idle.shoppingmall.RequestDTO.Product.Add.ProductLogAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductLogAddResponse;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;
 import com.idle.shoppingmall.Service.Product.ProductLogService;
@@ -24,7 +24,7 @@ public class ProductLogApiController {
         ProductDetail productDetail = productDetailService.findDetail(request.getProduct_id(), request.getSize());
 
         if(productDetail == null)
-            return ResponseEntity.ok().body(new ProductLogAddResponse(200, "물품이 없습니다.", null));
+            return ResponseEntity.ok().body(new ProductLogAddResponse(400, "물품이 없습니다.", null));
 
         productLogService.addProductLog(
                 ProductLog.builder()
@@ -35,6 +35,6 @@ public class ProductLogApiController {
                         .build()
         );
 
-        return ResponseEntity.ok().body(new ProductLogAddResponse(100, "성공", request.getProduct_id(), request.getSize()));
+        return ResponseEntity.ok().body(new ProductLogAddResponse(200, "성공", request.getProduct_id(), request.getSize()));
     }
 }

@@ -28,4 +28,12 @@ public class ProductService {
     public List<Product> findAllProducts() {
         return productMapper.findAllProducts();
     }
+
+    public Integer update(Product productDTO) {
+        return productMapper.update(productDTO);
+    }
+
+    public Integer delete(Long productID) {
+        return productMapper.delete(productID);
+    }
 } // end class

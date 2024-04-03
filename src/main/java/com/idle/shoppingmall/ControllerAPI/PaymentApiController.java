@@ -6,7 +6,6 @@ import com.idle.shoppingmall.RequestDTO.PaymentAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Payment.PaymentAddResponse;
 import com.idle.shoppingmall.Service.PaymentService;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;
-import com.idle.shoppingmall.Service.Product.ProductLogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class PaymentApiController {
     private final PaymentService paymentService;
-    private final ProductLogService productLogService;
     private final ProductDetailService productDetailService;
 
     @PostMapping("api/POST/addPayment")

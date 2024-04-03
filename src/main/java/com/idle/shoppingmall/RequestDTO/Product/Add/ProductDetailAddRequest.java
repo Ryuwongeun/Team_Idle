@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.RequestDTO.Product;
+package com.idle.shoppingmall.RequestDTO.Product.Add;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

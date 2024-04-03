@@ -16,4 +16,15 @@
     <select id="findAllProducts" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
     </select>
+
+    <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.Product">
+        update product set pd_name=#{Product.pd_name}
+                         , pd_price=#{Product.pd_price}
+                         , pd_category=#{Product.pd_category}
+        where product_id=#{Product.product_id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from product where product_id=#{Product.product_id}
+    </delete>
 </mapper>
