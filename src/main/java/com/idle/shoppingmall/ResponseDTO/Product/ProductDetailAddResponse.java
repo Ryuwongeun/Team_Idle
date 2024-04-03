@@ -3,6 +3,7 @@ package com.idle.shoppingmall.ResponseDTO.Product;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @NoArgsConstructor
 @Getter

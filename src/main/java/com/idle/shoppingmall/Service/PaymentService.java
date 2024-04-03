@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class PaymentService {
     private final PaymentMapper paymentMapper;
 
-    public void addPayment(Payment paymentDTO) {
-        paymentMapper.savePayment(paymentDTO);
+    public Long addPayment(Payment paymentDTO) {
+        return paymentMapper.savePayment(paymentDTO);
     }
 }

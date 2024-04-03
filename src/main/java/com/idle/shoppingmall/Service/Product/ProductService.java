@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.Service.product;
+package com.idle.shoppingmall.Service.Product;
 
 
 import com.idle.shoppingmall.Entity.Product.Product;

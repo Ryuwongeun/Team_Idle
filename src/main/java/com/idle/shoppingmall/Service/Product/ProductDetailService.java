@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.Service.product;
+package com.idle.shoppingmall.Service.Product;
 
 
 import com.idle.shoppingmall.Entity.Key.DetailKey;
@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 public class ProductDetailService {
     private final ProductDetailMapper productDetailMapper;
 
-    public void addProductDetail(ProductDetail productDetailDTO) {
-        productDetailMapper.saveProductDetail(productDetailDTO);
+    public Integer addProductDetail(ProductDetail productDetailDTO) {
+        return productDetailMapper.saveProductDetail(productDetailDTO);
     }
 
     public ProductDetail findDetail(Long productId, String size) {

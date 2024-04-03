@@ -2,7 +2,7 @@ package com.idle.shoppingmall.ControllerView;
 
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
-import com.idle.shoppingmall.Service.product.ProductService;
+import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
