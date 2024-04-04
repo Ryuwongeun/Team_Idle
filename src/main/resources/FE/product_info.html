@@ -6,6 +6,8 @@
     <title>Product Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/product.css">
+    <script src="./JS/product_btn.js"></script>
 </head>
 <body class="bg-white text-gray-700">
     <header class="bg-black py-4">
@@ -89,7 +91,8 @@
                     <div class="flex space-x-4 mt-6">
                         <button class="bg-purple-600 text-white px-6 py-2 rounded" onclick="location.href='buy.html'">Buy Now</button>
                         <button class="bg-gray-300 px-6 py-2 rounded" onclick="addToCart()">Add to Cart</button>
-                        <button class="bg-pink-600 text-white px-6 py-2 rounded" onclick="LOVE">LOVE</button>
+                        <button id="loveButton" class="bg-pink-600 text-white px-6 py-2 rounded" onclick="changeColor()">LOVE</button>
+
                     </div>
                 </div>
             </div>
@@ -191,15 +194,6 @@
             </div>
         </div>
     </footer>
-    <script>
-        function buyNow() {
-            window.open('buy.html', 'popup', 'width=600,height=400');
-        }
-
-        function addToCart() {
-            window.location.href = "cart.html";
-        }
-    </script>
 
 </body>
 </html>
