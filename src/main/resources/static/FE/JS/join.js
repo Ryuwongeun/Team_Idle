@@ -19,7 +19,7 @@ function searchAddress() {
             document.getElementById('addr1').value = fullAddress; // 기본주소
             document.getElementById('addr2').focus(); // 상세주소 입력란으로 포커스 이동
         }
-        
+
     }).open();
 }
 // Daum 주소 API에서 주소를 클릭했을 때 실행될 함수
@@ -127,4 +127,26 @@ function validateForm() {
 }
 
 
+const btn = document.querySelector('#btnJoin')
+
+
+btn.addEventListener('click', () => {
+
+    let email1 = document.querySelector("#email_id").value
+    let email2 = document.querySelector("#email_dns").value
+
+    let user_email = email1 + "@" + email2;
+    let user_password = document.querySelector("#password").value
+    let user_pnum = document.querySelector("#mobile").value
+
+    data = {
+        user_email : user_email,
+        user_password : user_password,
+        user_pnum : user_pnum
+
+    }
+
+    sendData(`/addUserAccount`,data)
+
+})
 

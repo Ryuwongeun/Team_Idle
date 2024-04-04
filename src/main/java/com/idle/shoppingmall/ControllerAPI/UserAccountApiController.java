@@ -29,7 +29,7 @@ public class UserAccountApiController {
     private final PasswordEncoder passwordEncoder;
     private final UserInfoService userInfoService;
 
-    @PostMapping("/api/addUserAccount")
+    @PostMapping("/addUserAccount")
     public ResponseEntity<UserAccountAddResponse> addUserAccount(@RequestBody @Valid UserAccountAddRequest request){
         if (request.getUser_email() == null) {
             return ResponseEntity.ok().body(new UserAccountAddResponse(400, "XX", null));
@@ -48,6 +48,7 @@ public class UserAccountApiController {
 
         return ResponseEntity.ok().body(new UserAccountAddResponse(200,"성공", request.getUser_email()));
     }
+
     // 사용자 계정 목록 조회
     @GetMapping("/api/userAccounts")
     public ResponseEntity<List<User_Account>> listUserAccounts() {

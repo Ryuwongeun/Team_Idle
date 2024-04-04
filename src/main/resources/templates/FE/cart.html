@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>쇼핑몰 광고</title>
+<title>장바구니</title>
 <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-<link rel="stylesheet" href="./CSS/event.css">
-<link rel="stylesheet" href="./CSS/form.css">
+    <link rel="stylesheet" href="./CSS/form.css">
+    <link rel="stylesheet" href="./CSS/Banner.css">
+<link rel="stylesheet" href="./CSS/cart.css">
 </head>
-
+<body>
     <body class="bg-white text-gray-700">
         <!-- Header -->
         <header class="bg-black py-7">
           <div class="container mx-auto flex justify-between items-center">
-            <a href="main.html" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <a href="../main.html" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
             <nav class="flex space-x-4">
               <a href="best.html" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
               <a href="new.html" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
@@ -35,19 +36,46 @@
             </nav>
           </div>
         </header>
-<div class="slideshow-container">
-  <div class="mySlides fade">
-    <img src="./image/event1.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlides fade">
-    <img src="./image/event2.jpg" style="width:100%">
-  </div>
-  
-  <div class="mySlides fade">
-    <img src="./image/event3.jpg" style="width:100%">
-  </div>
+<div class="container">
+  <h1>장바구니</h1>
+  <table id="cartTable">
+    <thead>
+      <tr>
+        <th>상품</th>
+        <th>가격</th>
+        <th>수량</th>
+        <th>총 가격</th>
+        <th>선택</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>상품 A</td>
+        <td>$10</td>
+        <td>2</td>
+        <td>$20</td>
+        <td><input type="checkbox" class="item-checkbox" data-price="10" data-quantity="2"></td>
+      </tr>
+      <tr>
+        <td>상품 B</td>
+        <td>$15</td>
+        <td>1</td>
+        <td>$15</td>
+        <td><input type="checkbox" class="item-checkbox" data-price="15" data-quantity="1"></td>
+      </tr>
+      <tr>
+        <td>상품 C</td>
+        <td>$20</td>
+        <td>3</td>
+        <td>$60</td>
+        <td><input type="checkbox" class="item-checkbox" data-price="20" data-quantity="3"></td>
+      </tr>
+    </tbody>
+  </table>
+  <p id="totalPrice">총 가격: $0</p>
+  <button class="checkout-btn" onclick="redirectToBuyPage()">결제하기</button>
 </div>
-<script src="./JS/event.js"></script>
+<script src="./JS/cart.js"></script>
+
 </body>
 </html>
