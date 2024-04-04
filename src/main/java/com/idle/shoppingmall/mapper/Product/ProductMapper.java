@@ -20,4 +20,8 @@ public interface ProductMapper {
     Integer update(@Param("Product") Product productDTO);
 
     Integer delete(Long product_id);
+
+    // Mapper 인터페이스 메서드에 @Param 어노테이션 추가
+    List<Product> findAllProductsPaged(@Param("size") int size, @Param("offset") int offset);
+
 } // end interface
