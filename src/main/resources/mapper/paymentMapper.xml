@@ -7,4 +7,12 @@
         insert into payment
         values(#{paymene.payment_id}, #{payment.created_who}, #{payment.product_id}, #{payment.total_price}, #{payment.size}, #{payment.count}, now())
     </insert>
+
+    <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Payment">
+        select * from payment where payment_id = #{payment.payment_id}
+    </select>
+
+    <delete id="delete" parameterType="Long">
+        delete from payment where payment_id=#{payment_id}
+    </delete>
 </mapper>
