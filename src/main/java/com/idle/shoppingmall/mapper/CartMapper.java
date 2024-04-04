@@ -21,5 +21,6 @@ public interface CartMapper {
 
     void updateCart(@Param("update") Cart cartDTO );
 
+    void deleteCart(@Param("remove")Cart cartDTO );
 
 } // interface

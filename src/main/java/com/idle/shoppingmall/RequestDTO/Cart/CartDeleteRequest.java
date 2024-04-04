@@ -1,21 +1,18 @@
-package com.idle.shoppingmall.RequestDTO.Product;
+package com.idle.shoppingmall.RequestDTO.Cart;
 
-import jakarta.validation.constraints.Min;
+
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @Getter
 @NoArgsConstructor
-public class ProductDetailAddRequest {
+@AllArgsConstructor
+public class CartDeleteRequest {
     @NotNull
     private Long product_id;
-
     @NotNull
     private String size;
 
-    @Min(0)
-    private int pd_before_count;
-}
+} // end class

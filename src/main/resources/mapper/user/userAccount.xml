@@ -15,4 +15,17 @@
     <update id="updateLastLogin" parameterType="Long">
         update user_account set last_login = now() where user_id = #{user_id}
     </update>
+
+    <select id="selectAllUserAccounts" resultType="com.idle.shoppingmall.Entity.User.User_Account">
+        select *from user_account
+    </select>
+
+    <update id="updateUserAccount" parameterType="com.idle.shoppingmall.Entity.User.User_Account">
+        update user_account set user_email=#{updateUser.user_email},user_password=#{updateUser.user_password},user_pnum=#{updateUser.user_pnum} where user_id = #{updateUser.user_id}
+
+    </update>
+
+    <delete id="deleteUserAccount" parameterType="java.lang.String">
+        delete from user_account where user_email = #{user_email} <!-- 수정됨 -->
+    </delete>
 </mapper>

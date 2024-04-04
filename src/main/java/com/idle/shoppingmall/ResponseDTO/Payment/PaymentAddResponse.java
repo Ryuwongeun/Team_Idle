@@ -12,6 +12,8 @@ public class PaymentAddResponse extends CommonResponse {
     private int total_price;
     private String size;
 
+
+
     public PaymentAddResponse(int code, String msg, Long created_who, Long product_id, int total_price, String size) {
         super(code, msg);
         this.created_who = created_who;
