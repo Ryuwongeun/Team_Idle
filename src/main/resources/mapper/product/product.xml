@@ -27,4 +27,10 @@
     <delete id="delete" parameterType="Long">
         delete from product where product_id=#{Product.product_id}
     </delete>
+
+    <select id="findAllProductsPaged" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product
+        order by product_id
+        limit #{size} offset #{offset}
+    </select>
 </mapper>

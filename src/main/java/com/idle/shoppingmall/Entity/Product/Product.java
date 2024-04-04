@@ -1,6 +1,10 @@
 package com.idle.shoppingmall.Entity.Product;
 
 
+import com.idle.shoppingmall.Entity.Brand;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,5 +26,9 @@ public class Product {
     private int pd_price;
     private String pd_category;
     private int count_love;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_id", insertable = false, updatable = false)
+    private Brand brand; // Brand
 
 } // end class
