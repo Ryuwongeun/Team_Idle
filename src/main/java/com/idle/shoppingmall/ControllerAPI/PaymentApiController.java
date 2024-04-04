@@ -1,11 +1,16 @@
 package com.idle.shoppingmall.ControllerAPI;
 
 import com.idle.shoppingmall.Entity.Payment;
+import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.RequestDTO.PaymentAddRequest;
+import com.idle.shoppingmall.RequestDTO.Product.Delete.PaymentDeleteRequest;
+import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.ResponseDTO.Payment.PaymentAddResponse;
 import com.idle.shoppingmall.Service.PaymentService;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;
+import com.idle.shoppingmall.Service.Product.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +27,7 @@ public class PaymentApiController {
     public ResponseEntity<PaymentAddResponse> addPayment(@RequestBody PaymentAddRequest request) {
         ProductDetail productDetail = productDetailService.findDetail(request.getProduct_id(), request.getSize());
         if(productDetail == null)
-            return ResponseEntity.ok().body(new PaymentAddResponse(500, "물품이 없습니다.", null));
+            return ResponseEntity.ok().body(new PaymentAddResponse(400, "물품이 없습니다.", null));
 
         Long id = paymentService.addPayment(
                 Payment.builder()
@@ -35,8 +40,20 @@ public class PaymentApiController {
                         .build()
         );
         if(id == null)
-            return ResponseEntity.ok().body(new PaymentAddResponse(600, "결제 실패", null));
+            return ResponseEntity.ok().body(new PaymentAddResponse(640, "결제 실패", null));
         return ResponseEntity.ok().body(new PaymentAddResponse(200, "성공", request.getCreated_who(), request.getProduct_id(), request.getTotal_price(), request.getSize()));
     }
 
+    @PostMapping("api/POST/deletePayment")
+    public ResponseEntity<CommonResponse> deletePayment(@RequestBody @Valid PaymentDeleteRequest deleteRequest) {
+        Payment payment = paymentService.findById(deleteRequest.getPayment_id());
+        if(payment == null)
+            return ResponseEntity.ok().body(new CommonResponse(400, "물품이 없습니다."));
+
+        Integer id = paymentService.delete(deleteRequest.getPayment_id());
+
+        if (id == null)
+            return ResponseEntity.ok().body(new CommonResponse(400, "삭제 실패!!"));
+        return ResponseEntity.ok().body(new CommonResponse(200, "삭제 성공"));
+    }
 }
