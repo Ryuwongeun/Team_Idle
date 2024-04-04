@@ -9,4 +9,8 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface PaymentMapper {
     Long savePayment(@Param("payment") Payment payment);
+
+    Payment findById(Long paymentId);
+
+    Integer delete(Long paymentId);
 }

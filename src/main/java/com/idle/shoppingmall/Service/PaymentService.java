@@ -13,4 +13,12 @@ public class PaymentService {
     public Long addPayment(Payment paymentDTO) {
         return paymentMapper.savePayment(paymentDTO);
     }
+
+    public Payment findById(Long paymentId) {
+        return paymentMapper.findById(paymentId);
+    }
+
+    public Integer delete(Long paymentId) {
+        return paymentMapper.delete(paymentId);
+    }
 }
