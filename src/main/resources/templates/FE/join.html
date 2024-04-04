@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,8 @@
     <script src="./JS/join.js" defer></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> <!-- Daum 우편번호 서비스 스크립트 -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/form.css">
-    <link rel="stylesheet" href="./CSS/join.css">
+    <link rel="stylesheet" href="/FE/CSS/form.css">
+    <link rel="stylesheet" href="/FE/CSS/join.css">
     <style>
         .error {
             color: red;
@@ -20,7 +20,7 @@
     <!-- Header -->
     <header class="bg-black py-4">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="main.html" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <a href="../main.html" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
             <nav class="flex space-x-4">
                 <a href="best.html" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
                 <a href="new.html" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
@@ -41,7 +41,7 @@
 
     <div class="container">
         <h2>회원가입</h2>
-        <form action="login.html" method="post">
+        <form th:action="@{/register}" method="post">
             <label for="username">아이디</label>
             <input type="text" id="username" name="username" required>
             <span class="error" id="username-error"></span>
@@ -76,9 +76,9 @@
             <input type="text" name="birth" id="birth">
             <br>
 
-            <label for="mobile">전화번호</label>
+            <label for="user_pnum">전화번호</label>
             <span class="err_mobile">* '-'없이 숫자만 입력</span>
-            <input type="text" name="mobile" id="mobile">
+            <input type="text" name="user_pnum" id="user_pnum">
             <br>
           
             <button type="button" onclick="searchAddress()">주소검색</button> <!-- 주소 검색 버튼 -->
