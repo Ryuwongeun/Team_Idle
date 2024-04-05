@@ -36,6 +36,35 @@
           </div>
         </header>
         <div class="container">
+          <h2>주문 정보 입력</h2>
+          <form action="/submit-order" method="post">
+              <div>
+                  <label for="shipping-address">배송 주소</label>
+                  <textarea id="shipping-address" name="shipping-address" rows="1" cols="50" required></textarea>
+
+                  <button id="search-address-btn" type="button">주소검색하기</button>
+                  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
+              </div>
+              <div>
+                  <label for="phone">전화번호</label>
+                  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" placeholder="010-1234-5678" required>
+                  <small>예: 010-1234-5678</small>
+              </div>
+              <div>
+                  <label for="email">이메일</label>
+                  <input type="email" id="email" name="email" placeholder="example@example.com" required>
+              </div>
+              <div>
+                  <label for="payment-method">결제 수단</label>
+                  <select id="payment-method" name="payment-method" required>
+                      <option value="">선택하세요</option>
+                      <option value="credit-card">신용카드</option>
+                      <option value="paypal">페이팔</option>
+                      <option value="bank-transfer">계좌이체</option>
+                  </select>
+              </div>
+              <div>
+                <br><br><br>
         <h1>쇼핑몰 이용약관</h1>
         
         <h2>제1조 (목적)</h2>
@@ -72,6 +101,17 @@
     <!-- Script for Address Search and Payment -->
     <script src="https://pay.nicepay.co.kr/v1/js/"></script> <!-- Server 승인 운영계 -->
     <script src="./JS/buy.js"></script> 
+    <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+    <script>
+        document.getElementById('search-address-btn').addEventListener('click', function() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    var addr = data.address; // 사용자가 선택한 주소 변수에 저장
+                    document.getElementById('shipping-address').value = addr; // 주소를 textarea에 입력
+                }
+            }).open();
+        });
+        </script>
     
     <button onclick="serverAuth()">결제하기</button> 
 </body>

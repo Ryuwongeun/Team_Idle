@@ -1,130 +1,95 @@
-// 주소 검색 함수
-function searchAddress() {
-    new daum.Postcode({
-        oncomplete: function(data) {
-            var fullAddress = data.address; // 전체 주소
-            var extraAddress = ''; // 상세 주소
+   // 중복 체크를 위한 가짜 함수
+   function checkDuplicateNickname(nickname) {
+    // 여기에 실제 중복 체크 로직을 구현하면 됩니다.
+    // 이 함수는 닉네임이 중복되면 true를 반환하고, 중복되지 않으면 false를 반환합니다.
+    return Math.random() < 0.5; // 임의의 결과를 반환하는 가짜 로직입니다.
+}
 
-            if (data.addressType === 'R') { // 지번 주소일 경우
-                if (data.bname !== '') {
-                    extraAddress += data.bname;
-                }
-                if (data.buildingName !== '') {
-                    extraAddress += (extraAddress !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                fullAddress += (extraAddress !== '' ? ' (' + extraAddress + ')' : '');
-            }
+document.getElementById('checkDuplicate').addEventListener('click', function() {
+    var nickname = document.getElementById('nickname').value.trim();
+    var errorSpan = document.getElementById('nickname-error');
 
-            document.getElementById('postalCode').value = data.zonecode; // 우편번호
-            document.getElementById('addr1').value = fullAddress; // 기본주소
-            document.getElementById('addr2').focus(); // 상세주소 입력란으로 포커스 이동
+    if (nickname === '') {
+        errorSpan.textContent = '닉네임을 입력하세요.';
+        return;
+    }
+
+    if (!checkDuplicateNickname(nickname)) {
+        errorSpan.textContent = '사용 가능한 닉네임입니다.';
+        errorSpan.style.color = 'green';
+    } else {
+        errorSpan.textContent = '이미 사용 중인 닉네임입니다.';
+        errorSpan.style.color = 'red';
+    }
+});
+
+      // 이메일 도메인 선택 시 입력란 옆에 표시되도록 설정
+      document.getElementById('email_sel').addEventListener('change', function() {
+        var selectedDomain = this.value;
+        var emailInput = document.getElementById('email_dns');
+        if (selectedDomain === '') {
+            emailInput.value = '';
+            emailInput.removeAttribute('disabled'); // 이메일 도메인을 직접 입력할 수 있도록 활성화
+        } else {
+            emailInput.value = selectedDomain;
+            emailInput.setAttribute('disabled', 'disabled'); // 이메일 도메인이 선택된 경우에는 입력란을 비활성화
         }
-        
-    }).open();
-}
-// Daum 주소 API에서 주소를 클릭했을 때 실행될 함수
-function setAddress(addr) {
-    // 클릭한 주소를 회원가입 폼의 주소 필드에 채움
-    document.getElementById('addr1').value = addr;
-}
+    });
 
-// 주소를 클릭했을 때 실행될 함수를 호출하는 함수
-function searchAddress() {
-    new daum.Postcode({
-        oncomplete: function(data) {
-            var fullAddr = data.address; // 클릭한 주소
-            setAddress(fullAddr); // 클릭한 주소를 회원가입 폼의 주소 필드에 채움
+    // 직접 입력 선택 시 이메일 도메인 입력란 활성화
+    document.getElementById('email_sel').addEventListener('change', function() {
+        var selectedOption = this.value;
+        var emailDomainInput = document.getElementById('email_dns');
+        if (selectedOption === '') {
+            emailDomainInput.removeAttribute('disabled');
+        } else {
+            emailDomainInput.setAttribute('disabled', 'disabled');
         }
-    }).open();
-}
+    });
 
-function setEmailDomain() {
-    var emailSel = document.getElementById("email_sel");
-    var emailDns = document.getElementById("email_dns");
+// 유효성 검사
+document.getElementById('btnJoin').addEventListener('click', function(event) {
+    var emailId = document.getElementById('email_id').value.trim();
+    var emailDns = document.getElementById('email_dns').value.trim();
+    var password = document.getElementById('password').value.trim();
+    var confirmPassword = document.getElementById('confirm_password').value.trim();
+    var nickname = document.getElementById('nickname').value.trim();
+    var errorSpan = document.getElementById('username-error');
 
-    // Get selected option
-    var selectedOption = emailSel.options[emailSel.selectedIndex].value;
-
-    // Set email domain input value
-    emailDns.value = selectedOption;
-}
-
-// Add event listener to email selection dropdown
-document.getElementById("email_sel").addEventListener("change", setEmailDomain);
-
-function validateForm() {
-    // 폼 유효성 검사 로직 추가 (필요한 경우)
-    return true; // 예시: 항상 true를 반환하도록 수정
-}
-
-
-
-// 유효성 체크 함수
-function validateForm() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
-    var confirm_password = document.getElementById("confirm_password").value;
-    var email_id = document.getElementById("email_id").value;
-    var email_dns = document.getElementById("email_dns").value;
-    var gender = document.getElementById("gender").value;
-    var birth = document.getElementById("birth").value;
-    var mobile = document.getElementById("mobile").value;
-    var postalCode = document.getElementById("postalCode").value;
-    var addr1 = document.getElementById("addr1").value;
-
-    // 각 필드의 유효성 검사
-    if (username == "") {
-        document.getElementById("username-error").innerHTML = "아이디를 입력하세요.";
-        return false;
+    if (emailId === '' || emailDns === '' || password === '' || confirmPassword === '' || nickname === '') {
+        errorSpan.textContent = '모든 필드를 입력하세요.';
+        event.preventDefault(); // 폼 제출 방지
+        return;
     }
 
-    // 패스워드의 길이가 6자 이상인지 확인
-    if (password.length < 6) {
-        document.getElementById("password-error").innerHTML = "비밀번호는 6자 이상이어야 합니다.";
-        return false;
+    if (password !== confirmPassword) {
+        document.getElementById('password-error').textContent = '비밀번호가 일치하지 않습니다.';
+        document.getElementById('confirm-password-error').textContent = '비밀번호가 일치하지 않습니다.';
+        event.preventDefault(); // 폼 제출 방지
     }
+    
+});
 
-    // 패스워드와 확인용 패스워드가 일치하는지 확인
-    if (password != confirm_password) {
-        document.getElementById("confirm-password-error").innerHTML = "비밀번호가 일치하지 않습니다.";
-        return false;
+document.getElementById("email_sel").addEventListener("change", function() {
+    const domain = this.value;
+    if(domain) {
+        document.getElementById("email_dns").value = domain;
     }
+});
 
-    // 이메일 형식 검사
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email_id + "@" + email_dns)) {
-        document.getElementById("email-error").innerHTML = "유효한 이메일 주소를 입력하세요.";
-        return false;
+document.getElementById("checkDuplicate").addEventListener("click", function() {
+    // 여기에서 이메일 중복 검사를 위한 요청을 서버로 보내세요.
+    // 이 예제에서는 단순히 경고창을 띄우는 것으로 대체합니다.
+    const emailId = document.getElementById("email_id").value;
+    const emailDns = document.getElementById("email_dns").value;
+    if(!emailId || !emailDns) {
+        document.getElementById("email-error").textContent = "이메일 주소를 완성해주세요.";
+        return;
     }
-
-
-    // 성별 선택 여부 확인
-    if (gender == "") {
-        document.getElementById("gender-error").innerHTML = "성별을 선택하세요.";
-        return false;
-    }
-
-    // 생년월일 입력 여부 확인
-    if (birth == "") {
-        document.getElementById("birth-error").innerHTML = "생년월일을 입력하세요.";
-        return false;
-    }
-
-    // 전화번호 형식 확인
-    var mobileRegex = /^[0-9]+$/;
-    if (!mobileRegex.test(mobile)) {
-        document.getElementById("mobile-error").innerHTML = "숫자만 입력하세요.";
-        return false;
-    }
-
-    // 주소 입력 여부 확인
-    if (postalCode == "" || addr1 == "") {
-        document.getElementById("address-error").innerHTML = "주소를 입력하세요.";
-        return false;
-    }
-
-    return true;
-}
-
-
+    const emailAddress = `${emailId}@${emailDns}`;
+    // 서버로 이메일 주소를 보내서 중복 검사를 수행하는 로직을 여기에 추가하세요.
+    alert(`중복 검사를 수행합니다: ${emailAddress}`);
+    // 예시로, 항상 '사용 가능한 이메일 주소입니다.'라는 메시지를 표시합니다.
+    document.getElementById("email-error").textContent = "사용 가능한 이메일 주소입니다.";
+});
 
