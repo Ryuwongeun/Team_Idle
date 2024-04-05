@@ -12,19 +12,20 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import java.io.IOException;
 
 @RequiredArgsConstructor
-@Slf4j
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     private final LoginService loginService;
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
                                         Authentication authentication) throws IOException, ServletException {
+        System.out.println("login success");
         response.setStatus(HttpServletResponse.SC_OK);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write("{\"success\": true}");
+        response.sendRedirect("/main");
+        System.out.println("login success");
         String email = authentication.getName();
         loginService.setSession(email, request.getSession());
-        log.info("Login Success : "+ email);
         System.out.println(email);
     }
 }
