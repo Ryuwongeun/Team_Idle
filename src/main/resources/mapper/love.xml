@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.idle.shoppingmall.mapper.LoveMapper">
+
+    <insert id="addLove">
+        insert into love(product_id, created_who, created_at)
+        values (#{love.product_id}, #{love.created_who}, #{love.created_at})
+    </insert>
+    
+    <select id="findLove" parameterType="com.idle.shoppingmall.Entity.Key.LoveKey" resultType="com.idle.shoppingmall.Entity.Love">
+        select * from love where product_id=#{find.product_id} AND created_who=#{find.created_who}
+    </select>
+
+    <select id="loveList" resultType="com.idle.shoppingmall.Entity.Love">
+        select * from love
+    </select>
+    
+    <delete id="deleteLove" parameterType="com.idle.shoppingmall.Entity.Love">
+        delete from love where product_id=#{remove.product_id} AND created_who=#{remove.created_who}
+    </delete>
+
+
+
+</mapper>

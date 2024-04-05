@@ -19,6 +19,7 @@ public class TestApiController {
     public ResponseEntity<TestAddResponse> addTest(@RequestBody TestAddRequest request) {
         if(request.getId() == null || request.getName() == null)
             return ResponseEntity.ok().body(new TestAddResponse(400, "입력값이 부족해요!!", null));
+
         testService.addTest(Test.builder()
                 .id(request.getId())
                 .name(request.getName())

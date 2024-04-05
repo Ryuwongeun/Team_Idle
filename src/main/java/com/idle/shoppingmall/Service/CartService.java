@@ -2,6 +2,7 @@ package com.idle.shoppingmall.Service;
 
 
 import com.idle.shoppingmall.Entity.Cart;
+import com.idle.shoppingmall.Entity.Key.CartKey;
 import com.idle.shoppingmall.mapper.CartMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,10 +20,13 @@ public class CartService {
 
     @Transactional
     public List<Cart> selectCart(Cart cartDTO) {
-
         return cartMapper.selectCart(cartDTO);
-
     } // selectCart
+
+    @Transactional
+    public Cart findCart(CartKey key) {
+        return cartMapper.findCart(key);
+    } // findCart
 
     @Transactional
     public void addCart(Cart cartDTO) {
@@ -37,5 +41,12 @@ public class CartService {
         cartMapper.updateCart(cartDTO);
 
     } // updateCart
+
+    @Transactional
+    public void deleteCart(Cart cartDTO) {
+
+        cartMapper.deleteCart(cartDTO);
+
+    } // deleteCart
 
 } // end class
