@@ -67,5 +67,4 @@ public class ProductViewController {
         model.addAttribute("data", list);
         return "Product/product";
     }
-}*/
-
+}
