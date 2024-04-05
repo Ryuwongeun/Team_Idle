@@ -80,6 +80,12 @@
 			<version>3.0.2</version>
 		</dependency>
 
+<!--		메일-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
 		<!-- MySQL Connector Java -->
 		<dependency>
 			<groupId>mysql</groupId>
