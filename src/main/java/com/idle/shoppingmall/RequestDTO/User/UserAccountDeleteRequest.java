@@ -1,6 +1,5 @@
 package com.idle.shoppingmall.RequestDTO.User;
 
-import com.idle.shoppingmall.Entity.User.User_Account;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

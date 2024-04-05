@@ -4,7 +4,7 @@ package com.idle.shoppingmall.ControllerAPI;
 import com.idle.shoppingmall.Entity.Cart;
 import com.idle.shoppingmall.Entity.Key.CartKey;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
-import com.idle.shoppingmall.Entity.User.User_Info;
+import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.RequestDTO.Cart.CartAddRequest;
 import com.idle.shoppingmall.RequestDTO.Cart.CartDeleteRequest;
 import com.idle.shoppingmall.ResponseDTO.Cart.CartAddResponse;
@@ -29,7 +29,7 @@ public class CartApiController {
     @PostMapping("api/POST/addCart")
     public ResponseEntity<CartAddResponse> addCart(@RequestBody @Valid CartAddRequest request,
                                                    HttpSession session){
-        User_Info user = (User_Info) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
         if(user==null){
             return ResponseEntity.ok().body(new CartAddResponse(700, "로그인이 필요합니다.", null));
         }
@@ -58,7 +58,7 @@ public class CartApiController {
     public ResponseEntity<CartDeleteResponse> delCart(@RequestBody @Valid CartDeleteRequest request,
                                                       HttpSession session) {
 
-        User_Info user = (User_Info) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
 
         if(user==null){
             return ResponseEntity.ok().body(new CartDeleteResponse(700, "로그인이 필요합니다.", null));

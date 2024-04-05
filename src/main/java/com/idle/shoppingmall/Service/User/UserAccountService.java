@@ -1,7 +1,6 @@
 package com.idle.shoppingmall.Service.User;
 
-import com.idle.shoppingmall.Entity.Product.ProductDetail;
-import com.idle.shoppingmall.Entity.User.User_Account;
+import com.idle.shoppingmall.Entity.User.UserAccount;
 import com.idle.shoppingmall.mapper.User.UserAccountMapper;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -16,23 +15,23 @@ public class UserAccountService {
     private final UserAccountMapper userAccountMapper;
 
     @Transactional
-    public Long addUserAccount(User_Account userAccountDTO) {
+    public Long addUserAccount(UserAccount userAccountDTO) {
         return userAccountMapper.saveUserAccount(userAccountDTO);
     }
 
     @Transactional
-    public User_Account getUserByEmail(String email) {
+    public UserAccount getUserByEmail(String email) {
         return userAccountMapper.getUserByEmail(email);
     }
 
     @Transactional
-    public List<User_Account> listAllUserAccounts() {
+    public List<UserAccount> listAllUserAccounts() {
         return userAccountMapper.selectAllUserAccounts();
     }
 
 
     @Transactional
-    public boolean updateUserAccount(User_Account userDTO) {
+    public boolean updateUserAccount(UserAccount userDTO) {
         boolean update = userAccountMapper.updateUserAccount(userDTO);
 
         return update;
