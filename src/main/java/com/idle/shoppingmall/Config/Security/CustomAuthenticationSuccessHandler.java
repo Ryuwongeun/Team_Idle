@@ -5,12 +5,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import java.io.IOException;
 
 @RequiredArgsConstructor
+@Slf4j
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     private final LoginService loginService;
     @Override
@@ -22,6 +24,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         response.getWriter().write("{\"success\": true}");
         String email = authentication.getName();
         loginService.setSession(email, request.getSession());
-
+        log.info("Login Success : "+ email);
+        System.out.println(email);
     }
 }

@@ -17,6 +17,7 @@ public class LoginService {
 
     @Transactional
     public void setSession(String email, HttpSession session){
+        System.out.println("sett");
         User_Account account = userAccountMapper.getUserByEmail(email);
         Long id = account.getUser_id();
         User_Info user = userInfoMapper.getUserInfoById(id);
