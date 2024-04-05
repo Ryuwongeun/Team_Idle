@@ -45,6 +45,7 @@ public class SecurityConfig {
                                 .successHandler(new CustomAuthenticationSuccessHandler(
                                         loginService
                                 ))
+                                .defaultSuccessUrl("/main")
                                 .failureHandler(new CustomAuthenticationFailureHandler())
                                 .failureUrl("/login") //로그인 실패시 이동할 url
                 )
