@@ -1,6 +1,6 @@
 package com.idle.shoppingmall.Service.User;
 
-import com.idle.shoppingmall.Entity.User.User_Account;
+import com.idle.shoppingmall.Entity.User.UserAccount;
 import com.idle.shoppingmall.mapper.User.UserAccountMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
@@ -16,9 +16,7 @@ public class UserDetailService implements UserDetailsService {
     private final UserAccountMapper userAccountMapper;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("username = "+ username);
-        User_Account user = userAccountMapper.getUserByEmail(username);
-        System.out.println(user.getUser_id());
+        UserAccount user = userAccountMapper.getUserByEmail(username);
         //User = Security에서 제공해주는 객체
         return User.builder()
                 .username(user.getUser_email())
