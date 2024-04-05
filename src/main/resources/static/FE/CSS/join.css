@@ -23,9 +23,9 @@ h2 {
 
 
 input[type="submit"] {
-    width: 50%
+    width: 50%;
     background-color: pink;
-    color: pink;
+    color: white;
     border: none;
     padding: 15px 20px;
     border-radius: 4px;
