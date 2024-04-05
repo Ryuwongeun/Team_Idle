@@ -48,32 +48,27 @@
 
     <div class="container">
         <h2>로그인</h2>
-        <form action="/api/POST/login" method="post">
+        <form action="/api/POST/login" method="POST" id="loginForm">
             <div class="form-group">
                 <label for="username">ID</label>
                 <input type="text" id="username" name="username" required>
-            </div>
-
             <div class="form-group">
                 <label for="password">PASSWORD</label>
                 <input type="password" id="password" name="password" required>
             </div>
-
-            <input type="submit" id="loginBtn" value="로그인">
-
-            <div class="social-icons">
-                <a href="https://www.kakao.com" target="_blank">
-                    <img src="./image/kakao.png" alt="카카오톡 로고">
-                </a>
-                <a href="https://www.google.com" target="_blank">
-                    <img src="./image/google.png" alt="구글 로고">
-                </a>
-                <a href="https://www.naver.com" target="_blank">
-                    <img src="./image/naver.png" alt="네이버 로고">
-                </a>
-            </div>
-
+            <button type="submit">Login</button>
         </form>
+        <div class="social-icons">
+            <a href="https://www.kakao.com" target="_blank">
+                <img src="./image/kakao.png" alt="카카오톡 로고">
+            </a>
+            <a href="https://www.google.com" target="_blank">
+                <img src="./image/google.png" alt="구글 로고">
+            </a>
+            <a href="https://www.naver.com" target="_blank">
+                <img src="./image/naver.png" alt="네이버 로고">
+            </a>
+        </div>
     </div>
 
     <footer class="bg-black py-4 mt-8">
@@ -89,7 +84,6 @@
     </footer>
 
     <script src="/FE/JS/login.js"></script>
-    <script src="/FE/JS/sendData.js"></script>
 
 </body>
 </html>

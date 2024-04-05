@@ -16,7 +16,9 @@ public class UserDetailService implements UserDetailsService {
     private final UserAccountMapper userAccountMapper;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("username = "+ username);
         User_Account user = userAccountMapper.getUserByEmail(username);
+        System.out.println(user.getUser_id());
         //User = Security에서 제공해주는 객체
         return User.builder()
                 .username(user.getUser_email())
