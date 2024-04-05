@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/src/main/resources/static/FE/CSS/join.css">
     <link rel="stylesheet" href="/src/main/resources/static/FE/CSS/form.css">
-    <link rel="stylesheet" href="style.css">
     <style>
         /* Additional custom styles */
         .error {
@@ -21,19 +20,19 @@
     <!-- Header -->
     <header class="bg-black py-7">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../main.html" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
             <nav class="flex space-x-4">
-                <a href="../FE/best.html" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-                <a href="../FE/new.html" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-                <a href="../FE/sale.html" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-                <a href="../FE/event.html" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-                <a href="../FE/join.html" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+                <a href="best" class="text-pink-500 hover:text-pink-800">BEST</a>
+                <a href="new" class="text-pink-500 hover:text-pink-800">NEW</a>
+                <a href="sale" class="text-pink-500 hover:text-pink-800">SALE</a>
+                <a href="event" class="text-pink-500 hover:text-pink-800">EVENT</a>
+                <a href="join" class="text-blue-500 hover:text-blue-800">JOIN</a>
                 <div class="mypage-dropdown">
                     <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
                     <div class="mypage-dropdown-content">
-                        <a href="../FE/login.html">Login</a>
-                        <a href="../FE/cart.html">Cart</a>
-                        <a href="../FE/order.html">Order</a>
+                        <a href="login">Login</a>
+                        <a href="cart">Cart</a>
+                        <a href="order">Order</a>
                     </div>
                 </div>
             </nav>
@@ -58,10 +57,9 @@
                         <option value="hanmail.net">hanmail.net</option>
                         <option value="gmail.com">gmail.com</option>
                     </select>
-                    </div>
                     <div class="mb-4">
                         <button id="checkDuplicate" class="ml-3 bg-gray-300 text-gray-700 py-1 px-3 rounded-md hover:bg-gray-400 hover:text-white transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">중복체크</button>
-                    
+                    </div>
                 </div>
                 <span class="error" id="username-error"></span>
             </div>
@@ -82,7 +80,7 @@
                 <label for="nickname" class="block text-sm font-medium">닉네임</label>
                 <div class="flex items-center">
                     <input type="text" name="nickname" id="nickname" class="block w-48 rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring focus:ring-pink-500 focus:ring-opacity-50" placeholder="닉네임을 입력하세요">
-                    <button id="checkDuplicate" class="ml-3 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 hover:text-white transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">중복체크</button>
+                    <div id="checkNameBtn" class="ml-3 bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 hover:text-white transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">중복체크</div>
                 </div>
                 <span class="error" id="nickname-error"></span>
             </div>
@@ -104,11 +102,10 @@
             </div>
 
             <div class="mb-4">
-                <input type="submit" value="가입하기" id="btnJoin" class="block w-full bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition duration-300">
+                <div id="btnJoin" class="block w-full bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition duration-300">가입하기</div>
             </div>
         </form>
     </div>
-    <script src="/src/main/resources/static/FE/JS/join.js"></script>
     <br><br><br>
     <!-- Footer -->
     <footer class="bg-black py-9 mt-8">
@@ -116,6 +113,8 @@
             &copy; 2024 IDLE Fashion Store
         </div>
     </footer>
+    <script src="/JS/join.js"></script>
+    <script src="/JS/sendData.js"></script>
 </body>
 </html>
 
