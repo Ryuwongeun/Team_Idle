@@ -1,4 +1,4 @@
-const products = Array.from({ length: 40 }, (_, i) => ({
+pconst products = Array.from({ length: 40 }, (_, i) => ({
     id: i + 1, // 각 제품에 고유한 ID를 부여합니다.
     name: `Product ${i + 1}`,
     image: `https://source.unsplash.com/random/300x300/?model&sig=${Math.floor(Math.random() * 1000)}`,

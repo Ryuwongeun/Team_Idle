@@ -4,7 +4,7 @@ package com.idle.shoppingmall.ControllerAPI;
 import com.idle.shoppingmall.Entity.Key.LoveKey;
 import com.idle.shoppingmall.Entity.Love;
 import com.idle.shoppingmall.Entity.Product.Product;
-import com.idle.shoppingmall.Entity.User.User_Info;
+import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.RequestDTO.Love.LoveAddRequest;
 import com.idle.shoppingmall.RequestDTO.Love.LoveDeleteRequest;
 import com.idle.shoppingmall.ResponseDTO.Love.LoveAddResponse;
@@ -32,7 +32,7 @@ public class LoveController {
     public ResponseEntity<LoveAddResponse> addLove(@RequestBody @Valid LoveAddRequest request,
                                                    HttpSession session) {
 
-        User_Info user = (User_Info) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
 
         if(user==null){
             return ResponseEntity.ok().body(new LoveAddResponse(700, "로그인이 필요합니다.", null));
@@ -63,7 +63,7 @@ public class LoveController {
     public ResponseEntity<LoveDeleteResponse> delLove(@RequestBody @Valid LoveDeleteRequest request
             , HttpSession session) {
 
-        User_Info user = (User_Info) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
 
         if(user==null){
             return ResponseEntity.ok().body(new LoveDeleteResponse(700, "로그인이 필요합니다.", null));
