@@ -13,4 +13,10 @@ public class UserInfoService {
     public User_Info getUserInfoById(Long user_id){
         return userInfoMapper.getUserInfoById(user_id);
     }
+
+    public int addUser_Info(User_Info userInfoDTO) {
+        return userInfoMapper.addUser_Info(userInfoDTO);
+
+    }
+
 }

@@ -5,7 +5,9 @@ import com.idle.shoppingmall.Entity.User.User_Info;
 import com.idle.shoppingmall.RequestDTO.User.UserAccountAddRequest;
 
 
+import com.idle.shoppingmall.RequestDTO.User.UserAccountLoginRequest;
 import com.idle.shoppingmall.RequestDTO.User.UserAccountUpdateRequest;
+import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountAddResponse;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountDeleteResponse;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountUpdateResponse;
@@ -39,9 +41,19 @@ public class UserAccountApiController {
                         .user_email(request.getUser_email())
                         .user_password(passwordEncoder.encode(request.getUser_password()))
                         .user_pnum(request.getUser_pnum())
+                        .user_role(User_Account.UserRole.USER)
                         .last_login(LocalDateTime.now())
                 .build()
         );
+
+        User_Account account = userAccountService.getUserByEmail(request.getUser_email());
+
+        userInfoService.addUser_Info(User_Info.builder()
+                        .user_id(account.getUser_id())
+                        .name(account.getUser_email())
+                        .build());
+
+
         if(id==null){
             return ResponseEntity.ok().body(new UserAccountAddResponse(400,"실패",null));
         }
@@ -108,9 +120,6 @@ public class UserAccountApiController {
         }
     }
 
-    @PostMapping("/logintest")
-    public void login(HttpSession session){
-        User_Info user = userInfoService.getUserInfoById(1L);
-        session.setAttribute("user", user);
-    }
-}
+
+
+} // end class

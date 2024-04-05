@@ -11,4 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface UserInfoMapper {
 
     User_Info getUserInfoById(@Param("user_id") Long user_id);
+
+    int addUser_Info(@Param("add")User_Info userInfoDTO);
+
 }

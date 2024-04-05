@@ -15,13 +15,15 @@ function sendData(url, data) {
         })
         .then(data => {
             // 서버로부터 받은 데이터 처리
-            if(data.code === 400){
-                alert(data.msg);
-            }
-            if (data.code === 200) {
+            if (data.code === 200) { // 회원가입 성공
                 alert(data.msg);
                 location.href = "/main";
             }
+            if(data.code === 400){ // 회원가입 실패
+                alert(data.msg);
+            }
+
+
 
         })
         .catch(error => {

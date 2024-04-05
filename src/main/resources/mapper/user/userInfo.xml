@@ -6,4 +6,10 @@
     <select id="getUserInfoById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.User.User_Info">
         select * from user_info where user_id = #{user_id}
     </select>
+    
+    <insert id="addUser_Info">
+        insert into user_info
+        values(#{add.user_id}, #{add.name})
+    </insert>
+    
 </mapper>
