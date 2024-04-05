@@ -14,10 +14,8 @@ document.getElementById("loginForm").addEventListener("submit", function(event){
             // 필요한 경우 CSRF 토큰을 여기에 추가
         },
         body: formDataString
-
     }).then(response => {
         if(response.ok) {
-            alert("로그인 성공")
             return response.json();
         }
         throw new Error('Login failed.');

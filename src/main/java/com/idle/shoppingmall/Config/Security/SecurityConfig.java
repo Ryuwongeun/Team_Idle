@@ -43,7 +43,6 @@ public class SecurityConfig {
                         formLogin
                                 .loginPage("/FE/login") //로그인 화면 설정
                                 .loginProcessingUrl("/api/POST/login") // login submit 요청을 받을 url
-                                .defaultSuccessUrl("/main")
                                 .successHandler(new CustomAuthenticationSuccessHandler(
                                         loginService
                                 ))
