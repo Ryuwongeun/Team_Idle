@@ -2,8 +2,12 @@ package com.idle.shoppingmall.Config.Security;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.idle.shoppingmall.Config.OAuth2.OAuth2SuccessHandler;
 import com.idle.shoppingmall.Service.LoginService;
 import com.idle.shoppingmall.Service.User.UserDetailService;
+import com.idle.shoppingmall.Service.User.김승원추가.OAuth2UserService;
+import com.idle.shoppingmall.mapper.User.UserAccountMapper;
+import com.idle.shoppingmall.mapper.User.UserInfoMapper;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -25,9 +29,11 @@ import java.io.PrintWriter;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-
     private final LoginService loginService;
     private final UserDetailService userDetailService;
+    private final UserAccountMapper userAccountMapper;
+    private final UserInfoMapper userInfoMapper;
+    private final OAuth2UserService oAuth2UserService;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
@@ -51,13 +57,28 @@ public class SecurityConfig {
                                 .defaultSuccessUrl("/FE/main")
                                 .failureHandler(new CustomAuthenticationFailureHandler())
                                 .failureUrl("/FE/login") //로그인 실패시 이동할 url
-                )
+                ).userDetailsService(userDetailService)
                 .logout((logoutConfig)->
                         logoutConfig
                                 .logoutUrl("/api/POST/logout")
-                                .logoutSuccessUrl("/productList") //로그아웃 성공시 이동할 url
+                                .logoutSuccessUrl("/main") //로그아웃 성공시 이동할 url
                                 .addLogoutHandler(new CustomLogoutHandler())
-                ).userDetailsService(userDetailService);
+                )
+                .oauth2Login((oauth2Login)->
+                        oauth2Login
+                                .loginPage("/FE/login")
+                                .userInfoEndpoint(userInfoEndpont ->
+                                        userInfoEndpont.userService(oAuth2UserService)
+                                )
+                                .successHandler(new OAuth2SuccessHandler(
+                                                loginService,
+                                                userAccountMapper,
+                                                userInfoMapper
+                                        )
+                                )
+
+
+                );
         return http.build();
     }
 
