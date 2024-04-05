@@ -28,4 +28,6 @@ public class ProductViewController {
         model.addAttribute("data", list); // 수정된 부분: productList 대신 list를 추가
         return "Product/product";
     }
+
+
 }

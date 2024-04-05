@@ -36,6 +36,8 @@ public class SecurityConfig {
                                 .requestMatchers("/api/GET/login").permitAll()
                                 .requestMatchers("/api/POST/login").permitAll()
                                 .requestMatchers("/api/GET/logout").permitAll()
+                                .requestMatchers("/FE/cart").hasAnyRole("USER")
+                                .requestMatchers("/FE/order").hasAnyRole("USER")
                                 .anyRequest().permitAll()
                 )
                 .formLogin((formLogin) ->
