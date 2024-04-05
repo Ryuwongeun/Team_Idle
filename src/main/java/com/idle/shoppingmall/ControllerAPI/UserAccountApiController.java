@@ -3,8 +3,6 @@ package com.idle.shoppingmall.ControllerAPI;
 import com.idle.shoppingmall.Entity.User.UserAccount;
 import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.RequestDTO.User.UserAccountAddRequest;
-
-
 import com.idle.shoppingmall.RequestDTO.User.UserAccountCheckIdRequest;
 import com.idle.shoppingmall.RequestDTO.User.UserAccountUpdateRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
@@ -41,9 +39,19 @@ public class UserAccountApiController {
                         .user_email(request.getUser_email())
                         .user_password(passwordEncoder.encode(request.getUser_password()))
                         .user_pnum(request.getUser_pnum())
+                        .user_role(UserAccount.UserRole.USER)
                         .last_login(LocalDateTime.now())
                 .build()
         );
+
+        UserAccount account = userAccountService.getUserByEmail(request.getUser_email());
+
+        userInfoService.addUser_Info(UserInfo.builder()
+                        .user_id(account.getUser_id())
+                        .name(account.getUser_email())
+                        .build());
+
+
         if(id==null){
             return ResponseEntity.ok().body(new UserAccountAddResponse(400,"실패",null));
         }
@@ -124,3 +132,4 @@ public class UserAccountApiController {
         return ResponseEntity.ok().body(new CommonResponse(200, "이미 사용 중입니다."));
     }
 }
+

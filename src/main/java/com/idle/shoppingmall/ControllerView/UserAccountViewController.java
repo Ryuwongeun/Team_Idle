@@ -14,6 +14,10 @@ public class UserAccountViewController {
         return "main";
     } // signupOk
 
+    @PostMapping("/FE/login")
+    String loginOk() {
 
+        return "/FE/login";
+    } // loginOk
 
 } // end class
