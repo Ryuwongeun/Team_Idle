@@ -5,6 +5,7 @@ import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +18,9 @@ public class  ProductViewController {
     private final ProductService productService;
 
 
-    @GetMapping("/productList")
+    @PostMapping("/api/GET/productList")
     public List<ProductListResponse> productList(@RequestParam(defaultValue = "0") int page,
-                                                 @RequestParam(defaultValue = "5") int size) {
+                                                 @RequestParam(defaultValue = "10") int size) {
         List<Product> productList = productService.findAllProductsPaged(page, size);
         List<ProductListResponse> list = new ArrayList<>();
         for(Product product : productList) {
@@ -28,6 +29,7 @@ public class  ProductViewController {
                     product.getPd_price(), brandName, product.getPd_category(), product.getCreated_who(),
                     product.getCreated_at(), product.getCount_love()));
         }
+        System.out.println("list : " + list.get(0).getProduct_id());
         return list; // List<ProductListResponse> 객체를 직접 반환
     }
 }

@@ -30,6 +30,11 @@ public class MainViewController {
         return "/FE/join";
     } // join
 
+    @GetMapping("/FE/new")
+    String NEW() {
+        return "/FE/new";
+    } // join
+
 
 
 } // end class
