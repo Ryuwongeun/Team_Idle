@@ -34,7 +34,6 @@ public class CommentApiController {
             if(id==null){
                 return ResponseEntity.ok().body(new CommentAddResponse(400,"실패",null));
             }
-
             return ResponseEntity.ok().body(new CommentAddResponse(200,"성공", request.getCreated_who()));
     }
 }

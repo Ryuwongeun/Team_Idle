@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.ControllerView;
 
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +25,8 @@ public class MainViewController {
     } // login
 
     @GetMapping("/FE/join")
-    String join() {
-
+    String join(HttpSession session) {
+        System.out.println("user : "+session.getAttribute("user"));
         return "/FE/join";
     } // join
 

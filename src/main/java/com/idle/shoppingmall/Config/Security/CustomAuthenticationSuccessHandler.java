@@ -12,7 +12,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import java.io.IOException;
 
 @RequiredArgsConstructor
-@Slf4j
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     private final LoginService loginService;
     @Override
@@ -22,9 +21,8 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write("{\"success\": true}");
+        response.sendRedirect("/main");
         String email = authentication.getName();
         loginService.setSession(email, request.getSession());
-        log.info("Login Success : "+ email);
-        System.out.println(email);
     }
 }

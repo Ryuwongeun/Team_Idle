@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.Config.Security;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.idle.shoppingmall.Service.LoginService;
 import com.idle.shoppingmall.Service.User.UserDetailService;
 import lombok.Getter;
@@ -47,7 +48,7 @@ public class SecurityConfig {
                                 .successHandler(new CustomAuthenticationSuccessHandler(
                                         loginService
                                 ))
-                                .defaultSuccessUrl("/main")
+                                .defaultSuccessUrl("/FE/main")
                                 .failureHandler(new CustomAuthenticationFailureHandler())
                                 .failureUrl("/FE/login") //로그인 실패시 이동할 url
                 )
@@ -63,6 +64,39 @@ public class SecurityConfig {
     @Bean
     PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+    }
+
+    private final AuthenticationEntryPoint unauthorizedEntryPoint =
+            //사용자가 인증되지 않은 상태에서 보호된 리소스에 접근할 때 호출
+            (request, response, authException) -> {
+                //응답을 401로 설정하고 메시지를 담는다.
+                ErrorResponse fail = new ErrorResponse(HttpStatus.UNAUTHORIZED, "로그인을 해주세여");
+                response.setStatus(HttpStatus.UNAUTHORIZED.value());
+                String json = new ObjectMapper().writeValueAsString(fail);
+                response.setContentType(MediaType.APPLICATION_JSON_VALUE); //응답의 타입을 json으로 설정
+                PrintWriter writer = response.getWriter();
+                writer.write(json);
+                writer.flush();
+            };
+
+    private final AccessDeniedHandler accessDeniedHandler =
+            //사용자가 권한이 없는 상태에서 보호된 리소스에 접근할 때 호출
+            (request, response, accessDeniedException) -> {
+                //응답을 403으로 설정하고 메시지를 담는다.
+                ErrorResponse fail = new ErrorResponse(HttpStatus.FORBIDDEN, "권한이 없어요");
+                response.setStatus(HttpStatus.FORBIDDEN.value());
+                String json = new ObjectMapper().writeValueAsString(fail);
+                response.setContentType(MediaType.APPLICATION_JSON_VALUE);
+                PrintWriter writer = response.getWriter();
+                writer.write(json);
+                writer.flush();
+            };
+
+    @Getter
+    @RequiredArgsConstructor
+    public class ErrorResponse {
+        private final HttpStatus status;
+        private final String message;
     }
 
 }

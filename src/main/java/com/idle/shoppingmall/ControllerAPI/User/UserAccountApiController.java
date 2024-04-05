@@ -1,11 +1,9 @@
-package com.idle.shoppingmall.ControllerAPI;
+package com.idle.shoppingmall.ControllerAPI.User;
 
-import com.idle.shoppingmall.Entity.User.User_Account;
-import com.idle.shoppingmall.Entity.User.User_Info;
+import com.idle.shoppingmall.Entity.User.UserAccount;
+import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.RequestDTO.User.UserAccountAddRequest;
-
-
-import com.idle.shoppingmall.RequestDTO.User.UserAccountLoginRequest;
+import com.idle.shoppingmall.RequestDTO.User.UserAccountCheckIdRequest;
 import com.idle.shoppingmall.RequestDTO.User.UserAccountUpdateRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.ResponseDTO.UserAccount.UserAccountAddResponse;
@@ -37,34 +35,31 @@ public class UserAccountApiController {
             return ResponseEntity.ok().body(new UserAccountAddResponse(400, "XX", null));
         }
         Long id = userAccountService.addUserAccount
-                (User_Account.builder()
+                (UserAccount.builder()
                         .user_email(request.getUser_email())
                         .user_password(passwordEncoder.encode(request.getUser_password()))
                         .user_pnum(request.getUser_pnum())
-                        .user_role(User_Account.UserRole.USER)
+                        .user_role(UserAccount.UserRole.USER)
                         .last_login(LocalDateTime.now())
                 .build()
         );
 
-        User_Account account = userAccountService.getUserByEmail(request.getUser_email());
+        UserAccount account = userAccountService.getUserByEmail(request.getUser_email());
 
-        userInfoService.addUser_Info(User_Info.builder()
+        userInfoService.addUser_Info(UserInfo.builder()
                         .user_id(account.getUser_id())
                         .name(account.getUser_email())
                         .build());
-
-
         if(id==null){
             return ResponseEntity.ok().body(new UserAccountAddResponse(400,"실패",null));
         }
-
         return ResponseEntity.ok().body(new UserAccountAddResponse(200,"성공", request.getUser_email()));
     }
 
     // 사용자 계정 목록 조회
     @GetMapping("/api/userAccounts")
-    public ResponseEntity<List<User_Account>> listUserAccounts() {
-        List<User_Account> userAccounts = userAccountService.listAllUserAccounts();
+    public ResponseEntity<List<UserAccount>> listUserAccounts() {
+        List<UserAccount> userAccounts = userAccountService.listAllUserAccounts();
         if (userAccounts.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -77,13 +72,13 @@ public class UserAccountApiController {
                                                                        @RequestBody @Valid UserAccountUpdateRequest request,
                         HttpSession session) {
 
-        User_Info user = (User_Info) session.getAttribute("user");
+        UserInfo user = (UserInfo) session.getAttribute("user");
         if (user == null) {
             return ResponseEntity.ok(new UserAccountUpdateResponse(700, "로그인이 필요합니다.", null));
         }
 
         boolean id = userAccountService.updateUserAccount
-                (User_Account.builder()
+                (UserAccount.builder()
                         .user_id(user.getUser_id())
                         .user_email(request.getUser_email())
                         .user_password(passwordEncoder.encode(request.getUser_password()))
@@ -120,6 +115,18 @@ public class UserAccountApiController {
         }
     }
 
+    @PostMapping("/logintest")
+    public void login(HttpSession session){
+        UserInfo user = userInfoService.getUserInfoById(1L);
+        session.setAttribute("user", user);
+    }
 
+    @PostMapping("/checkId")
+    public ResponseEntity<CommonResponse> checkId(@RequestBody @Valid UserAccountCheckIdRequest checkIdRequest) {
+        UserAccount userAccount = userAccountService.getUserByEmail(checkIdRequest.getUser_email());
+        if(userAccount == null)
+            return ResponseEntity.ok().body(new CommonResponse(400, "사용 가능합니다."));
+        return ResponseEntity.ok().body(new CommonResponse(200, "이미 사용 중입니다."));
+    }
+}
 
-} // end class

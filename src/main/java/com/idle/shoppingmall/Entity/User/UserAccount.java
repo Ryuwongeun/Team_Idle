@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User_Account {
+public class UserAccount {
     private Long user_id;
     private String user_email;
     private String user_password;
@@ -22,5 +21,9 @@ public class User_Account {
 
     public enum UserRole {
         USER, MANAGER, ADMIN
+
     }
 }
+
+
+

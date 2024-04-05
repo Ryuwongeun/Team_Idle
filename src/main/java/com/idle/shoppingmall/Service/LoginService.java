@@ -1,7 +1,7 @@
 package com.idle.shoppingmall.Service;
 
-import com.idle.shoppingmall.Entity.User.User_Account;
-import com.idle.shoppingmall.Entity.User.User_Info;
+import com.idle.shoppingmall.Entity.User.UserAccount;
+import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.mapper.User.UserAccountMapper;
 import com.idle.shoppingmall.mapper.User.UserInfoMapper;
 import jakarta.servlet.http.HttpSession;
@@ -17,10 +17,9 @@ public class LoginService {
 
     @Transactional
     public void setSession(String email, HttpSession session){
-        System.out.println("sett");
-        User_Account account = userAccountMapper.getUserByEmail(email);
+        UserAccount account = userAccountMapper.getUserByEmail(email);
         Long id = account.getUser_id();
-        User_Info user = userInfoMapper.getUserInfoById(id);
+        UserInfo user = userInfoMapper.getUserInfoById(id);
         if(user==null){
             return;
         }

@@ -36,4 +36,10 @@ public class ProductService {
     public Integer delete(Long productID) {
         return productMapper.delete(productID);
     }
+
+    public List<Product> findAllProductsPaged(int page, int size) {
+        int offset = page * size; // 페이지 번호와 사이즈를 곱하여 offset 계산
+        return productMapper.findAllProductsPaged(size, offset);
+    }
+
 } // end class

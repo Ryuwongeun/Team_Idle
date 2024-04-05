@@ -4,7 +4,7 @@
 
 <mapper namespace="com.idle.shoppingmall.mapper.CommentImgMapper">
 
-    <insert id="saveCommentImg" parameterType="com.idle.shoppingmall.Entity.Comment_img" useGeneratedKeys="true" keyProperty="img_id">
+    <insert id="saveCommentImg" parameterType="com.idle.shoppingmall.Entity.CommentImg" useGeneratedKeys="true" keyProperty="img_id">
         INSERT INTO comment_img (comment_id, img_url, img_name)
         VALUES (#{commentImg.comment_id}, #{commentImg.img_url}, #{commentImg.img_name})
     </insert>

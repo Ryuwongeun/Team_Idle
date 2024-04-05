@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="/FE/CSS/Banner.css">
 
     <style>
+
+        .custom-video {
+            width: 100%; /* 원하는 너비 설정 */
+            height: 670px; /* 높이를 자동으로 조정하여 비율 유지 */
+        }
       .pagination-container {
           display: flex;
           justify-content: center;
@@ -49,7 +54,7 @@
               <a href="new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
               <a href="sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
               <a href="event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-              <a href="join.html" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+              <a href="join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
               <div class="mypage-dropdown">
                 <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
                 <div class="mypage-dropdown-content">
@@ -65,8 +70,8 @@
     <main class="my-2">
         <div class="relative">
             <video controls autoplay loop class="custom-video">
-                <source src="video/Outfits Inspired By.mp4" type="video/mp4">
-          </div>
+                <source src="/src/main/resources/static/FE/video/Outfits Inspired By.mp4" type="video/mp4">
+        </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex flex-wrap -m-1">
                 <script src="/FE/JS/product.js"></script>
@@ -88,6 +93,5 @@
     </footer>
 
     <script src="/FE/JS/page.js"></script>
-
 </body>
 </html>

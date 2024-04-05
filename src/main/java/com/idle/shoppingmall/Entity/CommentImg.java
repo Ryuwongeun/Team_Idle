@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Comment_img {
+public class CommentImg {
     private Long img_id;
     private Long comment_id;
     private String img_url;
