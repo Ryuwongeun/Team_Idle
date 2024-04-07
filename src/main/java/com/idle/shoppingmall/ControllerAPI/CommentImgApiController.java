@@ -1,6 +1,6 @@
 package com.idle.shoppingmall.ControllerAPI;
 
-import com.idle.shoppingmall.Entity.Comment_img;
+import com.idle.shoppingmall.Entity.CommentImg;
 import com.idle.shoppingmall.RequestDTO.CommentImgAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Comment.CommentImgAddResponse; // 수정된 부분
 import com.idle.shoppingmall.Service.CommentImgService;
@@ -22,7 +22,7 @@ public class CommentImgApiController {
             return ResponseEntity.badRequest().body(new CommentImgAddResponse(400,"이미지 이름은 필수입니다.",null));
         }
         Long id = commentImgService.addCommentImg
-                (Comment_img.builder()
+                (CommentImg.builder()
 
                         .comment_id(request.getComment_id())
                         .img_url(request.getImg_url())

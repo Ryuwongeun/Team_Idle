@@ -1,7 +1,6 @@
 package com.idle.shoppingmall.mapper.User;
 
-import com.idle.shoppingmall.Entity.User.User_Account;
-import com.idle.shoppingmall.Entity.User.User_Info;
+import com.idle.shoppingmall.Entity.User.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -10,5 +9,9 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface UserInfoMapper {
 
-    User_Info getUserInfoById(@Param("user_id") Long user_id);
+    UserInfo getUserInfoById(@Param("user_id") Long user_id);
+
+    int addUser_Info(@Param("add")UserInfo userInfoDTO);
+
+    UserInfo getUserInfoByName(@Param("name") String name);
 }

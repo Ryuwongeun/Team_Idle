@@ -1,6 +1,6 @@
 function validateForm() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
     var isValid = true;
 
     // Validate username
@@ -21,3 +21,4 @@ function validateForm() {
 
     return isValid;
 }
+

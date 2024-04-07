@@ -8,7 +8,7 @@
         values(#{userAccount.user_email},#{userAccount.user_password},#{userAccount.user_role},#{userAccount.user_pnum},#{userAccount.last_login})
     </insert>
 
-    <select id="getUserByEmail" parameterType="String" resultType="com.idle.shoppingmall.Entity.User.User_Account">
+    <select id="getUserByEmail" parameterType="String" resultType="com.idle.shoppingmall.Entity.User.UserAccount">
         select * from user_account where user_email = #{email}
     </select>
 
@@ -16,11 +16,11 @@
         update user_account set last_login = now() where user_id = #{user_id}
     </update>
 
-    <select id="selectAllUserAccounts" resultType="com.idle.shoppingmall.Entity.User.User_Account">
+    <select id="selectAllUserAccounts" resultType="com.idle.shoppingmall.Entity.User.UserAccount">
         select *from user_account
     </select>
 
-    <update id="updateUserAccount" parameterType="com.idle.shoppingmall.Entity.User.User_Account">
+    <update id="updateUserAccount" parameterType="com.idle.shoppingmall.Entity.User.UserAccount">
         update user_account set user_email=#{updateUser.user_email},user_password=#{updateUser.user_password},user_pnum=#{updateUser.user_pnum} where user_id = #{updateUser.user_id}
 
     </update>

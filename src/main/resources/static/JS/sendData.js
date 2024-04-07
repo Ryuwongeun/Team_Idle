@@ -1,4 +1,4 @@
-function sendData(url, data) {
+async function sendData(url, data) {
     // Fetch API를 사용하여 서버에 POST 요청을 보냅니다.
     fetch(url, {
         method: 'POST', // 요청 방식 설정
@@ -15,24 +15,23 @@ function sendData(url, data) {
         })
         .then(data => {
             // 서버로부터 받은 데이터 처리
+            if(data.code < 0){
+                alert(data.msg);
+            }
             if(data.code === 666){
                 alert(data.msg);
-
             }
             if(data.code === 400){
                 alert(data.msg);
             }
             if (data.code === 200) {
                 alert(data.msg);
-                location.reload(true);
             }
             if (data.code === 201) {
                 alert(data.msg);
-                location.reload(true);
             }
             if (data.code === 202) {
                 alert(data.msg);
-                location.reload(true);
             }
         })
         .catch(error => {

@@ -12,7 +12,6 @@ public class ProductListResponse extends CommonResponse {
     private Long product_id;
     private String pd_name;
     private int pd_price;
-
     private String brand_name;
     private String pd_category;
     private Long created_who;
