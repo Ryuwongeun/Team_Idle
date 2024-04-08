@@ -5,11 +5,12 @@ import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RequiredArgsConstructor
-@Controller
+@RestController
 public class LatestViewController {
     private  final ProductService productService;
 

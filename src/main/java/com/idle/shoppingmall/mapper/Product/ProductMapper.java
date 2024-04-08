@@ -2,6 +2,7 @@ package com.idle.shoppingmall.mapper.Product;
 
 
 import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.RequestDTO.Product.Search.ProductSearchRequest;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -29,4 +30,6 @@ public interface ProductMapper {
     List<Product> findAllByPdPriceDescUp();
 
     List<Product> findAllByPdPriceDescDown();
+
+    List<Product> findAllByPdName(ProductSearchRequest searchRequest);
 } // end interface
