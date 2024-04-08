@@ -24,9 +24,8 @@ public class  ProductViewController {
         List<Product> productList = productService.findAllProductsPaged(page, size);
         List<ProductListResponse> list = new ArrayList<>();
         for(Product product : productList) {
-            String brandName = (product.getBrand() != null) ? product.getBrand().getBrand_name() : "브랜드 없음";
             list.add(new ProductListResponse(666, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), brandName, product.getPd_category(), product.getCreated_who(),
+                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
                     product.getCreated_at(), product.getCount_love()));
         }
         System.out.println("list : " + list.get(0).getProduct_id());

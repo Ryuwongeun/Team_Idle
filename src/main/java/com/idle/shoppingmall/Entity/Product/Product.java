@@ -27,8 +27,4 @@ public class Product {
     private String pd_category;
     private int count_love;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id", insertable = false, updatable = false)
-    private Brand brand; // Brand
-
 } // end class
