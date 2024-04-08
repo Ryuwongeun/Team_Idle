@@ -3,11 +3,11 @@
 
 // 이메일 중복 체크를 위한 가짜 함수
 function checkDuplicateEmail(emailId, emailDns) {
+    console.log(data)
     // 여기에 실제 이메일 중복 체크 로직을 구현하면 됩니다.
     // 이 함수는 이메일이 중복되면 true를 반환하고, 중복되지 않으면 false를 반환합니다.
     return Math.random() < 0.5; // 임의의 결과를 반환하는 가짜 로직입니다.
 }
-
 
 const nameCheckBtn = document.getElementById('checkNameBtn');
 nameCheckBtn.addEventListener('click', function() {

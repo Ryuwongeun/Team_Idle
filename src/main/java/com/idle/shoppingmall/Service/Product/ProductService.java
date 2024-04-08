@@ -42,4 +42,15 @@ public class ProductService {
         return productMapper.findAllProductsPaged(size, offset);
     }
 
+    public List<Product> findAllByCreatedAtDesc() {
+        return productMapper.findAllByCreatedAtDesc();
+    }
+
+    public List<Product> findAllByPdPriceDescUp() {
+        return productMapper.findAllByPdPriceDescUp();
+    }
+
+    public List<Product> findAllByPdPriceDescDown() {
+        return productMapper.findAllByPdPriceDescDown();
+    }
 } // end class

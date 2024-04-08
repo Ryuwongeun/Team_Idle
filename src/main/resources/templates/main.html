@@ -17,6 +17,7 @@
     <!-- Header -->
     <header class="bg-black py-7">
       
+
       <header class="bg-black py-7">
         <div class="container mx-auto flex justify-between items-center">
           <a href="../main.html" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
@@ -42,17 +43,7 @@
     <main class="container mx-auto mt-0 bg-yellow-500">
       <!-- Carousel -->
       <div class="relative">
-        <div
-          class="
-            sale-banner
-            rounded-lg
-            shadow-lg
-            p-20
-            text-white
-            font-bold
-            text-4xl
-          "
-        >
+        <div class="sale-banner rounded-lg shadow-lg p-20 text-white font-bold text-4xl">
           SEASON SPECIAL
           <div class="text-sm mt-2">04.01 (MON) - 04.08 (MON)</div>
           <button class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full"
@@ -120,28 +111,28 @@
       });
     </script>
 
-<script>
-  window.onload = function() {
-      // 팝업 요소 가져오기
-      var popupContainer = document.getElementById('popup-container');
-      var closeButton = document.getElementById('close-popup');
+    <script>
+      window.onload = function() {
+          // 팝업 요소 가져오기
+          var popupContainer = document.getElementById('popup-container');
+          var closeButton = document.getElementById('close-popup');
 
-      // 팝업 띄우기
-      popupContainer.style.display = 'block';
+          // 팝업 띄우기
+          popupContainer.style.display = 'block';
 
-      // 닫기 버튼 클릭 시 팝업 닫기
-      closeButton.onclick = function() {
-          popupContainer.style.display = 'none';
-      };
-
-      // 팝업 이외의 영역 클릭 시 팝업 닫기
-      document.body.addEventListener('click', function(event) {
-          if (event.target === popupContainer) {
+          // 닫기 버튼 클릭 시 팝업 닫기
+          closeButton.onclick = function() {
               popupContainer.style.display = 'none';
-          }
-      });
-  };
-</script>
+          };
+
+          // 팝업 이외의 영역 클릭 시 팝업 닫기
+          document.body.addEventListener('click', function(event) {
+              if (event.target === popupContainer) {
+                  popupContainer.style.display = 'none';
+              }
+          });
+      };
+    </script>
 
 
     <footer class="bg-black py-4 mt-5">
@@ -151,10 +142,9 @@
                   <p class="text-sm text-pink-500 font-bold">
                       © 2024 IDLE Fashion Store
                   </p>
-                  
               </div>
           </div>
       </div>
-  </footer>
-   </body>
+    </footer>
+  </body>
 </html>
