@@ -30,7 +30,7 @@ function GetBrandList(url, data){
                     <td class="px-4 py-3">${item.brand_name}</td>
                     <td class="px-4 py-2">
                         <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded"
-                        onclick="setBrand('${item.brand_name}')">선택하기</button>
+                        onclick="setBrand('${item.brand_name}','${item.brand_id}')">선택하기</button>
                     </td>
                 </tr>
             `;
@@ -42,8 +42,10 @@ function GetBrandList(url, data){
         });
 }
 
-function setBrand(data){
+function setBrand(data, id){
     const brandVal = document.getElementById('brand');
+    const brandId = document.getElementById('brandId');
     brandVal.innerHTML = data;
+    brandId.value = id;
     modify.classList.remove("open-modal");
 }
