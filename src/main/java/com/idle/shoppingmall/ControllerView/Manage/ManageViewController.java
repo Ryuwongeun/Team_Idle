@@ -35,6 +35,7 @@ public class ManageViewController {
             @ModelAttribute ProductSortRequest request) {
         int id = request.getId();
         String name = request.getName();
+        System.out.println("search name : " + name);
         String order = null;
         if (id > 0) {
             if (id == 1) {
