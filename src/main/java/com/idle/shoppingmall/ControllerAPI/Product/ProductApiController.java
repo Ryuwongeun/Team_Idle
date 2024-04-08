@@ -3,15 +3,15 @@ package com.idle.shoppingmall.ControllerAPI.Product;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.RequestDTO.Product.Add.ProductAddRequest;
 import com.idle.shoppingmall.RequestDTO.Product.Delete.ProductDeleteRequest;
+import com.idle.shoppingmall.RequestDTO.Product.Search.ProductSearchRequest;
 import com.idle.shoppingmall.RequestDTO.Product.Update.ProductUpdateRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductAddResponse;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductSearchResponse;
 import com.idle.shoppingmall.Service.Product.ProductService;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,6 +46,7 @@ public class ProductApiController {
         return ResponseEntity.ok().body(new ProductAddResponse(200, "상품 추가에 성공했습니다.", id.toString()));
     }
 
+    //상품 수정
     @PostMapping("/api/POST/updateProduct")
     public ResponseEntity<CommonResponse> updateProduct(@RequestBody @Valid ProductUpdateRequest updateRequest) {
         Product product = productService.findById(updateRequest.getProduct_id());
@@ -66,6 +67,7 @@ public class ProductApiController {
         return ResponseEntity.ok().body(new CommonResponse(200, "수정 완료"));
     }
 
+    //상품 삭제
     @PostMapping("/api/POST/deleteProduct")
     public ResponseEntity<CommonResponse> deleteProduct(@RequestBody @Valid ProductDeleteRequest deleteRequest) {
         Product product = productService.findById(deleteRequest.getProduct_id());
@@ -78,20 +80,8 @@ public class ProductApiController {
         return ResponseEntity.ok().body(new CommonResponse(200, "삭제 되었습니다."));
     }
 
-    //최신순
-    @GetMapping("/api/GET/productLatest")
-    public List<Product> findAllByCreatedAtDesc(){
-        return productService.findAllByCreatedAtDesc();
-    }
-
-    //가격순
-    @GetMapping("/api/GET/productLatestPriceUp")
-    public List<Product> findAllByPdPriceDescUp(){
-        return productService.findAllByPdPriceDescUp();
-    }
-
-    @GetMapping("/api/GET/productLatestPriceDown")
-    public List<Product> findAllByPdPriceDescDown(){
-        return productService.findAllByPdPriceDescDown();
+    @PostMapping("/api/POST/searchProduct")
+    public ResponseEntity<ProductSearchResponse>searchProduct(@RequestBody @Valid ProductSearchRequest searchRequest) {
+        return null;
     }
 }

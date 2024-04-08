@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.RequestDTO;
+package com.idle.shoppingmall.RequestDTO.Payment;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
