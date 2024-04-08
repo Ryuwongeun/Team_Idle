@@ -26,6 +26,7 @@ public class LatestViewController {
     }
 
     @GetMapping("/api/GET/productLatestPriceDown")
+
     public List<Product> findAllByPdPriceDescDown(){
         return productService.findAllByPdPriceDescDown();
     }
