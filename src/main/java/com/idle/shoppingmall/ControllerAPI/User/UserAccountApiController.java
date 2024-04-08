@@ -120,13 +120,4 @@ public class UserAccountApiController {
         UserInfo user = userInfoService.getUserInfoById(1L);
         session.setAttribute("user", user);
     }
-
-    @PostMapping("/checkId")
-    public ResponseEntity<CommonResponse> checkId(@RequestBody @Valid UserAccountCheckIdRequest checkIdRequest) {
-        UserAccount userAccount = userAccountService.getUserByEmail(checkIdRequest.getUser_email());
-        if(userAccount == null)
-            return ResponseEntity.ok().body(new CommonResponse(400, "사용 가능합니다."));
-        return ResponseEntity.ok().body(new CommonResponse(200, "이미 사용 중입니다."));
-    }
 }
-
