@@ -18,7 +18,7 @@ public class ProductAddService {
     private final ProductDetailMapper productDetailMapper;
 
     @Transactional
-    public void addProduct(ProductAddRequest request, Long id){
+    public Integer addProduct(ProductAddRequest request, Long id){
         Product product = Product.builder()
                 .pd_name(request.getPd_name())
                 .brand_id(request.getBrand())
@@ -27,15 +27,20 @@ public class ProductAddService {
                 .created_who(id)
                 .created_at(LocalDateTime.now())
                 .build();
-        productMapper.saveProduct(product);
+        Integer result = productMapper.saveProduct(product);
         Long product_id = product.getProduct_id();
+
         for(int i=0; i<request.getSizes().size(); i++){
             ProductDetail detail = ProductDetail.builder()
                     .product_id(product_id)
                     .size(request.getSizes().get(i).getSize())
                     .pd_before_count(request.getSizes().get(i).getCount())
                     .build();
-            productDetailMapper.saveProductDetail(detail);
+            result = productDetailMapper.saveProductDetail(detail);
         }
+        if(result==0){
+            return null;
+        }
+        else return result;
     }
 }

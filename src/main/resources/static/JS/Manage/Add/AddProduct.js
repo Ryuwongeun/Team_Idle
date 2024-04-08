@@ -1,12 +1,14 @@
 const AddBtn = document.getElementById('AddBtn');
 
 AddBtn.addEventListener('click', () => {
-    const name = document.getElementById('pd_name').value;
+    let name = document.getElementById('pd_name').value;
     const brand = document.getElementById('brandId').value;
     const category = document.getElementById('pd_category').value;
-    const price = document.getElementById('pd_price').value;
+    let price = document.getElementById('pd_price').value;
     const sizeElements = document.querySelectorAll('.pd_size');
     const countElements = document.querySelectorAll('.pd_count');
+    name = name === '' ? null : name;
+    price = price === '' ? null : price;
     let sizes = [];
     for (let i = 0; i<sizeElements.length; i++) {
         sizes.push({
