@@ -1,7 +1,6 @@
-function buyNow() {
-    window.open('buy.html', 'popup', 'width=600,height=400');
+function buy() {
+    window.location.href = "buy.html";
 }
-
 function addToCart() {
     window.location.href = "cart.html";
 }
