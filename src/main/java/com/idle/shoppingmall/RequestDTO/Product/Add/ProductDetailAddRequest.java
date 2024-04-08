@@ -11,11 +11,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductDetailAddRequest {
     @NotNull
-    private Long product_id;
-
+    private Long id;
     @NotNull
     private String size;
-
-    @Min(0)
-    private int pd_before_count;
+    @Min(1)
+    private int count;
 }

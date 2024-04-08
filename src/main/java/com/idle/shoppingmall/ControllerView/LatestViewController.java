@@ -27,8 +27,12 @@ public class LatestViewController {
     }
 
     @GetMapping("/api/GET/productLatestPriceDown")
-
     public List<Product> findAllByPdPriceDescDown(){
         return productService.findAllByPdPriceDescDown();
+    }
+
+    @GetMapping("/api/GET/love")
+    public List<Product>findAllByLoveCountDesc(){
+        return productService.findAllByLoveCountDesc();
     }
 }

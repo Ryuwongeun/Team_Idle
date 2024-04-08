@@ -13,6 +13,6 @@
     </select>
 
     <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.ProductDetail">
-        update product_detail set pd_before_count = #{product.pd_before_count} where product_id=#{product.product_id} AND size = #{product.size}
+        update product_detail set pd_before_count = #{Product.pd_before_count} where product_id=#{Product.product_id} AND size = #{Product.size}
     </update>
 </mapper>

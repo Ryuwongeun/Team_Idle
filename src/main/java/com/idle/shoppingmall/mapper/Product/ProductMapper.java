@@ -32,4 +32,13 @@ public interface ProductMapper {
     List<Product> findAllByPdPriceDescDown();
 
     List<Product> findAllByPdName(ProductSearchRequest searchRequest);
+    List<Product>findAllByLoveCountDesc();
+
+   //제품의 count_love를 증가시키는 메서드
+    void increaseLoveCount(@Param("productId")Long productId);
+   //제품의 count_love를 감소시키는 메서드
+   void decreaseLoveCount(@Param("productId")Long productId);
+
+
+
 } // end interface

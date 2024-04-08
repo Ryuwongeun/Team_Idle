@@ -6,8 +6,8 @@
     <title>Fashion E-commerce Prototype</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/FE/CSS/form.css">
-    <link rel="stylesheet" href="/static/FE/CSS/login.css">
+    <link rel="stylesheet" href="/FE/CSS/form.css">
+    <link rel="stylesheet" href="/FE/CSS/login.css">
 
     <style>
         .container {
@@ -29,19 +29,19 @@
 <body class="bg-white text-gray-700">
     <header class="bg-black py-7">
         <div class="container mx-auto flex justify-between items-center">
-          <a href="../main.html" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+          <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
           <nav class="flex space-x-4">
-            <a href="best.html" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-            <a href="new.html" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-            <a href="sale.html" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-            <a href="event.html" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-            <a href="join.html" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+            <a href="best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+            <a href="new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+            <a href="sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+            <a href="event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+            <a href="join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
             <div class="mypage-dropdown">
               <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
               <div class="mypage-dropdown-content">
-                <a href="login.html">Login</a>
-                <a href="cart.html">Cart</a>
-                <a href="order.html">Order</a>
+                <a href="login">Login</a>
+                <a href="cart">Cart</a>
+                <a href="order">Order</a>
               </div>
             </div>
           </nav>
@@ -50,7 +50,7 @@
 
     <div class="container">
         <h2>로그인</h2>
-        <form action="/templates/main.html" method="post">
+        <form action="/main" method="post">
             <div class="form-group">
                 <label for="username">ID</label>
                 <input type="text" id="username" name="username" required>
@@ -65,13 +65,13 @@
         </form>
         <div class="social-icons">
             <a href="https://www.kakao.com" target="_blank">
-                <img src="/static/FE/image/kakao.png" alt="카카오톡 로고">
+                <img src="/FE/image/kakao.png" alt="카카오톡 로고">
             </a>
             <a href="/oauth2/authorization/google">
-                <img src="/static/FE/image/google.png" alt="구글 로고">
+                <img src="/FE/image/google.png" alt="구글 로고">
             </a>
             <a href="https://www.naver.com" target="_blank">
-                <img src="/static/FE/image/naver.png" alt="네이버 로고">
+                <img src="/FE/image/naver.png" alt="네이버 로고">
             </a>
         </div>
     </div>
@@ -87,7 +87,7 @@
             </div>
         </div>
     </footer>
-<script src="/static/JS/join.js"></script>
+<script src="/JS/join.js"></script>
 
 
 </body>
