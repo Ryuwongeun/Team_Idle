@@ -33,4 +33,16 @@
         order by product_id
         limit #{size} offset #{offset}
     </select>
+
+    <select id="findAllByCreatedAtDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product order by created_at desc
+    </select>
+
+    <select id="findAllByPdPriceDescUp" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product order by pd_price desc
+    </select>
+
+    <select id="findAllByPdPriceDescDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product order by pd_price asc
+    </select>
 </mapper>
