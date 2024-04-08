@@ -24,13 +24,8 @@ public class ProductAddController {
                                                      HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         user = userInfoService.getUserInfoById(11L);
-        System.out.println("request = " + request);
-        System.out.println("request.getPd_name() = " + request.getPd_name());
-        System.out.println("request.getBrand() = " + request.getBrand());
-        System.out.println("request.getPd_price() = " + request.getPd_price());
-        System.out.println("request.getPd_category() = " + request.getPd_category());
-        System.out.println("request.getSizes() = " + request.getSizes().get(1).getSize());
-        productAddService.addProduct(request, user.getUser_id());
-        return null;
+        Integer id = productAddService.addProduct(request, user.getUser_id());
+        return id == null ? ResponseEntity.ok().body(new CommonResponse(600, "상품 등록 실패")) :
+                ResponseEntity.ok().body(new CommonResponse(200, "상품 등록 성공"));
     }
 }

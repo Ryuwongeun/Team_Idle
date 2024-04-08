@@ -4,9 +4,9 @@
 
 <mapper namespace="com.idle.shoppingmall.mapper.Product.ProductMapper">
     <insert id="saveProduct" useGeneratedKeys="true" keyProperty="product_id">
-        insert into product(pd_name, pd_price, brand_id, pd_category,created_who ,created_at)
+        insert into product(pd_name, pd_price, brand_id, pd_category,created_who ,created_at, count_love)
         values ( #{Product.pd_name}, #{Product.pd_price}, #{Product.brand_id}, #{Product.pd_category}, #{Product.created_who}
-               ,#{Product.created_at})
+               ,#{Product.created_at}, 0)
     </insert>
 
     <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Product.Product">

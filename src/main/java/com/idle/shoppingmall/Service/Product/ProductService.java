@@ -16,7 +16,7 @@ public class ProductService {
     private final ProductMapper productMapper;
 
     @Transactional
-    public Long addProduct(Product productDTO) {
+    public Integer addProduct(Product productDTO) {
         return productMapper.saveProduct(productDTO);
     } // addProduct
 
