@@ -29,59 +29,43 @@ public class LoveController {
     private final ProductService productService;
 
     @PostMapping("api/POST/addLove")
-    public ResponseEntity<LoveAddResponse> addLove(@RequestBody @Valid LoveAddRequest request,
-                                                   HttpSession session) {
-
+    public ResponseEntity<?> AddLove(@RequestBody @Valid LoveAddRequest request,
+                                     HttpSession session) {
         UserInfo user = (UserInfo) session.getAttribute("user");
 
-        if(user==null){
-            return ResponseEntity.ok().body(new LoveAddResponse(700, "로그인이 필요합니다.", null));
-        } // if
+        if (user == null) {
+            return ResponseEntity.ok().body("로그인이 필요합니다.");
+        }
 
         Product product = productService.findById(request.getProduct_id());
+        if (product == null) {
+            return ResponseEntity.ok().body("존재하지 않는 상품입니다.");
+        }
 
-        if(product == null) {
-            return ResponseEntity.ok().body(new LoveAddResponse(400, "존재하지 않는 상품입니다.", null));
-        } // if
+        if (request.isLove()) {
+            // 좋아요 추가 로직
+            Long id = loveService.addLove(Love.builder()
+                    .product_id(request.getProduct_id())
+                    .created_who(user.getUser_id())
+                    .created_at(LocalDateTime.now())
+                    .build());
 
-        Long id = loveService.addLove(Love.builder()
-                        .product_id(request.getProduct_id())
-                        .created_who(user.getUser_id())
-                        .created_at(LocalDateTime.now())
-                        .build());
+            if (id == null) {
+                return ResponseEntity.ok().body("찜하기에 실패했습니다.");
+            }
 
-        if(id == null) {
-            return ResponseEntity.ok().body(new LoveAddResponse(400, "찜하기에 실패했습니다.", null));
-        } // if
+            return ResponseEntity.ok().body("찜하기에 성공했습니다.");
+        } else {
+            // 좋아요 취소 로직
+            LoveKey loveKey = new LoveKey(request.getProduct_id(), user.getUser_id());
+            Love love = loveService.findLove(loveKey);
 
-        return ResponseEntity.ok().body(new LoveAddResponse(200, "찜하기에 성공했습니다.", request.getProduct_id()));
+            if (love == null) {
+                return ResponseEntity.ok().body("찾는 상품이 존재하지 않습니다.");
+            }
 
-    } // addLove
-
-
-    @PostMapping("api/DELETE/Love")
-    public ResponseEntity<LoveDeleteResponse> delLove(@RequestBody @Valid LoveDeleteRequest request
-            , HttpSession session) {
-
-        UserInfo user = (UserInfo) session.getAttribute("user");
-
-        if(user==null){
-            return ResponseEntity.ok().body(new LoveDeleteResponse(700, "로그인이 필요합니다.", null));
-        } // if
-
-        LoveKey loveKey = new LoveKey(request.getProduct_id(),user.getUser_id());
-        Love love = loveService.findLove(loveKey);
-
-        if(love == null) {
-            return ResponseEntity.ok().body(new LoveDeleteResponse(700, "찾는 상품이 존재하지 않습니다.", null));
-        } // if
-
-        loveService.delLove(love);
-
-        return ResponseEntity.ok().body(new LoveDeleteResponse(200, "찜하기 취소했습니다.", request.getProduct_id()));
-
-    } // delLove
-
-
-
-} // end class
+            loveService.delLove(love);
+            return ResponseEntity.ok().body("찜하기 취소했습니다.");
+        }
+    }
+}
