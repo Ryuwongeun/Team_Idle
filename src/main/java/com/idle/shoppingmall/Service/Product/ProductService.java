@@ -53,6 +53,10 @@ public class ProductService {
     public List<Product> findAllByPdPriceDescDown() {
         return productMapper.findAllByPdPriceDescDown();
     }
+
+    public List<Product>findAllByLoveCountDesc(){
+        return productMapper.findAllByLoveCountDesc();
+    }
     @Transactional
     public void increaseLoveCountAndSave(Long productId) {
         Product product = productMapper.findById(productId);

@@ -10,7 +10,7 @@
     </insert>
 
     <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product where product_id = #{productId}
+        select * from product where product_id = #{product_id}
     </select>
 
 
@@ -28,7 +28,7 @@
 
 
     <delete id="delete" parameterType="Long">
-        delete from product where product_id=#{productId}
+        delete from product where product_id=#{product_id}
     </delete>
 
     <select id="findAllProductsPaged" resultType="com.idle.shoppingmall.Entity.Product.Product">
@@ -48,4 +48,17 @@
     <select id="findAllByPdPriceDescDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product order by pd_price asc
     </select>
+    <update id="increaseLoveCount">
+        update product set count_love = count_love +1 where product_id = #{productId}
+    </update>
+
+    <update id="decreaseLoveCount">
+        UPDATE product
+        SET count_love = CASE WHEN count_love > 0 THEN count_love - 1 ELSE 0 END
+        WHERE product_id = #{productId}
+    </update>
+    <select id="findAllByLoveCountDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product order by count_love desc
+    </select>
+
 </mapper>
