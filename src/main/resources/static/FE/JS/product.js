@@ -15,7 +15,7 @@ document.querySelector('.flex.flex-wrap.-m-1').innerHTML = products.map(product 
                 <p class="leading-relaxed mb-3">$${product.price}</p>
                 <div class="flex items-center flex-wrap ">
                     <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                        <svg fillㄴ="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
                     </a>
