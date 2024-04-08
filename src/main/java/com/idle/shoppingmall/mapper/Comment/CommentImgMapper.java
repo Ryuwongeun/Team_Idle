@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.mapper;
+package com.idle.shoppingmall.mapper.Comment;
 
 import com.idle.shoppingmall.Entity.CommentImg;
 import org.apache.ibatis.annotations.Mapper;
