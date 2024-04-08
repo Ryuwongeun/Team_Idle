@@ -1,4 +1,8 @@
 const mailBtn = document.getElementById("sendEmailBtn");
+let authCode = "fjeoifhqofnqkdmpowqkdopq"
+
+const authBtn = document.getElementById('checkAuth');
+
 mailBtn.addEventListener('click',function() {
     const email_id = document.getElementById("email_id").value;
     const email_dns = document.getElementById("email_dns").value;
@@ -16,10 +20,28 @@ mailBtn.addEventListener('click',function() {
     })
         .then(response => response.json()) // 응답을 JSON으로 파싱
         .then(data => {
-            alert("해당 이메일로 인증번호 발송이 완료되었습니다. \n 확인부탁드립니다.");
-            console.log("data: ", data);
+            if(data.code == 200) {
+                alert(data.msg);
+                console.log("data: ", data.data);
+                authCode = data.data
+            }
+            else{
+                alert(data.msg)
+            }
         })
         .catch((error) => {
             console.error('Error:', error);
         });
+})
+
+authBtn.addEventListener('click', function (){
+    const authVal = document.getElementById('auth').value;
+    console.log("code : "+authCode)
+    console.log("Val : "+authVal)
+    if(authCode===authVal){
+        alert("인증 성공")
+    }
+    else{
+        alert("인증 실패")
+    }
 })

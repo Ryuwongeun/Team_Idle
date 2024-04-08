@@ -64,7 +64,14 @@
                 </div>
                 <span class="error" id="username-error"></span>
             </div>
-            
+
+<!--            0408 추가==================-->
+            <div class="mb-4">
+                <label class="block text-sm font-medium">인증코드</label>
+                <input type="text" id="auth" name="auth" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring focus:ring-pink-500 focus:ring-opacity-50" required>
+                <button id="checkAuth" class="ml-3 bg-gray-300 text-gray-700 py-1 px-3 rounded-md hover:bg-gray-400 hover:text-white transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">인증체크</button>
+            </div>
+<!--           ============================ -->
             <div class="mb-4">
                 <label for="password" class="block text-sm font-medium">비밀번호</label>
                 <input type="password" id="password" name="password" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring focus:ring-pink-500 focus:ring-opacity-50" required>
