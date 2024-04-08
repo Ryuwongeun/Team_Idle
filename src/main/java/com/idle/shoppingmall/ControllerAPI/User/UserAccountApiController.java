@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.ControllerAPI;
+package com.idle.shoppingmall.ControllerAPI.User;
 
 import com.idle.shoppingmall.Entity.User.UserAccount;
 import com.idle.shoppingmall.Entity.User.UserInfo;
@@ -50,12 +50,9 @@ public class UserAccountApiController {
                         .user_id(account.getUser_id())
                         .name(account.getUser_email())
                         .build());
-
-
         if(id==null){
             return ResponseEntity.ok().body(new UserAccountAddResponse(400,"실패",null));
         }
-
         return ResponseEntity.ok().body(new UserAccountAddResponse(200,"성공", request.getUser_email()));
     }
 
@@ -122,14 +119,6 @@ public class UserAccountApiController {
     public void login(HttpSession session){
         UserInfo user = userInfoService.getUserInfoById(1L);
         session.setAttribute("user", user);
-    }
-
-    @PostMapping("/checkId")
-    public ResponseEntity<CommonResponse> checkId(@RequestBody @Valid UserAccountCheckIdRequest checkIdRequest) {
-        UserAccount userAccount = userAccountService.getUserByEmail(checkIdRequest.getUser_email());
-        if(userAccount == null)
-            return ResponseEntity.ok().body(new CommonResponse(400, "사용 가능합니다."));
-        return ResponseEntity.ok().body(new CommonResponse(200, "이미 사용 중입니다."));
     }
 }
 

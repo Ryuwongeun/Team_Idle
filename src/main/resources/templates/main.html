@@ -29,9 +29,9 @@
           <div class="mypage-dropdown">
             <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
             <div class="mypage-dropdown-content">
-              <a href="../templates/FE/login">Login</a>
-              <a href="../templates/FE/cart">Cart</a>
-              <a href="../templates/FE/order">Order</a>
+                <a href="/FE/login">Login</a>
+                <a href="/FE/cart">Cart</a>
+                <a href="/FE/order">Order</a>
             </div>
           </div>
          </nav>
@@ -110,28 +110,28 @@
       });
     </script>
 
-<script>
-  window.onload = function() {
-      // 팝업 요소 가져오기
-      var popupContainer = document.getElementById('popup-container');
-      var closeButton = document.getElementById('close-popup');
+    <script>
+      window.onload = function() {
+          // 팝업 요소 가져오기
+          var popupContainer = document.getElementById('popup-container');
+          var closeButton = document.getElementById('close-popup');
 
-      // 팝업 띄우기
-      popupContainer.style.display = 'block';
+          // 팝업 띄우기
+          popupContainer.style.display = 'block';
 
-      // 닫기 버튼 클릭 시 팝업 닫기
-      closeButton.onclick = function() {
-          popupContainer.style.display = 'none';
-      };
-
-      // 팝업 이외의 영역 클릭 시 팝업 닫기
-      document.body.addEventListener('click', function(event) {
-          if (event.target === popupContainer) {
+          // 닫기 버튼 클릭 시 팝업 닫기
+          closeButton.onclick = function() {
               popupContainer.style.display = 'none';
-          }
-      });
-  };
-</script>
+          };
+
+          // 팝업 이외의 영역 클릭 시 팝업 닫기
+          document.body.addEventListener('click', function(event) {
+              if (event.target === popupContainer) {
+                  popupContainer.style.display = 'none';
+              }
+          });
+      };
+    </script>
 
 
     <footer class="bg-black py-4 mt-5">
@@ -145,5 +145,5 @@
           </div>
       </div>
     </footer>
-        </body>
+  </body>
 </html>
