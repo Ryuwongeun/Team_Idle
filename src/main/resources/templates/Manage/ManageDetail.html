@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
             color: #ffd700;
         }
     </style>
-    <link rel="stylesheet" href="/CSS/detailStyle.css">
+    <link rel="stylesheet" href="/CSS/Manage/modiContainer.css">
 </head>
 <body class="bg-white text-gray-800">
 
@@ -37,20 +37,41 @@
         </nav>
     </div>
 </header>
+
+<div class="modify-overlay">
+    <div class="modify-container">
+        <h2>Modify Form</h2>
+        <button class="close-btn"><i class="fas fa-times">X</i></button>
+        <div id="modiForm">
+            <div id="modiName" th:text="'제품 명 :  '+${data.name}"></div>
+            <label for="category">카테고리</label>
+            <input type="text" id="category"  th:value="${data.category}" required/>
+            <label for="modiPrice">가격</label>
+            <input type="text" id="modiPrice" th:value="${data.price} + '원'" required/>
+            <button type="submit">수정하기</button>
+        </div>
+    </div>
+</div>
+
 <!-- Main Content -->
 <main class="container mx-auto my-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <!-- Product Image Carousel -->
-        <div class="col-span-1" style="background-color: #4CAF50">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <input type="text">
-            <button>클릭클릭</button>
-            <div class="flex space-x-2" style="background-color: #999999">
-
+        <div class="col-span-1">
+            <img src="/IMG/thanks.gif" alt="thanksKong">
+            <div class="flex space-x-2 mt-2" >
+                <select name="quantity" id="quantity" class="block w-full bg-gray-100 border border-gray-300 rounded py-2 px-4 focus:outline-none focus:bg-white focus:border-purple-500">
+                    <option id="sizeVal" th:each="detail : ${data.details}" th:value="${detail.size}" th:text="${detail.size}"></option>
+                </select>
             </div>
+            <br>
+            <label>수량 더하기</label>
+            <div class="flex items-center">
+                <input type="text" name="pd_price" id="pd_count" class="pl-10 pr-4 py-2 rounded-full" style="background-color: #666666"
+                       placeholder="더할 수량을 입력하세요">
+            </div>
+            <br>
+            <button id="addProductBtn" class="bg-red-500 text-white px-6 py-2 rounded">추가하기</button>
         </div>
 
         <!-- Product Details -->
@@ -64,7 +85,8 @@
             </div>
             <p class="text-lg text-gray-600 mb-4" th:text="${data.category}"></p>
             <div class="mb-4">
-                <span class="text-3xl font-bold" th:text="${data.price}+'원'"></span>
+                <div class="text-3xl font-bold" th:text="${data.price}+'원'"></div>
+                <button id="modifyBtn" class="bg-red-500 text-white px-6 py-1 rounded">수정하기</button>
             </div>
 
             <div th:each="detail : ${data.details}">
@@ -84,8 +106,6 @@
         <h2 class="text-xl font-bold mb-4">Related Products</h2>
         <div class="flex space-x-4 overflow-x-auto">
             <div class="min-w-max">
-                <!--                <img src="https://via.placeholder.com/200x200?text=Product+1" alt="Related Product 1" class="w-48 h-48">-->
-                <!-- Product details -->
             </div>
         </div>
     </div>
@@ -113,10 +133,8 @@
 <footer class="bg-gray-200 p-4 text-center">
     <p>Footer content goes here.</p>
 </footer>
-<script src="/JS/Customer/PostRequest.js"></script>
-<script src="/JS/Customer/cartClick.js"></script>
-<script src="/JS/Customer/loveClick.js"></script>
-<script src="/JS/Customer/addComment.js"></script>
-<script src="/JS/Customer/printComment.js"></script>
+<script src="/JS/Manage/addProductDetail.js"></script>
+<script src="/JS/sendData.js"></script>
+<script src="/JS/Manage/modifyOverlay.js"></script>
 </body>
 </html>
