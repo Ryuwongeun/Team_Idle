@@ -4,6 +4,7 @@ package com.idle.shoppingmall.Service;
 import com.idle.shoppingmall.Entity.Key.LoveKey;
 import com.idle.shoppingmall.Entity.Love;
 import com.idle.shoppingmall.mapper.LoveMapper;
+import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,27 +13,42 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class LoveService {
 
-    private final LoveMapper mapper;
+    private final LoveMapper loveMapper;
+    private final ProductMapper productMapper;
+
+    public Long addLove(Love loveDTO) {
+        // 이미 좋아요를 했는지 확인
+        Love existingLove = loveMapper.findLove(new LoveKey(loveDTO.getProduct_id(), loveDTO.getCreated_who()));
+        if (existingLove == null) {
+            long result = loveMapper.addLove(loveDTO);
+            productMapper.increaseLoveCount(loveDTO.getProduct_id()); // count_love 증가
+            return result;
+        }
+        return null; // 이미 좋아요를 한 경우, 추가 작업을 하지 않음
+    }
 
     @Transactional
-    public Long addLove(Love loveDTO) {
-        return mapper.addLove(loveDTO);
-    } // addLove
+    public void delLove(Love loveDTO) {
+        // 실제로 좋아요를 했는지 확인
+        Love existingLove = loveMapper.findLove(new LoveKey(loveDTO.getProduct_id(), loveDTO.getCreated_who()));
+        if (existingLove != null) {
+            loveMapper.deleteLove(loveDTO);
+            productMapper.decreaseLoveCount(loveDTO.getProduct_id()); // count_love 감소, 0 이하로 내려가지 않도록 ProductMapper에서 처리 필요
+        }
+    }
+
 
     @Transactional
     public Love findLove(LoveKey loveKey) {
-        return mapper.findLove(loveKey);
+        return loveMapper.findLove(loveKey);
     } // findLove
 
     @Transactional
     public void loveList(Love loveDTO) {
-        mapper.loveList(loveDTO);
+        loveMapper.loveList(loveDTO);
     } // loveList
 
-    @Transactional
-    public void delLove(Love loveDTO) {
-        mapper.deleteLove(loveDTO);
-    } // delLove
+
 
 
 } // end class

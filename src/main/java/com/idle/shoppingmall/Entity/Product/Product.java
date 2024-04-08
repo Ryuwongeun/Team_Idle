@@ -27,4 +27,13 @@ public class Product {
     private String pd_category;
     private int count_love;
 
+    public void increaseLoveCount(){
+        this.count_love +=1;
+    }
+
+    public void decreaseLoveCount(){
+        if(this.count_love >0){
+            this.count_love -=1;
+        }
+    }
 } // end class

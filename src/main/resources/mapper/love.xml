@@ -16,7 +16,7 @@
     <select id="loveList" resultType="com.idle.shoppingmall.Entity.Love">
         select * from love
     </select>
-    
+
     <delete id="deleteLove" parameterType="com.idle.shoppingmall.Entity.Love">
         delete from love where product_id=#{remove.product_id} AND created_who=#{remove.created_who}
     </delete>
