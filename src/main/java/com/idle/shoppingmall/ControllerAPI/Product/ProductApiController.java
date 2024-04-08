@@ -79,9 +79,4 @@ public class ProductApiController {
             return ResponseEntity.ok().body(new CommonResponse(400, "삭제 실패!!."));
         return ResponseEntity.ok().body(new CommonResponse(200, "삭제 되었습니다."));
     }
-
-    @PostMapping("/api/POST/searchProduct")
-    public ResponseEntity<ProductSearchResponse>searchProduct(@RequestBody @Valid ProductSearchRequest searchRequest) {
-        return null;
-    }
 }
