@@ -121,4 +121,3 @@ public class UserAccountApiController {
         session.setAttribute("user", user);
     }
 }
-
