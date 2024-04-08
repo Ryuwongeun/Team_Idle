@@ -1,15 +1,13 @@
 package com.idle.shoppingmall.ControllerAPI;
 
 import com.idle.shoppingmall.Entity.Payment;
-import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
-import com.idle.shoppingmall.RequestDTO.PaymentAddRequest;
-import com.idle.shoppingmall.RequestDTO.Product.Delete.PaymentDeleteRequest;
+import com.idle.shoppingmall.RequestDTO.Payment.PaymentAddRequest;
+import com.idle.shoppingmall.RequestDTO.Payment.PaymentDeleteRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.ResponseDTO.Payment.PaymentAddResponse;
 import com.idle.shoppingmall.Service.PaymentService;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;
-import com.idle.shoppingmall.Service.Product.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

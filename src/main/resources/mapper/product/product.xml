@@ -4,28 +4,31 @@
 
 <mapper namespace="com.idle.shoppingmall.mapper.Product.ProductMapper">
     <insert id="saveProduct" useGeneratedKeys="true" keyProperty="product_id">
-        insert into product(pd_name, pd_price, brand_id, pd_category, created_at)
+        insert into product(pd_name, pd_price, brand_id, pd_category, created_at,count_love)
         values ( #{product.pd_name}, #{product.pd_price}, #{product.brand_id}, #{product.pd_category}
-               ,#{product.created_at})
+               ,#{product.created_at},#{product.count_love})
     </insert>
 
     <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product where product_id = #{product.product_id}
+        select * from product where product_id = #{productId}
     </select>
+
 
     <select id="findAllProducts" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
     </select>
 
     <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.Product">
-        update product set pd_name=#{Product.pd_name}
-                         , pd_price=#{Product.pd_price}
-                         , pd_category=#{Product.pd_category}
-        where product_id=#{Product.product_id}
+        update product set pd_name=#{pd_name},
+        pd_price=#{pd_price},
+        pd_category=#{pd_category},
+        count_love=#{count_love}  <!-- count_love 필드 업데이트 추가 -->
+        where product_id=#{product_id}
     </update>
 
+
     <delete id="delete" parameterType="Long">
-        delete from product where product_id=#{Product.product_id}
+        delete from product where product_id=#{productId}
     </delete>
 
     <select id="findAllProductsPaged" resultType="com.idle.shoppingmall.Entity.Product.Product">

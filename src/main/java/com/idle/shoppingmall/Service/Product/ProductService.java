@@ -53,4 +53,23 @@ public class ProductService {
     public List<Product> findAllByPdPriceDescDown() {
         return productMapper.findAllByPdPriceDescDown();
     }
+    @Transactional
+    public void increaseLoveCountAndSave(Long productId) {
+        Product product = productMapper.findById(productId);
+        if (product != null) {
+            product.increaseLoveCount();
+            productMapper.update(product); // 'update' 메서드 사용
+        }
+    }
+
+    // 'loveCount' 감소 후 데이터베이스에 저장
+    @Transactional
+    public void decreaseLoveCountAndSave(Long productId) {
+        Product product = productMapper.findById(productId);
+        if (product != null) {
+            product.decreaseLoveCount();
+            productMapper.update(product); // 'update' 메서드 사용
+        }
+    }
+
 } // end class

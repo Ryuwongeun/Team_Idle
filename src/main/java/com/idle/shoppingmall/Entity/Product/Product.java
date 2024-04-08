@@ -27,8 +27,13 @@ public class Product {
     private String pd_category;
     private int count_love;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id", insertable = false, updatable = false)
-    private Brand brand; // Brand
+    public void increaseLoveCount(){
+        this.count_love +=1;
+    }
 
+    public void decreaseLoveCount(){
+        if(this.count_love >0){
+            this.count_love -=1;
+        }
+    }
 } // end class
