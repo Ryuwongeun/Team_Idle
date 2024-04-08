@@ -16,3 +16,21 @@ addProductBtn.addEventListener('click', () => {
     };
     sendData("/api/POST/addProductDetail", data);
 })
+
+const modiBtn = document.querySelector("#modiBtn");
+
+modiBtn.addEventListener("click", () => {
+    const id = parseInt(urlParams.get('id'));
+    const name = document.querySelector("#modiName").innerHTML;
+    const category = document.querySelector("#category").value;
+    const price = parseInt(document.querySelector("#modiPrice").value);
+    const data = {
+        product_id : id,
+        pd_name : name,
+        pd_price : price,
+        pd_category : category
+    }
+    console.log("click")
+    sendData('/api/POST/updateProduct',data);
+    console.log("click");
+})

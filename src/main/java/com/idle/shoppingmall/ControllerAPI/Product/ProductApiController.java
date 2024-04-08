@@ -52,10 +52,9 @@ public class ProductApiController {
         Product product = productService.findById(updateRequest.getProduct_id());
         if(product == null)
             return ResponseEntity.ok().body(new CommonResponse(400, "물품이 없습니다"));
-
         Integer id= productService.update(
                Product.builder()
-                       .product_id(updateRequest.getProduct_id())
+                       .product_id(product.getProduct_id())
                        .pd_name(updateRequest.getPd_name())
                        .pd_price(updateRequest.getPd_price())
                        .pd_category(updateRequest.getPd_category())

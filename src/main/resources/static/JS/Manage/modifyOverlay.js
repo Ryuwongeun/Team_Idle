@@ -8,3 +8,5 @@ modifyBtn.addEventListener("click", function () {
 closeBtn.addEventListener("click", function () {
     modify.classList.remove("open-modal");
 });
+
+

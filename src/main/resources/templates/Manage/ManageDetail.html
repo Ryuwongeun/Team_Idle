@@ -43,12 +43,12 @@
         <h2>Modify Form</h2>
         <button class="close-btn"><i class="fas fa-times">X</i></button>
         <div id="modiForm">
-            <div id="modiName" th:text="'제품 명 :  '+${data.name}"></div>
+            <div id="modiName" th:text="${data.name}"></div>
             <label for="category">카테고리</label>
             <input type="text" id="category"  th:value="${data.category}" required/>
             <label for="modiPrice">가격</label>
             <input type="text" id="modiPrice" th:value="${data.price} + '원'" required/>
-            <button type="submit">수정하기</button>
+            <button id="modiBtn" type="submit">수정하기</button>
         </div>
     </div>
 </div>
