@@ -12,11 +12,13 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -74,5 +76,22 @@ public class ProductApiController {
         if(id == null)
             return ResponseEntity.ok().body(new CommonResponse(400, "삭제 실패!!."));
         return ResponseEntity.ok().body(new CommonResponse(200, "삭제 되었습니다."));
+    }
+
+    //최신순
+    @GetMapping("/api/GET/productLatest")
+    public List<Product> findAllByCreatedAtDesc(){
+        return productService.findAllByCreatedAtDesc();
+    }
+
+    //가격순
+    @GetMapping("/api/GET/productLatestPriceUp")
+    public List<Product> findAllByPdPriceDescUp(){
+        return productService.findAllByPdPriceDescUp();
+    }
+
+    @GetMapping("/api/GET/productLatestPriceDown")
+    public List<Product> findAllByPdPriceDescDown(){
+        return productService.findAllByPdPriceDescDown();
     }
 }
