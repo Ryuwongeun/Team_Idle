@@ -48,6 +48,10 @@
     <select id="findAllByPdPriceDescDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product order by pd_price asc
     </select>
+
+    <select id="findAllByPdName" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product where pd_name like CONCAT('%', #{pd_name}, '%')
+    </select>
     <update id="increaseLoveCount">
         update product set count_love = count_love +1 where product_id = #{productId}
     </update>
