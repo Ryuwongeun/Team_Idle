@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Getter
-public class ProductSearchResponse extends CommonResponse {
+public class ProductSearchResponse{
     private Long product_id;
     private Long brand_id;
     private Long created_who;
@@ -17,16 +17,13 @@ public class ProductSearchResponse extends CommonResponse {
     private String pd_category;
     private int count_love;
 
-    public ProductSearchResponse(int code
-                               , String msg
-                               , Long product_id
+    public ProductSearchResponse(Long product_id
                                , Long brand_id
                                , Long created_who
                                , String pd_name
                                , int pd_price
                                , String pd_category
                                , int count_love) {
-        super(code, msg);
         this.product_id = product_id;
         this.brand_id = brand_id;
         this.created_who = created_who;

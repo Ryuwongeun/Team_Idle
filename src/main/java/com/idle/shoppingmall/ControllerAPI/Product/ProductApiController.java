@@ -79,27 +79,9 @@ public class ProductApiController {
         return ResponseEntity.ok().body(new CommonResponse(200, "삭제 되었습니다."));
     }
 
-    @GetMapping("/api/GET/searchProduct")
-    public ResponseEntity<ProductSearchResponse>searchProduct(@RequestBody @Valid ProductSearchRequest request) {
-        List<Product> list = productService.findAllByPdName(request);
-        if(list == null)
-            return ResponseEntity.ok().body(new ProductSearchResponse(400
-                                                                    , "물품이 없습니다."
-                                                                    , request.getProduct_id()
-                                                                    , request.getBrand_id()
-                                                                    , request.getCreated_who()
-                                                                    , request.getPd_name()
-                                                                    , request.getPd_price()
-                                                                    , request.getPd_category()
-                                                                    , request.getCount_love()));
-        return ResponseEntity.ok().body(new ProductSearchResponse(200
-                                                                , "찾으시는 상품."
-                                                                , request.getProduct_id()
-                                                                , request.getBrand_id()
-                                                                , request.getCreated_who()
-                                                                , request.getPd_name()
-                                                                , request.getPd_price()
-                                                                , request.getPd_category()
-                                                                , request.getCount_love()));
+    @PostMapping("/api/POST/searchProduct")
+    public ResponseEntity<List<Product>>searchProduct(@RequestBody @Valid ProductSearchRequest request) {
+        List<Product> list = productService.findAllByPdName(request.getPd_name());
+        return ResponseEntity.ok().body(list);
     }
 }

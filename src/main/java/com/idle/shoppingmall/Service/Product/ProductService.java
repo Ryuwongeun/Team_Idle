@@ -2,7 +2,6 @@ package com.idle.shoppingmall.Service.Product;
 
 
 import com.idle.shoppingmall.Entity.Product.Product;
-import com.idle.shoppingmall.RequestDTO.Product.Search.ProductSearchRequest;
 import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -55,7 +54,7 @@ public class ProductService {
         return productMapper.findAllByPdPriceDescDown();
     }
 
-    public List<Product> findAllByPdName(ProductSearchRequest searchRequest) {
+    public List<Product> findAllByPdName(String searchRequest) {
         return productMapper.findAllByPdName(searchRequest);
     }
     public List<Product>findAllByLoveCountDesc(){
