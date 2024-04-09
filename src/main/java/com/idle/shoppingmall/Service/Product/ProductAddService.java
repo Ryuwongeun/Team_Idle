@@ -18,7 +18,7 @@ public class ProductAddService {
     private final ProductDetailMapper productDetailMapper;
 
     @Transactional
-    public Integer addProduct(ProductAddRequest request, Long id){
+    public Long addProduct(ProductAddRequest request, Long id){
         Product product = Product.builder()
                 .pd_name(request.getPd_name())
                 .brand_id(request.getBrand())
@@ -38,9 +38,9 @@ public class ProductAddService {
                     .build();
             result = productDetailMapper.saveProductDetail(detail);
         }
-        if(result==0){
+        if(product_id==0){
             return null;
         }
-        else return result;
+        else return product_id;
     }
 }

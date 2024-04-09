@@ -7,21 +7,22 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Map;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductAddRequest {
-    @NotNull
     private String pd_name;
-    @NotNull
     private Long brand;
-    @Min(10000)
     private int pd_price;
     private String pd_category;
     private List<SizeAndCount> sizes;
+    private List<MultipartFile> images;
 }
 

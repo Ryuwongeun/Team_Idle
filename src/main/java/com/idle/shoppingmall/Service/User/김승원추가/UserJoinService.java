@@ -19,14 +19,17 @@ public class UserJoinService {
     private final UserInfoMapper userInfoMapper;
     private final UserAccountMapper userAccountMapper;
     private final PasswordEncoder passwordEncoder;
+
     @Transactional(readOnly = true)
     public UserInfo getUserInfoByName(String name){
         return userInfoMapper.getUserInfoByName(name);
     }
+
     @Transactional(readOnly = true)
     public UserAccount getUserAccountByEmail(String email){
         return userAccountMapper.getUserByEmail(email);
     }
+
     @Transactional
     public Integer joinUser(UserJoinRequest request){
         UserAccount user = UserAccount.builder()
