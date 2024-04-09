@@ -19,4 +19,9 @@ public class ManageDetailViewController {
         System.out.println("data : " + response.getDetails());
         return "Manage/ManageDetail";
     }
+
+    @GetMapping("/manage/newProduct")
+    public String newProduct() {
+        return "Manage/AddProduct";
+    }
 }
