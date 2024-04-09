@@ -37,63 +37,72 @@
         </nav>
     </div>
 </header>
-
 <div class="modify-overlay">
-    <div class="modify-container">
+    <div class="modify-container" style="width: 70%">
         <h2>Modify Form</h2>
         <button class="close-btn"><i class="fas fa-times">X</i></button>
         <div id="modiForm">
-            <div id="modiName" th:text="${data.name}"></div>
-            <label for="category">카테고리</label>
-            <input type="text" id="category"  th:value="${data.category}" required/>
-            <label for="modiPrice">가격</label>
-            <input type="text" id="modiPrice" th:value="${data.price} + '원'" required/>
-            <button id="modiBtn" type="submit">수정하기</button>
+            <label for="brandName">브랜드 명</label>
+            <input type="text" id="brandName" required/>
+            <button id="brandSearch" class="bg-red-400 hover:bg-red-600 text-white font-bold py-1 px-2 rounded">검색하기</button>
+        </div>
+        <div id="resultContainer">
+            <table>
+                <thead>
+                <tr class="table-header">
+                    <th class=" px-4 py-2">브랜드 번호</th>
+                    <th class=" px-4 py-2">브랜드 명</th>
+                    <th class=" px-4 py-2"></th>
+                </tr>
+                </thead>
+                <tbody id="brandField">
+                <!-- Repeat for each row -->
+                <!-- ... more rows ... -->
+                </tbody>
+                </thead>
+            </tr>
+            </table>
+
         </div>
     </div>
 </div>
-
 <!-- Main Content -->
 <main class="container mx-auto my-8">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <!-- Product Image Carousel -->
-        <div class="col-span-1">
-            <img src="/IMG/thanks.gif" alt="thanksKong">
-            <div class="flex space-x-2 mt-2" >
-                <select name="quantity" id="quantity" class="block w-full bg-gray-100 border border-gray-300 rounded py-2 px-4 focus:outline-none focus:bg-white focus:border-purple-500">
-                    <option id="sizeVal" th:each="detail : ${data.details}" th:value="${detail.size}" th:text="${detail.size}"></option>
-                </select>
-            </div>
-            <br>
-            <label>수량 더하기</label>
-            <div class="flex items-center">
-                <input type="text" name="pd_price" id="pd_count" class="pl-10 pr-4 py-2 rounded-full" style="background-color: #666666"
-                       placeholder="더할 수량을 입력하세요">
-            </div>
-            <br>
-            <button id="addProductBtn" class="bg-red-500 text-white px-6 py-2 rounded">추가하기</button>
-        </div>
+
 
         <!-- Product Details -->
         <div class="col-span-2">
-            <h1 class="text-2xl font-bold mb-2" th:text="${data.name}"></h1>
-            <div class="flex items-center mb-4">
-                    <span class="star-rating text-lg">
-                        ★★★★★
-                    </span>
-                <span class="ml-2 text-sm" th:text="'좋아요 : '+${data.count_love}"></span>
+            <div>
+                <input id="pd_name" class="text-2xl font-bold mb-2" placeholder="제품 명을 입력해주세요"/>
             </div>
-            <p class="text-lg text-gray-600 mb-4" th:text="${data.category}"></p>
+            <br>
+            <div>
+                <div id="brand" class="text-2xl font-bold mb-2">브랜드</div>
+                <div id="brandId" style="display: none"></div>
+                <button id="searchBrand" class="bg-gray-500 text-white px-8 py-1 rounded">브랜드 검색하기</button>
+            </div>
+            <br>
+            <div>
+                <input id="pd_category" class="text-2xl font-bold mb-2" placeholder="카테고리를 입력해주세요"/>
+            </div>
+            <br>
+            <div>
+                <input id="pd_price" class="text-2xl font-bold mb-2" placeholder="가격을 입력해주세요"/>
+            </div>
+            <br>
+            <div id="sizeContainer">
+
+            </div>
+            <br>
+            <button id="addSize" class="bg-gray-500 text-white px-8 py-1 rounded">사이즈 더하기</button>
+            <br>
+            <br>
             <div class="mb-4">
-                <div class="text-3xl font-bold" th:text="${data.price}+'원'"></div>
-                <button id="modifyBtn" class="bg-red-500 text-white px-6 py-1 rounded">수정하기</button>
+                <button id="AddBtn" class="bg-red-500 text-white px-6 py-1 rounded">추가하기</button>
             </div>
 
-            <div th:each="detail : ${data.details}">
-                <div class="mb-4">
-                    <span class="text-lg" th:text="'사이즈: ' + ${detail.size} + '  수량 : '+ ${detail.amount} + '  판매량 : ' + ${detail.sales}"></span>
-                </div>
-            </div>
 
             <div class="mb-4">
                 <!-- Size and color options -->
@@ -133,8 +142,10 @@
 <footer class="bg-gray-200 p-4 text-center">
     <p>Footer content goes here.</p>
 </footer>
-<script src="/JS/Manage/addProductCount.js"></script>
 <script src="/JS/sendData.js"></script>
+<script src="/JS/Manage/Add/AddSizeContainer.js"></script>
 <script src="/JS/Manage/modifyOverlay.js"></script>
+<script src="/JS/Manage/Add/getBrand.js"></script>
+<script src="/JS/Manage/Add/AddProduct.js"></script>
 </body>
 </html>
