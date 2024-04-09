@@ -79,6 +79,7 @@ public class ProductApiController {
         return ResponseEntity.ok().body(new CommonResponse(200, "삭제 되었습니다."));
     }
 
+    //상품 검색
     @PostMapping("/api/POST/searchProduct")
     public ResponseEntity<List<Product>>searchProduct(@RequestBody @Valid ProductSearchRequest request) {
         List<Product> list = productService.findAllByPdName(request.getPd_name());

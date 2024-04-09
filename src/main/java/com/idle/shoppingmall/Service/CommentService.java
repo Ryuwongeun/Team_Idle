@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CommentService {
@@ -16,4 +18,7 @@ public class CommentService {
         return commentMapper.saveComment(comment);
     }
 
+    public List<Comment> findAllByComment() {
+        return commentMapper.findAllByComment();
+    }
 }
