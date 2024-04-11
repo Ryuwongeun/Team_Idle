@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fashion E-commerce Prototype</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/FE/CSS/search.css">
+    <style>
+      .centered-image {
+        display: flex; /* flexbox 레이아웃을 사용 */
+        flex-direction: column; /* 요소들을 세로로 정렬 */
+        align-items: center; /* 가로 축에서 중앙 정렬 */
+        justify-content: center; /* 세로 축에서 중앙 정렬 (필요한 경우) */
+        text-align: center; /* 텍스트 중앙 정렬 */
+      }
+
+      .centered-image nav {
+        width: 100%; /* 네비게이션 바를 부모 요소의 전체 너비로 설정 */
+        display: flex; /* flexbox 레이아웃 사용 */
+        justify-content: center; /* 가로 축에서 중앙 정렬 */
+        gap: 10px; /* 링크 사이의 간격 */
+      }
+
+      .mypage-dropdown-content {
+        display: none; /* 기본적으로 드롭다운 컨텐츠를 숨김 */
+        position: absolute; /* 드롭다운 컨텐츠를 절대 위치로 설정 */
+      }
+
+      .mypage-dropdown:hover .mypage-dropdown-content {
+        display: block; /* 드롭다운 호버 시 컨텐츠를 보여줌 */
+      }
+    </style>
+
 
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
@@ -18,8 +45,10 @@
       
 
       <header class="bg-black py-7">
-        <div class="container mx-auto flex justify-between items-center">
-          <a href="/main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+        <div class="centered-image">
+          <a href="/main">
+            <img src="/FE/image/I DLE.jpg" alt="IDLE">
+          </a>
           <nav class="flex space-x-4">
             <a href="/FE/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
             <a href="/FE/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
@@ -36,6 +65,14 @@
             </div>
           </nav>
         </div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="검색...">
+          <button onclick="searchItem()">검색</button>
+        </div>
+
+        <div id="searchResults"></div>
+        <script src="/FE/JS/search.js"></script>
+
       </header>
 
     <!-- Main Content -->
@@ -44,11 +81,11 @@
       <div class="relative">
         <div class="sale-banner rounded-lg shadow-lg p-20 text-white font-bold text-4xl">
           SEASON SPECIAL
-          <div class="text-sm mt-2">04.01 (MON) - 04.08 (MON)</div>
+          <div class="text-sm mt-2">04.15 (MON) - 04.22 (MON)</div>
           <button class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full"
             onmouseover="this.style.backgroundColor='pink'; this.style.color='black';" 
             onmouseout="this.style.backgroundColor='black'; this.style.color='pink';"
-            onclick="window.location.href='sale';">
+            onclick="window.location.href='/FE/sale';">
             ON SALE
           </button>
 
@@ -68,7 +105,6 @@
             <button id="close-popup">Close</button>
         </div>
       </div>
-
 
       <!-- Categories -->
       <div class="flex mt-8 space-x-4">

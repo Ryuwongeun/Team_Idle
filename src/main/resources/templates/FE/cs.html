@@ -11,6 +11,7 @@
     />
     <link rel="stylesheet" href="/FE/CSS/form.css">
     <link rel="stylesheet" href="/FE/CSS/info.css">
+    <link rel="stylesheet" href="/FE/CSS/search.css">
    
     <style>
         body {
@@ -45,7 +46,7 @@
     <header class="bg-black py-7">
         <div class="container mx-auto flex justify-between items-center">
           <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
-          <nav class="flex space-x-4">
+            <nav class="flex justify-center space-x-4 w-full">
             <a href="best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
             <a href="new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
             <a href="sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
@@ -60,6 +61,13 @@
               </div>
             </div>
           </nav>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="검색...">
+                <button onclick="searchItem()">IDLE</button>
+            </div>
+
+            <div id="searchResults"></div>
+            <script src="/FE/JS/search.js"></script>
         </div>
       </header>
 <body>

@@ -7,6 +7,7 @@ import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.RequestDTO.Cart.CartAddRequest;
 import com.idle.shoppingmall.RequestDTO.Cart.CartDeleteRequest;
+import com.idle.shoppingmall.RequestDTO.Cart.CartListRequest;
 import com.idle.shoppingmall.ResponseDTO.Cart.CartAddResponse;
 import com.idle.shoppingmall.ResponseDTO.Cart.CartDeleteResponse;
 import com.idle.shoppingmall.Service.CartService;
@@ -15,9 +16,12 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -76,6 +80,13 @@ public class CartApiController {
         return ResponseEntity.ok().body(new CartDeleteResponse(200, "장바구니에서 삭제했습니다.", cart.getProduct_id()));
 
     } // delCart
+
+    //장바구니 리스트
+    @PostMapping("/aip/POST/cartLest")
+    public ResponseEntity<List<Cart>> getCartList(@RequestBody @Valid CartListRequest request) {
+        List<Cart> list = cartService.findByCartList(request.getCreated_who());
+        return ResponseEntity.ok().body(list);
+    }
 
 
 } // end class

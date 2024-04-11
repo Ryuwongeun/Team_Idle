@@ -4,13 +4,12 @@ package com.idle.shoppingmall.Service;
 import com.idle.shoppingmall.Entity.Cart;
 import com.idle.shoppingmall.Entity.Key.CartKey;
 import com.idle.shoppingmall.mapper.CartMapper;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -49,4 +48,7 @@ public class CartService {
 
     } // deleteCart
 
+    public List<Cart> findByCartList(Long createdWho) {
+        return cartMapper.findByCartList(createdWho);
+    }
 } // end class

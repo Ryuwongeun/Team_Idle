@@ -1,16 +1,14 @@
-package com.idle.shoppingmall.RequestDTO.Product.Search;
+package com.idle.shoppingmall.RequestDTO.Cart;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
-@AllArgsConstructor
 @Getter
 @NoArgsConstructor
-public class ProductSearchRequest {
+@AllArgsConstructor
+public class CartListRequest {
     @NotNull
-    private String pd_name;
+    private Long created_who;
 }
