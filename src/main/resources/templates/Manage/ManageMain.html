@@ -31,10 +31,10 @@
     <div class="bg-white shadow-md rounded p-4">
         <div class="flex justify-between mb-4">
             <div class="flex space-x-2">
-                <div class="tab tab-active">Products</div>
-                <div class="tab">Orders</div>
-                <div class="tab">Customers</div>
-                <div class="tab">Reports</div>
+                <div class="tab tab-active" id="ProductTop">Products</div>
+                <div class="tab" id="OrderTop">Orders</div>
+                <div class="tab" id="BrandTop">Brand</div>
+                <div class="tab" id="CustomerTop">Customers</div>
                 <div class="tab">Integrations</div>
             </div>
             <div class="flex items-center space-x-2">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="overflow-x-auto">
-            <table class="min-w-full">
+            <table class="min-w-full" id="field">
                 <thead>
                 <tr class="table-header">
                     <th class=" px-4 py-2 text-left">일련번호</th>
@@ -55,7 +55,7 @@
                     <th class="px-4 py-2 text-left">자세히</th>
                 </tr>
                 </thead>
-                <tbody id="field">
+                <tbody >
                 <!-- Repeat for each row -->
                 <tr class="table-row" >
                     <td class="px-4 py-2">1</td>
@@ -66,7 +66,8 @@
         </div>
     </div>
 </div>
-<script src="/JS/Manage/sort.js"></script>
+<script src="/JS/Manage/productSort.js"></script>
 <script src="/JS/Manage/search.js"></script>
+<script src="/JS/Manage/Main/TopMenu.js"></script>
 </body>
 </html>
