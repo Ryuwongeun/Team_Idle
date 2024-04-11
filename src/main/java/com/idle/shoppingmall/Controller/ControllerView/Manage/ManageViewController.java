@@ -16,7 +16,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class ManageViewController {
-    private final int PAGINGSIZE = 8;
+    private final int PAGINGSIZE = 10;
     private final MProductService mProductService;
 
     @GetMapping("/manage")
@@ -30,11 +30,6 @@ public class ManageViewController {
         return ResponseEntity.ok().body(products);
     }
 
-    @PostMapping("/GET/manage/order")
-    public ResponseEntity<List<MProductListView>> getOrder() {
-        List<MProductListView> products = mProductService.getList(0, PAGINGSIZE);
-        return ResponseEntity.ok().body(products);
-    }
 
     @PostMapping("/GET/manage/brand")
     public ResponseEntity<List<MProductListView>> getBrand() {
@@ -77,16 +72,4 @@ public class ManageViewController {
         return ResponseEntity.ok().body(list);
     }
 
-    @PostMapping("/GET/manage/order/search")
-    public ResponseEntity<List<MProductListView>> getOrderByName(
-            @ModelAttribute ProductSortRequest request) {
-        int id = request.getId();
-        String name = request.getName();
-        System.out.println("search name : " + name);
-        String order = null;
-        MProductSortAndOrder data = new MProductSortAndOrder(name, order, 0, 10);
-        List<MProductListView> list = mProductService.sortAndSearch(data);
-
-        return ResponseEntity.ok().body(list);
-    }
 }
