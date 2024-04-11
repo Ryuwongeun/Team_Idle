@@ -40,13 +40,11 @@ public class LatestViewController {
         return productService.findAllByLoveCountDesc();
     }
 
-<<<<<<< HEAD
 
-=======
     //댓글순
     @GetMapping("/view/GET/commentLatest/")
     public List<Comment> findAllByComment() {
         return commentService.findAllByComment();
     }
->>>>>>> 138fef1de1e13e2263bb2635ea4ba61b53690794
+
 }
