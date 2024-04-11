@@ -24,20 +24,16 @@ public interface ProductMapper {
     // Mapper 인터페이스 메서드에 @Param 어노테이션 추가
     List<Product> findAllProductsPaged(@Param("size") int size, @Param("offset") int offset);
 
-    List<Product> findAllByCreatedAtDesc();
+    List<Product> findAllByCreatedAtDesc(@Param("size") int size, @Param("offset") int offset);
 
-    List<Product> findAllByPdPriceDescUp();
+    List<Product> findAllByPdPriceDown(@Param("size") int size, @Param("offset") int offset);
 
-    List<Product> findAllByPdPriceDescDown();
+    List<Product>findAllByLoveCountDesc(@Param("size") int size, @Param("offset") int offset);
 
     List<Product> findAllByPdName(String searchRequest);
-    List<Product>findAllByLoveCountDesc();
 
    //제품의 count_love를 증가시키는 메서드
     void increaseLoveCount(@Param("productId")Long productId);
    //제품의 count_love를 감소시키는 메서드
    void decreaseLoveCount(@Param("productId")Long productId);
-
-
-
 } // end interface
