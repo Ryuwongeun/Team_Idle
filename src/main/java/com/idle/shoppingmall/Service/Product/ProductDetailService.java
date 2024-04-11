@@ -20,7 +20,7 @@ public class ProductDetailService {
         return productDetailMapper.findBySize(new DetailKey(productId, size));
     }
 
-    public void updateProductDetail(ProductDetail productDetail){
-        productDetailMapper.update(productDetail);
+    public Integer updateProductDetail(ProductDetail productDetail){
+        return productDetailMapper.update(productDetail);
     }
 }

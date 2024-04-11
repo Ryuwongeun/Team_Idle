@@ -25,26 +25,26 @@ import java.util.List;
 public class ProductApiController {
     private final ProductService productService;
 
-    @PostMapping("/api/POST/addProduct")
-    public ResponseEntity<ProductAddResponse> addProduct(@RequestBody ProductAddRequest request) {
-        if (request.getPd_name() == null || request.getPd_name().isEmpty() || request.getPd_price() <= 0) {
-            return ResponseEntity.ok().body(new ProductAddResponse(400, "상품 이름 또는 가격이 유효하지 않습니다.", null));
-        }
-
-        Long id = productService.addProduct(
-                Product.builder()
-                        .brand_id(request.getBrand_id())
-                        .pd_name(request.getPd_name())
-                        .pd_price(request.getPd_price())
-                        .pd_category(request.getPd_category())
-                        .created_at(LocalDateTime.now())
-                        .build()
-        );
-        if(id== null) {
-            return ResponseEntity.ok().body(new ProductAddResponse(400, "상품 추가에 실패했습니다.", null));
-        }
-        return ResponseEntity.ok().body(new ProductAddResponse(200, "상품 추가에 성공했습니다.", id.toString()));
-    }
+//    @PostMapping("/api/POST/addProduct")
+//    public ResponseEntity<ProductAddResponse> addProduct(@RequestBody ProductAddRequest request) {
+//        if (request.getPd_name() == null || request.getPd_name().isEmpty() || request.getPd_price() <= 0) {
+//            return ResponseEntity.ok().body(new ProductAddResponse(400, "상품 이름 또는 가격이 유효하지 않습니다.", null));
+//        }
+//
+//        Long id = productService.addProduct(
+//                Product.builder()
+//                        .brand_id(request.getBrand_id())
+//                        .pd_name(request.getPd_name())
+//                        .pd_price(request.getPd_price())
+//                        .pd_category(request.getPd_category())
+//                        .created_at(LocalDateTime.now())
+//                        .build()
+//        );
+//        if(id== null) {
+//            return ResponseEntity.ok().body(new ProductAddResponse(400, "상품 추가에 실패했습니다.", null));
+//        }
+//        return ResponseEntity.ok().body(new ProductAddResponse(200, "상품 추가에 성공했습니다.", id.toString()));
+//    }
 
     //상품 수정
     @PostMapping("/api/POST/updateProduct")
@@ -52,10 +52,9 @@ public class ProductApiController {
         Product product = productService.findById(updateRequest.getProduct_id());
         if(product == null)
             return ResponseEntity.ok().body(new CommonResponse(400, "물품이 없습니다"));
-
         Integer id= productService.update(
                Product.builder()
-                       .product_id(updateRequest.getProduct_id())
+                       .product_id(product.getProduct_id())
                        .pd_name(updateRequest.getPd_name())
                        .pd_price(updateRequest.getPd_price())
                        .pd_category(updateRequest.getPd_category())
@@ -78,5 +77,12 @@ public class ProductApiController {
         if(id == null)
             return ResponseEntity.ok().body(new CommonResponse(400, "삭제 실패!!."));
         return ResponseEntity.ok().body(new CommonResponse(200, "삭제 되었습니다."));
+    }
+
+    //상품 검색
+    @PostMapping("/api/POST/searchProduct")
+    public ResponseEntity<List<Product>>searchProduct(@RequestBody @Valid ProductSearchRequest request) {
+        List<Product> list = productService.findAllByPdName(request.getPd_name());
+        return ResponseEntity.ok().body(list);
     }
 }

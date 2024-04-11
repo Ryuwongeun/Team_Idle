@@ -13,5 +13,5 @@ public interface ProductDetailMapper {
 
     ProductDetail findBySize(@Param("key") DetailKey key);
 
-    void update(@Param("Product")ProductDetail detail);
+    Integer update(@Param("Product")ProductDetail detail);
 }
