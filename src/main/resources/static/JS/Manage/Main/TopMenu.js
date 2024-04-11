@@ -25,17 +25,28 @@ function setTopBtn(i, value){
     });
 };
 
+function colorChange(clickElement){
+    const topLabels = document.querySelectorAll('.tab')
+    topLabels.forEach(topLabel =>
+        topLabel.classList.remove('tab-active')
+    );
+    clickElement.classList.add('tab-active');
+}
+
 
 topProductBtn.addEventListener('click', function(){
     GetProductListRequest(`/GET/manage/product`);
+    colorChange(this);
 });
 
 topOrderBtn.addEventListener('click', function(){
     GetOrderListRequest(`/GET/manage/order/search?page=0`);
+    colorChange(this);
 });
 
 topBrandBtn.addEventListener('click', function(){
     GetBrandListRequest(`/GET/manage/brand/search?page=0`);
+    colorChange(this);
 });
 
 
