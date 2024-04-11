@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.Service.Product;
 
 
+import com.idle.shoppingmall.Entity.Key.ProductInfoKey;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -79,4 +80,7 @@ public class ProductService {
         }
     }
 
+    public Product findByProduct(ProductInfoKey key) {
+        return productMapper.findByProduct(key);
+    }
 } // end class

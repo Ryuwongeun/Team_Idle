@@ -65,4 +65,11 @@
         select * from product order by count_love desc
     </select>
 
+    <select id="findByProduct" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        SELECT p.product_id, p.pd_name, p.pd_price, p.pd_category, p.count_love, pd.size, pd.pd_before_count
+        FROM product p
+        JOIN product_detail pd ON p.product_id = pd.product_id;
+
+    </select>
+
 </mapper>

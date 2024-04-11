@@ -1,6 +1,8 @@
 package com.idle.shoppingmall.mapper.Product;
 
 
+import com.idle.shoppingmall.Entity.Key.DetailKey;
+import com.idle.shoppingmall.Entity.Key.ProductInfoKey;
 import com.idle.shoppingmall.Entity.Product.Product;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -39,5 +41,5 @@ public interface ProductMapper {
    void decreaseLoveCount(@Param("productId")Long productId);
 
 
-
+    Product findByProduct(@Param("key") ProductInfoKey key);
 } // end interface

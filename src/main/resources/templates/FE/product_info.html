@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,11 +48,11 @@
                     <img src="https://source.unsplash.com/random/640x480/?clothes" alt="Product Image">
                 </div>
                 <div>
-                    <h1 class="text-2xl font-bold">2024 SS COLLECTION</h1>
+                    <h1 class="text-2xl font-bold">${data.pd_name}}</h1>
                     <p class="text-sm text-gray-500 mt-1">SKU: 20130613</p>
-                    <p class="text-sm text-gray-500">Brand: SS Brand</p>
+                    <p class="text-sm text-gray-500">${data.band_id}</p>
                     <div class="mt-4">
-                        <span class="text-3xl font-bold">$79.99</span>
+                        <span class="text-3xl font-bold">${data.pd_price}</span>
                     </div>
                     <div class="mt-4">
                         <h2 class="font-semibold">Color</h2>

@@ -116,25 +116,27 @@
       <!-- Featured Products -->
       <main class="my-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex flex-wrap -m-4">
+            <div id="field" class="flex flex-wrap -m-4">
+              <img src="/IMG/thanks.gif" alt="thanks" id="imgBtn" onclick="redirectToProductInfo(1)"/>
+              <script src="/JS/product.js"></script>
                 <!-- Dynamically generate Product cards -->
                 <!-- Placeholder for Product cards -->
-                <script>
-                    const products = Array.from({ length: 40 }, (_, i) => ({
-                        id: i,
-                        name: `Product ${i + 1}`,
-                        image: `https://source.unsplash.com/random/300x300/?model&sig=${Math.floor(Math.random() * 1000)}`,
-                        price: (Math.random() * 100).toFixed(2)
-                    }));
+<!--                <script>-->
+<!--                    const products = Array.from({ length: 40 }, (_, i) => ({-->
+<!--                        id: i,-->
+<!--                        name: `Product ${i + 1}`,-->
+<!--                        image: `https://source.unsplash.com/random/300x300/?model&sig=${Math.floor(Math.random() * 1000)}`,-->
+<!--                        price: (Math.random() * 100).toFixed(2)-->
+<!--                    }));-->
 
-                    document.write(products.map(product => `
-                        <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
-                            <div class="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${product.image}" alt="product">
-                            </div>
-                        </div>
-                    `).join(''));
-                </script>
+<!--                    document.write(products.map(product => `-->
+<!--                        <div class="p-4 md:w-1/4 sm:w-1/2 w-full">-->
+<!--                            <div class="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">-->
+<!--                                <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${product.image}" alt="product">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    `).join(''));-->
+<!--                </script>-->
             </div>
         </div>
     </main>
