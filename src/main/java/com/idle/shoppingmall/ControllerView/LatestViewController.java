@@ -35,4 +35,6 @@ public class LatestViewController {
     public List<Product>findAllByLoveCountDesc(){
         return productService.findAllByLoveCountDesc();
     }
+
+
 }
