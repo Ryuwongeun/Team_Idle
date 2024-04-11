@@ -22,8 +22,8 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<CommonResponse> handleIllegalArgumentException(IllegalArgumentException ex) {
         // 예외 메시지를 포함하여 사용자 정의 응답 반환
-        CommonResponse response = new CommonResponse(500, "데이터가 없습니다.");
-        log.warn("데이터가 없습니다.");
+        CommonResponse response = new CommonResponse(500, "인자가 잘못됐습니다.");
+        log.warn("인자가 잘못됐습니다.");
         return  ResponseEntity.ok().body(response);
     }
 

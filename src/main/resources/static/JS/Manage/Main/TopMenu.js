@@ -31,11 +31,11 @@ topProductBtn.addEventListener('click', function(){
 });
 
 topOrderBtn.addEventListener('click', function(){
-    GetOrderListRequest(`/GET/manage/order`);
+    GetOrderListRequest(`/GET/manage/order/search?page=0`);
 });
 
 topBrandBtn.addEventListener('click', function(){
-    GetListRequest(`/GET/manage/brand`);
+    GetBrandListRequest(`/GET/manage/brand/search?page=0`);
 });
 
 
