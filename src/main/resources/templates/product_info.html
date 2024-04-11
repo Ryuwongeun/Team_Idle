@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/FE/CSS/product.css">
+    <link rel="stylesheet" href="/FE/CSS/form.css">
+    <link rel="stylesheet" href="/FE/CSS/search.css">
+    <script src="/FE/JS/product_btn.js"></script>
+</head>
+
+<body class="bg-white text-gray-700">
+    <header class="bg-black py-7">
+        <div class="container mx-auto flex justify-between items-center">
+          <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <nav class="flex justify-center space-x-4 w-full">
+            <a href="best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+            <a href="new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+            <a href="sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+            <a href="event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+            <a href="join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+            <div class="mypage-dropdown">
+              <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+              <div class="mypage-dropdown-content">
+                <a href="login">Login</a>
+                <a href="cart">Cart</a>
+                <a href="order">Order</a>
+              </div>
+            </div>
+          </nav>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="검색...">
+                <button onclick="searchItem()">IDLE</button>
+            </div>
+
+            <div id="searchResults"></div>
+            <script src="/FE/JS/search.js"></script>
+        </div>
+      </header>
+
+    <main class="py-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="product-image-placeholder">
+                    <img src="https://source.unsplash.com/random/640x480/?clothes" alt="Product Image">
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold" th:text="'제품 명 : '+${data.pd_name}"></h1>
+                    <p class="text-sm text-gray-500 mt-1">SKU: 20130613</p>
+                    <p class="text-sm text-gray-500" th:text="'브랜드 일련번호 : '+${data.brand_id}"></p>
+                    <div class="mt-4">
+                        <span class="text-3xl font-bold" th:text="'제품 가격 : '+${data.pd_price}"></span>
+                    </div>
+                    <div class="mt-4">
+                        <h2 class="font-semibold">Color</h2>
+                        <div class="flex space-x-2 mt-2">
+                            <!-- Color options here -->
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h2 class="font-semibold">Size</h2>
+                        <div class="flex space-x-2 mt-2">
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="size" value="xs">
+                                <span class="ml-2">XS</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="size" value="s">
+                                <span class="ml-2">S</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="size" value="m">
+                                <span class="ml-2">M</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" class="form-radio" name="size" value="l">
+                                <span class="ml-2">L</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h2 class="font-semibold">Quantity</h2>
+                        <div class="flex space-x-2 mt-2">
+                            <select name="quantity" id="quantity" class="block w-full bg-gray-100 border border-gray-300 rounded py-2 px-4 focus:outline-none focus:bg-white focus:border-purple-500">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex space-x-4 mt-6">
+                        <button class="bg-purple-600 text-white px-6 py-2 rounded" onclick="buy()">Buy Now</button>
+                        <button class="bg-gray-300 px-6 py-2 rounded" onclick="addToCart()">Add to Cart</button>
+                        <button id="loveButton" class="bg-pink-600 text-white px-6 py-2 rounded" onclick="changeColor()">LOVE</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <h2 class="text-xl font-bold">Details</h2>
+                <div class="mt-4">
+                    <!-- Product details here -->
+                </div>
+            </div>
+
+            <div class="mt-10">
+                <h2 class="text-xl font-bold">Size Chart</h2>
+                <div class="mt-4 overflow-x-auto">
+                    <table class="size-chart-table">
+                        <thead>
+                            <tr>
+                                <th class="border px-4 py-2">Size</th>
+                                <th class="border px-4 py-2">Length</th>
+                                <th class="border px-4 py-2">Shoulder</th>
+                                <th class="border px-4 py-2">Chest</th>
+                                <th class="border px-4 py-2">Waist</th>
+                                <th class="border px-4 py-2">Hem</th>
+                                <th class="border px-4 py-2">Sleeve Length</th>
+                                <th class="border px-4 py-2">Armhole</th>
+                                <th class="border px-4 py-2">Sleeve Opening</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border px-4 py-2">XS</td>
+                                <td class="border px-4 py-2">111.5</td>
+                                <td class="border px-4 py-2">41.8</td>
+                                <td class="border px-4 py-2">84</td>
+                                <td class="border px-4 py-2">70</td>
+                                <td class="border px-4 py-2">101</td>
+                                <td class="border px-4 py-2">22.5</td>
+                                <td class="border px-4 py-2">20.2</td>
+                                <td class="border px-4 py-2">18.5</td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">S</td>
+                                <td class="border px-4 py-2">113</td>
+                                <td class="border px-4 py-2">43</td>
+                                <td class="border px-4 py-2">88</td>
+                                <td class="border px-4 py-2">74</td>
+                                <td class="border px-4 py-2">105</td>
+                                <td class="border px-4 py-2">23</td>
+                                <td class="border px-4 py-2">20.7</td>
+                                <td class="border px-4 py-2">19</td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">M</td>
+                                <td class="border px-4 py-2">114.5</td>
+                                <td class="border px-4 py-2">44.4</td>
+                                <td class="border px-4 py-2">93</td>
+                                <td class="border px-4 py-2">79</td>
+                                <td class="border px-4 py-2">110</td>
+                                <td class="border px-4 py-2">23.5</td>
+                                <td class="border px-4 py-2">21.3</td>
+                                <td class="border px-4 py-2">19.6</td>
+                            </tr>
+                            <tr>
+                                <td class="border px-4 py-2">L</td>
+                                <td class="border px-4 py-2">116</td>
+                                <td class="border px-4 py-2">45.6</td>
+                                <td class="border px-4 py-2">97</td>
+                                <td class="border px-4 py-2">83</td>
+                                <td class="border px-4 py-2">114</td>
+                                <td class="border px-4 py-2">24</td>
+                                <td class="border px-4 py-2">21.8</td>
+                                <td class="border px-4 py-2">20.1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-sm text-gray-500 mt-2">디자인, 소재 및 측정 방법에 따라 약간의 오차가 있을 수 있습니다.</p>
+                </div>
+            </div>
+            </table>
+            
+          
+
+            <div class="mt-10">
+                <h2 class="text-xl font-bold">Reviews</h2>
+                <div class="mt-4">
+                    <!-- Reviews section here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t py-4 mt-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between">
+                <p>&copy; 2024 IDLE. All rights reserved.</p>
+                <div>
+                    <!-- Social icons here -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
