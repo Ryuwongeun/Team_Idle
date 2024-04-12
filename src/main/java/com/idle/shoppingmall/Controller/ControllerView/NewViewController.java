@@ -12,7 +12,7 @@ public class NewViewController {
     @GetMapping("/FE/new")
     String newList() {
 
-        return "/FE/new";
+        return "/new";
     } // newList
 
 } // end class

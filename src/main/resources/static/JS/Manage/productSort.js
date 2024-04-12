@@ -145,7 +145,7 @@ function GetBrandListRequest(url){
                         <th class=" px-4 py-2 text-left">브랜드 명</th>
                         <th order="1" class="sort-label px-4 py-2 text-left" value=1>최근 30일 판매 금액</th>
                         <th order="1" class="sort-label px-4 py-2 text-left" value=2>등록 상품 수</th>
-                        <th order="1" class="sort-label px-4 py-2 text-left" value=2>상세 보기</th>
+                        <th class="sort-label px-4 py-2 text-left">상세 보기</th>
                     </tr>
                 </thead>
                 <tbody>
