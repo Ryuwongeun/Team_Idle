@@ -16,10 +16,13 @@ function setTopBtn(i, value){
 
             console.log(val)
             if(value == 1) {
-                GetProductListRequest(`/GET/manage/product/search?id=${val}&name=${searchValue}`);
+                GetProductListRequest(`/GET/manage/product/search?id=${val}&name=${searchValue}&paging=1`);
             }
             else if(value == 2){
                 GetOrderListRequest(`/GET/manage/order/search?id=${val}&name=${searchValue}`);
+            }
+            else if(value == 3){
+                GetBrandListRequest(`/GET/manage/brand/search?id=${val}&name=${searchValue}`);
             }
         });
     });

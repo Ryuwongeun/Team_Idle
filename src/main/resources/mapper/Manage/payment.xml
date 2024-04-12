@@ -20,9 +20,18 @@
         left join delivery as d on p.payment_id = d.payment_id
         left join user_info as u on p.created_who = u.user_id
         <where>
+            CAST(p.created_who AS CHAR) = #{data.name}
+            or
             u.name LIKE concat('%',#{data.name},'%')
         </where>
-        order by time DESC
+        <if test="data.name != null">
+            ORDER BY
+            LOCATE(#{data.name}, p.created_who),
+            ABS(LENGTH(p.created_who) - LENGTH(#{data.name}))
+        </if>
+        <if test="data.name == null">
+            order by time DESC
+        </if>
         LIMIT #{data.paging}, #{data.pagingSize}
     </select>
 </mapper>
