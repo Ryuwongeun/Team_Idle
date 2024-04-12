@@ -50,7 +50,7 @@
 
 ### 백엔드
 - Spring Boot3 (실시간 API 처리)
-- Django (배치 작업 처리)
+- Django (배치 작업 처리) <a href="https://github.com/Kim-soung-won/DjangoWeb">Git Repository</a>
 - Maven
 - Mybatis
 
