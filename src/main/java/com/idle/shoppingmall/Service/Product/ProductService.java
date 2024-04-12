@@ -42,24 +42,25 @@ public class ProductService {
         return productMapper.findAllProductsPaged(size, offset);
     }
 
-    public List<Product> findAllByCreatedAtDesc() {
-        return productMapper.findAllByCreatedAtDesc();
+    public List<Product> findAllByCreatedAtDesc(int page, int size) {
+        int offset = page * size;
+        return productMapper.findAllByCreatedAtDesc(size, offset);
     }
 
-    public List<Product> findAllByPdPriceDescUp() {
-        return productMapper.findAllByPdPriceDescUp();
+    public List<Product> findAllByPdPriceDown(int page, int size) {
+        int offset = page * size;
+        return productMapper.findAllByPdPriceDown(size, offset);
     }
 
-    public List<Product> findAllByPdPriceDescDown() {
-        return productMapper.findAllByPdPriceDescDown();
+    public List<Product>findAllByLoveCountDesc(int page, int size){
+        int offset = page * size;
+        return productMapper.findAllByLoveCountDesc(size, offset);
     }
 
     public List<Product> findAllByPdName(String searchRequest) {
         return productMapper.findAllByPdName(searchRequest);
     }
-    public List<Product>findAllByLoveCountDesc(){
-        return productMapper.findAllByLoveCountDesc();
-    }
+
     @Transactional
     public void increaseLoveCountAndSave(Long productId) {
         Product product = productMapper.findById(productId);
@@ -78,5 +79,4 @@ public class ProductService {
             productMapper.update(product); // 'update' 메서드 사용
         }
     }
-
 } // end class
