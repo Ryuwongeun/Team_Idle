@@ -70,7 +70,7 @@
 ## USE FLOW 작성(20240215 ~ 202403)
 
 플랫폼의 전반적인 흐름을 파악하고, 각 기능의 사용자 행동과 시스템의 반응을 이해하기 위해 간략한 USE FLOW를 작성했습니다. 이를 통해 개발 과정에서 사용자 경험을 최적화하고, 팀원들 간의 의사소통을 원활하게 할 수 있었습니다.
-<a href="https://www.figma.com/file/1KFbkj4vKSujqFk2TNB6a2/FlowChart-Miniproject?type=whiteboard&node-id=0-1&t=Ikz0ZWOSbVphNdMF-0"></a>
+<a href="https://www.figma.com/file/1KFbkj4vKSujqFk2TNB6a2/FlowChart-Miniproject?type=whiteboard&node-id=0-1&t=Ikz0ZWOSbVphNdMF-0">Figma링크</a>
 ![image](https://github.com/Kim-soung-won/Team_Idle/assets/105148570/be17ad42-61e0-4f75-97d9-f52dad003d1a)
 
 
