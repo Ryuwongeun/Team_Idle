@@ -15,8 +15,8 @@
             justify-content: center;
             margin-top: 20px;
         }
-  
-        .pagination-container a {
+
+        .pagination-container button {
             display: inline-block;
             padding: 5px 10px;
             margin: 0 5px;
@@ -25,12 +25,12 @@
             text-decoration: none;
             color: #000;
         }
-  
-        .pagination-container a:hover {
+
+        .pagination-container button:hover {
             background-color: #ddd;
         }
-  
-        .pagination-container a.active {
+
+        .pagination-container button.active {
             background-color: pink;
             color: #fff;
         }
@@ -41,22 +41,30 @@
     <!-- Header -->
     <header class="bg-black py-7">
         <div class="container mx-auto flex justify-between items-center">
-          <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
             <nav class="flex justify-center space-x-4 w-full">
-            <a href="best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-            <a href="new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-            <a href="sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-            <a href="event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-            <a href="join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
-            <div class="mypage-dropdown">
-              <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
-              <div class="mypage-dropdown-content">
-                <a href="login">Login</a>
-                <a href="cart">Cart</a>
-                <a href="order">Order</a>
-              </div>
-            </div>
-          </nav>
+                <a href="/FE/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+                <a href="/FE/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+                <a href="/FE/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+                <a href="/FE/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+                <a href="/FE/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+                <div class="mypage-dropdown">
+                    <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+                    <div class="mypage-dropdown-content">
+                        <a href="/FE/login">Login</a>
+                        <a href="/FE/cart">Cart</a>
+                        <a href="/FE/order">Order</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    </nav>
+        </div>
+    </header>
+
+    </nav>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="검색...">
                 <button onclick="searchItem()">IDLE</button>
@@ -66,29 +74,30 @@
             <script src="/FE/JS/search.js"></script>
         </div>
         </div>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="검색...">
-            <button onclick="searchItem()">IDLE</button>
-        </div>
-
-        <div id="searchResults"></div>
-        <script src="/FE/JS/search.js"></script>
       </header>
 
     <main class="my-2">
+
         <div class="relative">
-            <image src="/FE/image/banner.jpg" type="banner.jpg">
+
+            <image src="/FE/image/banner.jpg" type="banner.jpg"/>
+
+
         </div>
-        <button id="salesCountBtn" class="bg-red-400 hover:bg-red-600 text-white font-bold py-1 px-2 rounded">판매 많은 순</button>
-        <button class="bg-red-400 hover:bg-red-600 text-white font-bold py-1 px-2 rounded">ddddd</button>
-        <button class="bg-red-400 hover:bg-red-600 text-white font-bold py-1 px-2 rounded">ddddd</button>
-        <button class="bg-red-400 hover:bg-red-600 text-white font-bold py-1 px-2 rounded">ddddd</button>
+
+        <button id="sellCount" class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full">판매 많은 순</button>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex flex-wrap -m-1" id="field">
+
             </div>
         </div>
-        <div class="pagination-container"></div>
+        <div class="pagination-container">
+
+        </div>
+
     </main>
+
+
     <footer class="bg-black py-4 mt-8">
         <div class="container mx-auto text-center text-pink-500">
             <div class="flex flex-col items-center">
@@ -101,8 +110,22 @@
         </div>
     </footer>
 
+
+
+
+
+    <script src="/JS/page.js"></script>
+
+    <script src="/JS/ListView/test.js"></script>
+
+
+
+
+
     <script src="/JS/WongeunJS/new.js"></script>
-    <script src="/FE/JS/page.js"></script>
+    <script src="/JS/sellCount.js"></script>
+
+
 
 </body>
 </html>

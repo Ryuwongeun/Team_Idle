@@ -2,6 +2,7 @@ package com.idle.shoppingmall.mapper.Product;
 
 
 import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -30,7 +31,11 @@ public interface ProductMapper {
 
     List<Product>findAllByLoveCountDesc(@Param("size") int size, @Param("offset") int offset);
 
-    List<Product> findAllByPdName(String name);
+    List<ProductSellCountResponse> findAllBySellCountDesc(@Param("offset") int offset, @Param("size") int size);
+
+    List<Product> findAllByPdName(String searchRequest);
+
+
 
    //제품의 count_love를 증가시키는 메서드
     void increaseLoveCount(@Param("productId")Long productId);
