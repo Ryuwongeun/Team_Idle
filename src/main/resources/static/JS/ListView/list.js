@@ -22,14 +22,14 @@ function GetListRequestTest(url) {
                 return `
                 <article class="bg-white shadow-md rounded overflow-hidden">
                     <img src="/IMG/thanks.gif"
-                         alt="Fashion item" class="w-full h-64 object-cover"
+                         alt="Fashion item"
+                         class="w-full h-64 object-cover"
                      onclick=redirectTo(${item.product_id})>
                          
                     <div class="p-4">
-                        <h3 class="font-semibold">상품ID : ${item.product_id}</h3>
                         <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
-                        <p class="text-gray-600">${item.pd_price}원</p> 
-                        <p class="text-gray-600">${item.count_love}</p>
+                        <p class="text-gray-600">${item.pd_price}원</p>
+                        <p class="text-gray-600" >${item.count_love}</p>
                     </div>
                 </article>`
             }).join('');

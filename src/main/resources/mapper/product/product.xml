@@ -38,15 +38,15 @@
     </select>
 
     <select id="findAllByCreatedAtDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product order by created_at desc
+        select * from product
+        order by created_at desc
+        limit #{size} offset #{offset}
     </select>
 
-    <select id="findAllByPdPriceDescUp" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product order by pd_price desc
-    </select>
-
-    <select id="findAllByPdPriceDescDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product order by pd_price asc
+    <select id="findAllByPdPriceDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product
+        order by pd_price asc
+        limit #{size} offset #{offset}
     </select>
 
     <select id="findAllByPdName" resultType="com.idle.shoppingmall.Entity.Product.Product">
@@ -62,9 +62,18 @@
         WHERE product_id = #{productId}
     </update>
     <select id="findAllByLoveCountDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product order by count_love desc
+        select * from product
+        order by count_love desc
+        limit #{size} offset #{offset}
     </select>
 
-
+    <select id="findAllBySellCountDesc" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse">
+        SELECT p.product_id, p.pd_name, p.pd_price, p.pd_category, p.brand_id,
+               SUM(pd.pd_sell_count) AS pd_sell_count, p.created_who, p.created_at, p.count_love
+        FROM product AS p
+                 INNER JOIN product_detail AS pd ON p.product_id = pd.product_id
+        GROUP BY p.product_id
+        ORDER BY pd_sell_count DESC;
+    </select>
 
 </mapper>

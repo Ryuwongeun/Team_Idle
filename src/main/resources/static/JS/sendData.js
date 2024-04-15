@@ -1,4 +1,4 @@
-async function sendData(url, data) {
+function sendData(url, data) {
     // Fetch API를 사용하여 서버에 POST 요청을 보냅니다.
     fetch(url, {
         method: 'POST', // 요청 방식 설정
