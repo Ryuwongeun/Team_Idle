@@ -82,11 +82,11 @@ public class CartApiController {
     } // delCart
 
     //장바구니 리스트
-    @PostMapping("/api/POST/cartLest")
-    public ResponseEntity<List<Cart>> getCartList(@RequestBody @Valid CartListRequest request) {
-        List<Cart> list = cartService.findByCartList(request.getCreated_who());
-        return ResponseEntity.ok().body(list);
-    }
+//    @PostMapping("/api/POST/cartLest")
+//    public ResponseEntity<List<Cart>> getCartList(@RequestBody @Valid CartListRequest request) {
+//        List<Cart> list = cartService.findByCartList(request.getCreated_who());
+//        return ResponseEntity.ok().body(list);
+//    }
 
 
 } // end class
