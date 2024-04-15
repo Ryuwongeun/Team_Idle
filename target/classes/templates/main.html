@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fashion E-commerce Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/FE/CSS/search.css">
+    <style>
+      .centered-image {
+        display: flex; /* flexbox 레이아웃을 사용 */
+        flex-direction: column; /* 요소들을 세로로 정렬 */
+        align-items: center; /* 가로 축에서 중앙 정렬 */
+        justify-content: center; /* 세로 축에서 중앙 정렬 (필요한 경우) */
+        text-align: center; /* 텍스트 중앙 정렬 */
+      }
+
+      .centered-image nav {
+        width: 100%; /* 네비게이션 바를 부모 요소의 전체 너비로 설정 */
+        display: flex; /* flexbox 레이아웃 사용 */
+        justify-content: center; /* 가로 축에서 중앙 정렬 */
+        gap: 10px; /* 링크 사이의 간격 */
+      }
+
+      .mypage-dropdown-content {
+        display: none; /* 기본적으로 드롭다운 컨텐츠를 숨김 */
+        position: absolute; /* 드롭다운 컨텐츠를 절대 위치로 설정 */
+      }
+
+      .mypage-dropdown:hover .mypage-dropdown-content {
+        display: block; /* 드롭다운 호버 시 컨텐츠를 보여줌 */
+      }
+    </style>
+
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/FE/CSS/main.css">
+    <link rel="stylesheet" href="/FE/CSS/popup.css">
+  </head>
+  <body class="bg-white text-gray-700">
+    <!-- Header -->
+
+
+    <header class="bg-black py-7">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <nav class="flex justify-center space-x-4 w-full">
+                <a href="/FE/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+                <a href="/FE/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+                <a href="/FE/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+                <a href="/FE/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+                <a href="/FE/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+                <div class="mypage-dropdown">
+                    <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+                    <div class="mypage-dropdown-content">
+                        <a href="/FE/login">Login</a>
+                        <a href="/FE/cart">Cart</a>
+                        <a href="/FE/order">Order</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="search-container">
+          <input type="text" id="searchInput" placeholder="검색...">
+          <button onclick="searchItem()">검색</button>
+        </div>
+
+        <div id="searchResults"></div>
+        <script src="/FE/JS/search.js"></script>
+
+      </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-0 bg-white-500">
+      <!-- Carousel -->
+        <!-- Carousel -->
+        <div class="relative">
+            <div class="sale-banner rounded-lg shadow-lg p-20 text-white font-bold text-4xl">
+                <div class="text-sm mt-2">04.15 (MON) - 04.22 (MON)</div>
+                <button class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full"
+                        onmouseover="this.style.backgroundColor='pink'; this.style.color='black';"
+                        onmouseout="this.style.backgroundColor='black'; this.style.color='pink';"
+                        onclick="window.location.href='/FE/sale';">
+                    ON SALE
+                </button>
+                <!-- 이미지를 표시할 공간 -->
+                <img id="banner-image" class="mt-4 w-full h-auto" src="" alt="banner image">
+            </div>
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                <span class="navigation-dot active"></span>
+                <span class="navigation-dot"></span>
+                <span class="navigation-dot"></span>
+            </div>
+        </div>
+
+        <script>
+            // 이미지 URL 배열 생성
+            const imageUrls = [
+                "https://source.unsplash.com/random/800x700/?fashion&sig=1",
+                "https://source.unsplash.com/random/800x700/?clothes&sig=2",
+                "https://source.unsplash.com/random/800x700/?clothes&sig=3"
+            ];
+
+            const bannerImage = document.getElementById('banner-image');
+            let currentImageIndex = 0;
+
+            function changeBannerImage() {
+                bannerImage.src = imageUrls[currentImageIndex];
+                currentImageIndex = (currentImageIndex + 1) % imageUrls.length; // 이미지를 순환하도록 인덱스 업데이트
+            }
+
+            // 첫 번째 이미지로 시작
+            changeBannerImage();
+
+            // 4초마다 이미지 변경
+            setInterval(changeBannerImage, 4000);
+        </script>
+
+
+        <!-- 팝업 내용 -->
+      <div id="popup-container" class="popup-container">
+        <div class="popup-content">           
+            <img src="/FE/image/popup.jpg" alt="Welcome Image">
+            <p>We have some amazing deals for you. Click 'Close' to explore our store.</p>
+            <button id="close-popup">Close</button>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="flex mt-8 space-x-4">
+        <label><a href="/FE/best" class="text-pink-600 hover:text-pink-800" id="best-link">BEST LOOK</a>
+        </label>
+      </div>
+
+      <!-- Featured Products -->
+        <main class="my-2">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="flex flex-wrap -m-4" id="field">
+                    <script>
+                        const products = Array.from({ length: 40 }, (_, i) => ({
+                            id: i,
+                            name: `Product ${i + 1}`,
+                            image: `https://source.unsplash.com/random/300x300/?model&sig=${Math.floor(Math.random() * 1000)}`,
+                            price: (Math.random() * 100).toFixed(2)
+                        }));
+
+                        document.write(products.map(product => `
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                        <div class="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                            <img class="lg:h-48 md:h-36 w-full object-cover object-center hover:scale-125 transition-transform duration-300" src="${product.image}" alt="product">
+                        </div>
+                    </div>
+                `).join(''));
+                    </script>
+                </div>
+            </div>
+        </main>
+
+
+
+        <script>
+      document.getElementById('best-link').addEventListener('dblclick', function(event) {
+        event.preventDefault();
+        window.open(event.target.href, '_self');
+      });
+    </script>
+
+    <script>
+      window.onload = function() {
+          // 팝업 요소 가져오기
+          var popupContainer = document.getElementById('popup-container');
+          var closeButton = document.getElementById('close-popup');
+
+          // 팝업 띄우기
+          popupContainer.style.display = 'block';
+
+          // 닫기 버튼 클릭 시 팝업 닫기
+          closeButton.onclick = function() {
+              popupContainer.style.display = 'none';
+          };
+
+          // 팝업 이외의 영역 클릭 시 팝업 닫기
+          document.body.addEventListener('click', function(event) {
+              if (event.target === popupContainer) {
+                  popupContainer.style.display = 'none';
+              }
+          });
+      };
+    </script>
+
+
+    <footer class="bg-black py-4 mt-5">
+      <div class="container mx-auto text-center text-pink-500">
+          <div class="flex flex-col items-center">
+              <div class="sm:w-2/3 text-center py-6">
+                  <p class="text-sm text-pink-500 font-bold">
+                      © 2024 IDLE Fashion Store
+                  </p>
+              </div>
+          </div>
+      </div>
+    </footer>
+
+</body>
+</html>
