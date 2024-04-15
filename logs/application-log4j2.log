@@ -8404,3 +8404,916 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 2024-04-15 15:57:41.706 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-04-15 15:57:41.709 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
 2024-04-15 15:57:41.722 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:24:10.885 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:24:10.910 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 16868 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:24:10.914 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:24:11.528 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:24:11.543 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:24:11.889 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:24:11.890 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:24:11.891 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:24:11.928 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:24:12.021 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:24:12.173 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10fb4575
+2024-04-15 16:24:12.175 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:24:12.200 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:24:12.237 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:24:12.263 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:24:12.435 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:24:12.710 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:24:12.714 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:24:13.414 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:24:13.631 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34e7cde3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2821da0a, org.springframework.security.web.context.SecurityContextHolderFilter@32182bf8, org.springframework.security.web.header.HeaderWriterFilter@4e312811, org.springframework.web.filter.CorsFilter@2ae07dbd, org.springframework.security.web.authentication.logout.LogoutFilter@4cd079fe, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@57c7ec30, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5032b2e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17d83fe4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b8cdc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79e28671, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e7ddf8d, org.springframework.security.web.access.ExceptionTranslationFilter@4088c5e6, org.springframework.security.web.access.intercept.AuthorizationFilter@3b38f032]
+2024-04-15 16:24:13.797 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:24:13.817 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.184 seconds (process running for 3.677)
+2024-04-15 16:24:16.853 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:24:16.853 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:24:16.854 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:25:40.347 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:25:40.348 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:25:40.352 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:25:43.486 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:25:43.515 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 17300 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:25:43.518 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:25:44.074 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:25:44.089 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:25:44.422 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:25:44.424 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:25:44.424 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:25:44.461 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:25:44.543 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:25:44.679 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10fb4575
+2024-04-15 16:25:44.680 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:25:44.703 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:25:44.739 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:25:44.759 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:25:44.904 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:25:45.180 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:25:45.185 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:25:45.877 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:25:46.071 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34e7cde3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2821da0a, org.springframework.security.web.context.SecurityContextHolderFilter@32182bf8, org.springframework.security.web.header.HeaderWriterFilter@4e312811, org.springframework.web.filter.CorsFilter@2ae07dbd, org.springframework.security.web.authentication.logout.LogoutFilter@4cd079fe, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@57c7ec30, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5032b2e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17d83fe4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b8cdc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79e28671, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e7ddf8d, org.springframework.security.web.access.ExceptionTranslationFilter@4088c5e6, org.springframework.security.web.access.intercept.AuthorizationFilter@3b38f032]
+2024-04-15 16:25:46.232 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:25:46.249 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.038 seconds (process running for 3.496)
+2024-04-15 16:25:46.339 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:25:46.339 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:25:46.341 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 2 ms
+2024-04-15 16:29:18.898 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:29:18.900 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:29:18.906 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:29:21.056 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:29:21.082 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 16480 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:29:21.084 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:29:21.620 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:29:21.635 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:29:21.996 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:29:21.998 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:29:21.998 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:29:22.043 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:29:22.131 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:29:22.276 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7d47dfed
+2024-04-15 16:29:22.277 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:29:22.301 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:29:22.338 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:29:22.363 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:29:22.521 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:29:22.804 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:29:22.808 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:29:23.506 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:29:23.709 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5c20841d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a1dd8eb, org.springframework.security.web.context.SecurityContextHolderFilter@22942eff, org.springframework.security.web.header.HeaderWriterFilter@3e574f9c, org.springframework.web.filter.CorsFilter@4def900a, org.springframework.security.web.authentication.logout.LogoutFilter@7d76d72a, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1ebb36df, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@c194c4e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4d529dbf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ebd6a0d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@714d7c7b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e1bfe66, org.springframework.security.web.access.ExceptionTranslationFilter@4f8641d1, org.springframework.security.web.access.intercept.AuthorizationFilter@5b58f639]
+2024-04-15 16:29:23.887 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:29:23.907 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.111 seconds (process running for 3.792)
+2024-04-15 16:29:44.207 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:29:44.207 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:29:44.208 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:29:53.801 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:29:53.803 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:29:53.810 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:29:55.414 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:29:55.439 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 2340 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:29:55.442 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:29:55.986 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:29:56.003 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:29:56.349 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:29:56.351 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:29:56.351 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:29:56.388 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:29:56.471 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:29:56.836 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69feb4d9
+2024-04-15 16:29:56.838 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:29:56.864 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:29:56.907 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:29:56.930 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:29:57.077 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:29:57.476 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:29:57.480 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:29:58.134 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:29:58.347 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47f8374, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22a8e87b, org.springframework.security.web.context.SecurityContextHolderFilter@ad6255e, org.springframework.security.web.header.HeaderWriterFilter@75aeec0a, org.springframework.web.filter.CorsFilter@b8c6406, org.springframework.security.web.authentication.logout.LogoutFilter@501b15b9, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6d4df1d2, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2821da0a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45649467, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@488c6c98, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2530baf6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bed434d, org.springframework.security.web.access.ExceptionTranslationFilter@77511e9c, org.springframework.security.web.access.intercept.AuthorizationFilter@1315befe]
+2024-04-15 16:29:58.517 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:29:58.536 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.393 seconds (process running for 3.863)
+2024-04-15 16:30:00.725 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:30:00.725 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:30:00.726 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:31:27.247 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:31:27.249 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:31:27.253 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:31:29.511 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:31:29.543 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 9000 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:31:29.546 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:31:30.123 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:31:30.137 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:31:30.472 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:31:30.474 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:31:30.474 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:31:30.518 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:31:30.604 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:31:30.749 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ac4915e
+2024-04-15 16:31:30.750 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:31:30.774 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:31:30.817 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:31:30.838 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:31:30.981 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:31:31.251 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:31:31.254 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:31:31.886 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:31:32.086 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70ca8e72, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34e7cde3, org.springframework.security.web.context.SecurityContextHolderFilter@77511e9c, org.springframework.security.web.header.HeaderWriterFilter@6e757f39, org.springframework.web.filter.CorsFilter@2821da0a, org.springframework.security.web.authentication.logout.LogoutFilter@d164938, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@3c577368, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2c8c42c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3b38f032, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75aeec0a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b8cdc4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ae07dbd, org.springframework.security.web.access.ExceptionTranslationFilter@35d145fb, org.springframework.security.web.access.intercept.AuthorizationFilter@2786b644]
+2024-04-15 16:31:32.246 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:31:32.265 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.033 seconds (process running for 3.58)
+2024-04-15 16:31:42.971 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:31:42.971 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:31:42.972 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:35:09.996 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:35:09.998 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:35:10.002 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:35:12.027 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:35:12.051 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 16408 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:35:12.055 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:35:12.612 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:35:12.628 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:35:12.987 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:35:12.989 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:35:12.989 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:35:13.027 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:35:13.111 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:35:13.255 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23648d2d
+2024-04-15 16:35:13.257 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:35:13.280 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:35:13.323 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:35:13.345 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:35:13.491 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:35:13.778 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:35:13.782 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:35:14.408 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:35:14.603 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e7ddf8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f8374, org.springframework.security.web.context.SecurityContextHolderFilter@79e28671, org.springframework.security.web.header.HeaderWriterFilter@32182bf8, org.springframework.web.filter.CorsFilter@22a8e87b, org.springframework.security.web.authentication.logout.LogoutFilter@1f4b8027, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5032b2e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34e7cde3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1315befe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@81a56b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c6c98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8c6406, org.springframework.security.web.access.ExceptionTranslationFilter@71f042b1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fd07a56]
+2024-04-15 16:35:14.762 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:35:14.779 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.027 seconds (process running for 3.61)
+2024-04-15 16:35:22.167 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:35:22.167 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:35:22.168 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:35:29.748 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:35:29.749 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:35:29.754 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:35:31.441 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:35:31.467 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 6800 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:35:31.471 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:35:32.025 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:35:32.050 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:35:32.433 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:35:32.435 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:35:32.435 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:35:32.474 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:35:32.559 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:35:32.724 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10fb4575
+2024-04-15 16:35:32.725 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:35:32.754 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:35:32.791 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:35:32.812 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:35:32.955 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:35:33.233 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:35:33.237 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:35:33.868 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:35:34.060 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34e7cde3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2821da0a, org.springframework.security.web.context.SecurityContextHolderFilter@32182bf8, org.springframework.security.web.header.HeaderWriterFilter@4e312811, org.springframework.web.filter.CorsFilter@2ae07dbd, org.springframework.security.web.authentication.logout.LogoutFilter@4cd079fe, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@57c7ec30, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5032b2e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17d83fe4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b8cdc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79e28671, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e7ddf8d, org.springframework.security.web.access.ExceptionTranslationFilter@4088c5e6, org.springframework.security.web.access.intercept.AuthorizationFilter@3b38f032]
+2024-04-15 16:35:34.252 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:35:34.274 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.093 seconds (process running for 3.636)
+2024-04-15 16:35:41.500 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:35:41.500 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:35:41.501 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:36:15.180 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:36:15.182 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:36:15.186 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:36:17.153 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:36:17.179 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 6548 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:36:17.182 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:36:17.783 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:36:17.799 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:36:18.152 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:36:18.154 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:36:18.154 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:36:18.203 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:36:18.293 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:36:18.445 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69feb4d9
+2024-04-15 16:36:18.448 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:36:18.473 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:36:18.510 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:36:18.531 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:36:18.682 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:36:18.968 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:36:18.972 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:36:19.615 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:36:19.820 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e7ddf8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f8374, org.springframework.security.web.context.SecurityContextHolderFilter@79e28671, org.springframework.security.web.header.HeaderWriterFilter@32182bf8, org.springframework.web.filter.CorsFilter@22a8e87b, org.springframework.security.web.authentication.logout.LogoutFilter@1f4b8027, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5032b2e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34e7cde3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1315befe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@81a56b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c6c98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8c6406, org.springframework.security.web.access.ExceptionTranslationFilter@71f042b1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fd07a56]
+2024-04-15 16:36:19.983 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:36:20.000 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.099 seconds (process running for 3.669)
+2024-04-15 16:36:26.717 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:36:26.717 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:36:26.718 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:37:15.663 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:37:15.665 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:37:15.671 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:37:17.604 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:37:17.633 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 1568 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:37:17.636 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:37:18.163 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:37:18.178 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:37:18.530 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:37:18.531 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:37:18.532 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:37:18.569 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:37:18.652 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:37:18.797 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23648d2d
+2024-04-15 16:37:18.799 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:37:18.823 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:37:18.860 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:37:18.883 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:37:19.032 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:37:19.325 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:37:19.329 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:37:19.960 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:37:20.152 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e7ddf8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f8374, org.springframework.security.web.context.SecurityContextHolderFilter@79e28671, org.springframework.security.web.header.HeaderWriterFilter@32182bf8, org.springframework.web.filter.CorsFilter@22a8e87b, org.springframework.security.web.authentication.logout.LogoutFilter@1f4b8027, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5032b2e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34e7cde3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1315befe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@81a56b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c6c98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8c6406, org.springframework.security.web.access.ExceptionTranslationFilter@71f042b1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fd07a56]
+2024-04-15 16:37:20.299 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:37:20.316 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 2.977 seconds (process running for 3.488)
+2024-04-15 16:37:21.519 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:37:21.519 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:37:21.520 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:37:36.195 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:37:36.196 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:37:36.200 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:37:38.012 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:37:38.037 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 9380 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:37:38.040 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:37:38.560 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:37:38.574 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:37:38.914 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:37:38.916 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:37:38.916 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:37:38.953 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:37:39.038 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:37:39.183 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23648d2d
+2024-04-15 16:37:39.184 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:37:39.207 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:37:39.245 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:37:39.269 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:37:39.420 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:37:39.704 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:37:39.707 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:37:40.354 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:37:40.553 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e7ddf8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f8374, org.springframework.security.web.context.SecurityContextHolderFilter@79e28671, org.springframework.security.web.header.HeaderWriterFilter@32182bf8, org.springframework.web.filter.CorsFilter@22a8e87b, org.springframework.security.web.authentication.logout.LogoutFilter@1f4b8027, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5032b2e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34e7cde3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1315befe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@81a56b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c6c98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8c6406, org.springframework.security.web.access.ExceptionTranslationFilter@71f042b1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fd07a56]
+2024-04-15 16:37:40.708 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:37:40.725 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 2.97 seconds (process running for 3.494)
+2024-04-15 16:37:41.207 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:37:41.207 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:37:41.208 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:38:06.294 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:38:06.297 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:38:06.307 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:38:07.980 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:38:08.004 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 8764 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:38:08.006 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:38:08.537 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:38:08.553 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:38:08.891 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:38:08.892 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:38:08.892 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:38:08.929 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:38:09.017 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:38:09.161 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23648d2d
+2024-04-15 16:38:09.162 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:38:09.187 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:38:09.226 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:38:09.247 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:38:09.399 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:38:09.679 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:38:09.683 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:38:10.305 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:38:10.501 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e7ddf8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f8374, org.springframework.security.web.context.SecurityContextHolderFilter@79e28671, org.springframework.security.web.header.HeaderWriterFilter@32182bf8, org.springframework.web.filter.CorsFilter@22a8e87b, org.springframework.security.web.authentication.logout.LogoutFilter@1f4b8027, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5032b2e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34e7cde3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1315befe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@81a56b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c6c98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8c6406, org.springframework.security.web.access.ExceptionTranslationFilter@71f042b1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fd07a56]
+2024-04-15 16:38:10.650 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:38:10.674 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 2.947 seconds (process running for 3.453)
+2024-04-15 16:38:14.283 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:38:14.283 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:38:14.284 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:38:38.666 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:38:38.668 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:38:38.675 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:38:40.360 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:38:40.386 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 15404 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:38:40.391 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:38:40.942 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:38:40.959 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:38:41.325 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:38:41.327 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:38:41.327 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:38:41.364 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:38:41.451 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:38:41.597 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69feb4d9
+2024-04-15 16:38:41.599 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:38:41.623 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:38:41.662 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:38:41.683 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:38:41.847 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:38:42.129 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:38:42.132 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:38:42.797 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:38:42.997 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47f8374, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22a8e87b, org.springframework.security.web.context.SecurityContextHolderFilter@ad6255e, org.springframework.security.web.header.HeaderWriterFilter@75aeec0a, org.springframework.web.filter.CorsFilter@b8c6406, org.springframework.security.web.authentication.logout.LogoutFilter@501b15b9, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6d4df1d2, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2821da0a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45649467, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@488c6c98, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2530baf6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bed434d, org.springframework.security.web.access.ExceptionTranslationFilter@77511e9c, org.springframework.security.web.access.intercept.AuthorizationFilter@1315befe]
+2024-04-15 16:38:43.144 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:38:43.160 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.071 seconds (process running for 3.528)
+2024-04-15 16:38:43.398 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:38:43.398 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:38:43.399 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 0 ms
+2024-04-15 16:38:55.894 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:38:55.896 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:38:55.903 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:38:58.056 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:38:58.086 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 15872 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:38:58.090 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:38:58.614 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:38:58.629 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:38:58.970 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:38:58.972 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:38:58.972 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:38:59.009 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:38:59.095 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:38:59.239 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23648d2d
+2024-04-15 16:38:59.240 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:38:59.264 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:38:59.302 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:38:59.324 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:38:59.486 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:38:59.766 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:38:59.770 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:39:00.425 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:39:00.634 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ae07dbd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e7ddf8d, org.springframework.security.web.context.SecurityContextHolderFilter@6b8cdc4, org.springframework.security.web.header.HeaderWriterFilter@77511e9c, org.springframework.web.filter.CorsFilter@47f8374, org.springframework.security.web.authentication.logout.LogoutFilter@202b5293, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@2c8c42c, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@70ca8e72, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6fd07a56, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ad6255e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@81a56b2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22a8e87b, org.springframework.security.web.access.ExceptionTranslationFilter@4e312811, org.springframework.security.web.access.intercept.AuthorizationFilter@7d76d72a]
+2024-04-15 16:39:00.785 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:39:00.802 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.014 seconds (process running for 3.468)
+2024-04-15 16:39:02.466 [ INFO] [nio-9090-exec-5] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:39:02.466 [ INFO] [nio-9090-exec-5] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:39:02.467 [ INFO] [nio-9090-exec-5] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:39:12.770 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:39:12.772 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:39:12.777 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:39:14.491 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:39:14.516 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 10676 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:39:14.519 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:39:15.033 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:39:15.047 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 8 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:39:15.381 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:39:15.382 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:39:15.383 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:39:15.421 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:39:15.509 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:39:15.651 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23648d2d
+2024-04-15 16:39:15.652 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:39:15.677 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:39:15.717 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:39:15.740 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:39:15.894 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:39:16.168 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:39:16.172 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:39:16.819 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:39:17.012 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e7ddf8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f8374, org.springframework.security.web.context.SecurityContextHolderFilter@79e28671, org.springframework.security.web.header.HeaderWriterFilter@32182bf8, org.springframework.web.filter.CorsFilter@22a8e87b, org.springframework.security.web.authentication.logout.LogoutFilter@1f4b8027, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5032b2e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34e7cde3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1315befe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@81a56b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c6c98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8c6406, org.springframework.security.web.access.ExceptionTranslationFilter@71f042b1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fd07a56]
+2024-04-15 16:39:17.167 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:39:17.184 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 2.945 seconds (process running for 3.385)
+2024-04-15 16:39:18.780 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:39:18.781 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:39:18.782 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:40:08.466 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:40:08.468 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:40:08.475 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:40:10.218 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:40:10.244 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 1660 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:40:10.247 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:40:10.775 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:40:10.791 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:40:11.147 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:40:11.148 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:40:11.148 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:40:11.188 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:40:11.284 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:40:11.429 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@10fb4575
+2024-04-15 16:40:11.430 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:40:11.454 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:40:11.489 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:40:11.511 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:40:11.663 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:40:11.941 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:40:11.944 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:40:12.595 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:40:12.798 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@34e7cde3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2821da0a, org.springframework.security.web.context.SecurityContextHolderFilter@32182bf8, org.springframework.security.web.header.HeaderWriterFilter@4e312811, org.springframework.web.filter.CorsFilter@2ae07dbd, org.springframework.security.web.authentication.logout.LogoutFilter@4cd079fe, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@57c7ec30, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5032b2e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17d83fe4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6b8cdc4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79e28671, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e7ddf8d, org.springframework.security.web.access.ExceptionTranslationFilter@4088c5e6, org.springframework.security.web.access.intercept.AuthorizationFilter@3b38f032]
+2024-04-15 16:40:12.948 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:40:12.972 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.009 seconds (process running for 3.471)
+2024-04-15 16:40:14.662 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:40:14.662 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:40:14.663 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:40:37.320 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:40:37.323 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:40:37.331 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:40:39.130 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:40:39.157 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 9896 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:40:39.160 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:40:39.698 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:40:39.713 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:40:40.067 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:40:40.068 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:40:40.069 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:40:40.105 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:40:40.190 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:40:40.356 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@119d4443
+2024-04-15 16:40:40.357 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:40:40.382 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:40:40.424 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:40:40.450 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:40:40.606 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:40:40.901 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:40:40.905 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:40:41.539 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:40:41.736 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c194c4e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bd39edc, org.springframework.security.web.context.SecurityContextHolderFilter@3e574f9c, org.springframework.security.web.header.HeaderWriterFilter@6fc1a1d5, org.springframework.web.filter.CorsFilter@3ba50851, org.springframework.security.web.authentication.logout.LogoutFilter@2786b644, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6bed434d, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@1ebb36df, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3ba015b1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@218fc40d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22942eff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5c20841d, org.springframework.security.web.access.ExceptionTranslationFilter@1e7797db, org.springframework.security.web.access.intercept.AuthorizationFilter@753c7411]
+2024-04-15 16:40:41.895 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:40:41.916 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.056 seconds (process running for 3.582)
+2024-04-15 16:40:42.278 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:40:42.278 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:40:42.280 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:45:21.675 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:45:21.677 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:45:21.683 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:45:25.984 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:45:26.009 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 11056 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:45:26.012 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:45:26.576 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:45:26.592 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:45:26.942 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:45:26.944 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:45:26.944 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:45:26.981 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:45:27.073 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:45:27.247 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69feb4d9
+2024-04-15 16:45:27.248 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:45:27.278 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:45:27.326 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:45:27.354 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:45:27.521 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:45:27.820 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:45:27.824 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:45:28.482 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:45:28.674 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47f8374, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22a8e87b, org.springframework.security.web.context.SecurityContextHolderFilter@ad6255e, org.springframework.security.web.header.HeaderWriterFilter@75aeec0a, org.springframework.web.filter.CorsFilter@b8c6406, org.springframework.security.web.authentication.logout.LogoutFilter@501b15b9, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@6d4df1d2, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2821da0a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@45649467, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@488c6c98, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2530baf6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bed434d, org.springframework.security.web.access.ExceptionTranslationFilter@77511e9c, org.springframework.security.web.access.intercept.AuthorizationFilter@1315befe]
+2024-04-15 16:45:28.832 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:45:28.849 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.131 seconds (process running for 3.601)
+2024-04-15 16:45:31.659 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:45:31.660 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:45:31.661 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms
+2024-04-15 16:45:36.995 [ERROR] [nio-9090-exec-7] o.t.TemplateEngine             : process              : 1141       : [THYMELEAF][http-nio-9090-exec-7] Exception processing template "login": Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:181)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-04-15 16:45:36.997 [ERROR] [nio-9090-exec-7] .c.C.[.[.[.[dispatcherServlet] : log                  : 175        : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:181)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-04-15 16:45:39.556 [ERROR] [nio-9090-exec-1] o.t.TemplateEngine             : process              : 1141       : [THYMELEAF][http-nio-9090-exec-1] Exception processing template "login": Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:181)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-04-15 16:45:39.557 [ERROR] [nio-9090-exec-1] .c.C.[.[.[.[dispatcherServlet] : log                  : 175        : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1077)
+	at org.thymeleaf.spring6.view.ThymeleafView.renderFragment(ThymeleafView.java:372)
+	at org.thymeleaf.spring6.view.ThymeleafView.render(ThymeleafView.java:192)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1431)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1167)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:221)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter.doFilterInternal(OAuth2AuthorizationRequestRedirectFilter.java:181)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2024-04-15 16:46:04.489 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:46:04.491 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-15 16:46:04.496 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
+2024-04-15 16:46:08.295 [ INFO] [kground-preinit] o.h.v.i.u.Version              : <clinit>             : 21         : HV000001: Hibernate Validator 8.0.1.Final
+2024-04-15 16:46:08.320 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarting          : 50         : Starting ShoppingMallApplication using Java 17.0.8.1 with PID 8196 (C:\Users\KIMSW\Desktop\project\ShoppingMall\target\classes started by KIMSW in C:\Users\KIMSW\Desktop\project\ShoppingMall)
+2024-04-15 16:46:08.323 [ INFO] [           main] c.i.s.ShoppingMallApplication  : ogStartupProfileInfo : 654        : No active profile set, falling back to 1 default profile: "default"
+2024-04-15 16:46:08.904 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 139        : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-15 16:46:08.921 [ INFO] [           main] epositoryConfigurationDelegate : gisterRepositoriesIn : 208        : Finished Spring Data repository scanning in 10 ms. Found 0 JPA repository interfaces.
+2024-04-15 16:46:09.278 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Initializing ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:46:09.280 [ INFO] [           main] o.a.c.c.StandardService        : log                  : 173        : Starting service [Tomcat]
+2024-04-15 16:46:09.280 [ INFO] [           main] o.a.c.c.StandardEngine         : log                  : 173        : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-04-15 16:46:09.323 [ INFO] [           main] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring embedded WebApplicationContext
+2024-04-15 16:46:09.425 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 110        : HikariPool-1 - Starting...
+2024-04-15 16:46:09.584 [ INFO] [           main] c.z.h.p.HikariPool             : checkFailFast        : 565        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@69feb4d9
+2024-04-15 16:46:09.585 [ INFO] [           main] c.z.h.HikariDataSource         : getConnection        : 123        : HikariPool-1 - Start completed.
+2024-04-15 16:46:09.615 [ INFO] [           main] o.h.j.i.u.LogHelper            : tenceUnitInformation : 31         : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-15 16:46:09.653 [ INFO] [           main] o.h.Version                    : logVersion           : 44         : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-15 16:46:09.674 [ INFO] [           main] o.h.c.i.RegionFactoryInitiator : initiateService      : 50         : HHH000026: Second-level cache disabled
+2024-04-15 16:46:09.824 [ INFO] [           main] .j.p.SpringPersistenceUnitInfo : addTransformer       : 87         : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-15 16:46:10.101 [ INFO] [           main] e.t.j.p.i.JtaPlatformInitiator : initiateService      : 58         : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-15 16:46:10.104 [ INFO] [           main] tainerEntityManagerFactoryBean : EntityManagerFactory : 437        : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-15 16:46:10.732 [ WARN] [           main] figuration$JpaWebConfiguration : gerInViewInterceptor : 232        : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-15 16:46:10.919 [ INFO] [           main] s.w.DefaultSecurityFilterChain : <init>               : 54         : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e7ddf8d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f8374, org.springframework.security.web.context.SecurityContextHolderFilter@79e28671, org.springframework.security.web.header.HeaderWriterFilter@32182bf8, org.springframework.web.filter.CorsFilter@22a8e87b, org.springframework.security.web.authentication.logout.LogoutFilter@1f4b8027, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@5032b2e, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@34e7cde3, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1315befe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@81a56b2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@488c6c98, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b8c6406, org.springframework.security.web.access.ExceptionTranslationFilter@71f042b1, org.springframework.security.web.access.intercept.AuthorizationFilter@6fd07a56]
+2024-04-15 16:46:11.075 [ INFO] [           main] o.a.c.h.Http11NioProtocol      : log                  : 173        : Starting ProtocolHandler ["http-nio-9090"]
+2024-04-15 16:46:11.091 [ INFO] [           main] c.i.s.ShoppingMallApplication  : logStarted           : 56         : Started ShoppingMallApplication in 3.056 seconds (process running for 3.514)
+2024-04-15 16:46:11.414 [ INFO] [nio-9090-exec-1] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-04-15 16:46:11.414 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
+2024-04-15 16:46:11.415 [ INFO] [nio-9090-exec-1] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 1 ms

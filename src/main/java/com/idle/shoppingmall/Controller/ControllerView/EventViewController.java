@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class EventViewController {
 
-    @GetMapping("/FE/event")
+    @GetMapping("/event")
     String event() {
 
         return "FE/event";
