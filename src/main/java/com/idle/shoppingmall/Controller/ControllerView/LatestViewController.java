@@ -6,7 +6,7 @@ import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.Service.CommentService;
 import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,20 +21,6 @@ public class LatestViewController {
     private  final CommentService commentService;
     private final int PAGESIZE = 12;
 
-    //최신순
-    @PostMapping("/view/POST/productLatest")
-    public List<ProductListResponse> productLatest(@RequestParam(defaultValue = "0") int page,
-                                                   @RequestParam(defaultValue = "12") int size) {
-        List<Product> productLatest = productService.findAllByCreatedAtDesc(page, size);
-        List<ProductListResponse> list = new ArrayList<>();
-        for(Product product : productLatest) {
-            list.add(new ProductListResponse(666, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                    product.getCreated_at(), product.getCount_love()));
-        }
-        System.out.println("list : " + list.get(0).getCreated_at());
-        return list; // List<ProductListResponse> 객체를 직접 반환
-    }
 
     //가격순
     @PostMapping("/view/POST/productLatestPriceDown")
@@ -62,6 +48,17 @@ public class LatestViewController {
                     product.getCreated_at(), product.getCount_love()));
         }
         return list;
+    }
+    //최신순
+    @PostMapping("/view/POST/CreatedAt")
+    public List<Product> findAllByCreatedAtDesc(@RequestParam(defaultValue = "0") int page){
+        int startPage = (page-1) * PAGESIZE;
+        System.out.println("startPage : "+startPage);
+        int pageSize = PAGESIZE; // 변수 이름을 'endPage'에서 'pageSize'로 변경하여, 페이지 크기를 명확히 함.
+        System.out.println("pageSize : "+pageSize);
+        List<Product> productsWithCreatedAt = productService.findAllByCreatedAtDesc(startPage, pageSize);
+        System.out.println("size : "+ productsWithCreatedAt.size());
+        return productsWithCreatedAt; // List<ProductListResponse> 객체를 직접 반환
     }
 
 

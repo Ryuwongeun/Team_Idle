@@ -17,7 +17,7 @@ function GetListRequest(url){
         .then(response => response.json())
         .then(data => {
             // Thymeleaf로 직접 데이터 추가
-            const LatestViewController = document.getElementById('field');
+            const LatestViewController = document.getElementById('qwe12');
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
             let productsHtml = data.map(item => {
                 return `
