@@ -1,8 +1,7 @@
 function generatePagination(totalPages) {
     const paginationContainer = document.querySelector('.pagination-container');
     for (let i = 1; i <= totalPages; i++) {
-        const pageLink = document.createElement('a');
-        pageLink.href = '#';
+        const pageLink = document.createElement('button');
         pageLink.textContent = i;
         pageLink.addEventListener('click', () => handlePageClick(i));
         paginationContainer.appendChild(pageLink);
@@ -10,7 +9,8 @@ function generatePagination(totalPages) {
 }
 
 function handlePageClick(pageNumber) {
-    const paginationLinks = document.querySelectorAll('.pagination-container a');
+    const paginationLinks = document.querySelectorAll('.pagination-container button');
+    GetListRequest(`/view/GET/sellCount?page=${pageNumber}`);
     paginationLinks.forEach(link => link.classList.remove('active'));
     paginationLinks[pageNumber - 1].classList.add('active');
     console.log('Clicked page:', pageNumber);

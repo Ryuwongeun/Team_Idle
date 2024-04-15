@@ -59,9 +59,8 @@ public class ProductService {
         return productMapper.findAllByLoveCountDesc(size, offset);
     }
 
-    public List<ProductSellCountResponse> findAllBySellCountDesc(int page, int size) {
-        int offset = page * size;
-        return productMapper.findAllBySellCountDesc(offset, size);
+    public List<ProductSellCountResponse> findAllBySellCountDesc(int startPage, int endPage) {
+        return productMapper.findAllBySellCountDesc(startPage, endPage);
     }
     public List<Product> findAllByPdName(String searchRequest) {
         return productMapper.findAllByPdName(searchRequest);

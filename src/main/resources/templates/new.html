@@ -15,8 +15,8 @@
             justify-content: center;
             margin-top: 20px;
         }
-  
-        .pagination-container a {
+
+        .pagination-container button {
             display: inline-block;
             padding: 5px 10px;
             margin: 0 5px;
@@ -25,12 +25,12 @@
             text-decoration: none;
             color: #000;
         }
-  
-        .pagination-container a:hover {
+
+        .pagination-container button:hover {
             background-color: #ddd;
         }
-  
-        .pagination-container a.active {
+
+        .pagination-container button.active {
             background-color: pink;
             color: #fff;
         }
@@ -66,45 +66,27 @@
             <script src="/FE/JS/search.js"></script>
         </div>
         </div>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="검색...">
-            <button onclick="searchItem()">IDLE</button>
-        </div>
-
-        <div id="searchResults"></div>
-        <script src="/FE/JS/search.js"></script>
       </header>
 
     <main class="my-2">
 
         <div class="relative">
 
-            <image src="/FE/image/banner.jpg" type="banner.jpg">
+            <image src="/FE/image/banner.jpg" type="banner.jpg"/>
 
 
         </div>
-        <button id="sellCount" class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full">판매 많은 순</button>
 
+        <button id="sellCount" class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full">판매 많은 순</button>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex flex-wrap -m-1" id="field">
 
-                <script src="/src/main/resources/static/FE/JS/product.js"></script>
-
-            <div class="flex flex-wrap -m-1">
-              <script src="/FE/JS/product.js"></script>
-
-
-            <div class="flex flex-wrap -m-1" id="field">
-
-                <script src="/static/FE/JS/product.js"></script>
-
-
-
-              <script src="/JS/product.js"></script>
-
             </div>
         </div>
-        <div class="pagination-container"></div>
+        <div class="pagination-container">
+
+        </div>
+
     </main>
 
 
@@ -123,8 +105,6 @@
 
 
 
-    <script src="/JS/productCardList.js"></script>
-
 
     <script src="/FE/JS/page.js"></script>
 
@@ -135,7 +115,6 @@
 
 
     <script src="/JS/WongeunJS/new.js"></script>
-    <script src="/FE/JS/page.js"></script>
     <script src="/JS/sellCount.js"></script>
 
 
