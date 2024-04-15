@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class OrderViewController {
 
-    @GetMapping("/FE/order")
+    @GetMapping("/order")
     String order() {
 
 
-        return "/FE/order";
+        return "FE/order";
     }  // order
 
 } // end class

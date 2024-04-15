@@ -1,25 +1,27 @@
 const createdAtBtn = document.getElementById('createdAt');
-let page = 1;
+let page1 = 1;
 createdAtBtn.addEventListener('click', () => {
     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
     console.log('createdAt clicked'); // 'createdAtBtn' 클릭 확인
-    GetListRequest(`/view/GET/CreatedAt`);
+    GetListRequest(`/view/GET/CreatedAt?page=${page1}`);
 });
 
-
-function redirectTo(id){
-    location.href=`/product/?id=${id}`;
-}
 
 function GetListRequest(url){
     const headers = {
         'Content-Type': 'application/json',
     };
     fetch(url, {
-        method: 'POST',
-        headers: headers
+        method:'POST',
+        headers: {'Content-Type': 'application/json',}
     })
-        .then(response => response.json())
+
+        .then(response => {
+            if(!response.ok){
+                throw new Error(`HTTP error ! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             // Thymeleaf로 직접 데이터 추가
             const LatestViewController = document.getElementById('field');
@@ -33,10 +35,13 @@ function GetListRequest(url){
                     <div class="p-4">
                         <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
                         <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
-                        <p class="text-gray-600">${item.pd_price}원</p>
-                        <p class="text-gray-600">${item.created_at}</p>
-                        
-                        
+                        <p class="text-gray-600">${item.pd_price}원</p>                 
+                     
+                        <p class="text-gray-600" >${item.product_id}</p>
+                        <p class="text-gray-600" >${item.created_at}</p>
+
+
+
                     </div>
                 </article>
             `;

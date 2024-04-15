@@ -1,5 +1,5 @@
 window.onload = () => {
-    GetListRequest(`/view/POST/productLatest`);
+    GetListRequest(`/view/GET/CreatedAt?page=1`);
 }
 
 function redirectTo(id){
