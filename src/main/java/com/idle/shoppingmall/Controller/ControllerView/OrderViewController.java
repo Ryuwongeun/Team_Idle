@@ -13,7 +13,7 @@ public class OrderViewController {
     String order() {
 
 
-        return "/FE/order";
+        return "FE/order";
     }  // order
 
 } // end class

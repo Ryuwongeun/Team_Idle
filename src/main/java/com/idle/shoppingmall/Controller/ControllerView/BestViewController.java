@@ -12,7 +12,7 @@ public class BestViewController {
     @GetMapping("/FE/best")
     String bestList() {
 
-        return "/FE/best";
+        return "FE/best";
     } // bestList
 
 } // end class

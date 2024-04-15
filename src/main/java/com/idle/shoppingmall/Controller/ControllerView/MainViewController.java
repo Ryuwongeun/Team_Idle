@@ -21,13 +21,13 @@ public class MainViewController {
     @GetMapping("/FE/login")
     String login() {
 
-        return "/FE/login";
+        return "FE/login";
     } // login
 
     @GetMapping("/FE/join")
     String join(HttpSession session) {
         System.out.println("user : "+session.getAttribute("user"));
-        return "/FE/join";
+        return "FE/join";
     } // join
 
 
