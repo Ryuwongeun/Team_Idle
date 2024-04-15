@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.Controller.ControllerView.상품창;
+package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Service.Product.ProductService;

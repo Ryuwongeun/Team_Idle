@@ -16,4 +16,10 @@ public class OrderViewController {
         return "FE/order";
     }  // order
 
+    @GetMapping("/buy")
+    String buy() {
+        return "FE/buy";
+    }
+
+
 } // end class

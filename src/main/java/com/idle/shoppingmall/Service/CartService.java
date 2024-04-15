@@ -1,10 +1,10 @@
 package com.idle.shoppingmall.Service;
 
 
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.CartListResponse;
 import com.idle.shoppingmall.Entity.Cart;
 import com.idle.shoppingmall.Entity.Key.CartKey;
 import com.idle.shoppingmall.mapper.CartMapper;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,7 +48,7 @@ public class CartService {
 
     } // deleteCart
 
-    public List<Cart> findByCartList(Long createdWho) {
+    public List<CartListResponse> findByCartList(Long createdWho) {
         return cartMapper.findByCartList(createdWho);
     }
 } // end class

@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.mapper;
 
 
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.CartListResponse;
 import com.idle.shoppingmall.Entity.Cart;
 import com.idle.shoppingmall.Entity.Key.CartKey;
 import org.apache.ibatis.annotations.Mapper;
@@ -8,7 +9,6 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 
 @Mapper
 @Repository
@@ -23,5 +23,5 @@ public interface CartMapper {
 
     void deleteCart(@Param("remove")Cart cartDTO );
 
-    List<Cart> findByCartList(Long createdWho);
+    List<CartListResponse> findByCartList(@Param("createdWho") Long createdWho);
 } // interface
