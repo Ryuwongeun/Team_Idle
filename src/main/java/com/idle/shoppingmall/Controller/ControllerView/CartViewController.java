@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CartViewController {
 
-    @GetMapping("FE/cart")
+    @GetMapping("/cart")
     String cartList() {
-
-
-
         return "FE/cart";
     } // cartList
 

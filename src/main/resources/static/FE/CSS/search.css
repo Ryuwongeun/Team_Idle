@@ -4,6 +4,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.top-menu-bar{
+    position: fixed; /* 고정 위치 */
+    z-index: 10;
+}
+
 .search-container {
     position: fixed; /* 고정 위치 */
     top: 20px; /* 상단에서 10px 떨어진 곳에 위치 */
