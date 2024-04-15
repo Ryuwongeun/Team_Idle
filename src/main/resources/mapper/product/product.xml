@@ -37,11 +37,6 @@
         limit #{size} offset #{offset}
     </select>
 
-    <select id="findAllByCreatedAtDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product
-        order by created_at desc
-        LIMIT #{offset}, #{size};
-    </select>
 
     <select id="findAllByPdPriceDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
@@ -75,6 +70,12 @@
                  INNER JOIN product_detail AS pd ON p.product_id = pd.product_id
         GROUP BY p.product_id
         ORDER BY pd_sell_count DESC
+        LIMIT #{offset}, #{size};
+    </select>
+
+    <select id="findAllByCreatedAtDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product
+        order by created_at desc
         LIMIT #{offset}, #{size};
     </select>
 

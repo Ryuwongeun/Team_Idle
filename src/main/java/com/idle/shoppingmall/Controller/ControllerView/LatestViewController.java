@@ -21,6 +21,20 @@ public class LatestViewController {
     private final int PAGESIZE = 12;
 
 
+
+
+    //판매 많은 순
+    @PostMapping("/view/GET/sellCount")
+    public List<ProductSellCountResponse> findAllBySellCountDesc(@RequestParam(defaultValue = "0") int page) {
+        int startPage = (page-1)*PAGESIZE;
+        System.out.println("startPage : "+startPage);
+        int endPage = PAGESIZE;
+        System.out.println("endPage : "+endPage);
+        List<ProductSellCountResponse> productsWithSellCount = productService.findAllBySellCountDesc(startPage, endPage);
+        System.out.println("size : "+productsWithSellCount.size());
+        return productsWithSellCount;
+    }
+
     //최신순
     @PostMapping("/view/GET/CreatedAt")
     public List<Product> findAllByCreatedAtDesc(@RequestParam(defaultValue = "0") int page){
@@ -32,7 +46,6 @@ public class LatestViewController {
         System.out.println("size : "+ productsWithCreatedAt.size());
         return productsWithCreatedAt; // List<ProductListResponse> 객체를 직접 반환
     }
-
 
     //가격순
     @PostMapping("/view/POST/productLatestPriceDown")
@@ -63,18 +76,6 @@ public class LatestViewController {
         return list;
     }
 
-
-    //판매 많은 순
-    @PostMapping("/view/GET/sellCount")
-    public List<ProductSellCountResponse> findAllBySellCountDesc(@RequestParam(defaultValue = "0") int page) {
-        int startPage = (page-1)*PAGESIZE;
-        System.out.println("startPage : "+startPage);
-        int endPage = PAGESIZE;
-        System.out.println("endPage : "+endPage);
-        List<ProductSellCountResponse> productsWithSellCount = productService.findAllBySellCountDesc(startPage, endPage);
-        System.out.println("size : "+productsWithSellCount.size());
-        return productsWithSellCount;
-    }
 
     //댓글순
     @PostMapping("/view/POST/commentLatest/")

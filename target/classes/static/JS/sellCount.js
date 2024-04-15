@@ -38,6 +38,7 @@ function GetListRequest(url) {
                         <p class="text-gray-600">${item.pd_price}원</p>
                         <p class="text-gray-600" >${item.count_love}</p>
                         <p class="text-gray-600" >${item.pd_sell_count}</p>
+                        
                     </div>
                 </article>`
             }).join('');
