@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.idle.shoppingmall.mapper.Product.ProductDetailMapper">
+    <insert id="saveProductDetail">
+        insert into product_detail(product_id, size, pd_before_count, pd_sell_count)
+        values (#{productDetail.product_id}, #{productDetail.size}, #{productDetail.pd_before_count}, #{productDetail.pd_sell_count})
+    </insert>
+
+    <select id="findBySize" parameterType="com.idle.shoppingmall.Entity.Key.DetailKey" resultType="com.idle.shoppingmall.Entity.Product.ProductDetail">
+        select * from product_detail where product_id=#{key.product_id} and size=#{key.size}
+    </select>
+
+    <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.ProductDetail">
+        update product_detail set pd_before_count = #{Product.pd_before_count} where product_id=#{Product.product_id} AND size = #{Product.size}
+    </update>
+</mapper>
