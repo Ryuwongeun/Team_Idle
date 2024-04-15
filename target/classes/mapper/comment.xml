@@ -7,13 +7,4 @@
         insert into comment(created_who,product_id,content,created_at)
         values(#{comment.created_who},#{comment.product_id},#{comment.content},#{comment.created_at})
     </insert>
-
-    <select id="findAllByComment" resultType="com.idle.shoppingmall.Entity.Comment">
-        select p.product_id , count(c.comment_id) as comment_count
-        from product as p
-                 left join comment as c on p.product_id = c.product_id
-        group by p.product_id
-        order by comment_count desc
-    </select>
-
 </mapper>
