@@ -64,7 +64,17 @@
     <select id="findAllByLoveCountDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
         order by count_love desc
-        limit #{size} offset #{offset}
+        limit #{offset}, #{size}
+    </select>
+
+    <select id="findAllBySellCountDesc" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse">
+        SELECT p.product_id, p.pd_name, p.pd_price, p.pd_category, p.brand_id,
+               SUM(pd.pd_sell_count) AS pd_sell_count, p.created_who, p.created_at, p.count_love
+        FROM product AS p
+                 INNER JOIN product_detail AS pd ON p.product_id = pd.product_id
+        GROUP BY p.product_id
+        ORDER BY pd_sell_count DESC
+        LIMIT #{offset}, #{size};
     </select>
 
 </mapper>

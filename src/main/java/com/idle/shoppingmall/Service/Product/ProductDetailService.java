@@ -23,4 +23,6 @@ public class ProductDetailService {
     public Integer updateProductDetail(ProductDetail productDetail){
         return productDetailMapper.update(productDetail);
     }
+
+
 }
