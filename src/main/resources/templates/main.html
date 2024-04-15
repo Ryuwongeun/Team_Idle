@@ -42,30 +42,30 @@
   </head>
   <body class="bg-white text-gray-700">
     <!-- Header -->
-      
 
-      <header class="bg-black py-7">
-        <div class="centered-image">
-          <a href="/main">
-            <img src="/FE/image/I DLE.jpg" alt="IDLE">
-          </a>
-          <nav class="flex space-x-4">
-            <a href="/FE/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-            <a href="/FE/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-            <a href="/FE/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-            <a href="/FE/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-            <a href="/FE/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
-            <div class="mypage-dropdown">
-              <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
-              <div class="mypage-dropdown-content">
-                <a href="/FE/login">Login</a>
-                <a href="/FE/cart">Cart</a>
-                <a href="/FE/order">Order</a>
-              </div>
-            </div>
-          </nav>
+
+    <header class="bg-black py-7">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <nav class="flex justify-center space-x-4 w-full">
+                <a href="/FE/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+                <a href="/FE/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+                <a href="/FE/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+                <a href="/FE/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+                <a href="/FE/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+                <div class="mypage-dropdown">
+                    <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+                    <div class="mypage-dropdown-content">
+                        <a href="/FE/login">Login</a>
+                        <a href="/FE/cart">Cart</a>
+                        <a href="/FE/order">Order</a>
+                    </div>
+                </div>
+            </nav>
         </div>
-        <div class="search-container">
+    </header>
+
+    <div class="search-container">
           <input type="text" id="searchInput" placeholder="검색...">
           <button onclick="searchItem()">검색</button>
         </div>
@@ -76,28 +76,53 @@
       </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto mt-0 bg-yellow-500">
+    <main class="container mx-auto mt-0 bg-white-500">
       <!-- Carousel -->
-      <div class="relative">
-        <div class="sale-banner rounded-lg shadow-lg p-20 text-white font-bold text-4xl">
-          SEASON SPECIAL
-          <div class="text-sm mt-2">04.15 (MON) - 04.22 (MON)</div>
-          <button class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full"
-            onmouseover="this.style.backgroundColor='pink'; this.style.color='black';" 
-            onmouseout="this.style.backgroundColor='black'; this.style.color='pink';"
-            onclick="window.location.href='/FE/sale';">
-            ON SALE
-          </button>
-
+        <!-- Carousel -->
+        <div class="relative">
+            <div class="sale-banner rounded-lg shadow-lg p-20 text-white font-bold text-4xl">
+                <div class="text-sm mt-2">04.15 (MON) - 04.22 (MON)</div>
+                <button class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full"
+                        onmouseover="this.style.backgroundColor='pink'; this.style.color='black';"
+                        onmouseout="this.style.backgroundColor='black'; this.style.color='pink';"
+                        onclick="window.location.href='/FE/sale';">
+                    ON SALE
+                </button>
+                <!-- 이미지를 표시할 공간 -->
+                <img id="banner-image" class="mt-4 w-full h-auto" src="" alt="banner image">
+            </div>
+            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+                <span class="navigation-dot active"></span>
+                <span class="navigation-dot"></span>
+                <span class="navigation-dot"></span>
+            </div>
         </div>
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-          <span class="navigation-dot active"></span>
-          <span class="navigation-dot"></span>
-          <span class="navigation-dot"></span>
-        </div>
-      </div>
 
-      <!-- 팝업 내용 -->
+        <script>
+            // 이미지 URL 배열 생성
+            const imageUrls = [
+                "https://source.unsplash.com/random/800x700/?fashion&sig=1",
+                "https://source.unsplash.com/random/800x700/?clothes&sig=2",
+                "https://source.unsplash.com/random/800x700/?clothes&sig=3"
+            ];
+
+            const bannerImage = document.getElementById('banner-image');
+            let currentImageIndex = 0;
+
+            function changeBannerImage() {
+                bannerImage.src = imageUrls[currentImageIndex];
+                currentImageIndex = (currentImageIndex + 1) % imageUrls.length; // 이미지를 순환하도록 인덱스 업데이트
+            }
+
+            // 첫 번째 이미지로 시작
+            changeBannerImage();
+
+            // 4초마다 이미지 변경
+            setInterval(changeBannerImage, 4000);
+        </script>
+
+
+        <!-- 팝업 내용 -->
       <div id="popup-container" class="popup-container">
         <div class="popup-content">           
             <img src="/FE/image/popup.jpg" alt="Welcome Image">
@@ -113,16 +138,32 @@
       </div>
 
       <!-- Featured Products -->
-      <main class="my-2">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex flex-wrap -m-4" id="field">
-<!--               카드뷰 넣을 곳              -->
+        <main class="my-2">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="flex flex-wrap -m-4" id="field">
+                    <script>
+                        const products = Array.from({ length: 40 }, (_, i) => ({
+                            id: i,
+                            name: `Product ${i + 1}`,
+                            image: `https://source.unsplash.com/random/300x300/?model&sig=${Math.floor(Math.random() * 1000)}`,
+                            price: (Math.random() * 100).toFixed(2)
+                        }));
+
+                        document.write(products.map(product => `
+                    <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+                        <div class="border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                            <img class="lg:h-48 md:h-36 w-full object-cover object-center hover:scale-125 transition-transform duration-300" src="${product.image}" alt="product">
+                        </div>
+                    </div>
+                `).join(''));
+                    </script>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
 
 
-    <script>
+
+        <script>
       document.getElementById('best-link').addEventListener('dblclick', function(event) {
         event.preventDefault();
         window.open(event.target.href, '_self');
@@ -164,6 +205,6 @@
           </div>
       </div>
     </footer>
-<script src="/JS/ListView/list.js"></script>
+
 </body>
 </html>
