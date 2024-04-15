@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SaleViewController {
 
-    @GetMapping("/FE/sale")
+    @GetMapping("/sale")
     String sale() {
 
         return "FE/sale";
