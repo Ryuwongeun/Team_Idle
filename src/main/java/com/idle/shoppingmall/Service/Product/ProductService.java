@@ -2,6 +2,8 @@ package com.idle.shoppingmall.Service.Product;
 
 
 import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -57,6 +59,9 @@ public class ProductService {
         return productMapper.findAllByLoveCountDesc(size, offset);
     }
 
+    public List<ProductSellCountResponse> findAllBySellCountDesc(int startPage, int endPage) {
+        return productMapper.findAllBySellCountDesc(startPage, endPage);
+    }
     public List<Product> findAllByPdName(String searchRequest) {
         return productMapper.findAllByPdName(searchRequest);
     }
@@ -79,4 +84,6 @@ public class ProductService {
             productMapper.update(product); // 'update' 메서드 사용
         }
     }
+
+
 } // end class
