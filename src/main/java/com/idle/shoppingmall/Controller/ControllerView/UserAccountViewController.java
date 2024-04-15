@@ -17,7 +17,7 @@ public class UserAccountViewController {
     @PostMapping("/FE/login")
     String loginOk() {
 
-        return "/FE/login";
+        return "FE/login";
     } // loginOk
 
 } // end class

@@ -12,7 +12,7 @@ public class SaleViewController {
     @GetMapping("/FE/sale")
     String sale() {
 
-        return "/FE/sale";
+        return "FE/sale";
     } // sale
 
 } // end class
