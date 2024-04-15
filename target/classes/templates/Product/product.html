@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>상품 목록</title>
+</head>
+<body>
+<h1>상품 목록</h1>
+<div th:each="product : ${data}">
+    <h3 th:text="'상품 ID: ' + ${product.product_id}"></h3>
+    <h3 th:text="'상품 이름: ' + ${product.pd_name}"></h3>
+    <h3 th:text="'상품 가격: ' + ${product.pd_price}"></h3>
+    <h3 th:text="'브랜드 : ' + ${product.Brand_id}"></h3>
+    <h3 th:text="'카테고리 : ' + ${product.pd_category}"></h3>
+    <h3 th:text="'제작자 : ' + ${product.created_who}"></h3>
+    <h3 th:text="'제작 시간 : ' + ${product.created_at}"></h3>
+    <h3 th:text="'조아요 : ' + ${product.count_love}"></h3>
+    <hr>
+</div>
+<script src="/JS/productList.js"></script>
+</body>
+</html>

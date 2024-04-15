@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객센터</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/FE/CSS/form.css">
+    <link rel="stylesheet" href="/FE/CSS/info.css">
+    <link rel="stylesheet" href="/FE/CSS/search.css">
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+    <!-- Header -->
+    <header class="bg-black py-7">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+            <nav class="flex justify-center space-x-4 w-full">
+                <a href="/FE/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+                <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+                <a href="/FE/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+                <a href="/FE/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+                <a href="/FE/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+                <div class="mypage-dropdown">
+                    <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+                    <div class="mypage-dropdown-content">
+                        <a href="/FE/login">Login</a>
+                        <a href="/FE/cart">Cart</a>
+                        <a href="/FE/order">Order</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    </nav>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="검색...">
+                <button onclick="searchItem()">IDLE</button>
+            </div>
+
+            <div id="searchResults"></div>
+            <script src="/FE/JS/search.js"></script>
+        </div>
+      </header>
+<body>
+    <div class="container">
+        <h1>고객센터</h1>
+        <h2>연락처 정보</h2>
+        <p>고객센터에 문의하실 사항이 있으시면 아래 연락처로 연락해 주세요.</p>
+        <ul>
+            <li>전화번호: 123-456-7890</li>
+            <li>이메일: support@example.com</li>
+            <li>주소: 서울시 강남구 역삼동 123번지</li>
+        </ul>
+
+        <h2>자주 묻는 질문(FAQ)</h2>
+        <ul>
+            <li>
+                <strong>Q: 배송은 어떻게 이루어지나요?</strong>
+                <p>A: 배송은 택배사를 통해 이루어지며, 일반적으로 주문 후 2~3일 이내에 도착합니다.</p>
+            </li>
+            <li>
+                <strong>Q: 반품 및 교환은 어떻게 하나요?</strong>
+                <p>A: 반품 및 교환은 주문일로부터 7일 이내에 가능하며, 상품의 불량 또는 오배송인 경우에 한해 무료로 처리해 드립니다.</p>
+            </li>
+            <li>
+                <strong>Q: 결제 수단은 어떤 것들이 있나요?</strong>
+                <p>A: 신용카드, 체크카드, 계좌이체, 페이팔 등 다양한 결제 수단을 이용하실 수 있습니다.</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
