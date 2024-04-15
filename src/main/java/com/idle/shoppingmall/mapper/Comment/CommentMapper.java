@@ -12,6 +12,4 @@ import java.util.List;
 public interface CommentMapper {
 
     Long saveComment(@Param("comment") Comment comment);
-
-    List<Comment> findAllByComment();
 }

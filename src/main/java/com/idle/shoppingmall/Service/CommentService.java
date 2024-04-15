@@ -17,8 +17,4 @@ public class CommentService {
     public Long addComment(Comment comment){
         return commentMapper.saveComment(comment);
     }
-
-    public List<Comment> findAllByComment() {
-        return commentMapper.findAllByComment();
-    }
 }

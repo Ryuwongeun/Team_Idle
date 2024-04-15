@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class NewViewController {
 
-    @GetMapping("/FE/new")
+    @GetMapping("/new")
     String newList() {
 
         return "/new";
