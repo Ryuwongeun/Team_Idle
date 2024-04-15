@@ -1,5 +1,5 @@
 window.onload = () => {
-    GetListRequest(`/view/POST/productLatest`);
+    GetListRequest(`/view/POST/commentLatest/`);
 }
 
 function redirectTo(id){
@@ -38,9 +38,7 @@ function GetListRequest(url){
             LatestViewController.innerHTML = productsHtml;
         })
         .catch(error => {
-            console.error('Error fetching user data:', error);
-        }
+                console.error('Error fetching user data:', error);
+            }
         );
 }
-
-
