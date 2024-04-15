@@ -17,6 +17,6 @@ public class ProductDetailViewController {
     public String showDetailPage(@RequestParam Long id, Model model){
         Product product = productService.findById(id);
         model.addAttribute("data", product);
-        return "product_info";
+        return "/product_info";
     }
 }

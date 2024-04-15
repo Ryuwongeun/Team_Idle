@@ -10,7 +10,7 @@ public class UserAccountViewController {
     @PostMapping("/login")
     String loginOk() {
 
-        return "FE/login";
+        return "/FE/login";
     } // loginOk
 
 } // end class
