@@ -12,6 +12,7 @@ import com.idle.shoppingmall.Service.Product.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -81,8 +82,9 @@ public class ProductApiController {
 
     //상품 검색
     @PostMapping("/api/POST/searchProduct")
-    public ResponseEntity<List<Product>>searchProduct(@RequestBody @Valid ProductSearchRequest request) {
-        List<Product> list = productService.findAllByPdName(request.getPd_name());
-        return ResponseEntity.ok().body(list);
+    public String searchProduct(@RequestBody @Valid String name, Model model) {
+        List<Product> list = productService.findAllByPdName(name);
+        model.addAttribute("data", list);
+        return "main";
     }
 }
