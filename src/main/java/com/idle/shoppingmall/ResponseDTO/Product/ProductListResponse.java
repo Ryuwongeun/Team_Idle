@@ -16,6 +16,7 @@ public class ProductListResponse extends CommonResponse {
     private Long created_who;
     private LocalDateTime created_at;
     private int count_love;
+    private int comment_count;
 
     public ProductListResponse(int code, String msg, Long product_id, String pd_name, int pd_price, String pd_category, Long created_who, LocalDateTime created_at, int count_love) {
         super(code, msg);

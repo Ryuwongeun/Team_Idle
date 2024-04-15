@@ -30,10 +30,12 @@ public interface ProductMapper {
 
     List<Product>findAllByLoveCountDesc(@Param("size") int size, @Param("offset") int offset);
 
-    List<Product> findAllByPdName(String searchRequest);
+    List<Product> findAllByPdName(String name);
 
    //제품의 count_love를 증가시키는 메서드
     void increaseLoveCount(@Param("productId")Long productId);
    //제품의 count_love를 감소시키는 메서드
    void decreaseLoveCount(@Param("productId")Long productId);
+
+    List<Product> findAllByComment(@Param("size") int size, @Param("offset") int offset);
 } // end interface

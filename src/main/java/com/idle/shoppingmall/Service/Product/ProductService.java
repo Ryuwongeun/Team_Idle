@@ -57,8 +57,8 @@ public class ProductService {
         return productMapper.findAllByLoveCountDesc(size, offset);
     }
 
-    public List<Product> findAllByPdName(String searchRequest) {
-        return productMapper.findAllByPdName(searchRequest);
+    public List<Product> findAllByPdName(String name) {
+        return productMapper.findAllByPdName(name);
     }
 
     @Transactional
@@ -78,5 +78,10 @@ public class ProductService {
             product.decreaseLoveCount();
             productMapper.update(product); // 'update' 메서드 사용
         }
+    }
+
+    public List<Product> findAllByComment(int page, int size) {
+        int offset = page * size;
+        return productMapper.findAllByComment(size, offset);
     }
 } // end class
