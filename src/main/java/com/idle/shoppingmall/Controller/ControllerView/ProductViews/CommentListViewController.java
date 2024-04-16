@@ -18,7 +18,7 @@ public class CommentListViewController {
     private final int PAGESIZE = 10;
     @PostMapping("/GET/commentList")
     public ResponseEntity<List<CommentListResponse>> commentList(@RequestParam(name="id", required = false) Long id,
-                                                                 @RequestParam(name="page", defaultValue = "0") int page){
+                                                                 @RequestParam(name="page", defaultValue = "1") int page){
         int startpage = (page-1) * PAGESIZE;
         int endpage = startpage + PAGESIZE;
         List<CommentListResponse> comments = commentService.findCommentList(id, startpage, endpage);
