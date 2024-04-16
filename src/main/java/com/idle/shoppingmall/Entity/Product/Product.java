@@ -26,6 +26,7 @@ public class Product {
     private int pd_price;
     private String pd_category;
     private int count_love;
+    private String product_img;
 
     public void increaseLoveCount(){
         this.count_love +=1;

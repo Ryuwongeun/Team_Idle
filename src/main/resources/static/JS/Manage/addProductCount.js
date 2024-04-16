@@ -14,6 +14,7 @@ addProductBtn.addEventListener('click', () => {
         size : size,
         count : count
     };
+    sendData('/api/POST/manage/productAdd',data);
 })
 
 const modiBtn = document.querySelector("#modiBtn");
