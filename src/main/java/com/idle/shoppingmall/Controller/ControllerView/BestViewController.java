@@ -15,4 +15,16 @@ public class BestViewController {
         return "/FE/best";
     } // bestList
 
+    @GetMapping("/like")
+    String likeList() {
+
+        return "/like";
+    } // likeList
+
+    @GetMapping("/comment")
+    String commentList() {
+
+        return "/comment";
+    } // commentList
+
 } // end class

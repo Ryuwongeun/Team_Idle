@@ -2,6 +2,7 @@ package com.idle.shoppingmall.Service.Product;
 
 
 import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -53,9 +54,8 @@ public class ProductService {
         return productMapper.findAllByPdPriceDown(size, offset);
     }
 
-    public List<Product>findAllByLoveCountDesc(int page, int size){
-        int offset = page * size;
-        return productMapper.findAllByLoveCountDesc(size, offset);
+    public List<Product>findAllByLoveCountDesc(int startPage, int endPage){
+        return productMapper.findAllByLoveCountDesc(startPage, endPage);
     }
 
     public List<ProductSellCountResponse> findAllBySellCountDesc(int startPage, int endPage) {
@@ -84,8 +84,7 @@ public class ProductService {
         }
     }
 
-    public List<Product> findAllByComment(int page, int size) {
-        int offset = page * size;
-        return productMapper.findAllByComment(size, offset);
+    public List<ProductCommentListResponse> findAllByComment(int startPage, int endPage) {
+        return productMapper.findAllByComment(startPage, endPage);
     }
 } // end class
