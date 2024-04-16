@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.Controller.ControllerView;
 
 import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.Service.Product.ProductService;
@@ -19,7 +20,7 @@ public class LatestViewController {
     private final int PAGESIZE = 12;
 
     //최신순
-    @PostMapping("/view/POST/productLatest")
+    @PostMapping("/view/GET/productLatest")
     public List<ProductListResponse> productLatest(@RequestParam(defaultValue = "0") int page){
         page = page * PAGESIZE;
         int size = page + PAGESIZE;
@@ -35,7 +36,7 @@ public class LatestViewController {
     }
 
     //가격순
-    @PostMapping("/view/POST/productLatestPriceDown")
+    @PostMapping("/view/GET/productLatestPriceDown")
     public List<ProductListResponse> findAllByPdPriceDown(@RequestParam(defaultValue = "0") int page){
         page = page * PAGESIZE;
         int size = page + PAGESIZE;
@@ -49,7 +50,7 @@ public class LatestViewController {
         return list;
     }
 
-    @PostMapping("/view/POST/love")
+    @PostMapping("/view/GET/love")
     public List<ProductListResponse>findAllByLoveCountDesc(@RequestParam(defaultValue = "0") int page){
         int startPage = (page)*PAGESIZE;
         int endPage = startPage+PAGESIZE;
@@ -77,17 +78,14 @@ public class LatestViewController {
     }
 
     //댓글순
-    @PostMapping("/view/POST/commentLatest/")
-    public List<ProductListResponse> findAllByComment(@RequestParam(defaultValue = "0") int page){
-        page = page * PAGESIZE;
-        int size = page + PAGESIZE;
-        List<Product> productLatest = productService.findAllByComment(page, size);
-        List<ProductListResponse> list = new ArrayList<>();
-        for(Product product : productLatest) {
-            list.add(new ProductListResponse(200, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                    product.getCreated_at(), product.getCount_love()));
-        }
+    @PostMapping("/view/GET/commentLatest")
+    public List<ProductCommentListResponse> findAllByComment(@RequestParam(defaultValue = "0") int page){
+        int startPage = (page-1)*PAGESIZE;
+        System.out.println("startPage : "+startPage);
+        int endPage = PAGESIZE;
+        System.out.println("endPage : "+endPage);
+        List<ProductCommentListResponse> list = productService.findAllByComment(startPage, endPage);
+        System.out.println("size : "+list.size());
         return list;
     }
 }
