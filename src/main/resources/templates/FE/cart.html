@@ -32,6 +32,7 @@
                   <a href="/login">Login</a>
                   <a href="/cart">Cart</a>
                   <a href="/order">Order</a>
+                    <a href="/logout">Logout</a>
                 </div>
               </div>
             </nav>
@@ -49,46 +50,45 @@
           </div>
         </header>
 
-<div class="container">
-  <h1>장바구니</h1>
-  <table id="cartTable">
-    <thead>
-      <tr>
-        <th>상품</th>
-        <th>가격</th>
-        <th>수량</th>
-        <th>총 가격</th>
-        <th>선택</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>상품 A</td>
-        <td>$10</td>
-        <td>2</td>
-        <td>$20</td>
-        <td><input type="checkbox" class="item-checkbox" data-price="10" data-quantity="2"></td>
-      </tr>
-      <tr>
-        <td>상품 B</td>
-        <td>$15</td>
-        <td>1</td>
-        <td>$15</td>
-        <td><input type="checkbox" class="item-checkbox" data-price="15" data-quantity="1"></td>
-      </tr>
-      <tr>
-        <td>상품 C</td>
-        <td>$20</td>
-        <td>3</td>
-        <td>$60</td>
-        <td><input type="checkbox" class="item-checkbox" data-price="20" data-quantity="3"></td>
-      </tr>
-    </tbody>
-  </table>
-  <p id="totalPrice">총 가격: $0</p>
-  <button class="checkout-btn" onclick="redirectToBuyPage()">결제하기</button>
+<div class="container" id="field">
+<!--  <h1>장바구니</h1>-->
+<!--  <table id="cartTable" id="field">-->
+<!--    <thead>-->
+<!--      <tr>-->
+<!--        <th>상품</th>-->
+<!--        <th>가격</th>-->
+<!--        <th>수량</th>-->
+<!--        <th>총 가격</th>-->
+<!--        <th>선택</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      <tr>-->
+<!--        <td>상품 A</td>-->
+<!--        <td>$10</td>-->
+<!--        <td>2</td>-->
+<!--        <td>$20</td>-->
+<!--        <td><input type="checkbox" class="item-checkbox" data-price="10" data-quantity="2"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td>상품 B</td>-->
+<!--        <td>$15</td>-->
+<!--        <td>1</td>-->
+<!--        <td>$15</td>-->
+<!--        <td><input type="checkbox" class="item-checkbox" data-price="15" data-quantity="1"></td>-->
+<!--      </tr>-->
+<!--      <tr>-->
+<!--        <td>상품 C</td>-->
+<!--        <td>$20</td>-->
+<!--        <td>3</td>-->
+<!--        <td>$60</td>-->
+<!--        <td><input type="checkbox" class="item-checkbox" data-price="20" data-quantity="3"></td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--  <p id="totalPrice">총 가격: $0</p>-->
+<!--  <button class="checkout-btn" onclick="redirectToBuyPage()">결제하기</button>-->
 </div>
-<script src="/FE/JS/cart.js"></script>
-
+<script src="/JS/DetailView/CartList.js"></script>
 </body>
 </html>

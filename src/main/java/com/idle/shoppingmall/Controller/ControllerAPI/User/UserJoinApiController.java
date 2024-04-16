@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserJoinApiController {
     private final UserJoinService userJoinService;
 
-    @PostMapping("/api/POST/checkName")
+    @PostMapping("/POST/checkName")
     public ResponseEntity<CommonResponse> checkName(@RequestBody @Valid CheckNameDTO request){
         UserInfo userInfo = userJoinService.getUserInfoByName(request.getName());
         if(userInfo!= null){
@@ -27,7 +27,7 @@ public class UserJoinApiController {
         return ResponseEntity.ok().body(new CommonResponse(200, "사용할 수 있는 이름입니다."));
     }
 
-    @PostMapping("/api/POST/join")
+    @PostMapping("/POST/join")
     public ResponseEntity<CommonResponse> joinUser(@RequestBody @Valid UserJoinRequest request){
         System.out.println("joinUser");
         UserAccount userAccount = userJoinService.getUserAccountByEmail(request.getEmail());

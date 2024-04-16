@@ -88,4 +88,13 @@
         limit #{size} offset #{offset}
     </select>
 
+    <select id="findAllByComment" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select p.product_id ,p.pd_name, p.pd_price, p.count_love, count(c.comment_id) as comment_count
+        from product as p
+                 left join comment as c on p.product_id = c.product_id
+        group by p.product_id
+        order by comment_count desc
+        limit #{size} offset #{offset}
+    </select>
+
 </mapper>

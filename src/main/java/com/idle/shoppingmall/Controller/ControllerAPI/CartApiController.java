@@ -30,12 +30,12 @@ public class CartApiController {
     private final CartService cartService;
     private final ProductDetailService productDetailService;
 
-    @PostMapping("api/POST/addCart")
+    @PostMapping("/api/POST/addCart")
     public ResponseEntity<CartAddResponse> addCart(@RequestBody @Valid CartAddRequest request,
                                                    HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user==null){
-            return ResponseEntity.ok().body(new CartAddResponse(700, "로그인이 필요합니다.", null));
+            return ResponseEntity.ok().body(new CartAddResponse(666, "로그인이 필요합니다.", null));
         }
         ProductDetail productDetail =  productDetailService.findDetail(request.getProduct_id(), request.getSize());
         if(productDetail == null){
@@ -58,7 +58,7 @@ public class CartApiController {
     } // addCart
 
 
-    @PostMapping("api/DELETE/Cart")
+    @PostMapping("/api/DELETE/Cart")
     public ResponseEntity<CartDeleteResponse> delCart(@RequestBody @Valid CartDeleteRequest request,
                                                       HttpSession session) {
 
@@ -82,11 +82,11 @@ public class CartApiController {
     } // delCart
 
     //장바구니 리스트
-    @PostMapping("/aip/POST/cartLest")
-    public ResponseEntity<List<Cart>> getCartList(@RequestBody @Valid CartListRequest request) {
-        List<Cart> list = cartService.findByCartList(request.getCreated_who());
-        return ResponseEntity.ok().body(list);
-    }
+//    @PostMapping("/api/POST/cartLest")
+//    public ResponseEntity<List<Cart>> getCartList(@RequestBody @Valid CartListRequest request) {
+//        List<Cart> list = cartService.findByCartList(request.getCreated_who());
+//        return ResponseEntity.ok().body(list);
+//    }
 
 
 } // end class

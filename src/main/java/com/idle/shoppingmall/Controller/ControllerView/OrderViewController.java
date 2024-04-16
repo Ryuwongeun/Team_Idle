@@ -13,7 +13,13 @@ public class OrderViewController {
     String order() {
 
 
-        return "FE/order";
+        return "/FE/order";
     }  // order
+
+    @GetMapping("/buy")
+    String buy() {
+        return "/FE/buy";
+    }
+
 
 } // end class

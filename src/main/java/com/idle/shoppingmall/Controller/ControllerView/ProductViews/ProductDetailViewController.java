@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.Controller.ControllerView.상품창;
+package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Service.Product.ProductService;
@@ -17,6 +17,6 @@ public class ProductDetailViewController {
     public String showDetailPage(@RequestParam Long id, Model model){
         Product product = productService.findById(id);
         model.addAttribute("data", product);
-        return "product_info";
+        return "/product_info";
     }
 }

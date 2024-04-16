@@ -3,6 +3,7 @@ package com.idle.shoppingmall.Config.Security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.idle.shoppingmall.Config.OAuth2.OAuth2SuccessHandler;
+import com.idle.shoppingmall.Entity.User.UserAccount;
 import com.idle.shoppingmall.Service.LoginService;
 import com.idle.shoppingmall.Service.User.UserDetailService;
 import com.idle.shoppingmall.Service.User.김승원추가.OAuth2UserService;
@@ -12,6 +13,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -40,33 +42,33 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) //csrf 설정 disable
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
-                                .requestMatchers("/api/GET/login").permitAll()
-                                .requestMatchers("/api/POST/login").permitAll()
-                                .requestMatchers("/api/GET/logout").permitAll()
-                                .requestMatchers("/FE/cart").hasAnyRole("USER")
-                                .requestMatchers("/FE/order").hasAnyRole("USER")
+                                .requestMatchers("/api/*").authenticated()
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/logout").permitAll()
+                                .requestMatchers("/cart").authenticated()
+                                .requestMatchers("/order").authenticated()
                                 .anyRequest().permitAll()
                 )
                 .formLogin((formLogin) ->
                         formLogin
-                                .loginPage("/FE/login") //로그인 화면 설정
-                                .loginProcessingUrl("/api/POST/login") // login submit 요청을 받을 url
+                                .loginPage("/login") //로그인 화면 설정
+                                .loginProcessingUrl("/login") // login submit 요청을 받을 url
                                 .successHandler(new CustomAuthenticationSuccessHandler(
                                         loginService
                                 ))
-                                .defaultSuccessUrl("/FE/main")
+                                .defaultSuccessUrl("/main")
                                 .failureHandler(new CustomAuthenticationFailureHandler())
-                                .failureUrl("/FE/login") //로그인 실패시 이동할 url
+                                .failureUrl("/login") //로그인 실패시 이동할 url
                 ).userDetailsService(userDetailService)
                 .logout((logoutConfig)->
                         logoutConfig
-                                .logoutUrl("/api/POST/logout")
+                                .logoutUrl("/logout")
                                 .logoutSuccessUrl("/main") //로그아웃 성공시 이동할 url
                                 .addLogoutHandler(new CustomLogoutHandler())
                 )
                 .oauth2Login((oauth2Login)->
                         oauth2Login
-                                .loginPage("/FE/login")
+                                .loginPage("/login")
                                 .userInfoEndpoint(userInfoEndpont ->
                                         userInfoEndpont.userService(oAuth2UserService)
                                 )
