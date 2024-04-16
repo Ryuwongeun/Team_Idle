@@ -11,7 +11,7 @@ public class CartViewController {
 
     @GetMapping("/cart")
     String cartList() {
-        return "FE/cart";
+        return "/FE/cart";
     } // cartList
 
 } // end class

@@ -25,8 +25,11 @@
         delete from cart where created_who=#{remove.created_who} AND product_id=#{remove.product_id} AND size=#{remove.size}
     </delete>
 
-    <select id="findByCartList" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Cart">
-        select * from cart where created_who=#{created_who}
+    <select id="findByCartList" parameterType="Long" resultType="com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.CartListResponse">
+        select c.product_id as id, p.pd_name as name, upper(c.size) as size, p.pd_price as price, c.count, (c.count * p.pd_price) as total_price
+        from cart as c
+        inner join product as p on c.product_id = p.product_id
+        where c.created_who=#{createdWho}
     </select>
 
 </mapper>

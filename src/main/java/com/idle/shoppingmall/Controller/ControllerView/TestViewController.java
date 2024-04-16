@@ -24,6 +24,6 @@ public class TestViewController {
             list.add(new TestListResponse(666, "성공", i, testList.get(i).getId(), testList.get(i).getName()));
         }
         model.addAttribute("data", list);
-        return "Test/test";
+        return "/Test/test";
     }
 }
