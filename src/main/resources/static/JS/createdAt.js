@@ -1,5 +1,6 @@
 const createdAtBtn = document.getElementById('createdAt');
 let page1 = 1;
+
 createdAtBtn.addEventListener('click', () => {
     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
     console.log('createdAt clicked'); // 'createdAtBtn' 클릭 확인

@@ -17,7 +17,7 @@
     </select>
 
     <select id="findUrl">
-        select img_url
+        select img_name
         from comment_img
         where comment_id = #{id};
     </select>

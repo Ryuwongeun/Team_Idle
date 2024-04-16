@@ -123,11 +123,10 @@
     <div class="my-8">
         <div class="border-t border-b py-4 input-container" >
             <input class="input-comment" type="text" id="review" placeholder="Review">
-            <input type="file" multiple="multiple" id="imgList">
+            <input type="file" multiple="multiple" id="imgList" onchange="previewImages()">
             <button class="pretty-button commentBtn">등록하기</button>
         </div>
-        <h2 class="text-xl font-bold mb-4">Customer Reviews</h2>
-        <div class="border-t border-b py-4" id="field">
+        <div id="preview">
         </div>
     </div>
 
@@ -147,5 +146,6 @@
 <script src="/JS/Manage/modalOverlay.js"></script>
 <script src="/JS/Manage/Add/getBrand.js"></script>
 <script src="/JS/Manage/Add/AddProduct.js"></script>
+<script src="/JS/DetailView/imgPreView.js"></script>
 </body>
 </html>

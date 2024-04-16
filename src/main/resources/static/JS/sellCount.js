@@ -8,6 +8,7 @@ sellCountBtn.addEventListener('click',()=>{
     GetListRequestBySellCount(`/view/GET/sellCount?page=${page}`);
 });
 
+
 function GetListRequestBySellCount(url) {
     const headers = {
         'Content-Type': 'application/json',
@@ -41,7 +42,6 @@ function GetListRequestBySellCount(url) {
                         
                     </div>
                 </article>`
-
             }).join('');
             LatestViewController.innerHTML = productsHtml;
         })
