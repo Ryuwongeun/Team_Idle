@@ -6,7 +6,9 @@ function redirectTo(id){
     location.href = `/product/?id=${id}`;
 }
 
-
+let page = 1;
+console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+GetListRequest(`/view/GET/productLatest?page=${page}`);
 
 function GetListRequestByCreatedAt(url){
 
@@ -49,7 +51,6 @@ function GetListRequestByCreatedAt(url){
         .catch(error => {
             console.error('Error fetching user data:', error);
         });
-
 }
 
 function scaleImage(img, scale) {

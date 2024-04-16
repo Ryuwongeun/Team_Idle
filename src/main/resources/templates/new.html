@@ -52,73 +52,62 @@
             transform: scale(1.05); /* Scale up on hover */
         }
     </style>
-
-</head>
-<body class="bg-white text-gray-700">
-<!-- Header -->
-<header class="bg-black py-7">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
-        <nav class="flex justify-center space-x-4 w-full">
-            <div class="mypage-dropdown">
-                <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-                <div class="mypage-dropdown-content">
-                    <a href="/like">Like</a>
-                    <a href="/Comment">Comment</a>
+        </head>
+        <body class="bg-white text-gray-700">
+        <!-- Header -->
+        <header class="bg-black py-7">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+                <nav class="flex justify-center space-x-4 w-full">
+                    <div class="mypage-dropdown">
+                        <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+                        <div class="mypage-dropdown-content">
+                            <a href="/like">Like</a>
+                            <a href="/Comment">Comment</a>
+                        </div>
+                    </div>
+                <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+                <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+                <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+                <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+                <div class="mypage-dropdown">
+                    <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+                    <div class="mypage-dropdown-content">
+                        <a href="/login">Login</a>
+                        <a href="/cart">Cart</a>
+                        <a href="/order">Order</a>
+                    </div>
                 </div>
-            </div>
-            <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-            <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-            <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-            <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
-            <div class="mypage-dropdown">
-                <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
-                <div class="mypage-dropdown-content">
-                    <a href="/login">Login</a>
-                    <a href="/cart">Cart</a>
-                    <a href="/order">Order</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
-
-</nav>
-</div>
-
-
-</nav>
-<div class="search-container">
-    <input type="text" id="searchInput" placeholder="검색...">
-    <button onclick="searchItem()">IDLE</button>
-</div>
-</nav>
-
-<header>
-    <!-- 중복된 searchResults div와 search.js 스크립트 태그를 제거하고, 필요한 경우만 남겨둡니다. -->
-    <div id="searchResults"></div>
-    <script src="/FE/JS/search.js"></script>
-</header>
-
-<main class="my-2">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="flex flex-wrap -m-1" id="field">
-            <!-- 필요한 스크립트 한 번만 로드 -->
-            <script src="/FE/JS/WongeunJS/new.js"></script>
+            </nav>
         </div>
-    </div>
-    <div class="pagination-container">
-        <!-- 여기에 페이지네이션 로직이 들어갈 수 있습니다. -->
-    </div>
-</main>
+    </header>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="검색...">
+                <button onclick="searchItem()">IDLE</button>
+            </div>
 
-<footer class="bg-black py-4 mt-8">
-    <div class="container mx-auto text-center text-pink-500">
-        <div class="flex flex-col items-center">
-            <div class="sm:w-2/3 text-center py-6">
-                <p class="text-sm text-pink-500 font-bold">
-                    © 2024 IDLE Fashion Store
-                </p>
+            <div id="searchResults"></div>
+            <script src="/FE/JS/search.js"></script>
+
+    <main class="my-2">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex flex-wrap -m-1" id="field"></div>
+        </div>
+        <div class="pagination-container">
+
+        </div>
+
+    </main>
+
+
+    <footer class="bg-black py-4 mt-8">
+        <div class="container mx-auto text-center text-pink-500">
+            <div class="flex flex-col items-center">
+                <div class="sm:w-2/3 text-center py-6">
+                    <p class="text-sm text-pink-500 font-bold">
+                        © 2024 IDLE Fashion Store
+                    </p>
+                </div>
             </div>
         </div>
     </div>
@@ -128,8 +117,6 @@
 <script src="/JS/createdAt.js"></script>
 <script src="/JS/page.js"></script>
 <script src="/JS/WongeunJS/new.js"></script>
-<script src="/JS/product.js"></script>
-<script src="/JS/sellCount.js"></script>
 <script src="/JS/WongeunJS/priceDown.js"></script>
 </body>
 </html>
