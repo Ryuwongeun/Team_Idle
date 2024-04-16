@@ -42,6 +42,17 @@
           background-color: pink;
           color: #fff;
       }
+             /* Add spacing between product items */
+         .product-item {
+             margin: 10px; /* Adjust the value as needed */
+             transition: transform 0.3s ease; /* Add smooth transition */
+         }
+
+        /* Scale up product item on hover */
+        .product-item:hover {
+            transform: scale(1.2); /* Scale up to 1.2 times */
+        }
+
     </style>
 </head>
     <body class="bg-white text-gray-700">
@@ -81,6 +92,7 @@
                 <source src="/FE/video/Outfits Inspired By.mp4" type="video/mp4">
             </video>
         </div>
+        <br><br><br>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex flex-wrap -m-1" id="field"></div>
         </div>
