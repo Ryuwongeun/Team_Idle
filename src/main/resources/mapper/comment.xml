@@ -7,4 +7,18 @@
         insert into comment(created_who,product_id,content,created_at)
         values(#{comment.created_who},#{comment.product_id},#{comment.content},#{comment.created_at})
     </insert>
+
+    <select id="findCommentList" resultType="com.idle.shoppingmall.Entity.Comment">
+        select *
+        from comment
+        where product_id = #{id}
+        order by created_at desc
+        LIMIT #{startpage}, #{endpage};
+    </select>
+
+    <select id="findUrl">
+        select img_url
+        from comment_img
+        where comment_id = #{id};
+    </select>
 </mapper>

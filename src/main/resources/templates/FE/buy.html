@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>결제 페이지</title>
@@ -93,47 +93,16 @@
         }
     </style>
 </head>
-<<<<<<< HEAD
-   
-
-<body class="bg-white text-gray-700">
-        <!-- Header -->
-        <header class="bg-black py-7">
-            <div class="container mx-auto flex justify-between items-center">
-                <a href="/main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
-                <nav class="flex justify-center space-x-4 w-full">
-                    <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-                    <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-                    <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-                    <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-                    <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
-                    <div class="mypage-dropdown">
-                        <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
-                        <div class="mypage-dropdown-content">
-                            <a href="/login">Login</a>
-                            <a href="/cart">Cart</a>
-                            <a href="/order">Order</a>
-                            <a href="/logout">Logout</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </header>
-
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="검색...">
-                    <button onclick="searchItem()">IDLE</button>
-=======
 <body>
-<header>
-    <div class="container mx-auto">
+<header class="bg-black py-7">
+    <div class="container mx-auto flex justify-between items-center">
         <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
-        <nav class="flex justify-center space-x-4">
+        <nav class="flex justify-center space-x-4 w-full">
             <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
             <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
             <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
             <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-            <a href="/join" class="text-blue-500 hover:text-blue-800" id="member-link">JOIN</a>
+            <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
             <div class="mypage-dropdown">
                 <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
                 <div class="mypage-dropdown-content">
@@ -141,7 +110,6 @@
                     <a href="/cart">Cart</a>
                     <a href="/order">Order</a>
                     <a href="/logout">Logout</a>
->>>>>>> a774f36 (4/16 결제화면 구현 (buy.html))
                 </div>
             </div>
         </nav>
@@ -152,9 +120,14 @@
     <div class="row">
         <div class="product-info">
             <h2>결제 상품 정보</h2>
-            <p>상품명: Lorem ipsum dolor sit amet</p>
-            <p>가격: $99.99</p>
-            <p>색상: Black</p>
+            <div th:each="item : ${data}">
+                <hr>
+                <img src="https://kr.object.ncloudstorage.com/miniidle/storage/ba5218db-eeef-40e4-9e46-57a6eea32517" width="200px" height="200px">
+                <p th:text="'상품 명 : '+${item.name}"></p>
+                <p th:text="'사이즈 : '+${item.size}"></p>
+                <p>가격: $99.99</p>
+                <hr>
+            </div>
         </div>
         <div class="order-info">
             <h2>주문 정보 입력</h2>
@@ -166,6 +139,8 @@
                 <label for="address">주소</label>
                 <input type="text" id="address" name="address" required>
                 <button type="button" onclick="searchAddress()">주소 검색하기</button>
+                <label for="phone-num">연락처</label>
+                <input type="text" id="phone-num" name="phone-num" required>
                 <label for="payment-method">결제 방법</label>
                 <select id="payment-method" name="payment-method" required>
                     <option value="">-- 선택 --</option>
