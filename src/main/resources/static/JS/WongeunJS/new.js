@@ -1,24 +1,15 @@
 window.onload = () => {
-<<<<<<< HEAD
-    GetListRequestTest(`/api/GET/productList`);
-=======
-    let page = 1;
-    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
-    GetListRequest(`/view/GET/productLatest?page=${page}`);
->>>>>>> 3781523326be989b59d8f1bf8cd1118b9a00421a
+    GetListRequestTest(`/view/GET/productLatest`);
 }
 
 function redirectTo(id){
     location.href = `/product/?id=${id}`;
 }
 
-<<<<<<< HEAD
 let page = 1;
 console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
 GetListRequest(`/view/GET/productLatest?page=${page}`);
 
-=======
->>>>>>> 3781523326be989b59d8f1bf8cd1118b9a00421a
 function GetListRequest(url){
     const headers = {
         'Content-Type': 'application/json',
@@ -53,11 +44,8 @@ function GetListRequest(url){
         .catch(error => {
             console.error('Error fetching user data:', error);
         });
-<<<<<<< HEAD
-=======
 }
 
 function scaleImage(img, scale) {
     img.style.transform = `scale(${scale})`;
->>>>>>> 3781523326be989b59d8f1bf8cd1118b9a00421a
 }

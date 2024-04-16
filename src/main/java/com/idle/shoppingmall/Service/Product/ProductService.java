@@ -3,6 +3,7 @@ package com.idle.shoppingmall.Service.Product;
 
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -44,9 +45,8 @@ public class ProductService {
         return productMapper.findAllProductsPaged(size, offset);
     }
 
-    public List<Product> findAllByCreatedAtDesc(int page, int size) {
-        int offset = page * size;
-        return productMapper.findAllByCreatedAtDesc(size, offset);
+    public List<ProductListResponse> findAllByCreatedAtDesc(int startPage, int endPage) {
+        return productMapper.findAllByCreatedAtDesc(startPage, endPage);
     }
 
     public List<Product> findAllByPdPriceDown(int page, int size) {

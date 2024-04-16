@@ -22,16 +22,12 @@ public class LatestViewController {
     //최신순
     @PostMapping("/view/GET/productLatest")
     public List<ProductListResponse> productLatest(@RequestParam(defaultValue = "0") int page){
-        page = page * PAGESIZE;
-        int size = page + PAGESIZE;
-        List<Product> productLatest = productService.findAllByCreatedAtDesc(page, size);
-        List<ProductListResponse> list = new ArrayList<>();
-        for(Product product : productLatest) {
-            list.add(new ProductListResponse(200, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                    product.getCreated_at(), product.getCount_love()));
-        }
-        System.out.println("list : " + list.get(0).getCreated_at());
+        int startPage = (page-1)*PAGESIZE;
+        System.out.println("startPage : "+startPage);
+        int endPage = PAGESIZE;
+        System.out.println("endPage : "+endPage);
+        List<ProductListResponse> list = productService.findAllByCreatedAtDesc(startPage, endPage);
+        System.out.println("list : " + list);
         return list; // List<ProductListResponse> 객체를 직접 반환
     }
 
