@@ -11,6 +11,7 @@ console.log('DOM fully loaded and parsed');
 console.log('sellCount clicked');
 GetListRequest(`/view/GET/sellCount?page=${page}`);
 
+
 function GetListRequestBySellCount(url) {
     const headers = {
         'Content-Type': 'application/json',

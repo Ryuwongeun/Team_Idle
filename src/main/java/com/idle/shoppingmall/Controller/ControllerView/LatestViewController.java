@@ -23,7 +23,7 @@ public class LatestViewController {
 
 
     @PostMapping("/view/GET/CreatedAt")
-    public List<ProductListResponse> findAllByCreatedAtDesc(@RequestParam(defaultValue = "0") int page){
+    public List<ProductListResponse> findAllByCreatedAtDesc(@RequestParam(defaultValue = "1") int page){
         int startPage = (page-1)*PAGESIZE;
         System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;
@@ -36,7 +36,7 @@ public class LatestViewController {
 
     //판매 많은 순
     @PostMapping("/view/GET/sellCount")
-    public List<ProductSellCountResponse> findAllBySellCountDesc(@RequestParam(defaultValue = "0") int page) {
+    public List<ProductSellCountResponse> findAllBySellCountDesc(@RequestParam(defaultValue = "1") int page) {
         int startPage = (page-1)*PAGESIZE;
         System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;

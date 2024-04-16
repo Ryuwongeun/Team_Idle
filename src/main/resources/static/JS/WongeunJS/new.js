@@ -1,6 +1,5 @@
 window.onload = () => {
     GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=1`);
-    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
 }
 
 function redirectTo(id){

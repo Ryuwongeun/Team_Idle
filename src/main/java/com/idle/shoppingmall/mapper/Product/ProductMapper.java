@@ -27,7 +27,7 @@ public interface ProductMapper {
     // Mapper 인터페이스 메서드에 @Param 어노테이션 추가
     List<Product> findAllProductsPaged(@Param("size") int size, @Param("offset") int offset);
 
-    List<ProductListResponse> findAllByCreatedAtDesc(@Param("offset") int offset, @Param("size") int size);
+    List<ProductListResponse> findAllByCreatedAtDesc(@Param("size") int size, @Param("offset") int offset);
 
     List<Product> findAllByPdPriceDown(@Param("size") int size, @Param("offset") int offset);
 

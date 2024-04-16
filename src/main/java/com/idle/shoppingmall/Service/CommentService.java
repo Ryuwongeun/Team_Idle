@@ -35,6 +35,7 @@ public class CommentService {
     public List<CommentListResponse> findCommentList(Long id ,int startpage, int endpage) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         List<Comment> comments = commentMapper.findCommentList(id, startpage, endpage);
+        System.out.println(commentMapper.findUrl(comments.get(0).getComment_id()));
         List<CommentListResponse> commentList = comments.stream()
                 .map(data -> new CommentListResponse(
                         data.getComment_id(),
