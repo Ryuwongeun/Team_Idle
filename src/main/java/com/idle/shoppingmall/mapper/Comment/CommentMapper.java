@@ -17,4 +17,6 @@ public interface CommentMapper {
     List<Comment> findCommentList(@Param("id") Long id, @Param("startpage") int startpage, @Param("endpage") int endpage);
 
     List<String> findUrl(@Param("id") Long id);
+
+    Integer deleteComment(@Param("id") Long id);
 }

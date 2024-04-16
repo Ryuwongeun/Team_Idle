@@ -1,11 +1,8 @@
 package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.CommentListResponse;
-import com.idle.shoppingmall.Entity.Comment;
 import com.idle.shoppingmall.Service.CommentService;
-import com.idle.shoppingmall.Service.User.UserInfoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

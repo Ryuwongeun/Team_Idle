@@ -2,12 +2,14 @@ package com.idle.shoppingmall.Service;
 
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.CommentListResponse;
 import com.idle.shoppingmall.Entity.Comment;
+import com.idle.shoppingmall.RequestDTO.Comment.CommentAddRequest;
 import com.idle.shoppingmall.Service.User.UserInfoService;
 import com.idle.shoppingmall.mapper.Comment.CommentMapper;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -18,8 +20,15 @@ public class CommentService {
     private final UserInfoService userInfoService;
 
     @Transactional
-    public Long addComment(Comment comment){
-        return commentMapper.saveComment(comment);
+    public Long addComment(CommentAddRequest request, Long id){
+        Comment comment = Comment.builder()
+                .created_who(id)
+                .product_id(request.getProduct_id())
+                .content(request.getContent())
+                .created_at(LocalDateTime.now())
+                .build();
+        commentMapper.saveComment(comment);
+        return comment.getComment_id();
     }
 
     @Transactional(readOnly = true)
@@ -36,6 +45,11 @@ public class CommentService {
                 ))
                 .toList();
         return commentList;
+    }
+
+    @Transactional
+    public Integer deleteComment(Long id){
+        return commentMapper.deleteComment(id);
     }
 
 }
