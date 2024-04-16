@@ -48,18 +48,16 @@ public class LatestViewController {
     }
 
     //가격순
-    @PostMapping("/view/POST/productLatestPriceDown")
-    public List<ProductListResponse> findAllByPdPriceDown(@RequestParam(defaultValue = "0") int page){
-        page = page * PAGESIZE;
-        int size = page + PAGESIZE;
-        List<Product> productLatest = productService.findAllByPdPriceDown(page, size);
-        List<ProductListResponse> list = new ArrayList<>();
-        for(Product product : productLatest) {
-            list.add(new ProductListResponse(200, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                    product.getCreated_at(), product.getCount_love()));
-        }
-        return list;
+    @PostMapping("/view/GET/productLatestPriceDown")
+    public List<Product> findAllByPdPriceDown(@RequestParam(defaultValue = "0") int page){
+        int startPage = (page-1) * PAGESIZE;
+        System.out.println("startPage : "+startPage);
+        int pageSize = PAGESIZE;
+        System.out.println("pageSize : " + pageSize);
+        List<Product> productsWithPriceDown = productService.findAllByPdPriceDown(startPage,pageSize);
+        System.out.println("size : " + productsWithPriceDown.size());
+        return productsWithPriceDown;
+
     }
 
     @PostMapping("/view/POST/love")

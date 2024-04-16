@@ -17,11 +17,11 @@ public class ManageDetailViewController {
         MProductDetailView response = detailService.getDetail(id);
         model.addAttribute("data", response);
         System.out.println("data : " + response.getDetails());
-        return "Manage/ManageDetail";
+        return "/Manage/ManageDetail";
     }
 
     @GetMapping("/manage/newProduct")
     public String newProduct() {
-        return "Manage/AddProduct";
+        return "/Manage/AddProduct";
     }
 }

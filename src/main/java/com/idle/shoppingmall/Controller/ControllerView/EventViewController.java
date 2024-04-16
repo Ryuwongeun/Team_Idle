@@ -12,7 +12,7 @@ public class EventViewController {
     @GetMapping("/event")
     String event() {
 
-        return "FE/event";
+        return "/FE/event";
     } // event
 
 } // end class
