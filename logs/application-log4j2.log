@@ -9480,3 +9480,6 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template [login
 2024-04-16 10:32:04.139 [ INFO] [nio-9090-exec-3] o.a.c.c.C.[.[.[/]              : log                  : 173        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-04-16 10:32:04.139 [ INFO] [nio-9090-exec-3] o.s.w.s.DispatcherServlet      : initServletBean      : 532        : Initializing Servlet 'dispatcherServlet'
 2024-04-16 10:32:04.141 [ INFO] [nio-9090-exec-3] o.s.w.s.DispatcherServlet      : initServletBean      : 554        : Completed initialization in 2 ms
+2024-04-16 10:39:47.411 [ INFO] [ionShutdownHook] tainerEntityManagerFactoryBean : destroy              : 650        : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-04-16 10:39:47.411 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 350        : HikariPool-1 - Shutdown initiated...
+2024-04-16 10:39:47.427 [ INFO] [ionShutdownHook] c.z.h.HikariDataSource         : close                : 352        : HikariPool-1 - Shutdown completed.
