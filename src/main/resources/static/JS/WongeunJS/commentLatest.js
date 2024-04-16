@@ -1,10 +1,8 @@
-const commentBtn = document.getElementById('commentLatest');
+document.getElementById('commentLatest');
 let page = 1;
-commentBtn.addEventListener('click', () => {
     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
-    console.log('commentLatest clicked'); // 'sellCount' 클릭 확인
+    console.log('commentLatest clicked'); // 'commentLatest' 클릭 확인
     GetListRequest(`/view/GET/commentLatest?page=${page}`);
-});
 
 function GetListRequest(url){
     const headers = {
