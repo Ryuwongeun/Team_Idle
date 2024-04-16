@@ -1,10 +1,6 @@
-window.onload = () => {
-    GetListRequest(`/view/GET/productLatestPriceDown`);
-}
-
-function redirectTo(id){
-    location.href=`/product/?id=${id}`;
-}
+let page = 1;
+console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+GetListRequest(`/view/GET/commentLatest?page=${page}`);
 
 function GetListRequest(url){
     const headers = {
