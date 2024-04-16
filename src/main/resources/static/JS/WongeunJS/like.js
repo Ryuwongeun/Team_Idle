@@ -1,10 +1,14 @@
 window.onload = () => {
-    GetListRequest(`/view/GET/love`);
+    GetListRequestTest(`/view/GET/love`);
 }
 
 function redirectTo(id){
-    location.href = `/product/?id=${id}`;
+    location.href=`/product/?id=${id}`;
 }
+
+let page = 1;
+console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+GetListRequest(`/view/GET/love?page=${page}`);
 
 function GetListRequest(url){
     const headers = {
@@ -30,7 +34,6 @@ function GetListRequest(url){
                             <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
                             <p class="text-gray-600">${item.pd_price}원</p>
                             <p class="text-gray-600">좋아요 ${item.count_love}</p>
-                            <p class="text-gray-600">댓글 ${item.comment_count}</p>
                         </div>
                     </article>
                 `;

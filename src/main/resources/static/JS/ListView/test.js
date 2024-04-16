@@ -22,9 +22,9 @@ function GetListRequestTest(url) {
             let productsHtml = data.map(item => {
                 return `
                 <article class="bg-white shadow-md rounded overflow-hidden">
-                    <img src="/IMG/thanks.gif"
+                    <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"
                          alt="Fashion item" class="w-full h-64 object-cover"
-                     onclick=redirectTo(${item.product_id})>
+                         onclick="redirectTo(${item.product_id})">
                          
                     <div class="p-4">
                         <h3 class="font-semibold">상품ID : ${item.product_id}</h3>

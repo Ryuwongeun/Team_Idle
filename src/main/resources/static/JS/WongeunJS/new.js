@@ -1,10 +1,15 @@
 window.onload = () => {
-    GetListRequest(`/view/GET/productLatest`);
+    GetListRequestTest(`/api/GET/productList`);
 }
 
 function redirectTo(id){
     location.href=`/product/?id=${id}`;
 }
+
+let page = 1;
+console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+GetListRequest(`/view/GET/productLatest?page=${page}`);
+
 function GetListRequest(url){
     const headers = {
         'Content-Type': 'application/json',
@@ -38,5 +43,3 @@ function GetListRequest(url){
             console.error('Error fetching user data:', error);
         });
 }
-
-
