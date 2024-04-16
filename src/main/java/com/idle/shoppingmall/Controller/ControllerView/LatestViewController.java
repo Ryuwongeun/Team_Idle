@@ -6,6 +6,8 @@ import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
+
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,9 +21,9 @@ public class LatestViewController {
     private  final ProductService productService;
     private final int PAGESIZE = 12;
 
-    //최신순
-    @PostMapping("/view/GET/productLatest")
-    public List<ProductListResponse> productLatest(@RequestParam(defaultValue = "0") int page){
+
+    @PostMapping("/view/GET/CreatedAt")
+    public List<ProductListResponse> findAllByCreatedAtDesc(@RequestParam(defaultValue = "0") int page){
         int startPage = (page-1)*PAGESIZE;
         System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;
@@ -29,35 +31,6 @@ public class LatestViewController {
         List<ProductListResponse> list = productService.findAllByCreatedAtDesc(startPage, endPage);
         System.out.println("list : " + list);
         return list; // List<ProductListResponse> 객체를 직접 반환
-    }
-
-    //가격순
-    @PostMapping("/view/GET/productLatestPriceDown")
-    public List<ProductListResponse> findAllByPdPriceDown(@RequestParam(defaultValue = "0") int page){
-        page = page * PAGESIZE;
-        int size = page + PAGESIZE;
-        List<Product> productLatest = productService.findAllByPdPriceDown(page, size);
-        List<ProductListResponse> list = new ArrayList<>();
-        for(Product product : productLatest) {
-            list.add(new ProductListResponse(200, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                    product.getCreated_at(), product.getCount_love()));
-        }
-        return list;
-    }
-
-    @PostMapping("/view/GET/love")
-    public List<ProductListResponse>findAllByLoveCountDesc(@RequestParam(defaultValue = "0") int page){
-        int startPage = (page)*PAGESIZE;
-        int endPage = startPage+PAGESIZE;
-        List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
-        List<ProductListResponse> list = new ArrayList<>();
-        for(Product product : productLatest) {
-                list.add(new ProductListResponse(200, "성공", product.getProduct_id(), product.getPd_name(),
-                        product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                        product.getCreated_at(), product.getCount_love()));
-        }
-        return list;
     }
 
 
@@ -72,6 +45,35 @@ public class LatestViewController {
         System.out.println("size : "+productsWithSellCount.size());
         return productsWithSellCount;
     }
+
+
+    //가격순
+    @PostMapping("/view/GET/productLatestPriceDown")
+    public List<Product> findAllByPdPriceDown(@RequestParam(defaultValue = "0") int page){
+        int startPage = (page-1) * PAGESIZE;
+        System.out.println("startPage : "+startPage);
+        int pageSize = PAGESIZE;
+        System.out.println("pageSize : " + pageSize);
+        List<Product> productsWithPriceDown = productService.findAllByPdPriceDown(startPage,pageSize);
+        System.out.println("size : " + productsWithPriceDown.size());
+        return productsWithPriceDown;
+
+    }
+
+    @PostMapping("/view/GET/love")
+    public List<ProductListResponse>findAllByLoveCountDesc(@RequestParam(defaultValue = "0") int page){
+        int startPage = (page)*PAGESIZE;
+        int endPage = startPage+PAGESIZE;
+        List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
+        List<ProductListResponse> list = new ArrayList<>();
+        for(Product product : productLatest) {
+            list.add(new ProductListResponse(200, "성공", product.getProduct_id(), product.getPd_name(),
+                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
+                    product.getCreated_at(), product.getCount_love()));
+        }
+        return list;
+    }
+
 
     //댓글순
     @PostMapping("/view/GET/commentLatest")

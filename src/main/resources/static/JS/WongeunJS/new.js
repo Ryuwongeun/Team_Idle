@@ -1,5 +1,6 @@
 window.onload = () => {
-    GetListRequestTest(`/view/GET/productLatest`);
+    GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=1`);
+    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
 }
 
 function redirectTo(id){
@@ -10,7 +11,8 @@ let page = 1;
 console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
 GetListRequest(`/view/GET/productLatest?page=${page}`);
 
-function GetListRequest(url){
+function GetListRequestByCreatedAt(url){
+
     const headers = {
         'Content-Type': 'application/json',
     };
@@ -20,7 +22,13 @@ function GetListRequest(url){
     })
         .then(response => response.json())
         .then(data => {
+
+            // Thymeleaf로 직접 데이터 추가
+
+            // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
+
             const LatestViewController = document.getElementById('field');
+
             let productsHtml = data.map(item => {
                 return `
                         <article class="product-item bg-white shadow-md rounded overflow-hidden">
@@ -30,11 +38,11 @@ function GetListRequest(url){
                                  onmouseover="scaleImage(this, 1.2)" 
                                  onmouseout="scaleImage(this, 1)">
                             <div class="p-4">
-                                <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
+                                 <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
                                 <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
-                                <p class="text-gray-600">${item.pd_price}원</p>
-                                <p class="text-gray-600">좋아요 ${item.count_love}</p>
-                                <p class="text-gray-600">댓글 ${item.comment_count}</p>
+                                <p class="text-gray-600">${item.pd_price}원</p>                 
+                                <p class="text-gray-600" >${item.product_id}</p>
+                                
                             </div>
                         </article>
                         `;

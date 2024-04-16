@@ -4,9 +4,10 @@
 
 <mapper namespace="com.idle.shoppingmall.mapper.Comment.CommentImgMapper">
 
-    <insert id="saveCommentImg" parameterType="com.idle.shoppingmall.Entity.CommentImg" useGeneratedKeys="true" keyProperty="img_id">
-        INSERT INTO comment_img (comment_id, img_url, img_name)
-        VALUES (#{commentImg.comment_id}, #{commentImg.img_url}, #{commentImg.img_name})
+    <insert id="saveCommentImg" useGeneratedKeys="true" keyProperty="img_id">
+        insert into comment_img(comment_id, img_name, img_url) values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.comment_id}, #{item.img_url}, #{item.img_name})
+        </foreach>
     </insert>
-
 </mapper>

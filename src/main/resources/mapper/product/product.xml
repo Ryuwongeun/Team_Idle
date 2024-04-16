@@ -19,11 +19,11 @@
     </select>
 
     <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.Product">
-        update product set pd_name=#{pd_name},
-        pd_price=#{pd_price},
-        pd_category=#{pd_category},
-        count_love=#{count_love}  <!-- count_love 필드 업데이트 추가 -->
-        where product_id=#{product_id}
+        update product set pd_name=#{Product.pd_name},
+        pd_price=#{Product.pd_price},
+        pd_category=#{Product.pd_category},
+        count_love=#{Product.count_love}  <!-- count_love 필드 업데이트 추가 -->
+        where product_id=#{Product.product_id}
     </update>
 
 
@@ -37,11 +37,6 @@
         limit #{size} offset #{offset}
     </select>
 
-    <select id="findAllByCreatedAtDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product
-        order by created_at desc
-        limit #{size} offset #{offset}
-    </select>
 
     <select id="findAllByPdPriceDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
@@ -76,7 +71,13 @@
                  INNER JOIN product_detail AS pd ON p.product_id = pd.product_id
         GROUP BY p.product_id
         ORDER BY pd_sell_count DESC
-        LIMIT #{offset}, #{size};
+        LIMIT #{size}, #{offset};
+    </select>
+
+    <select id="findAllByCreatedAtDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product
+        order by created_at desc
+        LIMIT #{size}, #{offset};
     </select>
 
     <select id="findAllByComment" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse">
