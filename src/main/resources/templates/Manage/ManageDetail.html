@@ -41,7 +41,7 @@
 <div class="modify-overlay">
     <div class="modify-container">
         <h2>Modify Form</h2>
-        <button class="close-btn"><i class="fas fa-times">X</i></button>
+        <button class="close-btn"><i class="fas fa-times" onclick="closeModal()">X</i></button>
         <div id="modiForm">
             <div id="modiName" th:text="${data.name}"></div>
             <label for="category">카테고리</label>
@@ -86,7 +86,7 @@
             <p class="text-lg text-gray-600 mb-4" th:text="${data.category}"></p>
             <div class="mb-4">
                 <div class="text-3xl font-bold" th:text="${data.price}+'원'"></div>
-                <button id="modifyBtn" class="bg-red-500 text-white px-6 py-1 rounded">수정하기</button>
+                <button id="openModifyBtn" class="bg-red-500 text-white px-6 py-1 rounded" onclick="openModal()">수정하기</button>
             </div>
 
             <div th:each="detail : ${data.details}">
@@ -135,6 +135,6 @@
 </footer>
 <script src="/JS/Manage/addProductCount.js"></script>
 <script src="/JS/sendData.js"></script>
-<script src="/JS/Manage/modifyOverlay.js"></script>
+<script src="/JS/Manage/modalOverlay.js"></script>
 </body>
 </html>

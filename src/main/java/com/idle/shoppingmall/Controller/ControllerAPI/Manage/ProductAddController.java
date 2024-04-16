@@ -28,6 +28,7 @@ public class ProductAddController {
         if(user==null){
             return ResponseEntity.ok().body(new CommonResponse(666,"로그인이 필요합니다."));
         }
+        System.out.println("111111111");
         Long id = productAddService.addProduct(request, user.getUser_id());
         uploadImages.productUploadImages(request.getImages(), id);
 
