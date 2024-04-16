@@ -1,10 +1,10 @@
-window.onload = () => {
-    GetListRequest(`/view/POST/commentLatest/`);
-}
-
-function redirectTo(id){
-    location.href=`/product/?id=${id}`;
-}
+const commentBtn = document.getElementById('commentLatest');
+let page = 1;
+commentBtn.addEventListener('click', () => {
+    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+    console.log('commentLatest clicked'); // 'sellCount' 클릭 확인
+    GetListRequest(`/view/GET/commentLatest?page=${page}`);
+});
 
 function GetListRequest(url){
     const headers = {
@@ -14,7 +14,12 @@ function GetListRequest(url){
         method: 'POST',
         headers: headers
     })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             // Thymeleaf로 직접 데이터 추가
             const LatestViewController = document.getElementById('field');
@@ -32,13 +37,11 @@ function GetListRequest(url){
                         <p class="text-gray-600">좋아요 ${item.count_love}</p>
                         <p class="text-gray-600">댓글 ${item.comment_count}</p>
                     </div>
-                </article>
-            `;
+                </article>`
             }).join(''); // 배열의 모든 항목을 하나의 문자열로 결합
             LatestViewController.innerHTML = productsHtml;
         })
         .catch(error => {
-                console.error('Error fetching user data:', error);
-            }
-        );
+            console.error('Error fetching user data:', error);
+        });
 }

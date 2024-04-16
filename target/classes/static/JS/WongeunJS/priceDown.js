@@ -1,5 +1,5 @@
 window.onload = () => {
-    GetListRequest(`/view/POST/productLatestPriceDown`);
+    GetListRequest(`/view/GET/productLatestPriceDown`);
 }
 
 function redirectTo(id){
@@ -29,7 +29,8 @@ function GetListRequest(url){
                         <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
                         <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
                         <p class="text-gray-600">${item.pd_price}원</p>
-                        <p class="text-gray-600" >${item.count_love}</p>
+                        <p class="text-gray-600">좋아요 ${item.count_love}</p>
+                        <p class="text-gray-600">댓글 ${item.comment_count}</p>
                     </div>
                 </article>
             `;

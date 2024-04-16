@@ -61,8 +61,10 @@
         SET count_love = CASE WHEN count_love > 0 THEN count_love - 1 ELSE 0 END
         WHERE product_id = #{productId}
     </update>
+
     <select id="findAllByLoveCountDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
+        where count_love > 0
         order by count_love desc
         limit #{offset}, #{size}
     </select>
@@ -75,6 +77,17 @@
         GROUP BY p.product_id
         ORDER BY pd_sell_count DESC
         LIMIT #{offset}, #{size};
+    </select>
+
+    <select id="findAllByComment" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse">
+        select p.product_id ,p.pd_name, p.pd_price, pd_category, p.count_love,
+               count(c.comment_id) as comment_count
+        from product as p
+                 left join comment as c on p.product_id = c.product_id
+        group by p.product_id
+        having comment_count > 0
+        order by comment_count desc
+        limit #{offset} offset #{size}
     </select>
 
 </mapper>
