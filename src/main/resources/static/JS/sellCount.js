@@ -2,13 +2,7 @@ document.getElementById('sellCount');
 let page = 1;
     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
     console.log('sellCount clicked'); // 'sellCount' 클릭 확인
-<<<<<<< HEAD
     GetListRequestBySellCount(`/view/GET/sellCount?page=${page}`);
-
-});
-=======
-    GetListRequest(`/view/GET/sellCount?page=${page}`);
->>>>>>> 94498bf94cd58287e163d1f2534f96ee616f0b25
 
 function GetListRequestBySellCount(url) {
     const headers = {
@@ -32,10 +26,9 @@ function GetListRequestBySellCount(url) {
             let productsHtml = data.map(item => {
                 return `
                 <article class="bg-white shadow-md rounded overflow-hidden">
-                    <img src="/IMG/thanks.gif"
-                         alt="Fashion item"
-                         class="w-full h-64 object-cover"
-                     onclick=redirectTo(${item.product_id})>
+                     <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"
+                         alt="Fashion item" class="w-full h-64 object-cover"
+                         onclick=redirectTo(${item.product_id})>
                          
                     <div class="p-4">
                         <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>

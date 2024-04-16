@@ -3,23 +3,8 @@ let page = 1;
     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
     console.log('commentLatest clicked'); // 'commentLatest' 클릭 확인
     GetListRequest(`/view/GET/commentLatest?page=${page}`);
-<<<<<<< HEAD
-=======
-});
-window.onload = () => {
-<<<<<<< HEAD:target/classes/static/JS/WongeunJS/new.js
-    GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=1`);
-=======
-    GetListRequest(`/view/POST/love`);
->>>>>>> 94498bf94cd58287e163d1f2534f96ee616f0b25:src/main/resources/static/JS/WongeunJS/commentLatest.js
-}
 
-function redirectTo(id){
-    location.href = `/product/?id=${id}`;
-}
->>>>>>> 97a1c59489f9cea64fd38814320e736ca3dad233
-
-function GetListRequestByCreatedAt(url){
+function GetListRequest(url){
     const headers = {
         'Content-Type': 'application/json',
     };
@@ -35,7 +20,7 @@ function GetListRequestByCreatedAt(url){
         })
         .then(data => {
             // Thymeleaf로 직접 데이터 추가
-            const LatestViewController = document.getElementById('qwe12');
+            const LatestViewController = document.getElementById('field');
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
             let productsHtml = data.map(item => {
                 return `

@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 const priceDown = document.getElementById('priceDown');
 let page2 = 1;
-=======
-window.onload = () => {
-    GetListRequest(`/view/GET/productLatestPriceDown`);
-}
->>>>>>> 94498bf94cd58287e163d1f2534f96ee616f0b25
+
+
 
 priceDown.addEventListener('click',() =>{
     console.log('DOM fully loaded and parsed');//DOM 로딩

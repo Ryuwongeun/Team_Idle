@@ -1,20 +1,20 @@
 window.onload = () => {
-<<<<<<< HEAD
+
     GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=1`);
-=======
-    GetListRequest(`/view/GET/productLatest`);
->>>>>>> 94498bf94cd58287e163d1f2534f96ee616f0b25
+
+
+
 }
 
 function redirectTo(id){
     location.href=`/product/?id=${id}`;
 }
-<<<<<<< HEAD
+
 
 function GetListRequestByCreatedAt(url){
-=======
-function GetListRequest(url){
->>>>>>> 94498bf94cd58287e163d1f2534f96ee616f0b25
+
+
+
     const headers = {
         'Content-Type': 'application/json',
     };
@@ -24,13 +24,13 @@ function GetListRequest(url){
     })
         .then(response => response.json())
         .then(data => {
-<<<<<<< HEAD
+
             // Thymeleaf로 직접 데이터 추가
-            const LatestViewController = document.getElementById('qwe12');
+
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
-=======
+
             const LatestViewController = document.getElementById('field');
->>>>>>> 94498bf94cd58287e163d1f2534f96ee616f0b25
+
             let productsHtml = data.map(item => {
                 return `
                 <article class="product-item bg-white shadow-md rounded overflow-hidden">
@@ -52,6 +52,7 @@ function GetListRequest(url){
         .catch(error => {
             console.error('Error fetching user data:', error);
         });
+
 }
 
 
