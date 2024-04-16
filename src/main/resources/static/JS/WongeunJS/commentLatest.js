@@ -5,6 +5,13 @@ commentBtn.addEventListener('click', () => {
     console.log('commentLatest clicked'); // 'sellCount' 클릭 확인
     GetListRequest(`/view/GET/commentLatest?page=${page}`);
 });
+window.onload = () => {
+    GetListRequest(`/view/POST/love`);
+}
+
+function redirectTo(id){
+    location.href = `/product/?id=${id}`;
+}
 
 function GetListRequest(url){
     const headers = {

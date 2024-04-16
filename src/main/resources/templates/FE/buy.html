@@ -1,20 +1,102 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>결제 페이지</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/FE/CSS/form.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/FE/CSS/form.css">
-    <link rel="stylesheet" href="/FE/CSS/Banner.css">
-    <link rel="stylesheet" href="/FE/CSS/buy.css">
-    <link rel="stylesheet" href="/FE/CSS/form.css">
-    <link rel="stylesheet" href="/FE/CSS/search.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+            padding: 0 20px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .product-info,
+        .order-info {
+            width: 48%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            border-right: 1px solid #ccc;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            padding: 12px 24px;
+            background-color: lightpink;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: pink;
+        }
+    </style>
 </head>
-<body>
+<<<<<<< HEAD
    
 
-    <body class="bg-white text-gray-700">
+<body class="bg-white text-gray-700">
         <!-- Header -->
         <header class="bg-black py-7">
             <div class="container mx-auto flex justify-between items-center">
@@ -41,90 +123,73 @@
                 <div class="search-container">
                     <input type="text" id="searchInput" placeholder="검색...">
                     <button onclick="searchItem()">IDLE</button>
+=======
+<body>
+<header>
+    <div class="container mx-auto">
+        <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+        <nav class="flex justify-center space-x-4">
+            <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+            <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+            <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+            <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+            <a href="/join" class="text-blue-500 hover:text-blue-800" id="member-link">JOIN</a>
+            <div class="mypage-dropdown">
+                <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+                <div class="mypage-dropdown-content">
+                    <a href="/login">Login</a>
+                    <a href="/cart">Cart</a>
+                    <a href="/order">Order</a>
+                    <a href="/logout">Logout</a>
+>>>>>>> a774f36 (4/16 결제화면 구현 (buy.html))
                 </div>
-
-                <div id="searchResults"></div>
-                <script src="/FE/JS/search.js"></script>
             </div>
-          </header>
-        <div class="container">
-          <h2>주문 정보 입력</h2>
-          <form action="/submit-order" method="post">
-              <div>
-                  <label for="shipping-address">배송 주소</label>
-                  <textarea id="shipping-address" name="shipping-address" rows="1" cols="50" required></textarea>
+        </nav>
+    </div>
+</header>
 
-                  <button id="search-address-btn" type="button">주소검색하기</button>
-                  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
-              </div>
-              <div>
-                  <label for="phone">전화번호</label>
-                  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" placeholder="010-1234-5678" required>
-                  <small>예: 010-1234-5678</small>
-              </div>
-              <div>
-                  <label for="email">이메일</label>
-                  <input type="email" id="email" name="email" placeholder="example@example.com" required>
-              </div>
-              <div>
-                  <label for="payment-method">결제 수단</label>
-                  <select id="payment-method" name="payment-method" required>
-                      <option value="">선택하세요</option>
-                      <option value="credit-card">신용카드</option>
-                      <option value="paypal">페이팔</option>
-                      <option value="bank-transfer">계좌이체</option>
-                  </select>
-              </div>
-              <div>
-                <br><br><br>
-        <h1>쇼핑몰 이용약관</h1>
-        
-        <h2>제1조 (목적)</h2>
-        <p>이 약관은 쇼핑몰(IDLE)이 운영하는 인터넷 사이트(IDLE.com)를 통해 제공되는 인터넷 관련 서비스(이하 "서비스"라 함)의 이용조건 및 절차, 권리와 의무, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
-        
-        <h2>제2조 (정의)</h2>
-        <p>
-            1. "쇼핑몰"이란 쇼핑몰(IDLE)이 제공하는 인터넷 관련 서비스를 의미합니다.<br>
-            2. "회원"이란 쇼핑몰에 회원가입을 하고 이 약관에 따라 쇼핑몰이 제공하는 서비스를 이용하는 고객을 말합니다.<br>
-            3. "아이디(ID)"란 회원의 식별과 서비스 이용을 위하여 회원이 정하고 쇼핑몰이 승인하는 문자와 숫자의 조합을 의미합니다.
-        </p>
-        
-        <h2>제3조 (약관의 효력과 변경)</h2>
-        <p>
-            1. 이 약관은 서비스를 이용하고자 하는 모든 회원에 대하여 그 효력을 발생합니다.<br>
-            2. 쇼핑몰은 이 약관을 사전 고지 없이 변경할 수 있으며, 변경된 약관은 쇼핑몰 내부에 공지함으로써 효력을 발생합니다.
-        </p>
-        
-        <h2>제4조 (회원가입)</h2>
-        <p>
-            1. 회원가입은 쇼핑몰이 정한 절차에 따라 진행되어야 합니다.<br>
-            2. 회원은 회원가입 시 반드시 정확한 개인정보를 제공해야 하며, 개인정보의 변경이 있을 경우 즉시 수정해야 합니다.<br>
-            3. 회원은 회원가입 시 입력한 정보의 정확성과 신뢰성에 대한 책임을 부담합니다.
-        </p>
-        
-        <h2>제5조 (서비스의 제공)</h2>
-        <p>
-            1. 쇼핑몰은 회원에게 다양한 서비스를 제공할 수 있습니다.<br>
-            2. 서비스의 내용, 이용 시간 등은 쇼핑몰의 판단에 따라 제한될 수 있습니다.<br>
-            3. 쇼핑몰은 서비스의 제공을 위하여 회원의 개인정보를 수집할 수 있으며, 이에 대한 안내 및 동의를 받아야 합니다.
-        </p>
+<div class="container mx-auto">
+    <div class="row">
+        <div class="product-info">
+            <h2>결제 상품 정보</h2>
+            <p>상품명: Lorem ipsum dolor sit amet</p>
+            <p>가격: $99.99</p>
+            <p>색상: Black</p>
         </div>
+        <div class="order-info">
+            <h2>주문 정보 입력</h2>
+            <form>
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" required>
+                <label for="address">주소</label>
+                <input type="text" id="address" name="address" required>
+                <button type="button" onclick="searchAddress()">주소 검색하기</button>
+                <label for="payment-method">결제 방법</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="">-- 선택 --</option>
+                    <option value="credit-card">신용카드</option>
+                    <option value="bank-transfer">계좌이체</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+                <input type="submit" value="결제하기">
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    // 주소 검색 함수를 정의합니다.
+    function searchAddress() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 주소 검색 완료 후 처리할 내용을 여기에 작성합니다.
+                document.getElementById('address').value = data.address;
+            }
+        }).open();
+    }
+</script>
 
-    <!-- Script for Address Search and Payment -->
-    <script src="https://pay.nicepay.co.kr/v1/js/"></script> <!-- Server 승인 운영계 -->
-    <script src="/FE/JS/buy.js"></script>
-    <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
-    <script>
-        document.getElementById('search-address-btn').addEventListener('click', function() {
-            new daum.Postcode({
-                oncomplete: function(data) {
-                    var addr = data.address; // 사용자가 선택한 주소 변수에 저장
-                    document.getElementById('shipping-address').value = addr; // 주소를 textarea에 입력
-                }
-            }).open();
-        });
-        </script>
-    
-    <button onclick="serverAuth()">결제하기</button> 
 </body>
 </html>
