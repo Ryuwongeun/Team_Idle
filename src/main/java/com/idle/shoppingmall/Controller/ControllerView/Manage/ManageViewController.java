@@ -21,7 +21,7 @@ public class ManageViewController {
 
     @GetMapping("/manage")
     public String ManagePageLoad() {
-        return "Manage/ManageMain";
+        return "/Manage/ManageMain";
     }
 
     @PostMapping("/GET/manage/product")
