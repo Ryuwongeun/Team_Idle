@@ -87,7 +87,7 @@
         group by p.product_id
         having comment_count > 0
         order by comment_count desc
-        limit #{offset} offset #{size}
+        limit #{offset}, #{size};
     </select>
 
 </mapper>

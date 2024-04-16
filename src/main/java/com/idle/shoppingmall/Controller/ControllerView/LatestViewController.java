@@ -80,12 +80,12 @@ public class LatestViewController {
     //댓글순
     @PostMapping("/view/GET/commentLatest")
     public List<ProductCommentListResponse> findAllByComment(@RequestParam(defaultValue = "0") int page){
-        int startPage = (page-1)*PAGESIZE;
+        int startPage = (page-1)*PAGESIZE; // 페이지가 0부터 시작한다면 이렇게 수정
         System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;
         System.out.println("endPage : "+endPage);
-        List<ProductCommentListResponse> list = productService.findAllByComment(startPage, endPage);
-        System.out.println("size : "+list.size());
+        List<ProductCommentListResponse> list = productService.findAllByComment(startPage, endPage); // 매개변수명 변경에 주의
+        System.out.println("list size : "+list.size());
         return list;
     }
 }

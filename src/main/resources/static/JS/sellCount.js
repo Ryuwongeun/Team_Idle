@@ -1,10 +1,8 @@
-const sellBtn = document.getElementById('sellCount');
+document.getElementById('sellCount');
 let page = 1;
-sellBtn.addEventListener('click', () => {
     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
     console.log('sellCount clicked'); // 'sellCount' 클릭 확인
     GetListRequest(`/view/GET/sellCount?page=${page}`);
-});
 
 function GetListRequest(url) {
     const headers = {

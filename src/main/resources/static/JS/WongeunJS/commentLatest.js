@@ -1,9 +1,10 @@
-const commentBtn = document.getElementById('commentLatest');
+document.getElementById('commentLatest');
 let page = 1;
-commentBtn.addEventListener('click', () => {
     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
-    console.log('commentLatest clicked'); // 'sellCount' 클릭 확인
+    console.log('commentLatest clicked'); // 'commentLatest' 클릭 확인
     GetListRequest(`/view/GET/commentLatest?page=${page}`);
+<<<<<<< HEAD
+=======
 });
 window.onload = () => {
     GetListRequest(`/view/POST/love`);
@@ -12,6 +13,7 @@ window.onload = () => {
 function redirectTo(id){
     location.href = `/product/?id=${id}`;
 }
+>>>>>>> 97a1c59489f9cea64fd38814320e736ca3dad233
 
 function GetListRequest(url){
     const headers = {
