@@ -3,6 +3,7 @@ package com.idle.shoppingmall.mapper.Product;
 
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
+import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,7 +27,7 @@ public interface ProductMapper {
     // Mapper 인터페이스 메서드에 @Param 어노테이션 추가
     List<Product> findAllProductsPaged(@Param("size") int size, @Param("offset") int offset);
 
-    List<Product> findAllByCreatedAtDesc(@Param("size") int size, @Param("offset") int offset);
+    List<ProductListResponse> findAllByCreatedAtDesc(@Param("size") int size, @Param("offset") int offset);
 
     List<Product> findAllByPdPriceDown(@Param("size") int size, @Param("offset") int offset);
 
@@ -44,5 +45,6 @@ public interface ProductMapper {
    void decreaseLoveCount(@Param("productId")Long productId);
 
     List<ProductCommentListResponse> findAllByComment(@Param("offset") int offset, @Param("size") int size);
+
 
 } // end interface
