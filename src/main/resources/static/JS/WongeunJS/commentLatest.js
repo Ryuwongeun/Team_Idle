@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 window.onload = () => {
     GetListRequestTest(`/view/GET/commentLatest`);
 }
@@ -9,6 +10,13 @@ function redirectTo(id){
 let page = 1;
 console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
 GetListRequest(`/view/GET/commentLatest?page=${page}`);
+=======
+document.getElementById('commentLatest');
+let page = 1;
+    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+    console.log('commentLatest clicked'); // 'commentLatest' 클릭 확인
+    GetListRequest(`/view/GET/commentLatest?page=${page}`);
+>>>>>>> 3781523326be989b59d8f1bf8cd1118b9a00421a
 
 function GetListRequest(url){
     const headers = {
