@@ -11,6 +11,7 @@ function generatePagination(totalPages) {
 function handlePageClick(pageNumber) {
     const paginationLinks = document.querySelectorAll('.pagination-container button');
     GetListRequest(`/view/GET/sellCount?page=${pageNumber}`);
+    GetListRequest(`/view/GET/commentLatest?page=${pageNumber}`);
     paginationLinks.forEach(link => link.classList.remove('active'));
     paginationLinks[pageNumber - 1].classList.add('active');
     console.log('Clicked page:', pageNumber);

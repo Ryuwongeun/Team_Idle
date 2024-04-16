@@ -1,5 +1,5 @@
 window.onload = () => {
-    GetListRequest(`/view/POST/love`);
+    GetListRequest(`/view/GET/love`);
 }
 
 function redirectTo(id){
