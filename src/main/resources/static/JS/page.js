@@ -1,3 +1,5 @@
+
+
 function generatePagination(totalPages) {
     const paginationContainer = document.querySelector('.pagination-container');
     for (let i = 1; i <= totalPages; i++) {
@@ -8,12 +10,17 @@ function generatePagination(totalPages) {
     }
 }
 
+
 function handlePageClick(pageNumber) {
     const paginationLinks = document.querySelectorAll('.pagination-container button');
-    GetListRequest(`/view/GET/sellCount?page=${pageNumber}`);
+    GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=${pageNumber}`);
     GetListRequest(`/view/GET/commentLatest?page=${pageNumber}`);
-    paginationLinks.forEach(link => link.classList.remove('active'));
-    paginationLinks[pageNumber - 1].classList.add('active');
+    // 페이지 링크에 "active" 클래스를 추가하기 전에 페이지 번호의 유효성을 검사합니다.
+    if (pageNumber >= 1 && pageNumber <= paginationLinks.length) {
+        paginationLinks.forEach(link => link.classList.remove('active'));
+        // 페이지 번호가 0부터 시작하지 않고 1부터 시작하므로 -1을 해줍니다.
+        paginationLinks[pageNumber - 1].classList.add('active');
+    }
     console.log('Clicked page:', pageNumber);
 }
 

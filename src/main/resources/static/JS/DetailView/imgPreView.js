@@ -1,3 +1,5 @@
+let thumbnail = ''
+
 function previewImages() {
     let preview = document.querySelector('#preview');
     preview.innerHTML = '';
@@ -20,9 +22,11 @@ function previewImages() {
                 image.height = 100; // 미리보기 이미지의 높이 설정
                 image.title = file.name;
                 image.src = this.result;
+                image.addEventListener("click", function() {
+                    thumbnail = file;
+                });
                 preview.appendChild(image);
             }, false);
-
             reader.readAsDataURL(file);
         }
     }

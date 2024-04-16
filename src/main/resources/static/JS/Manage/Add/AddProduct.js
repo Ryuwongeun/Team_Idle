@@ -16,6 +16,7 @@ AddBtn.addEventListener('click', () => {
     formData.append('brand', brand);
     formData.append('pd_category', category);
     formData.append('pd_price', price);
+    formData.append('thumbnail', thumbnail)
 
     sizeElements.forEach((sizeElement, index) => {
         formData.append(`sizes[${index}].size`, sizeElement.value);

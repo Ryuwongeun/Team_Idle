@@ -23,6 +23,7 @@ public class ProductAddRequest {
     private int pd_price;
     private String pd_category;
     private List<SizeAndCount> sizes;
+    private MultipartFile thumbnail;
     private List<MultipartFile> images;
 }
 

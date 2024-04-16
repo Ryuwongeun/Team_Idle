@@ -1,26 +1,23 @@
-const priceDown = document.getElementById('priceDown');
-let page2 = 1;
+const createdAtBtn = document.getElementById('createdAt');
+let page1 = 1;
 
-
-
-priceDown.addEventListener('click',() =>{
-    console.log('DOM fully loaded and parsed');//DOM 로딩
-    console.log('priceDown clicked');//priceDown 클릭확인
-    GetListRequestByPriceDown(`/view/GET/productLatestPriceDown?page=${page2}`);
-
+createdAtBtn.addEventListener('click', () => {
+    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+    console.log('createdAt clicked'); // 'createdAtBtn' 클릭 확인
+    GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=${page1}`);
 });
 
 
-
-function GetListRequestByPriceDown(url){
+function GetListRequestByCreatedAt(url){
     const headers = {
         'Content-Type': 'application/json',
     };
     fetch(url, {
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json',}
+        method:'POST',
+        headers: {'Content-Type': 'application/json',}
     })
-        .then(response =>{
+
+        .then(response => {
             if(!response.ok){
                 throw new Error(`HTTP error ! status: ${response.status}`);
             }
@@ -39,9 +36,13 @@ function GetListRequestByPriceDown(url){
                     <div class="p-4">
                         <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
                         <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
-                        <p class="text-gray-600">${item.pd_price}원</p>
-                        <p class="text-gray-600">좋아요 ${item.count_love}</p>
-                        <p class="text-gray-600">댓글 ${item.comment_count}</p>
+                        <p class="text-gray-600">${item.pd_price}원</p>                 
+                     
+                        <p class="text-gray-600" >${item.product_id}</p>
+                        <p class="text-gray-600" >${item.created_at}</p>
+
+
+
                     </div>
                 </article>
             `;

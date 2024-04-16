@@ -44,12 +44,14 @@ public class ProductService {
         return productMapper.findAllProductsPaged(size, offset);
     }
 
-    public List<Product> findAllByCreatedAtDesc(int page, int size) {
-        return productMapper.findAllByCreatedAtDesc(page, size);
+    public List<Product> findAllByCreatedAtDesc(int startPage, int endPage) {
+
+        return productMapper.findAllByCreatedAtDesc(startPage, endPage);
     }
 
     public List<Product> findAllByPdPriceDown(int page, int size) {
-        return productMapper.findAllByPdPriceDown(page, size);
+        int offset = page * size;
+        return productMapper.findAllByPdPriceDown(size, offset);
     }
 
     public List<Product>findAllByLoveCountDesc(int startPage, int endPage){

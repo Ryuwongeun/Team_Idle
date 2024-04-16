@@ -32,7 +32,7 @@ public interface ProductMapper {
 
     List<Product>findAllByLoveCountDesc(@Param("size") int size, @Param("offset") int offset);
 
-    List<ProductSellCountResponse> findAllBySellCountDesc(@Param("offset") int offset, @Param("size") int size);
+    List<ProductSellCountResponse> findAllBySellCountDesc(@Param("size") int size ,@Param("offset") int offset);
 
     List<Product> findAllByPdName(String searchRequest);
 
