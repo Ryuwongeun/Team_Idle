@@ -15,7 +15,13 @@ public class ProductDetailViewController {
 
     @GetMapping("/product/")
     public String showDetailPage(@RequestParam Long id, Model model){
+        System.out.println("111111111111111111111");
         Product product = productService.findById(id);
+        System.out.println("22222222222222222222");
+        if(product.getProduct_img()==null){
+            product.setProduct_img("");
+        }
+
         model.addAttribute("data", product);
         return "/product_info";
     }

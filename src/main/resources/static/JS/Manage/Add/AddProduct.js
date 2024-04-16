@@ -16,23 +16,29 @@ AddBtn.addEventListener('click', () => {
     formData.append('brand', brand);
     formData.append('pd_category', category);
     formData.append('pd_price', price);
-    formData.append('thumbnail', thumbnail)
 
+    if(images.files.length > 0) {
+        for (let i = 0; i < images.files.length; i++) {
+            formData.append('images', images.files[i]);
+        }
+        if(thumbnail === null) {
+            thumbnail = images.files[0];
+        }
+        formData.append('thumbnail', thumbnail);
+    }
+    console.log(thumbnail);
     sizeElements.forEach((sizeElement, index) => {
         formData.append(`sizes[${index}].size`, sizeElement.value);
         formData.append(`sizes[${index}].count`, countElements[index].value);
     });
-    alert(formData.get('sizes')+formData.get('sizes[0].size')+formData.get('sizes[0].count'));
-    for (let i=0; i<images.files.length; i++){
-        formData.append('images', images.files[i]);
-    }
+
     fetch('/api/POST/manage/productAdd', {
         method: 'POST',
         body: formData
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            alert(data.msg);
             location.reload(true);
         })
         .catch(error => {

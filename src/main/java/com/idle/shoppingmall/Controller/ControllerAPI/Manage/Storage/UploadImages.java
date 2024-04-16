@@ -18,7 +18,7 @@ public class UploadImages {
     private final UploadImgService uploadService;
     private final NCPObjectStorageService ncpObjectStorageService;
 
-    private String bucketName = "miniidle";
+    private final String BUCKETNAME = "miniidle";
 
     public void productUploadImages(List<MultipartFile> images, Long id){
         String imageFileName = "";
@@ -28,7 +28,7 @@ public class UploadImages {
 
         for(MultipartFile img : images){
             imageOriginalName = img.getOriginalFilename();
-            imageFileName = ncpObjectStorageService.uploadFile(bucketName, "storage/", img);
+            imageFileName = ncpObjectStorageService.uploadFile(BUCKETNAME, "storage/", img);
 
             ProductImg productImg = ProductImg.builder()
                     .product_id(id)
@@ -50,7 +50,7 @@ public class UploadImages {
 
         for(MultipartFile img : images){
             imageOriginalName = img.getOriginalFilename();
-            imageFileName = ncpObjectStorageService.uploadFile(bucketName, "storage/", img);
+            imageFileName = ncpObjectStorageService.uploadFile(BUCKETNAME, "storage/", img);
 
             CommentImg commentImg = CommentImg.builder()
                     .comment_id(id)

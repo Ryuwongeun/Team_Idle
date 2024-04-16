@@ -3,6 +3,7 @@ package com.idle.shoppingmall.Service.Product;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.RequestDTO.Product.Add.ProductAddRequest;
+import com.idle.shoppingmall.Service.Storage.NCPObjectStorageService;
 import com.idle.shoppingmall.mapper.Product.ProductDetailMapper;
 import com.idle.shoppingmall.mapper.Product.ProductMapper;
 import lombok.RequiredArgsConstructor;
@@ -16,9 +17,15 @@ import java.time.LocalDateTime;
 public class ProductAddService {
     private final ProductMapper productMapper;
     private final ProductDetailMapper productDetailMapper;
+    private final NCPObjectStorageService ncpObjectStorageService;
+
+    private final String BUCKETNAME = "miniidle";
+
 
     @Transactional
     public Long addProduct(ProductAddRequest request, Long id){
+        String imageFileName = request.getThumbnail() == null ? null :
+                ncpObjectStorageService.uploadFile(BUCKETNAME, "storage/", request.getThumbnail());
         Product product = Product.builder()
                 .pd_name(request.getPd_name())
                 .brand_id(request.getBrand())
@@ -26,9 +33,11 @@ public class ProductAddService {
                 .pd_category(request.getPd_category())
                 .created_who(id)
                 .created_at(LocalDateTime.now())
+                .product_img(imageFileName)
                 .build();
-        Integer result = productMapper.saveProduct(product);
+        productMapper.saveProduct(product);
         Long product_id = product.getProduct_id();
+
 
         for(int i=0; i<request.getSizes().size(); i++){
             ProductDetail detail = ProductDetail.builder()
@@ -36,8 +45,9 @@ public class ProductAddService {
                     .size(request.getSizes().get(i).getSize())
                     .pd_before_count(request.getSizes().get(i).getCount())
                     .build();
-            result = productDetailMapper.saveProductDetail(detail);
+            productDetailMapper.saveProductDetail(detail);
         }
+
         if(product_id==0){
             return null;
         }

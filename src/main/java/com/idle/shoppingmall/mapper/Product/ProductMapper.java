@@ -18,6 +18,7 @@ public interface ProductMapper {
     Integer saveProduct(@Param("Product")Product productDTO);
 
     Product findById(Long productId);
+
     List<Product> findAllProducts();
 
     Integer update(@Param("Product") Product productDTO);

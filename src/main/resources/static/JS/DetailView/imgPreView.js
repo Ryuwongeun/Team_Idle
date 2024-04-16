@@ -1,4 +1,4 @@
-let thumbnail = ''
+let thumbnail = null;
 
 function previewImages() {
     let preview = document.querySelector('#preview');
