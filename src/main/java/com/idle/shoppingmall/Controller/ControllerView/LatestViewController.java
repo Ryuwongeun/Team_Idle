@@ -22,13 +22,13 @@ public class LatestViewController {
     private final int PAGESIZE = 12;
 
 
-    @PostMapping("/view/GET/CreatedAt")
-    public List<ProductListResponse> findAllByCreatedAtDesc(@RequestParam(defaultValue = "1") int page){
+    @PostMapping("/view/GET/Latest")
+    public List<ProductListResponse> findAllByLatestDesc(@RequestParam(defaultValue = "1") int page){
         int startPage = (page-1)*PAGESIZE;
         System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;
         System.out.println("endPage : "+endPage);
-        List<ProductListResponse> list = productService.findAllByCreatedAtDesc(startPage, endPage);
+        List<ProductListResponse> list = productService.findAllByLatestDesc(startPage, endPage);
         System.out.println("list : " + list);
         return list; // List<ProductListResponse> 객체를 직접 반환
     }

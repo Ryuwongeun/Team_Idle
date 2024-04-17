@@ -1,3 +1,4 @@
+/*
 
 
 function generatePagination(totalPages) {
@@ -13,7 +14,7 @@ function generatePagination(totalPages) {
 
 function handlePageClick(pageNumber) {
     const paginationLinks = document.querySelectorAll('.pagination-container button');
-    GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=${pageNumber}`);
+    GetListRequestByLatest(`/view/GET/Latest?page=${pageNumber}`);
     GetListRequest(`/view/GET/commentLatest?page=${pageNumber}`);
     // 페이지 링크에 "active" 클래스를 추가하기 전에 페이지 번호의 유효성을 검사합니다.
     if (pageNumber >= 1 && pageNumber <= paginationLinks.length) {
@@ -34,3 +35,6 @@ generatePagination(totalPages);
 function goToProductInfo(productId) {
 window.location.href = `product_info.html?id=${productId}`;
 }
+
+
+*/
