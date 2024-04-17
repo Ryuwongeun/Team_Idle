@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
-            rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/FE/CSS/form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FE/CSS/Banner.css">
+    <link rel="stylesheet" href="/FE/CSS/form.css">
     <link rel="stylesheet" href="/FE/CSS/search.css">
-    <link rel="stylesheet" href="/JS/WongeunJS/menu.css">
+    <link rel="stylesheet" href="/JS/WongeunJS/category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         .custom-video {
@@ -60,66 +58,6 @@
 </head>
 <body class="bg-white text-gray-700">
 <!-- Header -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<aside class="side-bar">
-    <section class="side-bar__icon-box">
-        <section class="side-bar__icon-1">
-            <div></div>
-            <div></div>
-            <div></div>
-        </section>
-    </section>
-    <ul>
-        <li>
-            <a href="#"><i class="fa-solid fa-cat"></i> 브랜드</a>
-            <ul>
-                <li><a href="#">국내브랜드</a></li>
-                <li><a href="#">해외브랜드</a></li>
-                <li><a href="#">디자이너브랜드</a></li>
-                <li><a href="#">고급브랜드</a></li>
-                <li><a href="#">저럼한브랜드</a></li>
-                <li><a href="#">유명브랜드</a></li>
-                <li><a href="#">럭셔리브랜드</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">남성</a>
-            <ul>
-                <li>
-                    <a href="#">캐주얼</a>
-                    <ul>
-                        <li><a href="#">상의</a></li>
-                        <li><a href="#">하의</a></li>
-                        <li><a href="#">스포츠</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">스포츠</a></li>
-                <li><a href="#">악세서리</a></li>
-                <li><a href="#">text4</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">여성</a>
-            <ul>
-                <li><a href="#">text1</a></li>
-                <li><a href="#">text2</a></li>
-                <li><a href="#">text3</a></li>
-                <li><a href="#">text4</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">계절</a>
-            <ul>
-                <li><a href="#">봄</a></li>
-                <li><a href="#">여름</a></li>
-                <li><a href="#">가을</a></li>
-                <li><a href="#">겨울</a></li>
-            </ul>
-        </li>
-    </ul>
-</aside>
-
 <header class="bg-black py-7">
     <div class="container mx-auto flex justify-between items-center">
         <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
@@ -128,7 +66,7 @@
                 <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
                 <div class="mypage-dropdown-content">
                     <a href="/like">Like</a>
-                    <a href="/comment">Comment</a>
+                    <a href="/Comment">Comment</a>
                 </div>
             </div>
             <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
@@ -141,33 +79,83 @@
                     <a href="/login">Login</a>
                     <a href="/cart">Cart</a>
                     <a href="/order">Order</a>
-                    <a href="/logout">Logout</a>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="검색...">
-        <button onclick="searchItem()">IDLE</button>
-    </div>
 
-    <div id="searchResults"></div>
-    <script src="/FE/JS/search.js"></script>
+    <!--category start-->
+
+    <aside class="side-bar">
+        <section class="side-bar__icon-box">
+            <section class="side-bar__icon-1">
+                <div></div>
+                <div></div>
+                <div></div>
+            </section>
+        </section>
+        <ul>
+            <li>
+                <a href="#"><i class="fa-solid fa-cat"></i> 브랜드</a>
+                <ul>
+                    <li class="DomesticBrand" data-category="국내브랜드"><a href="/domesticBrand">국내브랜드</a></li>
+                    <li class="OverseasBrand" data-category="해외브랜드"><a href="#">해외브랜드</a></li>
+                    <li class="designerBrand" data-category="디자이너브랜드"><a href="#">디자이너브랜드</a></li>
+                    <li class="luxuryBrand" data-category="고급브랜드"><a href="#">고급브랜드</a></li>
+                    <li class="cheapBrand" data-category="저려함브랜드"><a href="#">저렴한브랜드</a></li>
+                    <li class="famousBrand" data-category="유명브랜드"><a href="#">유명브랜드</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">남성</a>
+                <ul>
+                    <li><a href="#">상의</a></li>
+                    <li><a href="#">하의</a></li>
+                    <li><a href="#">악세서리</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">여성</a>
+                <ul>
+                    <li><a href="#">상의</a></li>
+                    <li><a href="#">하의</a></li>
+                    <li><a href="#">원피스</a></li>
+                    <li><a href="#">악세서리</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">계절</a>
+                <ul>
+                    <li><a href="#">봄</a></li>
+                    <li><a href="#">여름</a></li>
+                    <li><a href="#">가을</a></li>
+                    <li><a href="#">겨울</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <!--category end-->
+
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="검색...">
+    <button onclick="searchItem()">IDLE</button>
+</div>
 </header>
 
+<div id="searchResults"></div>
+<script src="/FE/JS/search.js"></script>
+
 <main class="my-2">
-    <div class="relative">
-        <video controls autoplay loop class="custom-video">
-            <source src="/FE/video/Outfits Inspired By.mp4" type="video/mp4">
-        </video>
-    </div>
-    <br><br><br>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex flex-wrap -m-1" id="field"></div>
     </div>
     <div class="pagination-container">
+
     </div>
+
 </main>
+
+
 <footer class="bg-black py-4 mt-8">
     <div class="container mx-auto text-center text-pink-500">
         <div class="flex flex-col items-center">
@@ -178,9 +166,10 @@
             </div>
         </div>
     </div>
+    </div>
 </footer>
-<script src="/JS/WongeunJS/like.js"></script>
-<script src="/JS/product.js"></script>
+<script src="/JS/createdAt.js"></script>
 <script src="/JS/page.js"></script>
+<script src="/JS/category/category.js"></script>
 </body>
 </html>

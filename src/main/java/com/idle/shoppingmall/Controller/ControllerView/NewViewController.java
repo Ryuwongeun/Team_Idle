@@ -15,4 +15,10 @@ public class NewViewController {
         return "/new";
     } // newList
 
+    @GetMapping("/domesticBrand")
+    String domesticBrand() {
+
+        return "/category/domesticBrand";
+    } // newList
+
 } // end class

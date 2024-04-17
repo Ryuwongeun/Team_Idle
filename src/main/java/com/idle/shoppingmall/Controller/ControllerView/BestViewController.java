@@ -12,19 +12,19 @@ public class BestViewController {
     @GetMapping("/best")
     String bestList() {
 
-        return "/FE/best";
+        return "/best/best";
     } // bestList
 
     @GetMapping("/like")
     String likeList() {
 
-        return "/like";
+        return "/best/like";
     } // likeList
 
     @GetMapping("/comment")
     String commentList() {
 
-        return "/comment";
+        return "/best/comment";
     } // commentList
 
 } // end class
