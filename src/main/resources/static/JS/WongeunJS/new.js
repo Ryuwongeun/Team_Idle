@@ -16,12 +16,7 @@ window.onscroll=()=>{
     }
 };
 
-<<<<<<< HEAD
-function GetListRequestByCreatedAt(url){
-=======
 function GetListRequest(url){
-
->>>>>>> 68175710f5e620687979c6e2196baf5cde7e4645
     const headers = {
         'Content-Type': 'application/json',
     };
