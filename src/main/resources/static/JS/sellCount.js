@@ -7,7 +7,7 @@ function redirectTo(id){
 }
 
 window.onload=() =>{
-    GetListRequest(`/view/GET/sellCount?page=1`);
+    GetListRequestSellCount(`/view/GET/sellCount?page=1`);
 }
 let page = 1;
 
@@ -18,12 +18,12 @@ function redirectTo(id){
 window.onscroll=()=>{
     //사용자가 페이지 하단에 도달했는지 확인
     if(window.innerHeight + window.scrollY >=document.body.offsetHeight){
-        GetListRequest(`/view/GET/sellCount?page=${++page}`);//다음 페이지 데이터 로드
+        GetListRequestSellCount(`/view/GET/sellCount?page=${++page}`);//다음 페이지 데이터 로드
     }
 };
 
 
-function GetListRequest(url) {
+function GetListRequestSellCount(url) {
     const headers = {
         'Content-Type': 'application/json',
     };
