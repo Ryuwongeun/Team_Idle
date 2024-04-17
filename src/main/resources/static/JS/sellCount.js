@@ -1,3 +1,11 @@
+window.onload = () => {
+    GetListRequestTest(`/view/GET/sellCount`);
+}
+
+function redirectTo(id){
+    location.href=`/product/?id=${id}`;
+}
+
 window.onload=() =>{
     GetListRequestSellCount(`/view/GET/sellCount?page=1`);
 }

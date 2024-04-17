@@ -5,6 +5,11 @@ let page = 1;//현재 페이지 번호
 function redirectTo(id){
     location.href=`/product/?id=${id}`;
 }
+
+let page = 1;
+    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
+    GetListRequest(`/view/GET/commentLatest?page=${page}`);
+
 //스크롤 이벤트 리스너 추가
 window.onscroll=()=>{
     //사용자가 페이지 하단에 도달했는지 확인
@@ -12,6 +17,7 @@ window.onscroll=()=>{
         GetListRequest(`/view/GET/commentLatest?page=${++page}`);//다음 페이지 데이터 로드
     }
 };
+
 function GetListRequest(url){
     const headers = {
         'Content-Type': 'application/json',
@@ -20,22 +26,18 @@ function GetListRequest(url){
         method: 'POST',
         headers: headers
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            // Thymeleaf로 직접 데이터 추가
             const LatestViewController = document.getElementById('field');
-            // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
+
             let productsHtml = data.map(item => {
                 return `
-                <article class="bg-white shadow-md rounded overflow-hidden">
-                    <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"
-                         alt="Fashion item" class="w-full h-64 object-cover"
-                         onclick=redirectTo(${item.product_id})>
+                        <article class="product-item bg-white shadow-md rounded overflow-hidden">
+                            <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"
+                                 alt="Fashion item"
+                                 onclick="redirectTo(${item.product_id})"
+                                 onmouseover="scaleImage(this, 1.2)" 
+                                 onmouseout="scaleImage(this, 1)">
                     <div class="p-4">
                         <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
                         <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
@@ -50,4 +52,8 @@ function GetListRequest(url){
         .catch(error => {
             console.error('Error fetching user data:', error);
         });
+}
+
+function scaleImage(img, scale) {
+    img.style.transform = `scale(${scale})`;
 }

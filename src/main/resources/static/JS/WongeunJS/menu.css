@@ -35,7 +35,13 @@ body {
     background-color: black;
     width: var(--side-bar-width);
     min-height: var(--side-bar-height);   /* 사이드바의 높이를 전체 화면 높이의 90%로 지정 */
-    margin-top: calc((100vh - var(--side-bar-height)) / 2);    /* 사이드바 위와 아래의 마진을 동일하게 지정 */
+    /*margin-top: calc((100vh - var(--side-bar-height)) / 2);    !* 사이드바 위와 아래의 마진을 동일하게 지정 *!*/
+    margin-top: 0; /* 사이드바의 상단 마진을 0으로 조정 */
+    top: 0; /* 사이드바를 상단에 위치시킵니다 */
+    left: 0; /* 사이드바를 왼쪽에 위치시킵니다 */
+    transform: translate(0, 0); /* 초기 위치를 상단 왼쪽으로 설정 */
+    z-index: 1000; /* 다른 요소들보다 앞으로 나오게 설정 */
+    transition: .5s;
 }
 
 /* 아이콘 시작 */

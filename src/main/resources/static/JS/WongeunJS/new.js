@@ -16,8 +16,16 @@ window.onscroll=()=>{
     }
 };
 
+<<<<<<< HEAD
 function GetListRequestLatest(url){
+=======
+<<<<<<< HEAD
+function GetListRequestByCreatedAt(url){
+=======
+function GetListRequest(url){
+>>>>>>> b96d6a96056fb0a2dbf5b8e724077dec7125b71b
 
+>>>>>>> 68175710f5e620687979c6e2196baf5cde7e4645
     const headers = {
         'Content-Type': 'application/json',
     };
@@ -47,10 +55,8 @@ function GetListRequestLatest(url){
                                 <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
                                 <p class="text-gray-600">${item.pd_price}원</p>                 
                                 <p class="text-gray-600" >${item.product_id}</p>
-                                
                             </div>
-                        </article>
-                        `;
+                        </article>`
             }).join('');
             LatestViewController.innerHTML += productsHtml;
         })
