@@ -1,18 +1,21 @@
-// const sellCountBtn=document.getElementById('sellCount')
-//
-// sellCountBtn.addEventListener('click',()=>{
-//     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
-//     console.log('sellCount clicked'); // 'sellCount' 클릭 확인
-//     GetListRequestBySellCount(`/view/GET/sellCount?page=${page}`);
-// });
-
+window.onload=() =>{
+    GetListRequest(`/view/GET/sellCount?page=1`);
+}
 let page = 1;
-console.log('DOM fully loaded and parsed');
-console.log('sellCount clicked');
-GetListRequest(`/view/GET/sellCount?page=${page}`);
+
+function redirectTo(id){
+    location.href=`/product/?id=${id}`;
+}
+//스크롤 이벤트 리스너 추가
+window.onscroll=()=>{
+    //사용자가 페이지 하단에 도달했는지 확인
+    if(window.innerHeight + window.scrollY >=document.body.offsetHeight){
+        GetListRequest(`/view/GET/sellCount?page=${++page}`);//다음 페이지 데이터 로드
+    }
+};
 
 
-function GetListRequestBySellCount(url) {
+function GetListRequest(url) {
     const headers = {
         'Content-Type': 'application/json',
     };
@@ -45,7 +48,7 @@ function GetListRequestBySellCount(url) {
                         </div>
                     </article>`;
             }).join('');
-            LatestViewController.innerHTML = productsHtml;
+            LatestViewController.innerHTML += productsHtml;
         })
         .catch(error => {
             console.error('Error fetching data:', error);

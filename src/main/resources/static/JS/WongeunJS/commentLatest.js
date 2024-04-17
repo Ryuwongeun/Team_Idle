@@ -1,16 +1,17 @@
 window.onload = () => {
-    GetListRequestTest(`/view/GET/commentLatest`);
+    GetListRequest(`/view/GET/commentLatest?page=1`);
 }
-
+let page = 1;//현재 페이지 번호
 function redirectTo(id){
     location.href=`/product/?id=${id}`;
 }
-document.getElementById('commentLatest');
-let page = 1;
-    console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
-    console.log('commentLatest clicked'); // 'commentLatest' 클릭 확인
-    GetListRequest(`/view/GET/commentLatest?page=${page}`);
-
+//스크롤 이벤트 리스너 추가
+window.onscroll=()=>{
+    //사용자가 페이지 하단에 도달했는지 확인
+    if(window.innerHeight + window.scrollY >=document.body.offsetHeight){
+        GetListRequest(`/view/GET/commentLatest?page=${++page}`);//다음 페이지 데이터 로드
+    }
+};
 function GetListRequest(url){
     const headers = {
         'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ function GetListRequest(url){
                     </div>
                 </article>`
             }).join(''); // 배열의 모든 항목을 하나의 문자열로 결합
-            LatestViewController.innerHTML = productsHtml;
+            LatestViewController.innerHTML += productsHtml;
         })
         .catch(error => {
             console.error('Error fetching user data:', error);

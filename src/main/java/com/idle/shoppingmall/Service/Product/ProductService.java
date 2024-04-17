@@ -45,8 +45,8 @@ public class ProductService {
         return productMapper.findAllProductsPaged(size, offset);
     }
 
-    public List<ProductListResponse> findAllByCreatedAtDesc(int startPage, int endPage) {
-        return productMapper.findAllByCreatedAtDesc(startPage, endPage);
+    public List<ProductListResponse> findAllByLatestDesc(int startPage, int endPage) {
+        return productMapper.findAllByLatestDesc(startPage, endPage);
     }
 
     public List<Product> findAllByPdPriceDown(int page, int size) {
@@ -87,4 +87,6 @@ public class ProductService {
     public List<ProductCommentListResponse> findAllByComment(int startPage, int endPage) {
         return productMapper.findAllByComment(startPage, endPage);
     }
+
+
 } // end class
