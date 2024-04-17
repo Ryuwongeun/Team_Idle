@@ -14,6 +14,7 @@ window.onscroll=()=>{
     if(window.innerHeight + window.scrollY >=document.body.offsetHeight){
         GetListRequestLatest(`/view/GET/Latest?page=${++page}`);//다음 페이지 데이터 로드
     }
+    console.log(page)
 };
 
 function GetListRequestLatest(url){
