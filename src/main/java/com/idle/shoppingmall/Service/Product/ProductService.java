@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.Service.Product;
 
 
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.ProductDetailViewDTO;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
@@ -86,6 +87,10 @@ public class ProductService {
 
     public List<ProductCommentListResponse> findAllByComment(int startPage, int endPage) {
         return productMapper.findAllByComment(startPage, endPage);
+    }
+
+    public ProductDetailViewDTO findViewById(Long productId) {
+        return productMapper.findViewById(productId);
     }
 
 

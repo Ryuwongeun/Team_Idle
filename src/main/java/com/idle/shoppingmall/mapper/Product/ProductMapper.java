@@ -1,6 +1,7 @@
 package com.idle.shoppingmall.mapper.Product;
 
 
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.ProductDetailViewDTO;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
@@ -38,14 +39,14 @@ public interface ProductMapper {
 
     List<Product> findAllByPdName(String searchRequest);
 
-
-
    //제품의 count_love를 증가시키는 메서드
     void increaseLoveCount(@Param("productId")Long productId);
    //제품의 count_love를 감소시키는 메서드
    void decreaseLoveCount(@Param("productId")Long productId);
 
     List<ProductCommentListResponse> findAllByComment(@Param("offset") int offset, @Param("size") int size);
+
+    ProductDetailViewDTO findViewById(@Param("productId") Long productId);
 
 
 } // end interface

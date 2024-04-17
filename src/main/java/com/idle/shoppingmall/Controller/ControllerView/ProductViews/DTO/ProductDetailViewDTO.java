@@ -1,5 +1,6 @@
 package com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO;
 
+import com.idle.shoppingmall.ResponseDTO.Manage.detailsObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ public class ProductDetailViewDTO {
     private String brand_name;
     private String price;
     private String category;
+    private int count_love;
     private String product_img;
-    private List<String> size;
-    private List<Integer> amount;
+    private List<detailsObject> details;
 }
