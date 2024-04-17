@@ -12,8 +12,8 @@
 
     <style>
         .custom-video {
-            width: 100%; /* 원하는 너비 설정 */
-            height: 670px; /* 높이를 자동으로 조정하여 비율 유지 */
+            width: 80%; /* 원하는 너비 설정 */
+            height: auto; /* 높이를 자동으로 조정하여 비율 유지 */
         }
       .pagination-container {
           display: flex;
@@ -68,6 +68,10 @@
             transition: transform 0.3s ease; /* Added transition for smooth scaling */
             width: calc(25% - 20px); /* Set width to 25% minus margin */
         }
+        .relative {
+            text-align: center;
+        }
+
 
     </style>
 </head>
@@ -111,11 +115,23 @@
         </header>
 
     <main class="my-2">
+<<<<<<< HEAD:src/main/resources/templates/best/best.html
         <div class="relative">
             <video controls autoplay loop class="custom-video">
                 <source src="/FE/video/Outfits%20Inspired%20By.mp4" type="video/mp4">
             </video>
+=======
+        <div class="relative text-center">
+            <div class="flex justify-center">
+                <video controls autoplay loop
+                       class="custom-video"
+                       style="width: 80%; height: auto">
+                    <source src="/FE/video/Outfits Inspired By.mp4" type="video/mp4">
+                </video>
+            </div>
+>>>>>>> 0f2323219d282fd9727c63005a6260b308ac1b44:src/main/resources/templates/FE/best.html
         </div>
+
         <br><br>
         <br><br>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -135,7 +151,12 @@
             </div>
         </div>
     </footer>
+<<<<<<< HEAD:src/main/resources/templates/best/best.html
     <script src="/JS/best/sellCount.js"></script>
+=======
+
+    <script src="/JS/sellCount.js"></script>
+>>>>>>> 0f2323219d282fd9727c63005a6260b308ac1b44:src/main/resources/templates/FE/best.html
     <script src="/JS/page.js"></script>
     <script src="/JS/product.js"></script>
     <script src="/JS/bestOnLoad.js"></script>

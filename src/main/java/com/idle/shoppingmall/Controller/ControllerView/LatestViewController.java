@@ -52,9 +52,9 @@ public class LatestViewController {
     public List<Product> findAllByPdPriceDown(@RequestParam(defaultValue = "1") int page){
         int startPage = (page-1) * PAGESIZE;
         System.out.println("startPage : "+startPage);
-        int pageSize = PAGESIZE;
-        System.out.println("pageSize : " + pageSize);
-        List<Product> productsWithPriceDown = productService.findAllByPdPriceDown(startPage,pageSize);
+        int endPage = PAGESIZE;
+        System.out.println("pageSize : " + endPage);
+        List<Product> productsWithPriceDown = productService.findAllByPdPriceDown(startPage,endPage);
         System.out.println("size : " + productsWithPriceDown.size());
         return productsWithPriceDown;
 
@@ -63,7 +63,7 @@ public class LatestViewController {
     @PostMapping("/view/GET/love")
     public List<ProductListResponse>findAllByLoveCountDesc(@RequestParam(defaultValue = "1") int page){
         int startPage = (page-1)*PAGESIZE;
-        int endPage = startPage+PAGESIZE;
+        int endPage = PAGESIZE;
         List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
         List<ProductListResponse> list = new ArrayList<>();
         for(Product product : productLatest) {

@@ -1,7 +1,6 @@
 package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
-import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListResponse;
-import com.idle.shoppingmall.Entity.Key.DetailKey;
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListDTOtoSession;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +19,8 @@ public class PaymentViewListController {
 
     @PostMapping("/api/POST/paymentList")
     public ResponseEntity<CommonResponse> paymentList(@RequestBody List<String> list, HttpSession session) {
-        List<PaymentListResponse> keys = IntStream.range(0, list.size())
-                .mapToObj(i -> new PaymentListResponse(list.get(i).split(",")[0], list.get(i).split(",")[1]))
+        List<PaymentListDTOtoSession> keys = IntStream.range(0, list.size())
+                .mapToObj(i -> new PaymentListDTOtoSession(Long.parseLong(list.get(i).split(",")[0]), list.get(i).split(",")[1]))
                 .toList();
         if(!keys.isEmpty()) session.setAttribute("paymentList", keys);
         return keys.isEmpty() ? ResponseEntity.ok().body(new CommonResponse(400, "아무것도 안고르지 않았나요?")) :

@@ -21,7 +21,7 @@ public class CommentListViewController {
                                                                  @RequestParam(name="page", defaultValue = "1") int page){
         int startpage = (page-1) * PAGESIZE;
         int endpage = startpage + PAGESIZE;
-        System.out.println(11);
+
         List<CommentListResponse> comments = commentService.findCommentList(id, startpage, endpage);
         if (comments == null){
             System.out.println("댓글이 없습니다.");
