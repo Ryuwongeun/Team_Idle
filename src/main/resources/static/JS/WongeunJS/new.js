@@ -15,7 +15,6 @@ window.addEventListener('scroll', function() {
     if (timeout) {
         clearTimeout(timeout);
     }
-
     timeout = setTimeout(function() {
         let documentHeight = document.body.scrollHeight;
         let viewportHeight = window.innerHeight;
@@ -37,8 +36,6 @@ window.addEventListener('scroll', function() {
 //     }
 //     console.log(page)
 // };
-
-
 function GetListRequestLatest(url){
     const headers = {
         'Content-Type': 'application/json',

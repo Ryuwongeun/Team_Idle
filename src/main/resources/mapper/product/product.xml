@@ -92,6 +92,11 @@
     </select>
 
 
+    <select id="findByCategory" resultType="com.idle.shoppingmall.Entity.Product.Product">
+        select * from product where pd_category like CONCAT('%', #{Product.pd_category}, '%')
+    </select>
+
+
 
 
     <resultMap id="details" type="com.idle.shoppingmall.ResponseDTO.Manage.detailsObject">

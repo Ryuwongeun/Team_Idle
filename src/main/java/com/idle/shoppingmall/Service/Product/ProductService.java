@@ -94,4 +94,7 @@ public class ProductService {
     }
 
 
+    public List<Product> findByCategory(String name , int startPage, int endPage) {
+        return productMapper.findByCategory(name, startPage, endPage);
+    }
 } // end class

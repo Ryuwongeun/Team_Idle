@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/FE/CSS/form.css">
+    <link rel="stylesheet" href="/FE/CSS/Banner.css">
+    <link rel="stylesheet" href="/FE/CSS/search.css">
+    <link rel="stylesheet" href="/JS/WongeunJS/category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .custom-video {
+            width: 80%;
+            height: auto;
+        }
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination-container a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+        }
+        .pagination-container a:hover {
+            background-color: #ddd;
+        }
+        .pagination-container a.active {
+            background-color: pink;
+            color: #fff;
+        }
+        .product-item {
+            margin-bottom: 20px;
+            margin-right: 20px;
+            display: inline-block;
+            position: relative;
+            transition: transform 0.3s ease; /* Added transition for smooth scaling */
+            width: calc(25% - 20px); /* Set width to 25% minus margin */
+        }
+        .product-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .product-item:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+        .relative {
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+<!-- Header -->
+<header class="bg-black py-7">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
+        <nav class="flex justify-center space-x-4 w-full">
+            <div class="mypage-dropdown">
+                <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
+                <div class="mypage-dropdown-content">
+                    <a href="/like">Like</a>
+                    <a href="/comment">Comment</a>
+                </div>
+            </div>
+            <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
+            <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
+            <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
+            <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
+            <div class="mypage-dropdown">
+                <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
+                <div class="mypage-dropdown-content">
+                    <a href="/login">Login</a>
+                    <a href="/cart">Cart</a>
+                    <a href="/order">Order</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!--category start-->
+
+    <aside class="side-bar">
+        <section class="side-bar__icon-box">
+            <section class="side-bar__icon-1">
+                <div></div>
+                <div></div>
+                <div></div>
+            </section>
+        </section>
+        <ul>
+            <li>
+                <a href="#"><i class="fa-solid fa-cat"></i> 브랜드</a>
+                <ul>
+                    <li class="DomesticBrand" data-category="국내브랜드"><a href="/domesticBrand">국내브랜드</a></li>
+                    <li class="OverseasBrand" data-category="해외브랜드"><a href="#">해외브랜드</a></li>
+                    <li class="designerBrand" data-category="디자이너브랜드"><a href="#">디자이너브랜드</a></li>
+                    <li class="luxuryBrand" data-category="고급브랜드"><a href="#">고급브랜드</a></li>
+                    <li class="cheapBrand" data-category="저려함브랜드"><a href="#">저렴한브랜드</a></li>
+                    <li class="famousBrand" data-category="유명브랜드"><a href="#">유명브랜드</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">남성</a>
+                <ul>
+                    <li><a href="#">상의</a></li>
+                    <li><a href="#">하의</a></li>
+                    <li><a href="#">악세서리</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">여성</a>
+                <ul>
+                    <li><a href="#">상의</a></li>
+                    <li><a href="#">하의</a></li>
+                    <li><a href="#">원피스</a></li>
+                    <li><a href="#">악세서리</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">계절</a>
+                <ul>
+                    <li><a href="#">봄</a></li>
+                    <li><a href="#">여름</a></li>
+                    <li><a href="#">가을</a></li>
+                    <li><a href="#">겨울</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    <!--category end-->
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="검색...">
+        <button onclick="searchItem()">IDLE</button>
+    </div>
+
+    <div id="searchResults"></div>
+    <script src="/FE/JS/search.js"></script>
+</header>
+
+<main class="my-2">
+    <div class="relative text-center">
+        <div class="flex justify-center">
+            <video controls autoplay loop
+                   class="custom-video"
+                   style="width: 80%; height: auto">
+                <source src="/FE/video/Outfits Inspired By.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-wrap -m-1" id="field"></div>
+    </div>
+    <div class="pagination-container">
+    </div>
+</main>
+<footer class="bg-black py-4 mt-8">
+    <div class="container mx-auto text-center text-pink-500">
+        <div class="flex flex-col items-center">
+            <div class="sm:w-2/3 text-center py-6">
+                <p class="text-sm text-pink-500 font-bold">
+                    © 2024 IDLE Fashion Store
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/JS/best/like.js"></script>
+<script src="/JS/product.js"></script>
+<script src="/JS/page.js"></script>
+</body>
+</html>
