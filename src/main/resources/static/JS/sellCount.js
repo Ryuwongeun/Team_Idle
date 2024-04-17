@@ -1,10 +1,10 @@
-// const sellCountBtn=document.getElementById('sellCount')
-//
-// sellCountBtn.addEventListener('click',()=>{
-//     console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
-//     console.log('sellCount clicked'); // 'sellCount' 클릭 확인
-//     GetListRequestBySellCount(`/view/GET/sellCount?page=${page}`);
-// });
+window.onload = () => {
+    GetListRequestTest(`/view/GET/sellCount`);
+}
+
+function redirectTo(id){
+    location.href=`/product/?id=${id}`;
+}
 
 let page = 1;
 console.log('DOM fully loaded and parsed');

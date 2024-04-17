@@ -11,7 +11,6 @@ console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
 GetListRequest(`/view/GET/productLatest?page=${page}`);
 
 function GetListRequestByCreatedAt(url){
-
     const headers = {
         'Content-Type': 'application/json',
     };
@@ -41,10 +40,8 @@ function GetListRequestByCreatedAt(url){
                                 <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
                                 <p class="text-gray-600">${item.pd_price}원</p>                 
                                 <p class="text-gray-600" >${item.product_id}</p>
-                                
                             </div>
-                        </article>
-                        `;
+                        </article>`
             }).join('');
             LatestViewController.innerHTML = productsHtml;
         })
