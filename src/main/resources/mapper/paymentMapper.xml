@@ -2,16 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.idle.shoppingmall.mapper.PaymentMapper">
+<mapper namespace="com.idle.shoppingmall.mapper.Payment.PaymentMapper">
+
+    <insert id="setPayment" useGeneratedKeys="true" keyProperty="payment_id" parameterType="list">
+        insert into payment(created_who, product_id, total_price, size, count, created_at)
+        values
+        <foreach collection="list" item="payment" separator=",">
+            (#{payment.created_who}, #{payment.product_id}, #{payment.total_price}, #{payment.size}, #{payment.count}, #{payment.created_at})
+        </foreach>
+    </insert>
+
+    <insert id="setDelivery" useGeneratedKeys="true" keyProperty="delivery_id">
+        insert into delivery(payment_id, tg_pnum, tg_address, state, created_at)
+        values (#{delivery.payment_id}, #{delivery.tg_pnum}, #{delivery.tg_address}, #{delivery.state}, #{delivery.created_at})
+    </insert>
+
     <insert id="savePayment" useGeneratedKeys="true" keyProperty="payment_id">
         insert into payment
         values(#{paymene.payment_id}, #{payment.created_who}, #{payment.product_id}, #{payment.total_price}, #{payment.size}, #{payment.count}, now())
     </insert>
-
     <select id="findById" parameterType="Long" resultType="com.idle.shoppingmall.Entity.Payment">
         select * from payment where payment_id = #{payment.payment_id}
     </select>
-
     <delete id="delete" parameterType="Long">
         delete from payment where payment_id=#{payment_id}
     </delete>

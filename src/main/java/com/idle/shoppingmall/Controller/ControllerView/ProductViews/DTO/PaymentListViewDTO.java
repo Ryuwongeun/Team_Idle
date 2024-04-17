@@ -11,5 +11,6 @@ public class PaymentListViewDTO {
     private String name;
     private int price;
     private String size;
+    private int count;
     private String img;
 }

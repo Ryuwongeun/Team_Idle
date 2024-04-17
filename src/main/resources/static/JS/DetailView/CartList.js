@@ -41,7 +41,8 @@ function GetCartListRequest(url){
                         <td>${item.price}</td>
                         <td>${item.count}</td>
                         <td>${item.totalPrice}</td>
-                        <td><input type="checkbox" class="item-checkbox" data-price=${item.price} data-size=${item.size} data-id=${item.id} onchange="handleChange(this)"></td>
+                        <td><input type="checkbox" class="item-checkbox" data-price=${item.price} data-size=${item.size}  
+                        data-count=${item.count} data-id=${item.id} onchange="handleChange(this)"></td>
                     </tr>
                 <!-- ... more rows ... -->
             `;
@@ -63,12 +64,12 @@ function handleChange(e){
     if (e.checked) {
         console.log("체크됨. 가격:", e.dataset.price);
         price = price + parseInt(e.dataset.price);
-        items.push(e.dataset.id+','+e.dataset.size);
+        items.push(e.dataset.id+','+e.dataset.size+','+e.dataset.count);
     } else {
         // 체크 해제되었을 때 수행할 동작
         console.log("체크 해제됨. 가격:", e.dataset.price);
         price = price - parseInt(e.dataset.price);
-        items = items.filter(item => item !== (e.dataset.id+','+e.dataset.size));
+        items = items.filter(item => item !== (e.dataset.id+','+e.dataset.size+','+e.dataset.count));
     }
     console.log(items);
     document.getElementById('totalPrice').innerHTML = `총 가격: ${price}`;

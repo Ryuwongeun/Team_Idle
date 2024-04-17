@@ -7,18 +7,16 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-
 @Data
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
-public class Payment {
+public class Delivery {
+    private Long delivery_id;
     private Long payment_id;
-    private Long created_who;
-    private Long product_id;
-    private int total_price;
-    private String size;
-    private int count;
+    private String tg_pnum;
+    private String address;
+    private String state;
     private LocalDateTime created_at;
-
+    private LocalDateTime updated_at;
 }

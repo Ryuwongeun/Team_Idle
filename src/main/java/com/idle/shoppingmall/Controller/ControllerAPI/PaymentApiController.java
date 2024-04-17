@@ -6,7 +6,7 @@ import com.idle.shoppingmall.RequestDTO.Payment.PaymentAddRequest;
 import com.idle.shoppingmall.RequestDTO.Payment.PaymentDeleteRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.ResponseDTO.Payment.PaymentAddResponse;
-import com.idle.shoppingmall.Service.PaymentService;
+import com.idle.shoppingmall.Service.Payment.PaymentService;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
