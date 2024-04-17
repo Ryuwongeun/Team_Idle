@@ -17,8 +17,17 @@ commentBtn.addEventListener('click', () => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            location.reload(true);
+            if(data.code===666){
+                alert(data.msg)
+                location.href="/login"
+            }
+            if(data.code===400) {
+                alert(data.msg);
+            }
+            if(data.code===200) {
+                alert(data.msg);
+                location.reload();
+            }
         })
         .catch(error => {
             console.error('There was a problem with your fetch operation:', error);

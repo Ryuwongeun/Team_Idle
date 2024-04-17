@@ -1,5 +1,6 @@
 package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.ProductDetailViewDTO;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Service.Product.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -15,11 +16,9 @@ public class ProductDetailViewController {
 
     @GetMapping("/product/")
     public String showDetailPage(@RequestParam Long id, Model model){
-        System.out.println("111111111111111111111");
-        Product product = productService.findById(id);
-        System.out.println("22222222222222222222");
+        ProductDetailViewDTO product = productService.findViewById(id);
         if(product.getProduct_img()==null){
-            product.setProduct_img("");
+            product.setProduct_img("cbe26818-4ed2-4c89-83a6-2eca37099c07");
         }
 
         model.addAttribute("data", product);

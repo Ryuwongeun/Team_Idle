@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommentDeleteRequest {
-    private Long commend_id;
+    private Long comment_id;
     private String created_who;
 }

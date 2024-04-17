@@ -1,8 +1,10 @@
 package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
 
-import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListResponse;
-import com.idle.shoppingmall.Entity.Key.DetailKey;
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListDTOtoSession;
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListViewDTO;
+import com.idle.shoppingmall.Entity.Product.Product;
+import com.idle.shoppingmall.Service.Product.ProductService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,18 +12,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Controller
 @RequiredArgsConstructor
 public class PaymentViewContoller {
+    private final ProductService productService;
 
     @GetMapping("/buy")
     String buy(Model model, HttpSession session) {
-        List<PaymentListResponse> keys = session.getAttribute("paymentList") == null ? null : (List<PaymentListResponse>) session.getAttribute("paymentList");
+        List<PaymentListDTOtoSession> keys = session.getAttribute("paymentList") == null ? null : (List<PaymentListDTOtoSession>) session.getAttribute("paymentList");
         if(keys==null){
             return "redirect:/login";
         }
-        model.addAttribute("data", keys);
+        List<Product> product = IntStream.range(0, keys.size())
+                .mapToObj(i -> productService.findById(keys.get(i).getId()))
+                .toList();
+        List<PaymentListViewDTO> list = IntStream.range(0, product.size())
+                .mapToObj(i -> new PaymentListViewDTO(product.get(i).getPd_name(), product.get(i).getPd_price(), keys.get(i).getSize(), product.get(i).getProduct_img()))
+                .toList();
+        model.addAttribute("data", list);
         session.removeAttribute("paymentList");
         return "/FE/buy";
     }

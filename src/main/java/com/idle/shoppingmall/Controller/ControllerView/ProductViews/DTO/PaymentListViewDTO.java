@@ -7,12 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CartListResponse {
-    private Long id;
+public class PaymentListViewDTO {
     private String name;
-    private String size;
     private int price;
-    private int count;
-    private int totalPrice;
+    private String size;
     private String img;
 }
