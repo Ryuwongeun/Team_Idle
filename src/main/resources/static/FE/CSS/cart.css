@@ -37,3 +37,6 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+#totalPrice {
+ font-size: 24px;
+}

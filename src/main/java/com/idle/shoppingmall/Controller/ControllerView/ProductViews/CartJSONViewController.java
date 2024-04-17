@@ -20,6 +20,5 @@ public class CartJSONViewController {
     public ResponseEntity<List<CartListResponse>> getCartList(HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         return user == null ? ResponseEntity.ok().body(null) : ResponseEntity.ok().body(cartService.findByCartList(user.getUser_id()));
-
     }
 }

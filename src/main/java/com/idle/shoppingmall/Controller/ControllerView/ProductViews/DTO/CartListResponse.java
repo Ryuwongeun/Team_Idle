@@ -14,4 +14,5 @@ public class CartListResponse {
     private int price;
     private int count;
     private int totalPrice;
+    private String img;
 }
