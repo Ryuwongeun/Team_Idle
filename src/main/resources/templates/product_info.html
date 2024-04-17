@@ -216,17 +216,23 @@
 
     sizeButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // 이전에 선택된 버튼의 색상을 회색으로 변경
+            // 클릭한 버튼이 이미 핑크색 클래스를 갖고 있는지 확인
+            const isPink = button.classList.contains('bg-lightpink-600');
+
+            // 모든 버튼의 색상을 회색으로 변경
             sizeButtons.forEach(btn => {
                 btn.classList.remove('bg-lightpink-100');
                 btn.classList.add('bg-gray-200');
             });
 
-            // 클릭한 버튼의 색상을 핑크로 변경
-            button.classList.remove('bg-gray-200');
-            button.classList.add('bg-lightpink-100');
+            // 클릭한 버튼이 핑크색 클래스를 갖고 있지 않으면 핑크색 클래스 추가
+            if (!isPink) {
+                button.classList.remove('bg-gray-200');
+                button.classList.add('bg-lightpink-600');
+            }
         });
     });
+
 
     // 수량 업데이트 함수
     function updateQuantity(change) {
