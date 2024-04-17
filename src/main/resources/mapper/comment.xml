@@ -4,8 +4,8 @@
 
 <mapper namespace="com.idle.shoppingmall.mapper.Comment.CommentMapper">
     <insert id="saveComment" useGeneratedKeys="true" keyProperty="comment_id">
-        insert into comment(created_who,product_id,content,created_at)
-        values(#{comment.created_who},#{comment.product_id},#{comment.content},#{comment.created_at})
+        insert into comment(created_who,product_id,content,created_at, created_name)
+        values(#{comment.created_who},#{comment.product_id},#{comment.content},#{comment.created_at}, #{comment.created_name})
     </insert>
 
     <select id="findCommentList" resultType="com.idle.shoppingmall.Entity.Comment">

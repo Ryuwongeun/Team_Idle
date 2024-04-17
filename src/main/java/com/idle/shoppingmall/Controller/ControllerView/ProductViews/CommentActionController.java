@@ -36,7 +36,7 @@ public class CommentActionController {
     public ResponseEntity<CommonResponse> saveComment(@ModelAttribute CommentAddRequest request, HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user == null) return ResponseEntity.ok().body(new CommonResponse(666, "로그인이 필요합니다."));
-        Long id = commentService.addComment(request, user.getUser_id());
+        Long id = commentService.addComment(request, user.getUser_id(), user.getName());
         uploadImg.commentUploadImages(request.getImages(), id);
         return ResponseEntity.ok().body(new CommonResponse(200, "댓글이 등록되었습니다."));
     }
