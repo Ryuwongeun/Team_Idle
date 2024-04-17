@@ -15,5 +15,5 @@ public class CommentListResponse {
     private String name;
     private String content;
     private String created_at;
-    private List<String> url;
+    private List<String> urls;
 }

@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<CommonResponse> handleIllegalArgumentException(NullPointerException ex) {
         // 예외 메시지를 포함하여 사용자 정의 응답 반환
-        CommonResponse response = new CommonResponse(500, "데이터가 없습니다.");
+        CommonResponse response = new CommonResponse(500, "없어요!! 데이터가 없어요!! NULL 이에요!!");
         log.warn("데이터가 없습니다. Null 이에요");
         return  ResponseEntity.ok().body(response);
     }

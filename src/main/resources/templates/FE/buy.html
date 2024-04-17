@@ -136,10 +136,10 @@
             <h2>결제 상품 정보</h2>
             <div th:each="item : ${data}">
                 <hr>
-                <img src="https://kr.object.ncloudstorage.com/miniidle/storage/ba5218db-eeef-40e4-9e46-57a6eea32517" width="200px" height="200px">
+                <img th:src="'https://kr.object.ncloudstorage.com/miniidle/storage/'+${item.img}" width="200px" height="200px">
                 <p th:text="'상품 명 : '+${item.name}"></p>
                 <p th:text="'사이즈 : '+${item.size}"></p>
-                <p>가격: $99.99</p>
+                <p th:text="'가격 : '+${item.price}"></p>
                 <hr>
             </div>
         </div>

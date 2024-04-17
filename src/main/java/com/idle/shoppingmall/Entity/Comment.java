@@ -17,4 +17,5 @@ public class Comment {
     private Long product_id;
     private String content;
     private LocalDateTime created_at;
+    private String created_name;
 }

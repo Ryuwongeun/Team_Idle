@@ -20,18 +20,22 @@ function sendData(url, data) {
             }
             if(data.code === 666){
                 alert(data.msg);
+                location.href="/login"
             }
             if(data.code === 400){
                 alert(data.msg);
             }
             if (data.code === 200) {
                 alert(data.msg);
+                location.reload();
             }
             if (data.code === 201) {
                 alert(data.msg);
+                location.reload();
             }
             if (data.code === 202) {
                 alert(data.msg);
+                location.reload();
             }
         })
         .catch(error => {

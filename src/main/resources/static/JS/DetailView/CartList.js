@@ -36,12 +36,12 @@ function GetCartListRequest(url){
                 return `
                 <!-- Repeat for each row -->
                     <tr>
-                        <td>${item.name}</td>
+                        <td>${item.name}<img src="https://kr.object.ncloudstorage.com/miniidle/storage/${item.img}" alt="상품 이미지" width="100" height="100"></td>
                         <td>${item.size}</td>
                         <td>${item.price}</td>
                         <td>${item.count}</td>
                         <td>${item.totalPrice}</td>
-                        <td><input type="checkbox" class="item-checkbox" data-price=${item.price} data-size=${item.size} data-quantity=${item.name} onchange="handleChange(this)"></td>
+                        <td><input type="checkbox" class="item-checkbox" data-price=${item.price} data-size=${item.size} data-id=${item.id} onchange="handleChange(this)"></td>
                     </tr>
                 <!-- ... more rows ... -->
             `;
@@ -63,12 +63,12 @@ function handleChange(e){
     if (e.checked) {
         console.log("체크됨. 가격:", e.dataset.price);
         price = price + parseInt(e.dataset.price);
-        items.push(e.dataset.quantity+','+e.dataset.size);
+        items.push(e.dataset.id+','+e.dataset.size);
     } else {
         // 체크 해제되었을 때 수행할 동작
         console.log("체크 해제됨. 가격:", e.dataset.price);
         price = price - parseInt(e.dataset.price);
-        items = items.filter(item => item !== (e.dataset.quantity+','+e.dataset.size));
+        items = items.filter(item => item !== (e.dataset.id+','+e.dataset.size));
     }
     console.log(items);
     document.getElementById('totalPrice').innerHTML = `총 가격: ${price}`;

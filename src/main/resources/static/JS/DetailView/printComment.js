@@ -17,7 +17,7 @@ function GetListRequest(url){
             const commentListContainer = document.getElementById('field');
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
             let commentHtml = data.map(item => {
-                let imagesHtml = item.url.map(url => {
+                let imagesHtml = item.urls.map(url => {
                     return `<img src="https://kr.object.ncloudstorage.com/miniidle/storage/${url}" width="200px" height="200px">`;
                 }).join(''); // 생성된 <img> 태그들을 하나의 문자열로 결합
                 return `

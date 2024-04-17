@@ -1,14 +1,6 @@
-const priceDown = document.getElementById('priceDown');
 let page2 = 1;
 
 
-
-priceDown.addEventListener('click',() =>{
-    console.log('DOM fully loaded and parsed');//DOM 로딩
-    console.log('priceDown clicked');//priceDown 클릭확인
-    GetListRequestByPriceDown(`/view/GET/productLatestPriceDown?page=${page2}`);
-
-});
 
 
 
