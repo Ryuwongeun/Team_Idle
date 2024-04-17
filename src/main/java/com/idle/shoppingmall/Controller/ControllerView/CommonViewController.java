@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CommonViewController {
+
     @GetMapping("/best")
     String bestList() {
-        return "/FE/best";
+        return "/best/best";
     } // bestList
 
     @GetMapping("/like")
     String likeList() {
-        return "/like";
+        return "/best/like";
     } // likeList
 
     @GetMapping("/comment")
     String commentList() {
-        return "/comment";
+        return "/best/comment";
     } // commentList
-
     @GetMapping("/cart")
     String cartList() {
         return "/FE/cart";
@@ -68,5 +68,10 @@ public class CommonViewController {
         return "/FE/login";
     } // loginOk
 
+    @GetMapping("/domesticBrand")
+    String domesticBrand() {
+
+        return "/category/domesticBrand";
+    } // newList
 
 }

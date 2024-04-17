@@ -1,7 +1,7 @@
 window.onload = () => {
-    GetListRequest(`/view/GET/commentLatest?page=1`);
+    GetListRequest(`/view/GET/commentLatest`);
 }
-let page = 1;//현재 페이지 번호
+
 function redirectTo(id){
     location.href=`/product/?id=${id}`;
 }

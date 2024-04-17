@@ -5,12 +5,12 @@ import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.Service.Product.ProductService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,8 +61,8 @@ public class LatestViewController {
     }
 
     @PostMapping("/view/GET/love")
-    public List<ProductListResponse>findAllByLoveCountDesc(@RequestParam(defaultValue = "0") int page){
-        int startPage = (page)*PAGESIZE;
+    public List<ProductListResponse>findAllByLoveCountDesc(@RequestParam(defaultValue = "1") int page){
+        int startPage = (page-1)*PAGESIZE;
         int endPage = PAGESIZE;
         List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
         List<ProductListResponse> list = new ArrayList<>();
@@ -77,7 +77,7 @@ public class LatestViewController {
 
     //댓글순
     @PostMapping("/view/GET/commentLatest")
-    public List<ProductCommentListResponse> findAllByComment(@RequestParam(defaultValue = "0") int page){
+    public List<ProductCommentListResponse> findAllByComment(@RequestParam(defaultValue = "1") int page){
         int startPage = (page-1)*PAGESIZE; // 페이지가 0부터 시작한다면 이렇게 수정
         System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;
@@ -86,4 +86,8 @@ public class LatestViewController {
         System.out.println("list size : "+list.size());
         return list;
     }
+
+//    @PostMapping("/view/GET/category")
+//    public String findByCategory(@ModelAttribute("Product") Product product) {
+//    }
 }

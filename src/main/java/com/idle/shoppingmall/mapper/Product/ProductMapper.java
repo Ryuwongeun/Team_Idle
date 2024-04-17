@@ -46,6 +46,8 @@ public interface ProductMapper {
 
     List<ProductCommentListResponse> findAllByComment(@Param("offset") int offset, @Param("size") int size);
 
+    List<Product> findByCategory(@Param("Product") String productDTO, @Param("offset") int offset, @Param("size") int size);
+
     ProductDetailViewDTO findViewById(@Param("productId") Long productId);
 
 
