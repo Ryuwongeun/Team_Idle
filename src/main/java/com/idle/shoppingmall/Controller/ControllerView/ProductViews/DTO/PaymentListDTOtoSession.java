@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PaymentListResponse {
+    private Long id;
     private String name;
     private String size;
 }
