@@ -32,22 +32,21 @@ public class CommentService {
 
     @Transactional(readOnly = true)
     public List<CommentListResponse> findCommentList(Long id ,int startpage, int endpage) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        List<Comment> comments = commentMapper.findCommentList(id, startpage, endpage);
-        System.out.println(comments.size());
-        if(comments.isEmpty()) return null;
-
-        System.out.println(commentMapper.findUrl(comments.get(0).getComment_id()));
-        List<CommentListResponse> commentList = comments.stream()
-                .map(data -> new CommentListResponse(
-                        data.getComment_id(),
-                        data.getCreated_name(),
-                        data.getContent(),
-                        data.getCreated_at().format(formatter),
-                        commentMapper.findUrl(data.getComment_id())
-                ))
-                .toList();
-        return commentList;
+        return commentMapper.findCommentList(id, startpage, endpage);
+//        System.out.println(comments.size());
+//        if(comments.isEmpty()) return null;
+//
+//        System.out.println(commentMapper.findUrl(comments.get(0).getComment_id()));
+//        List<CommentListResponse> commentList = comments.stream()
+//                .map(data -> new CommentListResponse(
+//                        data.getComment_id(),
+//                        data.getCreated_name(),
+//                        data.getContent(),
+//                        data.getCreated_at().format(formatter),
+//                        commentMapper.findUrl(data.getComment_id())
+//                ))
+//                .toList();
+//        return commentList;
     }
 
     @Transactional

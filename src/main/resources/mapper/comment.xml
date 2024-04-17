@@ -8,14 +8,6 @@
         values(#{comment.created_who},#{comment.product_id},#{comment.content},#{comment.created_at}, #{comment.created_name})
     </insert>
 
-    <select id="findCommentList" resultType="com.idle.shoppingmall.Entity.Comment">
-        select *
-        from comment
-        where product_id = #{id}
-        order by created_at desc
-        LIMIT #{startpage}, #{endpage};
-    </select>
-
     <select id="findUrl">
         select img_name
         from comment_img
@@ -26,4 +18,24 @@
         delete from comment
         where comment_id = #{id}
     </delete>
+
+    <resultMap id="urls" type="String">
+        <result column="urls" property="urls" />
+    </resultMap>
+    <resultMap id="CommentListResponse" type="com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.CommentListResponse">
+        <result column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="content" property="content" />
+        <result column="created_at" property="created_at" />
+        <collection property="urls" ofType="String" resultMap="urls"/>
+    </resultMap>
+    <select id="findCommentList" resultMap="CommentListResponse">
+        select c.comment_id as id, c.created_name as name, c.content as content, date_format(c.created_at, '%Y-%m-%d %H:%i') as created_at
+        , img.img_url as urls
+        from comment as c
+        inner join Mini_Shoppingmall.comment_img img on c.comment_id = img.comment_id
+        where c.product_id = #{id}
+        order by c.created_at desc
+        LIMIT #{startpage}, #{endpage};
+    </select>
 </mapper>

@@ -18,7 +18,7 @@ public class ProductDetailViewController {
     public String showDetailPage(@RequestParam Long id, Model model){
         ProductDetailViewDTO product = productService.findViewById(id);
         if(product.getProduct_img()==null){
-            product.setProduct_img("");
+            product.setProduct_img("cbe26818-4ed2-4c89-83a6-2eca37099c07");
         }
 
         model.addAttribute("data", product);
