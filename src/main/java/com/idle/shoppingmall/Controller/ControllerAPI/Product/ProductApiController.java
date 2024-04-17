@@ -82,9 +82,8 @@ public class ProductApiController {
 
     //상품 검색
     @PostMapping("/api/POST/searchProduct")
-    public String searchProduct(@RequestBody @Valid String name, Model model) {
-        List<Product> list = productService.findAllByPdName(name);
-        model.addAttribute("data", list);
-        return "main";
+    public ResponseEntity<?> searchProduct(@RequestBody @Valid ProductSearchRequest request) {
+        List<Product> list = productService.findAllByPdName(request.getPd_name());
+        return ResponseEntity.ok(list); // JSON 형태로 응답
     }
 }

@@ -1,5 +1,5 @@
 window.onload = () => {
-    GetListRequest(`/view/GET/Latest?page=1`);
+    GetListRequestLatest(`/view/GET/Latest?page=1`);
 }
 
 let page = 1;//현재 페이지 번호
@@ -12,11 +12,11 @@ function redirectTo(id){
 window.onscroll=()=>{
     //사용자가 페이지 하단에 도달했는지 확인
     if(window.innerHeight + window.scrollY >=document.body.offsetHeight){
-        GetListRequest(`/view/GET/Latest?page=${++page}`);//다음 페이지 데이터 로드
+        GetListRequestLatest(`/view/GET/Latest?page=${++page}`);//다음 페이지 데이터 로드
     }
 };
 
-function GetListRequest(url){
+function GetListRequestLatest(url){
 
     const headers = {
         'Content-Type': 'application/json',
