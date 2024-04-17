@@ -92,26 +92,34 @@
                 <button class="mt-4 px-6 py-2 bg-black text-pink-500 rounded-full"
                         onmouseover="this.style.backgroundColor='pink'; this.style.color='black';"
                         onmouseout="this.style.backgroundColor='black'; this.style.color='pink';"
-                        onclick="window.location.href='/FE/sale';">
+                        onclick="window.location.href='/sale';">
                     ON SALE
                 </button>
                 <!-- 이미지를 표시할 공간 -->
-                <img id="banner-image" class="mt-4 w-full h-auto" src="" alt="banner image">
+                <img id="banner-image" class="mt-4 w-300 h-500" src="" alt="banner image">
             </div>
             <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
                 <span class="navigation-dot active"></span>
                 <span class="navigation-dot"></span>
                 <span class="navigation-dot"></span>
-            </div>
+            </div
         </div>
 
         <script>
             // 이미지 URL 배열 생성
+            // 화면 가로 길이 가져오기
+            const width = window.innerWidth;
+
+            // 화면 가로 길이의 60% 크기
+            const imageWidth = width * 1.0;
+
             const imageUrls = [
-                "https://source.unsplash.com/random/800x700/?fashion&sig=1",
-                "https://source.unsplash.com/random/800x700/?clothes&sig=2",
-                "https://source.unsplash.com/random/800x700/?clothes&sig=3"
+                `https://source.unsplash.com/${imageWidth}x500/?fashion&sig=1`,
+                `https://source.unsplash.com/${imageWidth}x500/?clothes&sig=2`,
+                `https://source.unsplash.com/${imageWidth}x500/?clothes&sig=3`
             ];
+
+
 
             const bannerImage = document.getElementById('banner-image');
             let currentImageIndex = 0;
