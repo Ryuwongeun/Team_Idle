@@ -1,19 +1,31 @@
 window.onload = () => {
-    GetListRequestByCreatedAt(`/view/GET/CreatedAt?page=1`);
+    GetListRequest(`/view/GET/Latest?page=1`);
 }
+
+let page = 1;//현재 페이지 번호
 
 function redirectTo(id){
     location.href = `/product/?id=${id}`;
 }
 
-let page = 1;
-console.log('DOM fully loaded and parsed'); // DOM 로딩 확인
-GetListRequest(`/view/GET/productLatest?page=${page}`);
+//스크롤 이벤트 리스너 추가
+window.onscroll=()=>{
+    //사용자가 페이지 하단에 도달했는지 확인
+    if(window.innerHeight + window.scrollY >=document.body.offsetHeight){
+        GetListRequest(`/view/GET/Latest?page=${++page}`);//다음 페이지 데이터 로드
+    }
+};
 
+<<<<<<< HEAD
 function GetListRequestByCreatedAt(url){
+=======
+function GetListRequest(url){
+
+>>>>>>> 68175710f5e620687979c6e2196baf5cde7e4645
     const headers = {
         'Content-Type': 'application/json',
     };
+
     fetch(url, {
         method: 'POST',
         headers: headers
@@ -21,7 +33,6 @@ function GetListRequestByCreatedAt(url){
         .then(response => response.json())
         .then(data => {
 
-            // Thymeleaf로 직접 데이터 추가
 
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
 
@@ -43,7 +54,7 @@ function GetListRequestByCreatedAt(url){
                             </div>
                         </article>`
             }).join('');
-            LatestViewController.innerHTML = productsHtml;
+            LatestViewController.innerHTML += productsHtml;
         })
         .catch(error => {
             console.error('Error fetching user data:', error);
