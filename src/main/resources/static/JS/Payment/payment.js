@@ -46,6 +46,7 @@ function requestPay() {
     };
     fetch("/api/POST/checkPayment", {
         method: 'POST', // 요청 방식 설정
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json', // 내용 타입을 JSON으로 지정
         },
@@ -73,6 +74,7 @@ function requestPay() {
                 location.href="/cart"
             }
             if (data.code === 200) {
+                alert("카카오페이가 떠야해");
                 IMP.request_pay({
                         pg: "kcp.{상점ID}",
                         pay_method: "card",

@@ -58,6 +58,7 @@ public class PaymentService {
             System.out.println("재고 부족");
             return new CommonResponse(500,"상품 : "+result+"의 재고가 부족합니다.");
         }
+        System.out.println("가느으으응ㄴ으능ㄴ");
         return new CommonResponse(200, "결제 가능");
     }
 
