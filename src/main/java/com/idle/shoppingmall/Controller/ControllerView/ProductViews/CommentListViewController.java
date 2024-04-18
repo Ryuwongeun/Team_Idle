@@ -28,6 +28,10 @@ public class CommentListViewController {
             return ResponseEntity.ok().body(null);
         }
         else System.out.println("댓글이 있습니다.");
+        System.out.println(comments.size() + "개의 댓글이 있습니다.");
+        for(int i=0; i<comments.size(); i++){
+            System.out.println(comments.get(i).getContent());
+        }
 
         return ResponseEntity.ok().body(comments);
     }

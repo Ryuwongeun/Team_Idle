@@ -33,9 +33,9 @@
         select c.comment_id as id, c.created_name as name, c.content as content, date_format(c.created_at, '%Y-%m-%d %H:%i') as created_at
         , img.img_url as urls
         from comment as c
-        inner join Mini_Shoppingmall.comment_img img on c.comment_id = img.comment_id
+        left outer join comment_img img on c.comment_id = img.comment_id
         where c.product_id = #{id}
         order by c.created_at desc
-        LIMIT #{startpage}, #{endpage};
+        LIMIT #{startPage}, #{endPage};
     </select>
 </mapper>

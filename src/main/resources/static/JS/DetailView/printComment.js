@@ -32,7 +32,6 @@ function GetListRequest(url){
                     data-comment-id="${item.id}">댓글 삭제하기</button>
                 </div>`;
             }).join(''); // 배열의 모든 항목을 하나의 문자열로 결합
-            console.log(commentHtml)
             commentListContainer.innerHTML = commentHtml;
             GetDeleteBtn();
         })
@@ -53,7 +52,7 @@ function GetDeleteBtn(){
                 comment_id: id,
                 created_who: name
             };
-            sendData(`/api/DELETE/comment`, data);
+            sendData(`/api/DELETE/comment`, data, null, null);
         })
     })
 }

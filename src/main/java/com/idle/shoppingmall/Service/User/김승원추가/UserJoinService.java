@@ -39,11 +39,14 @@ public class UserJoinService {
                 .user_role(UserAccount.UserRole.USER)
                 .last_login(LocalDateTime.now())
                 .build();
+        System.out.println("111111111111111111111111");
         userAccountMapper.saveUserAccount(user);
+        System.out.println("2222222222222222222222222222");
         Integer id = userInfoMapper.addUser_Info(UserInfo.builder()
                 .user_id(user.getUser_id())
                 .name(request.getName())
                 .build());
+        System.out.println("333333333333333333333333333333333");
         return id;
     }
 }
