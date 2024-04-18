@@ -17,19 +17,19 @@ public class  ProductViewController {
     private final ProductService productService;
 
 
-    @PostMapping("/api/GET/productList")
-    public List<ProductListResponse> productList(@RequestParam(defaultValue = "0") int page,
-                                                 @RequestParam(defaultValue = "10") int size) {
-        List<Product> productList = productService.findAllProductsPaged(page, size);
-        List<ProductListResponse> list = new ArrayList<>();
-        for(Product product : productList) {
-            list.add(new ProductListResponse(666, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                    product.getCreated_at(), product.getCount_love()));
-        }
-        System.out.println("list : " + list.get(0).getProduct_id());
-        return list; // List<ProductListResponse> 객체를 직접 반환
-    }
+//    @PostMapping("/api/GET/productList")
+//    public List<ProductListResponse> productList(@RequestParam(defaultValue = "0") int page,
+//                                                 @RequestParam(defaultValue = "10") int size) {
+//        List<Product> productList = productService.findAllProductsPaged(page, size);
+//        List<ProductListResponse> list = new ArrayList<>();
+//        for(Product product : productList) {
+//            list.add(new ProductListResponse(666, "성공", product.getProduct_id(), product.getPd_name(),
+//                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
+//                    product.getCreated_at(), product.getCount_love()));
+//        }
+//        System.out.println("list : " + list.get(0).getProduct_id());
+//        return list; // List<ProductListResponse> 객체를 직접 반환
+//    }
 
 }
 

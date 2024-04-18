@@ -1,3 +1,5 @@
+let timeout;
+
 window.onload=() =>{
     GetListRequestSellCount(`/view/GET/sellCount?page=1`);
 }
@@ -6,6 +8,25 @@ let page = 1;
 function redirectTo(id){
     location.href=`/product/?id=${id}`;
 }
+
+window.addEventListener('scroll', function() {
+    // 이전에 설정된 타임아웃이 있다면 취소
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+    timeout = setTimeout(function() {
+        let documentHeight = document.body.scrollHeight;
+        let viewportHeight = window.innerHeight;
+        let currentScroll = window.scrollY;
+        let triggerPoint = documentHeight - viewportHeight - 2000;
+
+        if (currentScroll >= triggerPoint) {
+            GetListRequestSellCount(`/view/GET/sellCount?page=${++page}`);//다음 페이지 데이터 로드
+        }
+        console.log(page);
+    },500);
+});
+/*
 //스크롤 이벤트 리스너 추가
 window.onscroll=()=>{
     //사용자가 페이지 하단에 도달했는지 확인
@@ -13,6 +34,7 @@ window.onscroll=()=>{
         GetListRequestSellCount(`/view/GET/sellCount?page=${++page}`);//다음 페이지 데이터 로드
     }
 };
+*/
 
 
 function GetListRequestSellCount(url) {

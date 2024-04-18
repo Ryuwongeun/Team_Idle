@@ -74,8 +74,8 @@
         LIMIT #{size}, #{offset};
     </select>
 
-    <select id="findAllByLatestDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product
+    <select id="findAllByLatestDesc" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse">
+        select product_id, pd_name, pd_price, count_love, product_img from product
         order by created_at desc
         LIMIT #{size}, #{offset};
     </select>
