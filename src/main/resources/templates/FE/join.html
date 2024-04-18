@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  
     <link rel="stylesheet" href="/FE/CSS/form.css">
     <link rel="stylesheet" href="/FE/CSS/search.css">
+    <script defer src="/JS/join.js"></script>
+    <script defer src="/JS/sendData.js"></script>
+    <script defer src="/JS/joinMailAuth.js"></script>
     <style>
         /* Additional custom styles */
         .error {
@@ -64,7 +67,7 @@
         <h2 class="text-2xl font-bold mb-4">회원가입</h2>
         <form action="login" method="post">
             <div class="mb-4">
-                <label for="email" class="block text-sm font-medium">이메일</label>
+                <label for="email_id" class="block text-sm font-medium">이메일</label>
                 <div class="flex items-center">
                     <input type="text" name="email_id" id="email_id" class="block w-48 rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring focus:ring-pink-500 focus:ring-opacity-50" placeholder="아이디">
                     <span class="mx-1">@</span>
@@ -83,13 +86,13 @@
                 <span class="error" id="username-error"></span>
             </div>
 
-<!--            0408 추가==================-->
+
             <div class="mb-4">
                 <label class="block text-sm font-medium">인증코드</label>
                 <input type="text" id="auth" name="auth" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring focus:ring-pink-500 focus:ring-opacity-50" required>
                 <button id="checkAuth" class="ml-3 bg-gray-300 text-gray-700 py-1 px-3 rounded-md hover:bg-gray-400 hover:text-white transition duration-300 shadow-md focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">인증체크</button>
             </div>
-<!--           ============================ -->
+
             <div class="mb-4">
                 <label for="password" class="block text-sm font-medium">비밀번호</label>
                 <input type="password" id="password" name="password" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-pink-500 focus:ring focus:ring-pink-500 focus:ring-opacity-50" required>
@@ -139,9 +142,7 @@
             &copy; 2024 IDLE Fashion Store
         </div>
     </footer>
-    <script src="/JS/join.js"></script>
-    <script src="/JS/sendData.js"></script>
-    <script src="/JS/joinMailAuth.js"></script>
+
 </body>
 </html>
 

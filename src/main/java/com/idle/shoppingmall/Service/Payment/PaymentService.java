@@ -11,6 +11,7 @@ import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.mapper.Payment.PaymentMapper;
 import com.idle.shoppingmall.mapper.Product.ProductDetailMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -38,9 +39,30 @@ public class PaymentService {
         return paymentMapper.delete(paymentId);
     }
 
+    @Transactional(readOnly = true)
+    public CommonResponse checkProduct(List<PaymentListDTOtoSession> paymentList){
+        List<String> isStockInsufficient = paymentList.stream()
+                .map(payment -> {
+                    ProductDetail productDetail = productMapper.findBySize(new DetailKey(
+                            payment.getProduct().getProduct_id(),
+                            payment.getSize()));
+                    if (productDetail == null) return "없는 상품";
+                    return  productDetail.getPd_before_count() < payment.getCount() ?
+                            payment.getProduct().getPd_name() : null ;
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        if (isStockInsufficient.size() > 0) {
+            String result = isStockInsufficient.stream()
+                    .collect(Collectors.joining(", "));
+            System.out.println("재고 부족");
+            return new CommonResponse(500,"상품 : "+result+"의 재고가 부족합니다.");
+        }
+        return new CommonResponse(200, "결제 가능");
+    }
+
     @Transactional
     public CommonResponse payAndDelivery(RequestPayDTO dto, Long who, List<PaymentListDTOtoSession> paymentList) {
-
 //        상품 존재 유무 예외 처리
         List<String> details = paymentList.stream()
                 .map(payment ->{ Integer result = productMapper.sales(new SalesDTO(

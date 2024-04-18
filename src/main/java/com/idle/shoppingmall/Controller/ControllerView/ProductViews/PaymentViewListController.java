@@ -47,24 +47,7 @@ public class PaymentViewListController {
         List<PaymentListDTOtoSession> paymentList = (List<PaymentListDTOtoSession>) session.getAttribute("paymentList");
         if(paymentList == null) return ResponseEntity.ok().body(new CommonResponse(400, "아무것도 안고르지 않았나요?"));
         //        상품 갯수 존재 여부 예외 처리
-        List<String> isStockInsufficient = paymentList.stream()
-                .map(payment -> {
-                    ProductDetail productDetail = productDetailService.findDetail(
-                            payment.getProduct().getProduct_id(),
-                            payment.getSize());
-                    if (productDetail == null) return "없는 상품";
-                    return  productDetail.getPd_before_count() < payment.getCount() ?
-                            payment.getProduct().getPd_name() : null ;
-                })
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-        if (isStockInsufficient.size() > 0) {
-            String result = isStockInsufficient.stream()
-                    .collect(Collectors.joining(", "));
-            System.out.println("재고 부족");
-            return ResponseEntity.ok().body(new CommonResponse(500,"상품 : "+result+"의 재고가 부족합니다."));
-        }
-        return ResponseEntity.ok().body(new CommonResponse(200, "결제 가능"));
+        return ResponseEntity.ok().body(paymentService.checkProduct(paymentList));
     }
 
 

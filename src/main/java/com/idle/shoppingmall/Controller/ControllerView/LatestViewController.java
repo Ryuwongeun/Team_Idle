@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 public class LatestViewController {
     private  final ProductService productService;
-    private final int PAGESIZE = 12;
+    private final int PAGESIZE = 24;
 
 
     @PostMapping("/view/GET/Latest")
@@ -28,7 +28,15 @@ public class LatestViewController {
         System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;
         System.out.println("endPage : "+endPage);
-        List<ProductListResponse> list = productService.findAllByLatestDesc(startPage, endPage);
+
+        List<ProductListResponse> list = productService.findAllByLatestDesc(startPage, endPage).stream()
+                .map(product -> {
+                    product.setProduct_img(product.getProduct_img() == null ?
+                    "337d121b-6070-4ae1-a60f-db8a3ede8c21" : product.getProduct_img());
+                    return product;
+                })
+                .toList();
+
         System.out.println("list : " + list);
         return list; // List<ProductListResponse> 객체를 직접 반환
     }
@@ -67,9 +75,8 @@ public class LatestViewController {
         List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
         List<ProductListResponse> list = new ArrayList<>();
         for(Product product : productLatest) {
-            list.add(new ProductListResponse(200, "성공", product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getPd_category(), product.getCreated_who(),
-                    product.getCreated_at(), product.getCount_love()));
+            list.add(new ProductListResponse(product.getProduct_id(), product.getPd_name(),
+                    product.getPd_price(), product.getCount_love(), product.getProduct_img()));
         }
         return list;
     }

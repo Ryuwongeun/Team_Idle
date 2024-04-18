@@ -15,22 +15,30 @@ window.addEventListener('scroll', function() {
     if (timeout) {
         clearTimeout(timeout);
     }
-
     timeout = setTimeout(function() {
         let documentHeight = document.body.scrollHeight;
         let viewportHeight = window.innerHeight;
         let currentScroll = window.scrollY;
-        let triggerPoint = documentHeight - viewportHeight - 10;
+        let triggerPoint = documentHeight - viewportHeight - 2000;
 
         if (currentScroll >= triggerPoint) {
             GetListRequestLatest(`/view/GET/Latest?page=${++page}`);//다음 페이지 데이터 로드
         }
         console.log(page);
-    },1000);
+    },500);
 });
 
+//스크롤 이벤트 리스너 추가
+// window.onscroll=()=>{
+//     //사용자가 페이지 하단에 도달했는지 확인
+//     if(window.innerHeight + window.scrollY >=document.body.offsetHeight){
+//         GetListRequestLatest(`/view/GET/Latest?page=${++page}`);//다음 페이지 데이터 로드
+//     }
+//     console.log(page)
+// };
 
 function GetListRequestLatest(url){
+
 
     const headers = {
         'Content-Type': 'application/json',
@@ -46,9 +54,13 @@ function GetListRequestLatest(url){
             const LatestViewController = document.getElementById('field');
 
             let productsHtml = data.map(item => {
+                console.log(item.product_img);
                 return `
                 <article class="product-item bg-white shadow-md rounded overflow-hidden">
-                    <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"
+                <!--                    src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"-->
+                    <img src="https://kr.object.ncloudstorage.com/miniidle/storage/${item.product_img}"
+                    width="300px"
+                    height="300px"
                          alt="Fashion item"
                          onclick="redirectTo(${item.product_id})"
                          onmouseover="scaleImage(this, 1.2)" 
