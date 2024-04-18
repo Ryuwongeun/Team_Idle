@@ -52,11 +52,10 @@ public class SecurityConfig {
                 .formLogin((formLogin) ->
                         formLogin
                                 .loginPage("/login") //로그인 화면 설정
-                                .loginProcessingUrl("/login") // login submit 요청을 받을 url
+                                .loginProcessingUrl("/api/login") // login submit 요청을 받을 url
                                 .successHandler(new CustomAuthenticationSuccessHandler(
                                         loginService
                                 ))
-                                .defaultSuccessUrl("/main")
                                 .failureHandler(new CustomAuthenticationFailureHandler())
                                 .failureUrl("/login") //로그인 실패시 이동할 url
                 ).userDetailsService(userDetailService)

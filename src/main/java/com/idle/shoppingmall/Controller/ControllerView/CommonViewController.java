@@ -62,11 +62,11 @@ public class CommonViewController {
     String sale() {
         return "/FE/sale";
     } // sale
-
-    @PostMapping("/login")
-    String loginOk() {
-        return "/FE/login";
-    } // loginOk
+//
+//    @PostMapping("/login")
+//    String loginOk() {
+//        return "/FE/login";
+//    } // loginOk
 
     @GetMapping("/domesticBrand")
     String domesticBrand() {

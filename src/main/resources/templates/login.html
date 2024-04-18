@@ -70,7 +70,7 @@
 
     <div class="container">
         <h2>로그인</h2>
-        <form action="/main" method="post">
+        <form action="/api/login" method="post">
             <div class="form-group">
                 <label for="username">ID</label>
                 <input type="text" id="username" name="username" required>
@@ -79,9 +79,7 @@
                 <label for="password">PASSWORD</label>
                 <input type="password" id="password" name="password" required>
             </div>
-
-            <input type="submit" value="로그인">
-            <button type="submit">Login</button>
+            <button id="submit" type="submit">Login</button>
         </form>
         <div class="social-icons">
             <a href="https://www.kakao.com" target="_blank">
