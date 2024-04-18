@@ -50,5 +50,7 @@ public interface ProductMapper {
 
     ProductDetailViewDTO findViewById(@Param("productId") Long productId);
 
+    void sellCountUpdate(@Param("productId") Long productId, @Param("count") int count);
+
 
 } // end interface

@@ -124,4 +124,5 @@
             p.product_id = #{productId}
         </where>
     </select>
+
 </mapper>

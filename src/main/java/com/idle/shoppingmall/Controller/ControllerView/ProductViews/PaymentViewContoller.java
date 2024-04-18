@@ -25,14 +25,16 @@ public class PaymentViewContoller {
         if(keys==null){
             return "redirect:/login";
         }
-        List<Product> product = IntStream.range(0, keys.size())
-                .mapToObj(i -> productService.findById(keys.get(i).getId()))
-                .toList();
-        List<PaymentListViewDTO> list = IntStream.range(0, product.size())
-                .mapToObj(i -> new PaymentListViewDTO(product.get(i).getPd_name(), product.get(i).getPd_price(), keys.get(i).getSize(), product.get(i).getProduct_img()))
+        List<PaymentListViewDTO> list = IntStream.range(0, keys.size())
+                .mapToObj(i -> {
+                    Product product =  keys.get(i).getProduct();
+                    return new PaymentListViewDTO(product.getPd_name(), product.getPd_price(), keys.get(i).getSize(),
+                            keys.get(i).getCount(),
+                            product.getProduct_img());
+                })
                 .toList();
         model.addAttribute("data", list);
-        session.removeAttribute("paymentList");
+//        session.removeAttribute("paymentList");
         return "/FE/buy";
     }
 

@@ -36,6 +36,7 @@ window.addEventListener('scroll', function() {
 //     }
 //     console.log(page)
 // };
+
 function GetListRequestLatest(url){
 
 
