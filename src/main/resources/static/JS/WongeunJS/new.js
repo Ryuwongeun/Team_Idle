@@ -1,7 +1,7 @@
 let timeout;
 
 window.onload = () => {
-    GetListRequestLatest(`/view/GET/Latest?page=1`);
+    GetListRequestLatest(`/view/GET/Latest?page=1?seunghoon=pig`);
 }
 
 let page = 1; // 현재 페이지 번호
