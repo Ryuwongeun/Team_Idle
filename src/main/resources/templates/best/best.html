@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/FE/CSS/form.css">
     <link rel="stylesheet" href="/FE/CSS/Banner.css">
     <link rel="stylesheet" href="/FE/CSS/search.css">
+    <link rel="stylesheet" href="/JS/WongeunJS/category.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         .custom-video {
@@ -103,24 +105,69 @@
                 </div>
             </nav>
         </div>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="검색...">
+            <button onclick="searchItem()">IDLE</button>
+        </div>
+
+        <div id="searchResults"></div>
+        <script src="/FE/JS/search.js"></script>
+
+        <!--category start-->
+        <aside class="side-bar">
+            <section class="side-bar__icon-box">
+                <section class="side-bar__icon-1">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </section>
+            </section>
+            <ul>
+                <li>
+                    <a href="#"><i class="fa-solid fa-cat"></i> 브랜드</a>
+                    <ul>
+                        <li class="DomesticBrand" data-category="국내브랜드"><a href="/domesticBrand">국내브랜드</a></li>
+                        <li class="OverseasBrand" data-category="해외브랜드"><a href="#">해외브랜드</a></li>
+                        <li class="designerBrand" data-category="디자이너브랜드"><a href="#">디자이너브랜드</a></li>
+                        <li class="luxuryBrand" data-category="고급브랜드"><a href="#">고급브랜드</a></li>
+                        <li class="cheapBrand" data-category="저려함브랜드"><a href="#">저렴한브랜드</a></li>
+                        <li class="famousBrand" data-category="유명브랜드"><a href="#">유명브랜드</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">남성</a>
+                    <ul>
+                        <li><a href="#">상의</a></li>
+                        <li><a href="#">하의</a></li>
+                        <li><a href="#">악세서리</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">여성</a>
+                    <ul>
+                        <li><a href="#">상의</a></li>
+                        <li><a href="#">하의</a></li>
+                        <li><a href="#">원피스</a></li>
+                        <li><a href="#">악세서리</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">계절</a>
+                    <ul>
+                        <li><a href="#">봄</a></li>
+                        <li><a href="#">여름</a></li>
+                        <li><a href="#">가을</a></li>
+                        <li><a href="#">겨울</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <!--category end-->
+
     </header>
 
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="검색...">
-                <button onclick="searchItem()">IDLE</button>
-            </div>
-
-            <div id="searchResults"></div>
-            <script src="/FE/JS/search.js"></script>
-        </header>
-
     <main class="my-2">
-<<<<<<< HEAD:src/main/resources/templates/best/best.html
-        <div class="relative">
-            <video controls autoplay loop class="custom-video">
-                <source src="/FE/video/Outfits%20Inspired%20By.mp4" type="video/mp4">
-            </video>
-=======
         <div class="relative text-center">
             <div class="flex justify-center">
                 <video controls autoplay loop
@@ -129,7 +176,6 @@
                     <source src="/FE/video/Outfits Inspired By.mp4" type="video/mp4">
                 </video>
             </div>
->>>>>>> 0f2323219d282fd9727c63005a6260b308ac1b44:src/main/resources/templates/FE/best.html
         </div>
 
         <br><br>
@@ -151,12 +197,7 @@
             </div>
         </div>
     </footer>
-<<<<<<< HEAD:src/main/resources/templates/best/best.html
     <script src="/JS/best/sellCount.js"></script>
-=======
-
-    <script src="/JS/sellCount.js"></script>
->>>>>>> 0f2323219d282fd9727c63005a6260b308ac1b44:src/main/resources/templates/FE/best.html
     <script src="/JS/page.js"></script>
     <script src="/JS/product.js"></script>
     <script src="/JS/bestOnLoad.js"></script>

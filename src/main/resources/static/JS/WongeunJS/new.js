@@ -16,9 +16,6 @@ window.addEventListener('scroll', function() {
         clearTimeout(timeout);
     }
 
-<<<<<<< HEAD
-function GetListRequest(url){
-=======
     timeout = setTimeout(function() {
         let documentHeight = document.body.scrollHeight;
         let viewportHeight = window.innerHeight;
@@ -42,7 +39,6 @@ function GetListRequest(url){
 // };
 
 function GetListRequestLatest(url){
->>>>>>> 0f2323219d282fd9727c63005a6260b308ac1b44
 
     const headers = {
         'Content-Type': 'application/json',
