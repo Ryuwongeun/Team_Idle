@@ -96,7 +96,6 @@ function requestPay() {
                             console.log(rsp);
                         }
                     });
-                location.reload();
             }
         })
         .catch(error => {
