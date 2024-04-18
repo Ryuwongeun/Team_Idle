@@ -15,4 +15,11 @@
     <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.ProductDetail">
         update product_detail set pd_before_count = #{Product.pd_before_count} where product_id=#{Product.product_id} AND size = #{Product.size}
     </update>
+
+    <update id="sales" parameterType="list">
+        update product_detail set
+            pd_before_count = pd_before_count - #{payment.count},
+            pd_sell_count = pd_sell_count + #{payment.count}
+            where product_id = #{payment.product_id} AND size = #{payment.size}
+    </update>
 </mapper>

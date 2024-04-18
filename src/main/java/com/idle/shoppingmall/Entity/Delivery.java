@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Delivery {
     private Long delivery_id;
-    private Long payment_id;
     private String tg_pnum;
     private String address;
     private String state;

@@ -20,5 +20,6 @@ public class Payment {
     private String size;
     private int count;
     private LocalDateTime created_at;
+    private Long delivery_id;
 
 }

@@ -2,9 +2,12 @@ package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListDTOtoSession;
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.RequestPayDTO;
+import com.idle.shoppingmall.Entity.Key.DetailKey;
+import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.Service.Payment.PaymentService;
+import com.idle.shoppingmall.Service.Product.ProductDetailService;
 import com.idle.shoppingmall.Service.Product.ProductService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @RestController
@@ -22,6 +27,7 @@ public class PaymentViewListController {
 
     private final ProductService productService;
     private final PaymentService paymentService;
+    private final ProductDetailService productDetailService;
 
     @PostMapping("/api/POST/paymentList")
     public ResponseEntity<CommonResponse> paymentList(@RequestBody List<String> list, HttpSession session) {
@@ -34,16 +40,42 @@ public class PaymentViewListController {
                 ResponseEntity.ok().body(new CommonResponse(200, "결제 준비 끝!"));
     }
 
-    @PostMapping("/api/POST/payment")
-    public ResponseEntity<CommonResponse> payment(@RequestBody RequestPayDTO request, HttpSession session) {
+    @PostMapping("/api/POST/checkPayment")
+    public ResponseEntity<CommonResponse> checkPay(HttpSession session){
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user == null) return ResponseEntity.ok().body(new CommonResponse(666, "세션이 만료되었어요."));
         List<PaymentListDTOtoSession> paymentList = (List<PaymentListDTOtoSession>) session.getAttribute("paymentList");
         if(paymentList == null) return ResponseEntity.ok().body(new CommonResponse(400, "아무것도 안고르지 않았나요?"));
+        //        상품 갯수 존재 여부 예외 처리
+        List<String> isStockInsufficient = paymentList.stream()
+                .map(payment -> {
+                    ProductDetail productDetail = productDetailService.findDetail(
+                            payment.getProduct().getProduct_id(),
+                            payment.getSize());
+                    if (productDetail == null) return "없는 상품";
+                    return  productDetail.getPd_before_count() < payment.getCount() ?
+                            payment.getProduct().getPd_name() : null ;
+                })
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        if (isStockInsufficient.size() > 0) {
+            String result = isStockInsufficient.stream()
+                    .collect(Collectors.joining(", "));
+            System.out.println("재고 부족");
+            return ResponseEntity.ok().body(new CommonResponse(500,"상품 : "+result+"의 재고가 부족합니다."));
+        }
+        return ResponseEntity.ok().body(new CommonResponse(200, "결제 가능"));
+    }
 
 
-        paymentService.payAndDelivery(request, user.getUser_id(), paymentList); ;
+    @PostMapping("/api/POST/payment")
+    public ResponseEntity<CommonResponse> payment(@RequestBody RequestPayDTO request, HttpSession session) {
+        System.out.println("result : "+request.getAddress() + " " + request.getPhone());
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        List<PaymentListDTOtoSession> paymentList = (List<PaymentListDTOtoSession>) session.getAttribute("paymentList");
+
+        CommonResponse response = paymentService.payAndDelivery(request, user.getUser_id(), paymentList); ;
         session.removeAttribute("paymentList");
-        return ResponseEntity.ok().body(new CommonResponse(200, "결제 완료!"));
+        return ResponseEntity.ok().body(response);
     }
 }
