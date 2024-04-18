@@ -89,7 +89,7 @@ function requestPay() {
                         if (rsp.success) {
                             console.log(rsp);
                             console.log(data);
-                            sendData("/api/POST/payment", data)
+                            sendData("/api/POST/payment", data, null, null)
                         } else {
                             console.log(rsp);
                         }

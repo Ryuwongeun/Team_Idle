@@ -9,5 +9,5 @@ btn.addEventListener('click',()=>{
         id : id,
         name : name
     }
-    sendData(`/addTest`,data)
+    sendData(`/addTest`,data,null,null)
 })

@@ -12,7 +12,6 @@ function checkDuplicateEmail(emailId, emailDns) {
 const nameCheckBtn = document.getElementById('checkNameBtn');
 nameCheckBtn.addEventListener('click', function() {
     const nickname = document.getElementById('nickname').value.trim();
-    const errorSpan = document.getElementById('nickname-error');
     console.log(nickname);
     data = {
         name : nickname
@@ -21,17 +20,20 @@ nameCheckBtn.addEventListener('click', function() {
         errorSpan.textContent = '닉네임을 입력하세요.';
         return;
     }
-    sendData("/api/POST/checkName", data);
-    const result = 200; // <<< 대충 넣은거 return으로 안받아와져서 애매하내요..
-    if (result === 200) {
-        errorSpan.textContent = '사용 가능한 닉네임입니다.';
-        errorSpan.style.color = 'green';
-    }
-    if( result < 0){
-        errorSpan.textContent = '이미 사용 중인 닉네임입니다.';
-        errorSpan.style.color = 'red';
-    }
+    sendData("/api/POST/checkName", data, success, fail);
 });
+
+const success = () => {
+    const errorSpan = document.getElementById('nickname-error');
+    errorSpan.textContent = '사용 가능한 닉네임입니다.';
+    errorSpan.style.color = 'green';
+}
+const fail = () => {
+    const errorSpan = document.getElementById('nickname-error');
+    errorSpan.textContent = '이미 사용 중인 닉네임입니다.';
+    errorSpan.style.color = 'red';
+}
+
 
 // Daum 주소 API에서 주소를 클릭했을 때 실행될 함수
 function setAddress(addr) {
@@ -62,7 +64,7 @@ document.getElementById('btnJoin').addEventListener('click', function(event) {
         pnum : pnum,
         name : name
     }
-    sendData("/api/POST/join", data);
+    sendData("/POST/join", data, null, null);
 
     if (password !== confirmPassword) {
         document.getElementById('password-error').textContent = '비밀번호가 일치하지 않습니다.';
