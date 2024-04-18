@@ -14,5 +14,5 @@ CartBtn.addEventListener('click', () => {
         count: count,
         size: size
     }
-    sendData("/api/POST/addCart", data);
+    sendData("/api/POST/addCart", data, null, null);
 });

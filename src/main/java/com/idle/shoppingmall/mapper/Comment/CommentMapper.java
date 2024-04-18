@@ -14,7 +14,7 @@ public interface CommentMapper {
 
     Long saveComment(@Param("comment") Comment comment);
 
-    List<CommentListResponse> findCommentList(@Param("id") Long id, @Param("startpage") int startpage, @Param("endpage") int endpage);
+    List<CommentListResponse> findCommentList(@Param("id") Long id, @Param("startPage") int startPage, @Param("endPage") int endPage);
 
     List<String> findUrl(@Param("id") Long id);
 
