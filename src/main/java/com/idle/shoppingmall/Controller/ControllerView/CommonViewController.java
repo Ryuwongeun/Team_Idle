@@ -8,6 +8,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class CommonViewController {
 
+    @GetMapping("/Common/SideMenu")
+    String sideMenu() {
+        return "/Common/SideMenu";
+    } // sideMenu
+    @GetMapping("/Common/Search")
+    String search() {
+        return "/Common/Search";
+    } // Topsearch
+    @GetMapping("/Common/TopMenu")
+    String TopMenu() {
+        return "/Common/TopMenu";
+    } // TopMenu
+
+
+
     @GetMapping("/best")
     String bestList() {
         return "/best/best";
