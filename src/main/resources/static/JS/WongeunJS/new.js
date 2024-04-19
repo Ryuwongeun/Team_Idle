@@ -67,8 +67,8 @@ function GetListRequestLatest(url){
                          onmouseout="scaleImage(this, 1)">
                     <div class="p-4">
                         <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
-                        <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
-                        <p class="text-gray-600">${item.pd_price}원</p>                 
+                        <h3 class="font-semibold">상품명 : ${item.product_name}</h3>
+                        <p class="text-gray-600">${item.product_price}원</p>                 
                         <p class="text-gray-600" >${item.product_id}</p>
                     </div>
                 </article>`;

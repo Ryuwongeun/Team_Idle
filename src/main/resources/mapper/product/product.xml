@@ -5,7 +5,7 @@
 <mapper namespace="com.idle.shoppingmall.mapper.Product.ProductMapper">
     <insert id="saveProduct" useGeneratedKeys="true" keyProperty="product_id">
         insert into product(pd_name, pd_price, brand_id, pd_category,created_who ,created_at, count_love, product_img)
-        values ( #{Product.pd_name}, #{Product.pd_price}, #{Product.brand_id}, #{Product.pd_category}, #{Product.created_who}
+        values ( #{Product.product_name}, #{Product.product_price}, #{Product.brand_id}, #{Product.product_category}, #{Product.created_who}
                ,#{Product.created_at}, 0, #{Product.product_img})
     </insert>
 
@@ -19,9 +19,9 @@
     </select>
 
     <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.Product">
-        update product set pd_name=#{Product.pd_name},
-        pd_price=#{Product.pd_price},
-        pd_category=#{Product.pd_category},
+        update product set pd_name=#{Product.product_name},
+        pd_price=#{Product.product_price},
+        pd_category=#{Product.product_category},
         count_love=#{Product.count_love}  <!-- count_love 필드 업데이트 추가 -->
         where product_id=#{Product.product_id}
     </update>
@@ -45,16 +45,16 @@
     </select>
 
     <select id="findAllByPdName" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product where pd_name like CONCAT('%', #{pd_name}, '%') or pd_category like CONCAT('%', #{pd_name}, '%')
+        select * from product where pd_name like CONCAT('%', #{product_name}, '%') or pd_category like CONCAT('%', #{product_name}, '%')
     </select>
     <update id="increaseLoveCount">
-        update product set count_love = count_love +1 where product_id = #{productId}
+        update product set count_love = count_love +1 where product_id = #{produc_id}
     </update>
 
     <update id="decreaseLoveCount">
         UPDATE product
         SET count_love = CASE WHEN count_love > 0 THEN count_love - 1 ELSE 0 END
-        WHERE product_id = #{productId}
+        WHERE product_id = #{product_id}
     </update>
 
     <select id="findAllByLoveCountDesc" resultType="com.idle.shoppingmall.Entity.Product.Product">
@@ -93,7 +93,7 @@
 
 
     <select id="findByCategory" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product where pd_category like CONCAT('%', #{Product.pd_category}, '%')
+        select * from product where pd_category like CONCAT('%', #{Product.product_category}, '%')
     </select>
 
 
@@ -121,7 +121,7 @@
         left outer join brand as b on p.brand_id = b.brand_id
         left outer join product_detail as pd on p.product_id = pd.product_id
         <where>
-            p.product_id = #{productId}
+            p.product_id = #{product_id}
         </where>
     </select>
 

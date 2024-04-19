@@ -23,9 +23,9 @@ modiBtn.addEventListener("click", () => {
     const price = parseInt(document.querySelector("#modiPrice").value);
     const data = {
         product_id : id,
-        pd_name : name,
-        pd_price : price,
-        pd_category : category
+        product_name : name,
+        product_price : price,
+        product_category : category
     }
     console.log("click")
     sendData('/api/POST/updateProduct',data, null, null);
