@@ -24,29 +24,29 @@ public class ManageViewController {
         return "/Manage/ManageMain";
     }
 
-    @PostMapping("/GET/manage/product")
+    @PostMapping("/manage/GET/product")
     public ResponseEntity<List<MProductListView>> getProduct() {
         List<MProductListView> products = mProductService.getList(0, PAGINGSIZE);
         return ResponseEntity.ok().body(products);
     }
 
 
-    @PostMapping("/GET/manage/brand")
+    @PostMapping("/manage/GET/brand")
     public ResponseEntity<List<MProductListView>> getBrand() {
         List<MProductListView> products = mProductService.getList(0, PAGINGSIZE);
         return ResponseEntity.ok().body(products);
     }
 
-    @PostMapping("/GET/manage/product/search")
+    @PostMapping("/manage/GET/product/search")
     public ResponseEntity<List<MProductListView>> getProductByName(
             @ModelAttribute ProductSortRequest request) {
         int id = request.getId();
-        String product_name = request.getProduct_name();
+        String product_name = request.getName();
         System.out.println("search name : " + product_name);
         String order = null;
         if (id > 0) {
             if (id == 1) {
-                order = "price DESC";
+                order = "product_price DESC";
             }
             if (id == 2) {
                 order = "amount DESC";
@@ -56,7 +56,7 @@ public class ManageViewController {
             }
         } else {
             if (id == -1) {
-                order = "price ASC";
+                order = "product_price ASC";
             }
             if (id == -2) {
                 order = "amount ASC";

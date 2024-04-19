@@ -18,7 +18,7 @@ public class PaymentViewController {
     private final MPaymentService paymentService;
     private final int PAGINGSIZE = 10;
 
-    @PostMapping("/GET/manage/order/search")
+    @PostMapping("/manage/GET/order/search")
     public ResponseEntity<List<PaymentListResponse>> getPaymentList(@RequestParam(required = false, defaultValue = "") String name,
                                                                     @RequestParam int page){
         int paging = page * PAGINGSIZE;

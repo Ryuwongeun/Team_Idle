@@ -7,4 +7,13 @@
         insert into customer_service (created_at, created_who,  payment_id, content, state)
         values (#{data.created_at}, #{data.created_who}, #{data.payment_id}, #{data.content}, #{data.state})
     </insert>
+
+    <select id="getCSList">
+        select cs_id, created_who, date_format(created_at, '%Y-%m-%d %H:%i') as created_at, state
+        from customer_service
+        <where>
+            cs_id LIKE concat('%',#{name},'%')
+        </where>
+        LIMIT #{size}, #{offset}
+    </select>
 </mapper>
