@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/FE/CSS/product.css">
     <link rel="stylesheet" href="/FE/CSS/form.css">
     <link rel="stylesheet" href="/FE/CSS/search.css">
+    <link rel="stylesheet" href="/CSS/Main/Pop.css">
     <script src="/FE/JS/product_btn.js"></script>
     <style>
         .bg-black {
@@ -86,8 +87,8 @@
                             <button id="decrement" class="bg-gray-200 hover:bg-gray-300 rounded-full w-8 h-8 flex items-center justify-center">
                                 <span class="text-gray-700 text-lg">-</span>
                             </button>
-                            <input type="text" id="quantity" name="quantity" value="1" readonly
-                                   class="w-12 bg-gray-100 border border-gray-300 rounded py-2 px-2 text-center focus:outline-none">
+                            <input type="number" id="quantity" name="quantity" value="1"
+                                   class="w-50 bg-gray-100 border border-gray-300 rounded py-2 px-2 text-center focus:outline-none">
                             <button id="increment" class="bg-gray-200 hover:bg-gray-300 rounded-full w-8 h-8 flex items-center justify-center">
                                 <span class="text-gray-700 text-lg">+</span>
                             </button>
@@ -98,11 +99,13 @@
                     <div class="flex space-x-4 mt-6">
                         <button  class="bg-purple-600 text-white px-6 py-2 rounded">Buy Now</button>
                         <button id="cartBtn" class="bg-gray-300 px-6 py-2 rounded">Add to Cart</button>
-                        <button id="loveButton" class="bg-pink-600 text-white px-6 py-2 rounded" onclick="changeColor()">LOVE</button>
-
+<!--                        <button id="loveButton" class="bg-pink-600 text-white px-6 py-2 rounded" onclick="changeColor()">LOVE</button>-->
+                        <button id="loveBtn" class="bg-pink-600 text-white px-6 py-2 rounded">LOVE</button>
                     </div>
                 </div>
             </div>
+<!--          이펙트 좋아요 효과-->
+            <img class="popEffect" src="https://kr.object.ncloudstorage.com/miniidle/storage/02_%EB%AA%A8%EC%BD%94%EC%BD%94%EC%BD%982_03_%EC%A2%8B%EC%95%84%EC%9A%94.gif">
 
             <div class="mt-10">
                 <h2 class="text-xl font-bold">Details</h2>
@@ -209,6 +212,7 @@
 <script src="/JS/sendData.js"></script>
 <script src="/JS/DetailView/printComment.js"></script>
 <script src="/JS/DetailView/addComment.js"></script>
+<script src="/JS/DetailView/love.js"></script>
 <script>
     // 수량 업데이트 함수
     function updateQuantity(change) {
