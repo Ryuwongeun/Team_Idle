@@ -5,11 +5,9 @@ import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.Service.Product.ProductService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -75,8 +73,8 @@ public class LatestViewController {
         List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
         List<ProductListResponse> list = new ArrayList<>();
         for(Product product : productLatest) {
-            list.add(new ProductListResponse(product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getCount_love(), product.getProduct_img()));
+            list.add(new ProductListResponse(product.getProduct_id(), product.getProduct_name(),
+                    product.getProduct_price(), product.getCount_love(), product.getProduct_img()));
         }
         return list;
     }
