@@ -30,7 +30,7 @@
         <collection property="urls" ofType="String" resultMap="urls"/>
     </resultMap>
     <select id="findCommentList" resultMap="CommentListResponse">
-        select c.comment_id as id, c.created_name as name, c.content as content, date_format(c.created_at, '%Y-%m-%d %H:%i') as created_at
+        select c.comment_id as id, c.created_name as user_name, c.content as content, date_format(c.created_at, '%Y-%m-%d %H:%i') as created_at
         , img.img_url as urls
         from comment as c
         left outer join comment_img img on c.comment_id = img.comment_id

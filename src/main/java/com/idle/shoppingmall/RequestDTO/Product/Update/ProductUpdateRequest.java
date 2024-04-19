@@ -11,5 +11,5 @@ public class ProductUpdateRequest {
     private Long product_id;
     private String product_name;
     private int product_price;
-    private String pd_category;
+    private String product_category;
 }

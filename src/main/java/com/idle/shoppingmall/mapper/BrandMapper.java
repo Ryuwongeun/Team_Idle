@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 @Mapper
 public interface BrandMapper {
-    List<BrandListResponse> findByName(String name);
+    List<BrandListResponse> findByName(String brand_name);
 }

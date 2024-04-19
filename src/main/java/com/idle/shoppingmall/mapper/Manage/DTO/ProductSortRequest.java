@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProductSortRequest {
     private int id;
-    private String name;
+    private String product_name;
     private int paging;
 
 }
