@@ -47,7 +47,7 @@ public class PaymentService {
                             payment.getSize()));
                     if (productDetail == null) return "없는 상품";
                     return  productDetail.getProduct_before_count() < payment.getCount() ?
-                            payment.getProduct().getPd_name() : null ;
+                            payment.getProduct().getProduct_name() : null ;
                 })
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
@@ -69,7 +69,7 @@ public class PaymentService {
                         payment.getProduct().getProduct_id(),
                         payment.getSize(),
                         payment.getCount()));
-                    return result != 0 ? payment.getProduct().getPd_name() : null ;
+                    return result != 0 ? payment.getProduct().getProduct_name() : null ;
                 })
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
