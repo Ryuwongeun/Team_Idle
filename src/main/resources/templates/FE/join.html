@@ -1,18 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion E-commerce Prototype</title>
+    <title>회원가입</title>
+    <script defer src="/JS/join.js"></script>
+    <script defer src="/JS/sendData.js"></script>
+    <script defer src="/JS/joinMailAuth.js"></script>
+    <script>
+        $(function() {
+            // $(요소 선택).load(url, data, 콜백함수);
+            $("#search-container").load("/Common/Search");
+            $("#TopMenu").load("/Common/TopMenu");
+            $('#Footer').load("/Common/Footer");
+        });
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">  
     <link rel="stylesheet" href="/FE/CSS/form.css">
-    <link rel="stylesheet" href="/FE/CSS/search.css">
-    <script defer src="/JS/join.js"></script>
-    <script defer src="/JS/sendData.js"></script>
-    <link rel="stylesheet" href="/FE/CSS/TopMenu.css">
-    <script defer src="/JS/joinMailAuth.js"></script>
     <style>
         /* Additional custom styles */
         .error {
@@ -23,43 +28,9 @@
 <body class="bg-white text-gray-700">
     <!-- Header -->
     <header class="bg-black py-7">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
-            <nav class="flex justify-center space-x-4 w-full">
-                <div class="mypage-dropdown">
-                    <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-                    <div class="mypage-dropdown-content">
-                        <a href="/like">Like</a>
-                        <a href="/comment">Comment</a>
-                    </div>
-                </div>
-                <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-                <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-                <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-                <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
-                <div class="mypage-dropdown">
-                    <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
-                    <div class="mypage-dropdown-content">
-                        <a href="/login">Login</a>
-                        <a href="/cart">Cart</a>
-                        <a href="/order">Order</a>
-                        <a href="/logout">Logout</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
+        <!--        topMenu-->
+        <div id="TopMenu"></div>
     </header>
-
-    </nav>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="검색...">
-                <button onclick="searchItem()">IDLE</button>
-            </div>
-
-            <div id="searchResults"></div>
-            <script src="/FE/JS/search.js"></script>
-        </div>
-      </header>
     <br><br>
     <br><br>
    
@@ -138,11 +109,7 @@
     </div>
     <br><br><br>
     <!-- Footer -->
-    <footer class="bg-black py-9 mt-8">
-        <div class="container mx-auto text-center text-pink-500">
-            &copy; 2024 IDLE Fashion Store
-        </div>
-    </footer>
+<div id="Footer"></div>
 
 </body>
 </html>

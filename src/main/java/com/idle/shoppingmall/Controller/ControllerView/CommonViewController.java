@@ -20,6 +20,14 @@ public class CommonViewController {
     String TopMenu() {
         return "/Common/TopMenu";
     } // TopMenu
+    @GetMapping("/Common/Footer")
+    String Footer() {
+        return "/Common/Footer";
+    } // Footer
+    @GetMapping("/Common/SizeTable")
+    String SizeTable(){
+        return "/Common/SizeTable";
+    }
 
 
 

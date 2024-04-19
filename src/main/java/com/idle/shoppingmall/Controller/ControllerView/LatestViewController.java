@@ -73,7 +73,7 @@ public class LatestViewController {
         List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
         List<ProductListResponse> list = new ArrayList<>();
         for(Product product : productLatest) {
-            list.add(new ProductListResponse(product.getProduct_id(), product.getPd_name(),
+            list.add(new ProductListResponse(product.getProduct_id(), product.getProduct_name(),
                     product.getProduct_price(), product.getCount_love(), product.getProduct_img()));
         }
         return list;

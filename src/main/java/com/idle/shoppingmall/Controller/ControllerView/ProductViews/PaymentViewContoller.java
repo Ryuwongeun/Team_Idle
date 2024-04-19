@@ -28,7 +28,7 @@ public class PaymentViewContoller {
         List<PaymentListViewDTO> list = IntStream.range(0, keys.size())
                 .mapToObj(i -> {
                     Product product =  keys.get(i).getProduct();
-                    return new PaymentListViewDTO(product.getPd_name(), product.getProduct_price(), keys.get(i).getSize(),
+                    return new PaymentListViewDTO(product.getProduct_name(), product.getProduct_price(), keys.get(i).getSize(),
                             keys.get(i).getCount(),
                             product.getProduct_img());
                 })
