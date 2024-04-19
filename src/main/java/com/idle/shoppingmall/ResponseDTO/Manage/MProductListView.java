@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class MProductListView {
     private Long id;
-    private String brandName;
-    private String name;
+    private String brand_name;
+    private String product_name;
     private int price;
     private Long amount;
     private Long sales;

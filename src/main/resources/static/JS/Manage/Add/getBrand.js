@@ -4,7 +4,7 @@ searchBrandBtn.addEventListener('click', function(){
     const brandVal = document.getElementById('brandName');
     console.log(brandVal.value)
     const data = {
-        name: brandVal.value
+        brand_name: brandVal.value
     };
     GetBrandList('/api/GET/brand', data);
 })

@@ -19,8 +19,8 @@
         <collection property="details" ofType="com.idle.shoppingmall.ResponseDTO.Manage.detailsObject" resultMap="details"/>
     </resultMap>
     <select id="getDetail" resultMap="MProductDetailViewMap">
-        SELECT p.product_id as id, p.pd_name as name, p.pd_price as price, b.brand_name as brand_name, p.count_love as count_love,
-        p.pd_category as category ,pd.size as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
+        SELECT p.product_id as id, p.product_name as product_name, p.product_price as price, b.brand_name as brand_name, p.count_love as count_love,
+        p.product_category as category ,pd.size as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
         from product as p
         left outer join brand as b on p.brand_id = b.brand_id
         left outer join product_detail as pd on p.product_id = pd.product_id

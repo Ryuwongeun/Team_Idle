@@ -43,11 +43,11 @@
         <h2>Modify Form</h2>
         <button class="close-btn"><i class="fas fa-times" onclick="closeModal()">X</i></button>
         <div id="modiForm">
-            <div id="modiName" th:text="${data.name}"></div>
+            <div id="modiName" th:text="${data.product_name}"></div>
             <label for="category">카테고리</label>
-            <input type="text" id="category"  th:value="${data.category}" required/>
+            <input type="text" id="category"  th:value="${data.product_category}" required/>
             <label for="modiPrice">가격</label>
-            <input type="text" id="modiPrice" th:value="${data.price} + '원'" required/>
+            <input type="text" id="modiPrice" th:value="${data.product_price} + '원'" required/>
             <button id="modiBtn" type="submit">수정하기</button>
         </div>
     </div>
@@ -76,7 +76,7 @@
 
         <!-- Product Details -->
         <div class="col-span-2">
-            <h1 class="text-2xl font-bold mb-2" th:text="${data.name}"></h1>
+            <h1 class="text-2xl font-bold mb-2" th:text="${data.product_name}"></h1>
             <div class="flex items-center mb-4">
                     <span class="star-rating text-lg">
                         ★★★★★

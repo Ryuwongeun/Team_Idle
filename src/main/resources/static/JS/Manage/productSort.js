@@ -42,7 +42,7 @@ function GetProductListRequest(url){
                 <!-- Repeat for each row -->
                     <tr class="table-row" >
                         <td class="px-4 py-2">${item.id}</td>
-                        <td class="px-4 py-2">${item.brandName}</td>
+                        <td class="px-4 py-2">${item.brand_name}</td>
                         <td class="px-4 py-2">${item.name}</td>
                         <td class="px-4 py-2">${item.price}</td>
                         <td class="px-4 py-2">${item.amount}</td>
@@ -156,7 +156,7 @@ function GetBrandListRequest(url){
                 <!-- Repeat for each row -->
                     <tr class="table-row" >
                         <td class="px-4 py-2">${item.brand_id}</td>
-                        <td class="px-4 py-2">${item.name}</td>
+                        <td class="px-4 py-2">${item.brand_name}</td>
                         <td class="px-4 py-2">${item.sales}</td>
                         <td class="px-4 py-2">${item.count}</td>
                         <td class="px-4 py-2">

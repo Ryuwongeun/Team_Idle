@@ -38,8 +38,6 @@ window.addEventListener('scroll', function() {
 // };
 
 function GetListRequestLatest(url){
-
-
     const headers = {
         'Content-Type': 'application/json',
     };

@@ -20,7 +20,7 @@ public class BrandApiController {
 
     @PostMapping("/api/GET/brand")
     public ResponseEntity<List<BrandListResponse>> getBrandByName(@RequestBody @Valid BrandSearchRequest request) {
-        List<BrandListResponse> brands = brandService.findByName(request.getName());
+        List<BrandListResponse> brands = brandService.findByName(request.getBrand_name());
         return ResponseEntity.ok().body(brands);
     }
 }

@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BrandSearchRequest {
     @NotNull
-    String name;
+    String brand_name;
 }
