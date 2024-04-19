@@ -11,7 +11,6 @@ import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.mapper.Payment.PaymentMapper;
 import com.idle.shoppingmall.mapper.Product.ProductDetailMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,7 +46,7 @@ public class PaymentService {
                             payment.getProduct().getProduct_id(),
                             payment.getSize()));
                     if (productDetail == null) return "없는 상품";
-                    return  productDetail.getPd_before_count() < payment.getCount() ?
+                    return  productDetail.getProduct_before_count() < payment.getCount() ?
                             payment.getProduct().getPd_name() : null ;
                 })
                 .filter(Objects::nonNull)
@@ -94,7 +93,7 @@ public class PaymentService {
                 .mapToObj(i -> Payment.builder()
                         .created_who(who)
                         .product_id(paymentList.get(i).getProduct().getProduct_id())
-                        .total_price(paymentList.get(i).getProduct().getPd_price()*paymentList.get(i).getCount())
+                        .total_price(paymentList.get(i).getProduct().getProduct_price()*paymentList.get(i).getCount())
                         .size(paymentList.get(i).getSize())
                         .count(paymentList.get(i).getCount())
                         .created_at(LocalDateTime.now())

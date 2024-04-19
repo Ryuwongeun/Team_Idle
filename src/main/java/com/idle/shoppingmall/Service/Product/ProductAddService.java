@@ -43,7 +43,7 @@ public class ProductAddService {
             ProductDetail detail = ProductDetail.builder()
                     .product_id(product_id)
                     .size(request.getSizes().get(i).getSize())
-                    .pd_before_count(request.getSizes().get(i).getCount())
+                    .product_before_count(request.getSizes().get(i).getCount())
                     .build();
             productDetailMapper.saveProductDetail(detail);
         }

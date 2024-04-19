@@ -32,7 +32,7 @@
 //                 return `
 //                 <article class="bg-white shadow-md rounded overflow-hidden">
 //                     <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"
-//                          alt="Fashion item" class="w-full h-64 object-cover"
+//                          alt="Fashion item" clas s="w-full h-64 object-cover"
 //                          onclick=redirectTo(${item.product_id})>
 //                     <div class="p-4">
 //                         <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
