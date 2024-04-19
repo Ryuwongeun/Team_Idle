@@ -20,7 +20,7 @@ nameCheckBtn.addEventListener('click', function() {
         errorSpan.textContent = '닉네임을 입력하세요.';
         return;
     }
-    sendData("/api/POST/checkName", data, success, fail);
+    sendData("/POST/checkName", data, success, fail);
 });
 
 const success = () => {
