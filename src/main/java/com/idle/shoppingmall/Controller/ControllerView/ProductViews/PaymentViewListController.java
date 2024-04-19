@@ -45,10 +45,8 @@ public class PaymentViewListController {
         System.out.println("!111111111111111111111111");
         UserInfo user = (UserInfo) session.getAttribute("user");
         if(user == null) return ResponseEntity.ok().body(new CommonResponse(666, "세션이 만료되었어요."));
-        System.out.println("!333333333333333333333333333");
         List<PaymentListDTOtoSession> paymentList = (List<PaymentListDTOtoSession>) session.getAttribute("paymentList");
         if(paymentList == null) return ResponseEntity.ok().body(new CommonResponse(400, "아무것도 안고르지 않았나요?"));
-        System.out.println("!222222222222222222222222222");
         //        상품 갯수 존재 여부 예외 처리
         return ResponseEntity.ok().body(paymentService.checkProduct(paymentList));
     }
