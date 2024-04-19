@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO;
+package com.idle.shoppingmall.ResponseDTO.Cart;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,10 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PaymentListViewDTO {
+public class CartListResponse {
+    private Long id;
     private String name;
-    private int price;
     private String size;
+    private int price;
     private int count;
+    private int totalPrice;
     private String img;
 }

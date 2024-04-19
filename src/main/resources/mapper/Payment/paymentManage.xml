@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.idle.shoppingmall.mapper.Payment.PayLogManageMapper">
+    <select id="UserFindOrderList" resultType="com.idle.shoppingmall.ResponseDTO.Order.OrderListViewResponse">
+        select pay.payment_id as payment_id, DATE_FORMAT(pay.created_at, '%Y-%m-%d %H:%i') as payment_at,  pd.product_name as product_name, pd.product_img as product_img,
+               pay.size as size, pay.count as count, pay.total_price as total_price, del.state as delivery_state
+        from payment as pay
+        inner join product as pd on pay.product_id = pd.product_id
+        inner join delivery as del on pay.delivery_id = del.delivery_id
+        where pay.created_who = #{created_who}
+        Limit #{size}, #{offset};
+    </select>
+</mapper>

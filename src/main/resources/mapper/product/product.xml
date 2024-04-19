@@ -34,14 +34,14 @@
     <select id="findAllProductsPaged" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
         order by product_id
-        limit #{size} offset #{offset}
+        limit #{size}, #{offset}
     </select>
 
 
     <select id="findAllByPdPriceDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
         order by product_price asc
-        limit #{size} offset #{offset}
+        limit #{size}, #{offset}
     </select>
 
     <select id="findAllByPdName" resultType="com.idle.shoppingmall.Entity.Product.Product">

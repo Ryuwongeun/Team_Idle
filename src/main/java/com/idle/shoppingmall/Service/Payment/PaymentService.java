@@ -38,6 +38,7 @@ public class PaymentService {
         return paymentMapper.delete(paymentId);
     }
 
+    //결제 전 상품 재고 확인 API
     @Transactional(readOnly = true)
     public CommonResponse checkProduct(List<PaymentListDTOtoSession> paymentList){
         List<String> isStockInsufficient = paymentList.stream()
@@ -61,6 +62,8 @@ public class PaymentService {
         return new CommonResponse(200, "결제 가능");
     }
 
+
+    //결제 후 결제, 배송 데이터 기록 API
     @Transactional
     public CommonResponse payAndDelivery(RequestPayDTO dto, Long who, List<PaymentListDTOtoSession> paymentList) {
 //        상품 존재 유무 예외 처리
@@ -84,6 +87,7 @@ public class PaymentService {
                 .address(dto.getAddress())
                 .state("WAIT")
                 .created_at(LocalDateTime.now())
+                .updated_at(LocalDateTime.now())
                 .build();
         paymentMapper.setDelivery(delivery);
         System.out.println("delivery : " + delivery.getDelivery_id());
@@ -103,6 +107,5 @@ public class PaymentService {
         paymentMapper.setPayment(payments);
 
         return new CommonResponse(200,"주문이 완료되었습니다.");
-
     }
 }

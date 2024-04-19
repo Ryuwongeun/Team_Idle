@@ -30,7 +30,6 @@ public class CommonViewController {
     }
 
 
-
     @GetMapping("/best")
     String bestList() {
         return "/best/best";
