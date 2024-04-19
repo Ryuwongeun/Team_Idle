@@ -41,8 +41,8 @@ public class ManageViewController {
     public ResponseEntity<List<MProductListView>> getProductByName(
             @ModelAttribute ProductSortRequest request) {
         int id = request.getId();
-        String name = request.getName();
-        System.out.println("search name : " + name);
+        String product_name = request.getProduct_name();
+        System.out.println("search name : " + product_name);
         String order = null;
         if (id > 0) {
             if (id == 1) {
@@ -66,7 +66,7 @@ public class ManageViewController {
             }
         }
         System.out.println(order);
-        MProductSortAndOrder data = new MProductSortAndOrder(name, order, 0, 10);
+        MProductSortAndOrder data = new MProductSortAndOrder(product_name, order, 0, 10);
         List<MProductListView> list = mProductService.sortAndSearch(data);
 
         return ResponseEntity.ok().body(list);

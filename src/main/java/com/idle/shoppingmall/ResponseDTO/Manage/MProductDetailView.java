@@ -11,9 +11,9 @@ import java.util.List;
 @NoArgsConstructor
 public class MProductDetailView {
     private Long id;
-    private String name;
+    private String product_name;
     private int price;
-    private String brandName;
+    private String brand_name;
     private int count_love;
     private String category;
     private List<detailsObject> details;

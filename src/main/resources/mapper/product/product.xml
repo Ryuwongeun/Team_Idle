@@ -4,7 +4,7 @@
 
 <mapper namespace="com.idle.shoppingmall.mapper.Product.ProductMapper">
     <insert id="saveProduct" useGeneratedKeys="true" keyProperty="product_id">
-        insert into product(pd_name, pd_price, brand_id, pd_category,created_who ,created_at, count_love, product_img)
+        insert into product(product_name, product_price, brand_id, product_category,created_who ,created_at, count_love, product_img)
         values ( #{Product.product_name}, #{Product.product_price}, #{Product.brand_id}, #{Product.product_category}, #{Product.created_who}
                ,#{Product.created_at}, 0, #{Product.product_img})
     </insert>
@@ -19,9 +19,9 @@
     </select>
 
     <update id="update" parameterType="com.idle.shoppingmall.Entity.Product.Product">
-        update product set pd_name=#{Product.product_name},
-        pd_price=#{Product.product_price},
-        pd_category=#{Product.product_category},
+        update product set product_name=#{Product.product_name},
+        product_price=#{Product.product_price},
+        product_category=#{Product.product_category},
         count_love=#{Product.count_love}  <!-- count_love 필드 업데이트 추가 -->
         where product_id=#{Product.product_id}
     </update>
@@ -40,12 +40,12 @@
 
     <select id="findAllByPdPriceDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
-        order by pd_price asc
+        order by product_price asc
         limit #{size} offset #{offset}
     </select>
 
     <select id="findAllByPdName" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product where pd_name like CONCAT('%', #{product_name}, '%') or pd_category like CONCAT('%', #{product_name}, '%')
+        select * from product where product_name like CONCAT('%', #{product_name}, '%') or product_category like CONCAT('%', #{product_name}, '%')
     </select>
     <update id="increaseLoveCount">
         update product set count_love = count_love +1 where product_id = #{produc_id}
@@ -65,7 +65,7 @@
     </select>
 
     <select id="findAllBySellCountDesc" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse">
-        SELECT p.product_id, p.pd_name, p.pd_price, p.pd_category, p.brand_id,
+        SELECT p.product_id, p.product_name, p.product_price, p.product_category, p.brand_id,
                SUM(pd.pd_sell_count) AS pd_sell_count, p.created_who, p.created_at, p.count_love
         FROM product AS p
                  INNER JOIN product_detail AS pd ON p.product_id = pd.product_id
@@ -75,13 +75,13 @@
     </select>
 
     <select id="findAllByLatestDesc" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse">
-        select product_id, pd_name, pd_price, count_love, product_img from product
+        select product_id, product_name, product_price, count_love, product_img from product
         order by created_at desc
         LIMIT #{size}, #{offset};
     </select>
 
     <select id="findAllByComment" resultType="com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse">
-        select p.product_id ,p.pd_name, p.pd_price, pd_category, p.count_love,
+        select p.product_id ,p.product_name, p.product_price, product_category, p.count_love,
                count(c.comment_id) as comment_count
         from product as p
                  left join comment as c on p.product_id = c.product_id
@@ -93,11 +93,7 @@
 
 
     <select id="findByCategory" resultType="com.idle.shoppingmall.Entity.Product.Product">
-<<<<<<< HEAD
-        select * from product where pd_category like CONCAT('%', #{pd_category}, '%')
-=======
-        select * from product where pd_category like CONCAT('%', #{Product.product_category}, '%')
->>>>>>> 0274051ae2453d7e0e6e91c040dbc40bbd6af1c5
+        select * from product where product_category like CONCAT('%', #{Product.product_category}, '%')
     </select>
 
     <resultMap id="details" type="com.idle.shoppingmall.ResponseDTO.Manage.detailsObject">
@@ -118,7 +114,7 @@
     </resultMap>
 
     <select id="findViewById" resultMap="ProductDetailViewDTO">
-        SELECT p.product_id as product_id, p.pd_name as product_name, format(p.pd_price,0) as price, b.brand_name as brand_name, p.count_love as count_love,
+        SELECT p.product_id as product_id, p.pd_name as product_name, format(p.product_price,0) as price, b.brand_name as brand_name, p.count_love as count_love,
         p.pd_category as category, p.product_img as product_img ,upper(pd.size) as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
         from product as p
         left outer join brand as b on p.brand_id = b.brand_id

@@ -15,7 +15,7 @@ public class BrandService {
     private final BrandMapper mapper;
 
     @Transactional(readOnly = true)
-    public List<BrandListResponse> findByName(String name) {
-        return mapper.findByName(name);
+    public List<BrandListResponse> findByName(String brand_name) {
+        return mapper.findByName(brand_name);
     }
 }

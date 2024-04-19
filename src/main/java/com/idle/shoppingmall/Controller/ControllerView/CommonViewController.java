@@ -90,10 +90,10 @@ public class CommonViewController {
 //        return "/FE/login";
 //    } // loginOk
 
-    @GetMapping("/domesticBrand")
+    @GetMapping("/category")
     String domesticBrand() {
 
-        return "/category/domesticBrand";
+        return "/category/category";
     } // newList
 
 }

@@ -31,7 +31,7 @@ public class ProductApiController {
                        .product_id(product.getProduct_id())
                        .product_name(updateRequest.getProduct_name())
                        .product_price(updateRequest.getProduct_price())
-                       .product_category(updateRequest.getPd_category())
+                       .product_category(updateRequest.getProduct_category())
                        .build()
         );
         if(id==null){
