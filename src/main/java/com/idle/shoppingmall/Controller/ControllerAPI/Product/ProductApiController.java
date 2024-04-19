@@ -56,9 +56,9 @@ public class ProductApiController {
         Integer id= productService.update(
                Product.builder()
                        .product_id(product.getProduct_id())
-                       .pd_name(updateRequest.getPd_name())
-                       .pd_price(updateRequest.getPd_price())
-                       .pd_category(updateRequest.getPd_category())
+                       .product_name(updateRequest.getPd_name())
+                       .product_price(updateRequest.getPd_price())
+                       .product_category(updateRequest.getPd_category())
                        .build()
         );
         if(id==null){
