@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.idle.shoppingmall.mapper.CustomerServiceMapper">
+    <insert id="addCustomerService" useGeneratedKeys="true" keyProperty="cs_id">
+        insert into customer_service (created_at, created_who,  payment_id, content, state)
+        values (#{data.created_at}, #{data.created_who}, #{data.payment_id}, #{data.content}, #{data.state})
+    </insert>
+</mapper>

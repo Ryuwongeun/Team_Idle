@@ -13,6 +13,7 @@ function GetOrderListView(url){
         headers: headers
     }).then(response => response.json())
         .then(data => {
+            const pageSize = Math.ceil(data.length/ 10);
             // Thymeleaf로 직접 데이터 추가
             const dataContainer = document.getElementById('field');
             console.log(url);
@@ -45,14 +46,19 @@ function GetOrderListView(url){
                         <td>${item.count}</td>
                         <td>${item.total_price}</td>
                         <td>${item.delivery_state}</td>
-                        <td><button class="plzBtn bg-pink-600 text-white px-6 py-2 rounded" value=${item.payment_id}>문의하기</button></td>
+                        <td><button class="plzBtn bg-pink-600 text-white px-6 py-2 rounded" onclick="location.href='/cs?id=${item.payment_id}'">환불 문의하기</button></td>
                     </tr>
                 <!-- ... more rows ... -->
             `;
             }).join(''); // 배열의 모든 항목을 하나의 문자열로 결합
             orderHtml+=`
             </tbody>
-            </table>`;
+            </table>
+            <span class="page_nation">`;
+            for(let i = 1; i <= pageSize; i++){
+                orderHtml+=`<button class="page-btn" onclick="GetOrderListView('/api/view/orderList?page=${i}')">${i}</button>`
+            }
+            orderHtml+=`</span>`;
             dataContainer.innerHTML = orderHtml;
         })
         .catch(error => {

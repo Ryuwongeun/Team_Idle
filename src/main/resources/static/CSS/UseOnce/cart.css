@@ -40,3 +40,22 @@ body {
 #totalPrice {
  font-size: 24px;
 }
+
+.page_nation {
+  display:inline-block;
+}
+
+.page-btn{
+  display:block;
+  margin:0 3px;
+  float:left;
+  border:1px solid #e6e6e6;
+  width:28px;
+  height:28px;
+  line-height:28px;
+  text-align:center;
+  background-color:#fff;
+  font-size:13px;
+  color:#999999;
+  text-decoration:none;
+}

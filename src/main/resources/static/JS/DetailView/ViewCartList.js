@@ -50,8 +50,8 @@ function GetCartListRequest(url){
             cartHtml+=`
             </tbody>
             </table>
-            <p id="totalPrice">총 가격: ${price}</p>
-            <button class="checkout-btn" onclick="goPayment('/api/POST/paymentList',items)">결제하기</button>`;
+            <p id="totalPrice">총 가격: ${price}</p>`
+            `<button class="checkout-btn" onclick="goPayment('/api/POST/paymentList',items)">결제하기</button>`;
             dataContainer.innerHTML = cartHtml;
         })
         .catch(error => {
