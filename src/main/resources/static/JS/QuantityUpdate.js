@@ -1,4 +1,4 @@
-// 수량 업데이트 함수
+//수량 업데이트
 function updateQuantity(change) {
     const quantityInput = document.getElementById('quantity');
     let quantity = parseInt(quantityInput.value);

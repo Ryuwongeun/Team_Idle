@@ -1,3 +1,4 @@
+//메인페이지 팝업
 window.onload = function() {
     // 팝업 요소 가져오기
     var popupContainer = document.getElementById('popup-container');
