@@ -93,17 +93,15 @@
 
 
     <select id="findByCategory" resultType="com.idle.shoppingmall.Entity.Product.Product">
-        select * from product where pd_category like CONCAT('%', #{Product.pd_category}, '%')
+        select * from product where pd_category like CONCAT('%', #{pd_category}, '%')
     </select>
-
-
-
 
     <resultMap id="details" type="com.idle.shoppingmall.ResponseDTO.Manage.detailsObject">
         <result column="size" property="size" />
         <result column="amount" property="amount" />
         <result column="sales" property="sales" />
     </resultMap>
+
     <resultMap id="ProductDetailViewDTO" type="com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.ProductDetailViewDTO">
         <result column="product_id" property="product_id" />
         <result column="product_name" property="product_name" />
@@ -114,6 +112,7 @@
         <result column="product_img" property="product_img" />
         <collection property="details" ofType="com.idle.shoppingmall.ResponseDTO.Manage.detailsObject" resultMap="details"/>
     </resultMap>
+
     <select id="findViewById" resultMap="ProductDetailViewDTO">
         SELECT p.product_id as product_id, p.pd_name as product_name, format(p.pd_price,0) as price, b.brand_name as brand_name, p.count_love as count_love,
         p.pd_category as category, p.product_img as product_img ,upper(pd.size) as size, pd.pd_before_count as amount, pd.pd_sell_count as sales

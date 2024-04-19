@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -94,7 +95,13 @@ public class LatestViewController {
         return list;
     }
 
-//    @PostMapping("/view/GET/category")
-//    public String findByCategory(@ModelAttribute("Product") Product product) {
-//    }
+    @PostMapping("/view/GET/category")
+    public List<ProductListResponse> findByCategory(@PathVariable("pd_category") String pd_category, @RequestParam(defaultValue = "1") int page) {
+        List<Product> productList = productService.findByCategory(pd_category);
+        List<ProductListResponse> responseList = productList.stream()
+                .map(product -> new ProductListResponse(product.getProduct_id(), product.getPd_name(),
+                        product.getPd_price(), product.getCount_love(), product.getProduct_img()))
+                .collect(Collectors.toList());
+        return responseList; // JSON 형태로 데이터 반환
+    }
 }
