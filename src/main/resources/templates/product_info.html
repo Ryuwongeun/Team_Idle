@@ -9,15 +9,8 @@
     <link rel="stylesheet" href="/FE/CSS/product.css">
     <link rel="stylesheet" href="/FE/CSS/form.css">
     <link rel="stylesheet" href="/FE/CSS/search.css">
+    <link rel="stylesheet" href="/FE/CSS/TopMenu.css">
     <script src="/FE/JS/product_btn.js"></script>
-    <style>
-        .bg-black {
-            position: -webkit-sticky; /* Safari 브라우저 지원 */
-            position: sticky;
-            top: 0; /* 화면 상단에 고정 */
-            z-index: 1000; /* 다른 요소들 위에 표시되도록 z-index 설정 */
-        }
-    </style>
 </head>
 
 <header class="bg-black py-7">
@@ -209,30 +202,6 @@
 <script src="/JS/sendData.js"></script>
 <script src="/JS/DetailView/printComment.js"></script>
 <script src="/JS/DetailView/addComment.js"></script>
-<script>
-    // 수량 업데이트 함수
-    function updateQuantity(change) {
-        const quantityInput = document.getElementById('quantity');
-        let quantity = parseInt(quantityInput.value);
-
-        if (change === 'increment') {
-            quantity++;
-        } else if (change === 'decrement' && quantity > 1) {
-            quantity--;
-        }
-
-        quantityInput.value = quantity;
-    }
-
-    // 수량 증가 버튼 이벤트 처리
-    document.getElementById('increment').addEventListener('click', () => {
-        updateQuantity('increment');
-    });
-
-    // 수량 감소 버튼 이벤트 처리
-    document.getElementById('decrement').addEventListener('click', () => {
-        updateQuantity('decrement');
-    });
-</script>
+<script src="/JS/QuantityUpdate.js"></script>
 </body>
 </html>
