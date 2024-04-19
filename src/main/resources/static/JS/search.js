@@ -7,13 +7,13 @@ searchItemBtn.addEventListener('click', () => {
 });
 
 // 상품 검색 함수
-function searchProduct(pd_name) {
+function searchProduct(product_name) {
     fetch('/api/POST/searchProduct', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ pd_name: pd_name }), // 서버에 검색어 전송
+        body: JSON.stringify({ product_name: product_name }), // 서버에 검색어 전송
     })
         .then(response => response.json()) // 응답을 JSON 형태로 변환
         .then(data => {
@@ -49,8 +49,8 @@ function displayResults(results) {
                  onmouseout="scaleImage(this, 1)">
                 <div class="p-4">
                     <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3> <!-- 'item.product_id'를 실제 브랜드명을 나타내는 속성으로 교체 필요 -->
-                    <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
-                    <p class="text-gray-600">${item.pd_price}원</p>
+                    <h3 class="font-semibold">상품명 : ${item.product_name}</h3>
+                    <p class="text-gray-600">${item.product_price}원</p>
                     <p class="text-gray-600">${item.product_id}</p> <!-- 이 부분은 필요에 따라 다른 정보로 대체하거나 제거할 수 있습니다. -->
                 </div>
         </article>

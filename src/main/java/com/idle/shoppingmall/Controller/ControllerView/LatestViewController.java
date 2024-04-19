@@ -5,11 +5,9 @@ import com.idle.shoppingmall.ResponseDTO.Product.ProductCommentListResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductSellCountResponse;
 import com.idle.shoppingmall.ResponseDTO.Product.ProductListResponse;
 import com.idle.shoppingmall.Service.Product.ProductService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -76,8 +74,8 @@ public class LatestViewController {
         List<Product> productLatest = productService.findAllByLoveCountDesc(startPage,endPage);
         List<ProductListResponse> list = new ArrayList<>();
         for(Product product : productLatest) {
-            list.add(new ProductListResponse(product.getProduct_id(), product.getPd_name(),
-                    product.getPd_price(), product.getCount_love(), product.getProduct_img()));
+            list.add(new ProductListResponse(product.getProduct_id(), product.getProduct_name(),
+                    product.getProduct_price(), product.getCount_love(), product.getProduct_img()));
         }
         return list;
     }
@@ -99,8 +97,8 @@ public class LatestViewController {
     public List<ProductListResponse> findByCategory(@RequestParam("category") String pd_category, @RequestParam(defaultValue = "1") int page) {
         List<Product> productList = productService.findByCategory(pd_category);
         List<ProductListResponse> responseList = productList.stream()
-                .map(product -> new ProductListResponse(product.getProduct_id(), product.getPd_name(),
-                        product.getPd_price(), product.getCount_love(), product.getProduct_img()))
+                .map(product -> new ProductListResponse(product.getProduct_id(), product.getProduct_name(),
+                        product.getProduct_price(), product.getCount_love(), product.getProduct_img()))
                 .collect(Collectors.toList());
         return responseList; // JSON 형태로 데이터 반환
     }

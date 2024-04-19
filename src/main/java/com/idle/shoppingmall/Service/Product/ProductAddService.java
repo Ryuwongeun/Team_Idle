@@ -27,10 +27,10 @@ public class ProductAddService {
         String imageFileName = request.getThumbnail() == null ? null :
                 ncpObjectStorageService.uploadFile(BUCKETNAME, "storage/", request.getThumbnail());
         Product product = Product.builder()
-                .pd_name(request.getPd_name())
+                .product_name(request.getProduct_name())
                 .brand_id(request.getBrand())
-                .pd_price(request.getPd_price())
-                .pd_category(request.getPd_category())
+                .product_price(request.getProduct_price())
+                .product_category(request.getProduct_category())
                 .created_who(id)
                 .created_at(LocalDateTime.now())
                 .product_img(imageFileName)
@@ -43,7 +43,7 @@ public class ProductAddService {
             ProductDetail detail = ProductDetail.builder()
                     .product_id(product_id)
                     .size(request.getSizes().get(i).getSize())
-                    .pd_before_count(request.getSizes().get(i).getCount())
+                    .product_before_count(request.getSizes().get(i).getCount())
                     .build();
             productDetailMapper.saveProductDetail(detail);
         }

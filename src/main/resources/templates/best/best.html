@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>좋아요 순</title>
+    <script defer src="/JS/best/sellCount.js"></script>
+    <script defer src="/JS/page.js"></script>
+    <script defer src="/JS/product.js"></script>
     <script src="http://code.jQuery.com/jquery-3.7.1.min.js"></script>
     <script>
         $(function() {
@@ -11,6 +14,7 @@
             $("#category").load("/Common/category");
             $("#search-container").load("/Common/Search");
             $("#TopMenu").load("/Common/TopMenu");
+            $('#Footer').load("/Common/Footer");
         });
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,19 +56,6 @@
         <div class="pagination-container">
         </div>
     </main>
-    <footer class="bg-black py-4 mt-8">
-        <div class="container mx-auto text-center text-pink-500">
-            <div class="flex flex-col items-center">
-                <div class="sm:w-2/3 text-center py-6">
-                    <p class="text-sm text-pink-500 font-bold">
-                        © 2024 IDLE Fashion Store
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <script src="/JS/best/sellCount.js"></script>
-    <script src="/JS/page.js"></script>
-    <script src="/JS/product.js"></script>
+    <div id="Footer"></div>
 </body>
 </html>

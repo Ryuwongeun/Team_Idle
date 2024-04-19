@@ -46,14 +46,20 @@ function GetListRequestCategory(url){
                 return `
                     <article class="bg-white shadow-md rounded overflow-hidden product-item">
                         <div class="product-image-container">
+<<<<<<< HEAD
                             <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_id}"
                                  alt="Fashion item"
                                  onclick="redirectTo(${item.product_id})">
+=======
+                            <img src="https://source.unsplash.com/random/300x300?clothes&sig=${item.product_name}"
+                                 alt="Fashion item"
+                                 onclick="redirectTo(${item.product_name})">
+>>>>>>> 0274051ae2453d7e0e6e91c040dbc40bbd6af1c5
                         </div>
                         <div class="p-4">
                             <h3 class="font-semibold">브랜드명 : ${item.product_id}</h3>
-                            <h3 class="font-semibold">상품명 : ${item.pd_name}</h3>
-                            <p class="text-gray-600">${item.pd_price}원</p>
+                            <h3 class="font-semibold">상품명 : ${item.product_name}</h3>
+                            <p class="text-gray-600">${item.product_name}원</p>
                             <p class="text-gray-600">좋아요 ${item.count_love}</p>
                         </div>
                     </article>

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CommonViewController {
 
-    @GetMapping("/Common/category")
+    @GetMapping("/Common/SideMenu")
     String sideMenu() {
-        return "/Common/category";
+        return "/Common/SideMenu";
     } // sideMenu
     @GetMapping("/Common/Search")
     String search() {
@@ -19,6 +19,14 @@ public class CommonViewController {
     String TopMenu() {
         return "/Common/TopMenu";
     } // TopMenu
+    @GetMapping("/Common/Footer")
+    String Footer() {
+        return "/Common/Footer";
+    } // Footer
+    @GetMapping("/Common/SizeTable")
+    String SizeTable(){
+        return "/Common/SizeTable";
+    }
 
 
 

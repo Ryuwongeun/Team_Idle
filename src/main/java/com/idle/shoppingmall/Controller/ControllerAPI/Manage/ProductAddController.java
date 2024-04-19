@@ -22,7 +22,7 @@ public class ProductAddController {
     public ResponseEntity<CommonResponse> productAdd(@ModelAttribute ProductAddRequest request,
                                                      HttpSession session){
 
-        System.out.println(request.getPd_name());
+        System.out.println(request.getProduct_name());
         System.out.println(request.getSizes().get(1).getSize());
         UserInfo user = (UserInfo) session.getAttribute("user");
         user = userInfoService.getUserInfoById(11L);

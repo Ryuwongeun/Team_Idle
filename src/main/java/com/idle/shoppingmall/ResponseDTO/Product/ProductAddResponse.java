@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @Getter
 public class ProductAddResponse extends CommonResponse {
 
-    private String pd_name;
+    private String product_name;
 
-    public ProductAddResponse(int code, String msg, String pd_name) {
+    public ProductAddResponse(int code, String msg, String product_name) {
         super(code, msg);
-        this.pd_name = pd_name;
+        this.product_name = product_name;
     } // ProductAddResponse
 
 } // end class

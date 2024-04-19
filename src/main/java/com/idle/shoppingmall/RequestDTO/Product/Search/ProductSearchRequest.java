@@ -5,12 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
 public class ProductSearchRequest {
     @NotNull
-    private String pd_name;
+    private String product_name;
 }
