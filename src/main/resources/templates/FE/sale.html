@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="http://code.jQuery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function() {
+            // $(요소 선택).load(url, data, 콜백함수);
+            $("#side-menu").load("/Common/SideMenu");
+            $("#search-container").load("/Common/Search");
+            $("#TopMenu").load("/Common/TopMenu");
+            $('#Footer').load("/Common/Footer");
+        });
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/FE/CSS/form.css">
     <link rel="stylesheet" href="/FE/CSS/Banner.css">
-    <link rel="stylesheet" href="/FE/CSS/search.css">
-    <link rel="stylesheet" href="/FE/CSS/TopMenu.css">
-    <link rel="stylesheet" href="/JS/WongeunJS/category.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .custom-video {
@@ -22,96 +29,16 @@
         }
     </style>
 </head>
-<body>
-    <body class="bg-red-400 text-gray-700">
+<body class="bg-red-400 text-gray-700">
         <!-- Header -->
-        <header class="bg-black py-7">
-            <div class="container mx-auto flex justify-between items-center">
-                <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
-                <nav class="flex justify-center space-x-4 w-full">
-                    <div class="mypage-dropdown">
-                        <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-                        <div class="mypage-dropdown-content">
-                            <a href="/like">Like</a>
-                            <a href="/comment">Comment</a>
-                        </div>
-                    </div>
-                    <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-                    <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-                    <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-                    <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
-                    <div class="mypage-dropdown">
-                        <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
-                        <div class="mypage-dropdown-content">
-                            <a href="/login">Login</a>
-                            <a href="/cart">Cart</a>
-                            <a href="/order">Order</a>
-                            <a href="/logout">Logout</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="검색...">
-                <button onclick="searchItem()">IDLE</button>
-            </div>
-
-            <div id="searchResults"></div>
-            <script src="/FE/JS/search.js"></script>
-
-            <!--category start-->
-            <aside class="side-bar">
-                <section class="side-bar__icon-box">
-                    <section class="side-bar__icon-1">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </section>
-                </section>
-                <ul>
-                    <li>
-                        <a href="#"><i class="fa-solid fa-cat"></i> 브랜드</a>
-                        <ul>
-                            <li class="DomesticBrand" data-category="국내브랜드"><a href="/domesticBrand">국내브랜드</a></li>
-                            <li class="OverseasBrand" data-category="해외브랜드"><a href="#">해외브랜드</a></li>
-                            <li class="designerBrand" data-category="디자이너브랜드"><a href="#">디자이너브랜드</a></li>
-                            <li class="luxuryBrand" data-category="고급브랜드"><a href="#">고급브랜드</a></li>
-                            <li class="cheapBrand" data-category="저려함브랜드"><a href="#">저렴한브랜드</a></li>
-                            <li class="famousBrand" data-category="유명브랜드"><a href="#">유명브랜드</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">남성</a>
-                        <ul>
-                            <li><a href="#">상의</a></li>
-                            <li><a href="#">하의</a></li>
-                            <li><a href="#">악세서리</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">여성</a>
-                        <ul>
-                            <li><a href="#">상의</a></li>
-                            <li><a href="#">하의</a></li>
-                            <li><a href="#">원피스</a></li>
-                            <li><a href="#">악세서리</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">계절</a>
-                        <ul>
-                            <li><a href="#">봄</a></li>
-                            <li><a href="#">여름</a></li>
-                            <li><a href="#">가을</a></li>
-                            <li><a href="#">겨울</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </aside>
-            <!--category end-->
-
-        </header>
+    <header class="bg-black py-7">
+        <!--        topMenu-->
+        <div id="TopMenu"></div>
+        <!--        검색 창-->
+        <div id="search-container"></div>
+        <!--    sideMenu-->
+        <div id="side-menu"></div>
+    </header>
     
     <main class="my-2">
         <div class="relative">
@@ -125,22 +52,12 @@
             </div>
         </div>
     </main>
-    <footer class="bg-black py-4 mt-8">
-        <div class="container mx-auto text-center text-pink-500">
-            <div class="flex flex-col items-center">
-                <div class="sm:w-2/3 text-center py-6">
-                    <p class="text-sm text-pink-500 font-bold">
-                        © 2024 IDLE Fashion Store
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="Footer"></div>
     <script>
           function goToProductInfo(productId) {
         window.location.href = `product_info?id=${productId}`;
     }
     </script>
-        <script src="/JS/WongeunJS/priceDown.js"></script>
+    <script src="/JS/WongeunJS/priceDown.js"></script>
 </body>
 </html>

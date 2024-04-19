@@ -5,47 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="http://code.jQuery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function() {
+            // $(요소 선택).load(url, data, 콜백함수);
+            $("#search-container").load("/Common/Search");
+            $("#TopMenu").load("/Common/TopMenu");
+            $('#Footer').load("/Common/Footer");
+            $('#SizeTable').load("/Common/SizeTable");
+        });
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FE/CSS/product.css">
     <link rel="stylesheet" href="/FE/CSS/form.css">
-    <link rel="stylesheet" href="/FE/CSS/search.css">
     <link rel="stylesheet" href="/CSS/Main/Pop.css">
-    <link rel="stylesheet" href="/FE/CSS/TopMenu.css">
     <script src="/FE/JS/product_btn.js"></script>
 </head>
 
-<header class="bg-black py-7">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="../main" class="text-pink-500 hover:text-pink-600 font-bold" id="main-link">IDLE</a>
-        <nav class="flex justify-center space-x-4 w-full">
-            <a href="/best" class="text-pink-500 hover:text-pink-800" id="best-link">BEST</a>
-            <a href="/new" class="text-pink-500 hover:text-pink-800" id="new-link">NEW</a>
-            <a href="/sale" class="text-pink-500 hover:text-pink-800" id="sale-link">SALE</a>
-            <a href="/event" class="text-pink-500 hover:text-pink-800" id="event-link">EVENT</a>
-            <a href="/join" class="text-blue-500 hover:text-blue-800" id="memebr-link">JOIN</a>
-            <div class="mypage-dropdown">
-                <a href="#" class="text-blue-500 hover:text-blue-800">MYPAGE</a>
-                <div class="mypage-dropdown-content">
-                    <a href="/login">Login</a>
-                    <a href="/cart">Cart</a>
-                    <a href="/order">Order</a>
-                    <a href="/logout">Logout</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
+    <header class="bg-black py-7">
+        <!--     topMenu-->
+        <div id="TopMenu"></div>
+        <!--     검색 창-->
+        <div id="search-container"></div>
+    </header>
 
-          </nav>
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="검색...">
-                <button onclick="searchItem()">IDLE</button>
-            </div>
-
-            <div id="searchResults"></div>
-            <script src="/FE/JS/search.js"></script>
-        </div>
-      </header>
 
     <main class="py-10">
         <div class="max-w-7xl mx-auto px-4">
@@ -103,78 +86,12 @@
             <div class="mt-10">
                 <h2 class="text-xl font-bold">Details</h2>
                 <div class="mt-4">
-                    <!-- Product details here -->
+                    <!-- Product 부위별 사이즈 표 -->
+                    <div id="SizeTable"></div>
                 </div>
             </div>
 
-            <div class="mt-10">
-                <h2 class="text-xl font-bold">Size Chart</h2>
-                <div class="mt-4 overflow-x-auto">
-                    <table class="size-chart-table">
-                        <thead>
-                            <tr>
-                                <th class="border px-4 py-2">Size</th>
-                                <th class="border px-4 py-2">Length</th>
-                                <th class="border px-4 py-2">Shoulder</th>
-                                <th class="border px-4 py-2">Chest</th>
-                                <th class="border px-4 py-2">Waist</th>
-                                <th class="border px-4 py-2">Hem</th>
-                                <th class="border px-4 py-2">Sleeve Length</th>
-                                <th class="border px-4 py-2">Armhole</th>
-                                <th class="border px-4 py-2">Sleeve Opening</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="border px-4 py-2">XS</td>
-                                <td class="border px-4 py-2">111.5</td>
-                                <td class="border px-4 py-2">41.8</td>
-                                <td class="border px-4 py-2">84</td>
-                                <td class="border px-4 py-2">70</td>
-                                <td class="border px-4 py-2">101</td>
-                                <td class="border px-4 py-2">22.5</td>
-                                <td class="border px-4 py-2">20.2</td>
-                                <td class="border px-4 py-2">18.5</td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">S</td>
-                                <td class="border px-4 py-2">113</td>
-                                <td class="border px-4 py-2">43</td>
-                                <td class="border px-4 py-2">88</td>
-                                <td class="border px-4 py-2">74</td>
-                                <td class="border px-4 py-2">105</td>
-                                <td class="border px-4 py-2">23</td>
-                                <td class="border px-4 py-2">20.7</td>
-                                <td class="border px-4 py-2">19</td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">M</td>
-                                <td class="border px-4 py-2">114.5</td>
-                                <td class="border px-4 py-2">44.4</td>
-                                <td class="border px-4 py-2">93</td>
-                                <td class="border px-4 py-2">79</td>
-                                <td class="border px-4 py-2">110</td>
-                                <td class="border px-4 py-2">23.5</td>
-                                <td class="border px-4 py-2">21.3</td>
-                                <td class="border px-4 py-2">19.6</td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">L</td>
-                                <td class="border px-4 py-2">116</td>
-                                <td class="border px-4 py-2">45.6</td>
-                                <td class="border px-4 py-2">97</td>
-                                <td class="border px-4 py-2">83</td>
-                                <td class="border px-4 py-2">114</td>
-                                <td class="border px-4 py-2">24</td>
-                                <td class="border px-4 py-2">21.8</td>
-                                <td class="border px-4 py-2">20.1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="text-sm text-gray-500 mt-2">디자인, 소재 및 측정 방법에 따라 약간의 오차가 있을 수 있습니다.</p>
-                </div>
-            </div>
-            </table>
+
         </div>
         <!--            리뷰 창-->
         <div class="my-8">
@@ -189,23 +106,8 @@
         </div>
         <!--             리뷰챵   -->
     </main>
+<div id="Footer"></div>
 
-    <footer class="border-t py-4 mt-10">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between">
-                <p>&copy; 2024 IDLE. All rights reserved.</p>
-                <div>
-                    <!-- Social icons here -->
-                </div>
-            </div>
-        </div>
-    </footer>
-<script src="/JS/getParams.js"></script>
-<script src="/JS/DetailView/AddCart.js"></script>
-<script src="/JS/sendData.js"></script>
-<script src="/JS/DetailView/printComment.js"></script>
-<script src="/JS/DetailView/addComment.js"></script>
-<script src="/JS/DetailView/love.js"></script>
-<script src="/JS/QuantityUpdate.js"></script>
+
 </body>
 </html>
