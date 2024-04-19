@@ -30,6 +30,12 @@
       .mypage-dropdown:hover .mypage-dropdown-content {
         display: block; /* 드롭다운 호버 시 컨텐츠를 보여줌 */
       }
+      .bg-black {
+          position: -webkit-sticky; /* Safari 브라우저 지원 */
+          position: sticky;
+          top: 0; /* 화면 상단에 고정 */
+          z-index: 1000; /* 다른 요소들 위에 표시되도록 z-index 설정 */
+      }
     </style>
 
 
