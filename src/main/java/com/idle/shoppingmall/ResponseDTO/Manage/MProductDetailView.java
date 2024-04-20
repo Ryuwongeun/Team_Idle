@@ -10,12 +10,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MProductDetailView {
-    private Long id;
+    private Long product_id;
     private String product_name;
-    private int price;
+    private int product_price;
     private String brand_name;
     private int count_love;
-    private String category;
+    private String product_category;
     private List<detailsObject> details;
 }
 

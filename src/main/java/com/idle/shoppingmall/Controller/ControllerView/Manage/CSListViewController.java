@@ -5,6 +5,7 @@ import com.idle.shoppingmall.ResponseDTO.Manage.MCSListRepsonse;
 import com.idle.shoppingmall.Service.Manage.View.MCSService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,4 +26,5 @@ public class CSListViewController {
         List<MCSListRepsonse> list = csService.getCSList(name, startPage, endPage);
         return ResponseEntity.ok().body(csService.getCSList(name, startPage, endPage));
     }
+
 }

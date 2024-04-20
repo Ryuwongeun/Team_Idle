@@ -17,13 +17,13 @@ function setTopBtn(i, value){
 
             console.log(val)
             if(value == 1) {
-                GetProductListRequest(`/manage/GET/product/search?id=${val}&name=${searchValue}&page=1`);
+                GetProductListRequest(`/manage/view/product/search?id=${val}&name=${searchValue}&page=1`);
             }
             else if(value == 2){
-                GetOrderListRequest(`/manage/GET/order/search?id=${val}&name=${searchValue}`);
+                GetOrderListRequest(`/manage/view/order/search?id=${val}&name=${searchValue}`);
             }
             else if(value == 3){
-                GetBrandListRequest(`/manage/GET/brand/search?id=${val}&name=${searchValue}`);
+                GetBrandListRequest(`/manage/view/brand/search?id=${val}&name=${searchValue}`);
             }
             else if(value == 4){
                 GetCSListRequest(`/manage/GET/cs/search?name=${searchValue}&page=1`);
@@ -42,17 +42,17 @@ function colorChange(clickElement){
 
 
 topProductBtn.addEventListener('click', function(){
-    GetProductListRequest(`/manage/GET/product`);
+    GetProductListRequest(`/manage/view/product`);
     colorChange(this);
 });
 
 topOrderBtn.addEventListener('click', function(){
-    GetOrderListRequest(`/manage/GET/order/search?page=0`);
+    GetOrderListRequest(`/manage/view/order/search?page=0`);
     colorChange(this);
 });
 
 topBrandBtn.addEventListener('click', function(){
-    GetBrandListRequest(`/manage/GET/brand/search?page=0`);
+    GetBrandListRequest(`/manage/view/brand/search?page=0`);
     colorChange(this);
 });
 

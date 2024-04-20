@@ -1,7 +1,7 @@
 package com.idle.shoppingmall.Controller.ControllerAPI;
 
 import com.idle.shoppingmall.Entity.User.UserInfo;
-import com.idle.shoppingmall.RequestDTO.CustomerServiceAddRequest;
+import com.idle.shoppingmall.RequestDTO.CustomerService.CustomerServiceAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.Service.CustomerService;
 import jakarta.servlet.http.HttpSession;

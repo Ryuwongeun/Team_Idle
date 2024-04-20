@@ -7,9 +7,11 @@ import com.idle.shoppingmall.mapper.Manage.DTO.ProductSortRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,20 +26,25 @@ public class ManageViewController {
         return "/Manage/ManageMain";
     }
 
-    @PostMapping("/manage/GET/product")
+    @PostMapping("/manage/view/product")
     public ResponseEntity<List<MProductListView>> getProduct() {
         List<MProductListView> products = mProductService.getList(0, PAGINGSIZE);
         return ResponseEntity.ok().body(products);
     }
 
+    @GetMapping("/manage/cs/")
+    public String getCSList(@RequestParam(defaultValue = "1") Long id, Model model){
+        model.addAttribute("id", id);
+        return "/Manage/AddCSAnswer";
+    }
 
-    @PostMapping("/manage/GET/brand")
+    @PostMapping("/manage/view/brand")
     public ResponseEntity<List<MProductListView>> getBrand() {
         List<MProductListView> products = mProductService.getList(0, PAGINGSIZE);
         return ResponseEntity.ok().body(products);
     }
 
-    @PostMapping("/manage/GET/product/search")
+    @PostMapping("/manage/view/product/search")
     public ResponseEntity<List<MProductListView>> getProductByName(
             @ModelAttribute ProductSortRequest request) {
         int id = request.getId();

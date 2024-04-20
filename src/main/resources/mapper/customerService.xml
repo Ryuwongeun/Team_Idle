@@ -8,6 +8,22 @@
         values (#{data.created_at}, #{data.created_who}, #{data.payment_id}, #{data.content}, #{data.state})
     </insert>
 
+    <insert id="answerCS">
+        insert into cs_answer (cs_id, created_at, created_who, content)
+        values (#{data.cs_id}, #{data.created_at}, #{data.created_who}, #{data.content})
+    </insert>
+
+    <update id="updateCS">
+        update customer_service set state = #{state} where cs_id = #{cs_id}
+    </update>
+
+    <select id="getEmail">
+        select u.user_email
+        from customer_service as c
+        inner join user_account as u on c.created_who = u.user_id
+        where cs_id = #{cs_id};
+    </select>
+
     <select id="getCSList">
         select cs_id, created_who, date_format(created_at, '%Y-%m-%d %H:%i') as created_at, state
         from customer_service

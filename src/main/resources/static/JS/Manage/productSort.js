@@ -2,7 +2,7 @@ let i = 1;
 let state = 1;
 
 window.onload = () => {
-    GetProductListRequest(`/manage/GET/product`);
+    GetProductListRequest(`/manage/view/product`);
 }
 
 function redirectTo(id) {
@@ -179,6 +179,11 @@ function GetBrandListRequest(url){
         });
 }
 
+
+function redirectToCS(id) {
+    location.href = `/manage/cs/?id=${id}`;
+}
+
 function GetCSListRequest(url){
     const headers = {
         'Content-Type': 'application/json',
@@ -207,6 +212,21 @@ function GetCSListRequest(url){
                 `
             // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
             manageHtml += data.map(item => {
+                let btn;
+                if(item.state == "OK" || item.state == "Cancel"){
+                    btn = `
+                    <td class="px-4 py-2">
+                            <button class="bg-blue-500 text-white font-bold py-1 px-2 rounded" 
+                            >응답 완료!</button>
+                        </td>`
+                }
+                else{
+                    btn = `
+                    <td class="px-4 py-2">
+                            <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" 
+                            onclick=redirectToCS(${item.cs_id})>응답하기</button>
+                        </td>`
+                }
                 return `
                 <!-- Repeat for each row -->
                     <tr class="table-row" >
@@ -214,10 +234,7 @@ function GetCSListRequest(url){
                         <td class="px-4 py-2">${item.created_who}</td>
                         <td class="px-4 py-2">${item.created_at}</td>
                         <td class="px-4 py-2">${item.state}</td>
-                        <td class="px-4 py-2">
-                            <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" 
-                            onclick=redirectTo(${item.id})>결제취소</button>
-                        </td>
+                        ${btn}
                     </tr>
                 <!-- ... more rows ... -->
                 

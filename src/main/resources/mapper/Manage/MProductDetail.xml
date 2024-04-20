@@ -10,17 +10,17 @@
         <result column="sales" property="sales" />
     </resultMap>
     <resultMap id="MProductDetailViewMap" type="com.idle.shoppingmall.ResponseDTO.Manage.MProductDetailView">
-        <result column="id" property="id" />
-        <result column="name" property="name" />
-        <result column="price" property="price" />
+        <result column="product_id" property="product_id" />
+        <result column="product_name" property="product_name" />
+        <result column="product_price" property="product_price" />
         <result column="brand_name" property="brandName" />
         <result column="count_love" property="count_love" />
-        <result column="category" property="category" />
+        <result column="product_category" property="product_category" />
         <collection property="details" ofType="com.idle.shoppingmall.ResponseDTO.Manage.detailsObject" resultMap="details"/>
     </resultMap>
     <select id="getDetail" resultMap="MProductDetailViewMap">
-        SELECT p.product_id as id, p.product_name as product_name, p.product_price as price, b.brand_name as brand_name, p.count_love as count_love,
-        p.product_category as category ,pd.size as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
+        SELECT p.product_id as product_id, p.product_name as product_name, p.product_price as product_price, b.brand_name as brand_name, p.count_love as count_love,
+        p.product_category as product_category ,pd.size as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
         from product as p
         left outer join brand as b on p.brand_id = b.brand_id
         left outer join product_detail as pd on p.product_id = pd.product_id

@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) //csrf 설정 disable
                 .authorizeHttpRequests((authorizeRequests) ->
                         authorizeRequests
+                                .requestMatchers("/manage*").hasRole(UserAccount.UserRole.MANAGER.name())
                                 .requestMatchers("/api/*").permitAll()
                                 .requestMatchers("/login").permitAll()
                                 .requestMatchers("/logout").permitAll()
@@ -49,6 +50,7 @@ public class SecurityConfig {
                                 .requestMatchers("/order").authenticated()
                                 .anyRequest().permitAll()
                 )
+                .userDetailsService(userDetailService)
                 .formLogin((formLogin) ->
                         formLogin
                                 .loginPage("/login") //로그인 화면 설정
@@ -58,7 +60,7 @@ public class SecurityConfig {
                                 ))
                                 .failureHandler(new CustomAuthenticationFailureHandler())
                                 .failureUrl("/login") //로그인 실패시 이동할 url
-                ).userDetailsService(userDetailService)
+                )
                 .logout((logoutConfig)->
                         logoutConfig
                                 .logoutUrl("/logout")

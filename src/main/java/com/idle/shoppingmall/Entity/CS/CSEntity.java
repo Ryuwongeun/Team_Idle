@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.Entity;
+package com.idle.shoppingmall.Entity.CS;
 
 import lombok.*;
 
