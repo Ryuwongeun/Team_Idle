@@ -36,13 +36,13 @@ function GetCartListRequest(url){
                 return `
                 <!-- Repeat for each row -->
                     <tr>
-                        <td>${item.name}<img src="https://kr.object.ncloudstorage.com/miniidle/storage/${item.img}" alt="상품 이미지" width="100" height="100"></td>
+                        <td>${item.product_name}<img src="https://kr.object.ncloudstorage.com/miniidle/storage/${item.img}" alt="상품 이미지" width="100" height="100"></td>
                         <td>${item.size}</td>
-                        <td>${item.price}</td>
+                        <td>${item.product_price}</td>
                         <td>${item.count}</td>
                         <td>${item.totalPrice}</td>
-                        <td><input type="checkbox" class="item-checkbox" data-price=${item.price} data-size=${item.size}  
-                        data-count=${item.count} data-id=${item.id} onchange="handleChange(this)"></td>
+                        <td><input type="checkbox" class="item-checkbox" data-price=${item.product_price} data-size=${item.size}  
+                        data-count=${item.count} data-id=${item.product_id} onchange="handleChange(this)"></td>
                     </tr>
                 <!-- ... more rows ... -->
             `;

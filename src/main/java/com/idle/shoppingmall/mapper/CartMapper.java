@@ -23,5 +23,5 @@ public interface CartMapper {
 
     void deleteCart(@Param("remove")Cart cartDTO );
 
-    List<CartListResponse> findByCartList(@Param("createdWho") Long createdWho);
+    List<CartListResponse> findByCartList(@Param("created_who") Long created_who);
 } // interface
