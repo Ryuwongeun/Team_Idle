@@ -1,9 +1,12 @@
 package com.idle.shoppingmall.Controller.ControllerView;
 
+import com.idle.shoppingmall.Entity.User.UserInfo;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CommonViewController {
@@ -28,7 +31,6 @@ public class CommonViewController {
     String SizeTable(){
         return "/Common/SizeTable";
     }
-
 
 
     @GetMapping("/best")
@@ -85,6 +87,15 @@ public class CommonViewController {
     String sale() {
         return "/FE/sale";
     } // sale
+
+    @GetMapping("/cs")
+    String CS(@RequestParam Long id, Model model, HttpSession session) {
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        if(user == null) { return "/login"; }
+        model.addAttribute("user_name", user.getName());
+        model.addAttribute("payment_id", id);
+        return "/FE/cs";
+    } // CS
 //
 //    @PostMapping("/login")
 //    String loginOk() {

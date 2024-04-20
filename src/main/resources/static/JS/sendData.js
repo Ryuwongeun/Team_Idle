@@ -30,17 +30,14 @@ function sendData(url, data, success,fail) {
             }
             if (data.code === 200) {
                 alert(data.msg);
-                location.reload();
                 return success();
             }
             if (data.code === 201) {
                 alert(data.msg);
-                location.reload();
                 return success();
             }
             if (data.code === 202) {
                 alert(data.msg);
-                location.reload();
                 return success();
             }
         })

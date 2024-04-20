@@ -64,12 +64,37 @@ public class RegisterMail {
 
         return message;
     }
+    public MimeMessage createCSEmailForm(String email, String content) throws MessagingException, UnsupportedEncodingException {
+
+        createCode(); //인증 코드 생성
+        String setFrom = "springtest12345@naver.com"; //email-config에 설정한 자신의 이메일 주소(보내는 사람)
+        String toEmail = email; //받는 사람
+        String title = "쇼핑몰 idle 환불 문의에 대한 응답입니다."; //제목
+
+        MimeMessage message = emailSender.createMimeMessage();
+        message.addRecipients(MimeMessage.RecipientType.TO, email); //보낼 이메일 설정
+        message.setSubject(title); //제목 설정
+        message.setFrom(setFrom); //보내는 이메일
+        message.setText(content);
+
+        return message;
+    }
 
     //실제 메일 전송
     public String sendEmail(String toEmail) throws MessagingException, UnsupportedEncodingException {
 
         //메일전송에 필요한 정보 설정
         MimeMessage emailForm = createEmailForm(toEmail);
+        //실제 메일 전송
+        emailSender.send(emailForm);
+
+        return authNum; //인증 코드 반환
+    }
+
+    //실제 메일 전송
+    public String sendEmail(String toEmail, String content) throws MessagingException, UnsupportedEncodingException {
+        //메일전송에 필요한 정보 설정
+        MimeMessage emailForm = createCSEmailForm(toEmail, content);
         //실제 메일 전송
         emailSender.send(emailForm);
 

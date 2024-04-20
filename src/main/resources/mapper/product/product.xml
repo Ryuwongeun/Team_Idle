@@ -34,21 +34,21 @@
     <select id="findAllProductsPaged" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
         order by product_id
-        limit #{size} offset #{offset}
+        limit #{size}, #{offset}
     </select>
 
 
     <select id="findAllByPdPriceDown" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product
         order by product_price asc
-        limit #{size} offset #{offset}
+        limit #{size}, #{offset}
     </select>
 
     <select id="findAllByPdName" resultType="com.idle.shoppingmall.Entity.Product.Product">
         select * from product where product_name like CONCAT('%', #{product_name}, '%') or product_category like CONCAT('%', #{product_name}, '%')
     </select>
     <update id="increaseLoveCount">
-        update product set count_love = count_love +1 where product_id = #{produc_id}
+        update product set count_love = count_love +1 where product_id = #{product_id}
     </update>
 
     <update id="decreaseLoveCount">

@@ -16,10 +16,11 @@ public class BrandViewController {
     private final MBrandService brandService;
     private final int PAGINGSIZE = 10;
 
-    @PostMapping("/GET/manage/brand/search")
+    @PostMapping("/manage/view/brand/search")
     public ResponseEntity<List<MBrandListResponse>> getBrandList(@RequestParam(required = false, defaultValue = "") String name,
-                                                                   @RequestParam int page){
-        int paging = page * PAGINGSIZE;
+                                                                   @RequestParam(defaultValue = "1") int page){
+        int startPage = page * PAGINGSIZE;
+        int endPage = PAGINGSIZE;
         return ResponseEntity.ok().body(brandService.getBrandDetails());
     }
 }

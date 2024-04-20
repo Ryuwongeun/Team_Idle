@@ -1,6 +1,6 @@
 package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
-import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.CartListResponse;
+import com.idle.shoppingmall.ResponseDTO.Cart.CartListResponse;
 import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.Service.CartService;
 import jakarta.servlet.http.HttpSession;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class CartJSONViewController {
+public class CartListViewController {
     private final CartService cartService;
 
     @PostMapping("/api/view/cartList")

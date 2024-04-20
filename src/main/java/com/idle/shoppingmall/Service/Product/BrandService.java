@@ -15,7 +15,11 @@ public class BrandService {
     private final BrandMapper mapper;
 
     @Transactional(readOnly = true)
-    public List<BrandListResponse> findByName(String brand_name) {
-        return mapper.findByName(brand_name);
+    public List<BrandListResponse> findByName(String brand_name,int startPage, int endPage) {
+        return mapper.findByName(brand_name, startPage, endPage);
+    }
+
+    public List<BrandListResponse> findAll(int startPage, int endPage) {
+        return mapper.findAll(startPage, endPage);
     }
 }

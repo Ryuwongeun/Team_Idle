@@ -22,8 +22,9 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write("{\"success\": true}");
-        response.sendRedirect("/main");
         String email = authentication.getName();
         loginService.setSession(email, request.getSession());
+        if(authentication.getAuthorities().toString().equals("[ROLE_MANAGER]")) response.sendRedirect("/manage");
+        else response.sendRedirect("/main");
     }
 }

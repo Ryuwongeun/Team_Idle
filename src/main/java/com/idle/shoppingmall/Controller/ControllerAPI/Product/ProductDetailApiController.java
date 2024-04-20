@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductDetailApiController {
     private final ProductService productService;
     private final ProductDetailService productDetailService;
-    @PostMapping("api/POST/addProductDetail")
+    @PostMapping("manage/POST/amountAdd")
     public ResponseEntity<ProductDetailAddResponse> addProductDetail(@RequestBody @Valid ProductDetailAddRequest request) {
         Product product = productService.findById(request.getId());
         if(product==null){

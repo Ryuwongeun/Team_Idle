@@ -9,5 +9,13 @@
         from brand
         where brand_name like concat('%', #{name}, '%')
         order by brand_id
+        LIMIT #{size}, #{offset}
+    </select>
+
+    <select id="findAll">
+        select brand_id, brand_name
+        from brand
+        order by brand_id
+        LIMIT #{size}, #{offset}
     </select>
 </mapper>

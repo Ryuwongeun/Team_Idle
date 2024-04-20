@@ -20,11 +20,6 @@ public class OAuth2UserService extends DefaultOAuth2UserService {
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
         String email = (String) super.loadUser(userRequest).getAttributes().get("email");
         String name = (String) super.loadUser(userRequest).getAttributes().get("sub");
-        System.out.println("userRequest = " + userRequest.getClientRegistration().getRegistrationId()); // 어느 플랫폼으로 로그인했는지
-        System.out.println("userRequest = " + super.loadUser(userRequest).getAttributes());
-        System.out.println("userRequest = " + super.loadUser(userRequest).getAttributes().get("email"));
-        System.out.println("userRequest = " + super.loadUser(userRequest).getAttributes().get("name"));
-        System.out.println(email);
 
         OAuth2User oAuth2User = super.loadUser(userRequest);
         isExist(email, name);

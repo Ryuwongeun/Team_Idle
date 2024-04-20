@@ -6,7 +6,7 @@ searchBrandBtn.addEventListener('click', function(){
     const data = {
         brand_name: brandVal.value
     };
-    GetBrandList('/api/GET/brand', data);
+    GetBrandList('/manage/view/brand', data);
 })
 
 function GetBrandList(url, data){
