@@ -16,10 +16,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -59,7 +56,7 @@ public class CartApiController {
 
 
     @PostMapping("/api/DELETE/Cart")
-    public ResponseEntity<CartDeleteResponse> delCart(@RequestBody @Valid CartDeleteRequest request,
+    public ResponseEntity<CartDeleteResponse> delCart(@RequestParam Long id, @RequestParam String size,
                                                       HttpSession session) {
 
         UserInfo user = (UserInfo) session.getAttribute("user");
@@ -68,16 +65,16 @@ public class CartApiController {
             return ResponseEntity.ok().body(new CartDeleteResponse(700, "로그인이 필요합니다.", null));
         } // if
 
-        CartKey key = new CartKey(user.getUser_id(), request.getProduct_id(), request.getSize());
+        CartKey key = new CartKey(user.getUser_id(), id, size);
         Cart cart = cartService.findCart(key);
 
         if(cart == null) {
-            return ResponseEntity.ok().body(new CartDeleteResponse(400,"상품이 없습니다.", request.getProduct_id()));
+            return ResponseEntity.ok().body(new CartDeleteResponse(400,"상품이 없습니다.", id));
         } // if
 
         cartService.deleteCart(cart);
 
-        return ResponseEntity.ok().body(new CartDeleteResponse(200, "장바구니에서 삭제했습니다.", cart.getProduct_id()));
+        return ResponseEntity.ok().body(new CartDeleteResponse(200, "장바구니에서 삭제했습니다.", id));
 
     } // delCart
 

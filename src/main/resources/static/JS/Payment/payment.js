@@ -38,7 +38,8 @@ function requestPay() {
 
     let company_name = "Idle";
 
-    const data = {
+    console.log("phone : "+buyer_phone)
+    const data2 = {
         total_price : amount,
         address : address,
         phone : buyer_phone,
@@ -50,7 +51,7 @@ function requestPay() {
         headers: {
             'Content-Type': 'application/json', // 내용 타입을 JSON으로 지정
         },
-        body: JSON.stringify(data), // JavaScript 객체를 JSON 문자열로 변환하여 body에 담습니다.
+        body: JSON.stringify(data2), // JavaScript 객체를 JSON 문자열로 변환하여 body에 담습니다.
     })
         .then(response => {
             if (!response.ok) { // 응답 상태가 OK가 아닐 경우 에러 처리
@@ -91,7 +92,7 @@ function requestPay() {
                         if (rsp.success) {
                             console.log(rsp);
                             console.log(data);
-                            sendData("/api/POST/payment", data, null, null)
+                            sendData("/api/POST/payment", data2, paymentSuccess, null)
                         } else {
                             console.log(rsp);
                         }
@@ -101,7 +102,9 @@ function requestPay() {
         .catch(error => {
             console.error('There was a problem with your fetch operation:', error);
         });
-
     console.log(amount)
+}
 
+const paymentSuccess = () =>{
+    location.href = "/cart"
 }

@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Mapper
@@ -15,7 +16,7 @@ public interface LoveMapper {
 
     Long addLove(@Param("love")Love loveDTO);
 
-    Love findLove(@Param("find")LoveKey loveKey); // 특정 조회
+    Optional<Love> findLove(@Param("find")LoveKey loveKey); // 특정 조회
     List<Love> loveList(@Param("list")Love loveDTO); // 전체 조회
 
     void deleteLove(@Param("remove")Love loveDTO);
