@@ -114,8 +114,8 @@
     </resultMap>
 
     <select id="findViewById" resultMap="ProductDetailViewDTO">
-        SELECT p.product_id as product_id, p.pd_name as product_name, format(p.product_price,0) as price, b.brand_name as brand_name, p.count_love as count_love,
-        p.pd_category as category, p.product_img as product_img ,upper(pd.size) as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
+        SELECT p.product_id as product_id, p.product_name as product_name, format(p.product_price,0) as price, b.brand_name as brand_name, p.count_love as count_love,
+        p.product_category as category, p.product_img as product_img ,upper(pd.size) as size, pd.pd_before_count as amount, pd.pd_sell_count as sales
         from product as p
         left outer join brand as b on p.brand_id = b.brand_id
         left outer join product_detail as pd on p.product_id = pd.product_id

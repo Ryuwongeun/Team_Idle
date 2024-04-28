@@ -18,7 +18,7 @@ public interface ProductMapper {
 
     Integer saveProduct(@Param("Product")Product productDTO);
 
-    Product findById(Long productId);
+    Product findById(Long producd_id);
 
     List<Product> findAllProducts();
 
@@ -40,17 +40,17 @@ public interface ProductMapper {
     List<Product> findAllByPdName(String searchRequest);
 
    //제품의 count_love를 증가시키는 메서드
-    void increaseLoveCount(@Param("productId")Long productId);
+    void increaseLoveCount(@Param("product_id")Long product_id);
    //제품의 count_love를 감소시키는 메서드
-   void decreaseLoveCount(@Param("productId")Long productId);
+   void decreaseLoveCount(@Param("product_id")Long product_id);
 
     List<ProductCommentListResponse> findAllByComment(@Param("offset") int offset, @Param("size") int size);
 
     List<Product> findByCategory(@Param("Product") String productDTO, @Param("offset") int offset, @Param("size") int size);
 
-    ProductDetailViewDTO findViewById(@Param("productId") Long productId);
+    ProductDetailViewDTO findViewById(@Param("product_id") Long product_id);
 
-    void sellCountUpdate(@Param("productId") Long productId, @Param("count") int count);
+    void sellCountUpdate(@Param("product_id") Long product_id, @Param("count") int count);
 
     List<Product> findByCategory(String pdCategory);
 } // end interface

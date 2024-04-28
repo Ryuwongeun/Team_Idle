@@ -19,8 +19,8 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/FE/CSS/form.css">
-    <link rel="stylesheet" href="/FE/CSS/Banner.css">
+    <link rel="stylesheet" href="/CSS/Common/form.css">
+    <link rel="stylesheet" href="/CSS/UseOnce/Banner.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .custom-video {
@@ -43,7 +43,7 @@
     <main class="my-2">
         <div class="relative">
             <video controls autoplay loop class="custom-video">
-                <source src="/FE/video/sale.mp4" type="video/mp4">
+                <source src="https://kr.object.ncloudstorage.com/miniidle/storage/sale.mp4" type="video/mp4">
                 </video>
           </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -54,8 +54,8 @@
     </main>
     <div id="Footer"></div>
     <script>
-          function goToProductInfo(productId) {
-        window.location.href = `product_info?id=${productId}`;
+          function goToProductInfo(product_id) {
+        window.location.href = `product_info?id=${product_id}`;
     }
     </script>
     <script src="/JS/WongeunJS/priceDown.js"></script>

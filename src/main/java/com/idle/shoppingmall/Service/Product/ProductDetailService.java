@@ -16,8 +16,8 @@ public class ProductDetailService {
         return productDetailMapper.saveProductDetail(productDetailDTO);
     }
 
-    public ProductDetail findDetail(Long productId, String size) {
-        return productDetailMapper.findBySize(new DetailKey(productId, size));
+    public ProductDetail findDetail(Long product_id, String size) {
+        return productDetailMapper.findBySize(new DetailKey(product_id, size));
     }
 
     public Integer updateProductDetail(ProductDetail productDetail){

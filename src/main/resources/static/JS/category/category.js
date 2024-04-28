@@ -25,7 +25,7 @@ window.addEventListener('scroll', function() {
         let triggerPoint = documentHeight - viewportHeight - 2000;
 
         if (currentScroll >= triggerPoint) {
-            GetListRequestCategory(`/view/GET/category?category=${pd_category}&page=${++page}`);//다음 페이지 데이터 로드
+            GetListRequestCategory(`/view/GET/category?=${pd_category}&page=${++page}`);//다음 페이지 데이터 로드
         }
         console.log(page);
     },500);

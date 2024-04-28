@@ -25,8 +25,8 @@ public class ProductService {
     } // addProduct
 
 
-    public Product findById(Long productId) {
-        return productMapper.findById(productId);
+    public Product findById(Long product_id) {
+        return productMapper.findById(product_id);
     }
 
     public List<Product> findAllProducts() {
@@ -37,8 +37,8 @@ public class ProductService {
         return productMapper.update(productDTO);
     }
 
-    public Integer delete(Long productID) {
-        return productMapper.delete(productID);
+    public Integer delete(Long product_id) {
+        return productMapper.delete(product_id);
     }
 
     public List<Product> findAllProductsPaged(int page, int size) {
@@ -67,8 +67,8 @@ public class ProductService {
     }
 
     @Transactional
-    public void increaseLoveCountAndSave(Long productId) {
-        Product product = productMapper.findById(productId);
+    public void increaseLoveCountAndSave(Long product_id) {
+        Product product = productMapper.findById(product_id);
         if (product != null) {
             product.increaseLoveCount();
             productMapper.update(product); // 'update' 메서드 사용
@@ -77,8 +77,8 @@ public class ProductService {
 
     // 'loveCount' 감소 후 데이터베이스에 저장
     @Transactional
-    public void decreaseLoveCountAndSave(Long productId) {
-        Product product = productMapper.findById(productId);
+    public void decreaseLoveCountAndSave(Long product_id) {
+        Product product = productMapper.findById(product_id);
         if (product != null) {
             product.decreaseLoveCount();
             productMapper.update(product); // 'update' 메서드 사용
@@ -89,8 +89,8 @@ public class ProductService {
         return productMapper.findAllByComment(startPage, endPage);
     }
 
-    public ProductDetailViewDTO findViewById(Long productId) {
-        return productMapper.findViewById(productId);
+    public ProductDetailViewDTO findViewById(Long product_id) {
+        return productMapper.findViewById(product_id);
     }
 
     public List<Product> findByCategory(String pdCategory) {

@@ -15,7 +15,7 @@ public class ProductLogService {
         productLogMapper.saveProductLog(productLogDTO);
     }
 
-    public ProductLog findById(Long createdWho, Long productId, String size) {
-        return productLogMapper.findById(new LogKey(createdWho, productId, size));
+    public ProductLog findById(Long createdWho, Long product_id, String size) {
+        return productLogMapper.findById(new LogKey(createdWho, product_id, size));
     }
 }
