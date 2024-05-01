@@ -1,4 +1,4 @@
-package com.idle.shoppingmall.Service.User.김승원추가;
+package com.idle.shoppingmall.Service.User;
 
 import com.idle.shoppingmall.Entity.User.UserAccount;
 import com.idle.shoppingmall.mapper.User.UserAccountMapper;

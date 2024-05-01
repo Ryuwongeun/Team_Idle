@@ -5,10 +5,12 @@ import com.idle.shoppingmall.Entity.Key.LoveKey;
 import com.idle.shoppingmall.Entity.Love;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Entity.User.UserInfo;
+import com.idle.shoppingmall.Entity.User.UserLog;
 import com.idle.shoppingmall.RequestDTO.Love.LoveAddRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.Service.LoveService;
 import com.idle.shoppingmall.Service.Product.ProductService;
+import com.idle.shoppingmall.Service.User.UserLogService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,7 @@ public class LoveController {
 
     private final LoveService loveService;
     private final ProductService productService;
+    private final UserLogService userLogService;
 
     @PostMapping("/api/POST/addLove")
     public ResponseEntity<CommonResponse> AddLove(@RequestBody @Valid LoveAddRequest request,
@@ -49,6 +52,13 @@ public class LoveController {
                     .product_id(request.getProduct_id())
                     .created_who(user.getUser_id())
                     .created_at(LocalDateTime.now())
+                    .build());
+            userLogService.insertUserLog(UserLog.builder()
+                    .created_who(user.getUser_id())
+                    .name(user.getName())
+                    .created_at(LocalDateTime.now())
+                    .doit("LOVE")
+                    .product_id(request.getProduct_id())
                     .build());
             return ResponseEntity.ok().body(new CommonResponse(200,"좋아요!!"));
         } else {
