@@ -1,57 +1,64 @@
 package com.idle.shoppingmall.Controller.ControllerAPI;
 
-import com.idle.shoppingmall.Entity.Payment;
-import com.idle.shoppingmall.Entity.Product.ProductDetail;
-import com.idle.shoppingmall.RequestDTO.Payment.PaymentAddRequest;
-import com.idle.shoppingmall.RequestDTO.Payment.PaymentDeleteRequest;
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListDTOtoSession;
+import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.RequestPayDTO;
+import com.idle.shoppingmall.Entity.User.UserInfo;
+import com.idle.shoppingmall.Entity.User.UserLog;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
-import com.idle.shoppingmall.ResponseDTO.Payment.PaymentAddResponse;
 import com.idle.shoppingmall.Service.Payment.PaymentService;
 import com.idle.shoppingmall.Service.Product.ProductDetailService;
-import jakarta.validation.Valid;
+import com.idle.shoppingmall.Service.Product.ProductService;
+import com.idle.shoppingmall.Service.User.UserLogService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.IntStream;
+
 @RestController
 @RequiredArgsConstructor
 public class PaymentApiController {
+
+    private final ProductService productService;
     private final PaymentService paymentService;
-    private final ProductDetailService productDetailService;
 
-    @PostMapping("api/POST/addPayment")
-    public ResponseEntity<PaymentAddResponse> addPayment(@RequestBody PaymentAddRequest request) {
-        ProductDetail productDetail = productDetailService.findDetail(request.getProduct_id(), request.getSize());
-        if(productDetail == null)
-            return ResponseEntity.ok().body(new PaymentAddResponse(400, "물품이 없습니다.", null));
-
-        Long id = paymentService.addPayment(
-                Payment.builder()
-                        .payment_id(request.getPayment_id())
-                        .created_who(request.getCreated_who())
-                        .product_id(request.getProduct_id())
-                        .total_price(request.getTotal_price())
-                        .size(request.getSize())
-                        .count(request.getCount())
-                        .build()
-        );
-        if(id == null)
-            return ResponseEntity.ok().body(new PaymentAddResponse(640, "결제 실패", null));
-        return ResponseEntity.ok().body(new PaymentAddResponse(200, "성공", request.getCreated_who(), request.getProduct_id(), request.getTotal_price(), request.getSize()));
+    @PostMapping("/api/POST/paymentList")
+    public ResponseEntity<CommonResponse> paymentList(@RequestBody List<String> list, HttpSession session) {
+        List<PaymentListDTOtoSession> keys = IntStream.range(0, list.size())
+                .mapToObj(i -> new PaymentListDTOtoSession(productService.findById(Long.parseLong(list.get(i).split(",")[0])), list.get(i).split(",")[1],
+                        Integer.parseInt(list.get(i).split(",")[2])))
+                .toList();
+        if(!keys.isEmpty()) session.setAttribute("paymentList", keys);
+        return keys.isEmpty() ? ResponseEntity.ok().body(new CommonResponse(400, "아무것도 안고르지 않았나요?")) :
+                ResponseEntity.ok().body(new CommonResponse(200, "결제 준비 끝!"));
     }
 
-    @PostMapping("api/POST/deletePayment")
-    public ResponseEntity<CommonResponse> deletePayment(@RequestBody @Valid PaymentDeleteRequest deleteRequest) {
-        Payment payment = paymentService.findById(deleteRequest.getPayment_id());
-        if(payment == null)
-            return ResponseEntity.ok().body(new CommonResponse(400, "물품이 없습니다."));
+    @PostMapping("/api/POST/checkPayment")
+    public ResponseEntity<CommonResponse> checkPay(HttpSession session){
+        System.out.println("!111111111111111111111111");
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        if(user == null) return ResponseEntity.ok().body(new CommonResponse(666, "세션이 만료되었어요."));
+        List<PaymentListDTOtoSession> paymentList = (List<PaymentListDTOtoSession>) session.getAttribute("paymentList");
+        if(paymentList == null) return ResponseEntity.ok().body(new CommonResponse(400, "아무것도 안고르지 않았나요?"));
+        //        상품 갯수 존재 여부 예외 처리
+        return ResponseEntity.ok().body(paymentService.checkProduct(paymentList));
+    }
 
-        Integer id = paymentService.delete(deleteRequest.getPayment_id());
 
-        if (id == null)
-            return ResponseEntity.ok().body(new CommonResponse(400, "삭제 실패!!"));
-        return ResponseEntity.ok().body(new CommonResponse(200, "삭제 성공"));
+    @PostMapping("/api/POST/payment")
+    public ResponseEntity<CommonResponse> payment(@RequestBody RequestPayDTO request, HttpSession session) {
+        System.out.println("result : "+request.getAddress() + " " + request.getPhone());
+        UserInfo user = (UserInfo) session.getAttribute("user");
+        List<PaymentListDTOtoSession> paymentList = (List<PaymentListDTOtoSession>) session.getAttribute("paymentList");
+
+        CommonResponse response = paymentService.payAndDelivery(request, user.getUser_id(), paymentList); ;
+        session.removeAttribute("paymentList");
+
+        return ResponseEntity.ok().body(response);
     }
 }
