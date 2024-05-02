@@ -2,8 +2,7 @@ HELP.md
 /logs/
 /logs
 
-/src/main/resources/application.properties
-/src/main/resources/naver.properties
+
 
 ### STS ###
 .apt_generated
