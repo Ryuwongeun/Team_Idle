@@ -15,4 +15,7 @@ public class NaverConfiguration {
     private @Value("${ncp.secretKey}") String secretKey;
     private @Value("${ncp.regionName}") String regionName;
     private @Value("${ncp.endPoint}") String endPoint;
+
+    private @Value("${naver.username}") String username;
+    private @Value("${naver.password}") String password;
 }

@@ -1,22 +1,26 @@
 package com.idle.shoppingmall.Config.Mail;
 
+import com.idle.shoppingmall.Config.Storage.NaverConfiguration;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
 @Configuration
+@PropertySource("classpath:naver.properties")
 public class MailConfig {
 
     @Bean
-    public JavaMailSender javaMailService() {
+    public JavaMailSender javaMailService(NaverConfiguration naverConfiguration) {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
 
         javaMailSender.setHost("smtp.naver.com"); // 메인 도메인 서버 주소 => 정확히는 smtp 서버 주소
-        javaMailSender.setUsername("springtest12345"); // 네이버 아이디
-        javaMailSender.setPassword("1q2w3e4r!"); // 네이버 비밀번호
+        javaMailSender.setUsername(naverConfiguration.getUsername()); // 네이버 아이디
+        javaMailSender.setPassword(naverConfiguration.getPassword()); // 네이버 비밀번호
 
         javaMailSender.setPort(465); // 메일 인증서버 포트
 
