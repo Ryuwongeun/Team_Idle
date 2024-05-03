@@ -5,7 +5,7 @@ import com.idle.shoppingmall.Entity.User.UserInfo;
 import com.idle.shoppingmall.RequestDTO.User.김승원추가.CheckNameDTO;
 import com.idle.shoppingmall.RequestDTO.User.김승원추가.UserJoinRequest;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
-import com.idle.shoppingmall.Service.User.김승원추가.UserJoinService;
+import com.idle.shoppingmall.Service.User.UserJoinService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

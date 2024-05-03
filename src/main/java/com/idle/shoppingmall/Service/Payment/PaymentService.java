@@ -8,10 +8,12 @@ import com.idle.shoppingmall.Entity.Delivery;
 import com.idle.shoppingmall.Entity.Key.DetailKey;
 import com.idle.shoppingmall.Entity.Payment;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
+import com.idle.shoppingmall.Entity.User.UserLog;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
 import com.idle.shoppingmall.mapper.CartMapper;
 import com.idle.shoppingmall.mapper.Payment.PaymentMapper;
 import com.idle.shoppingmall.mapper.Product.ProductDetailMapper;
+import com.idle.shoppingmall.mapper.User.UserLogMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +30,7 @@ public class PaymentService {
     private final PaymentMapper paymentMapper;
     private final ProductDetailMapper productMapper;
     private final CartMapper cartMapper;
+    private final UserLogMapper userLogMapper;
 
     public Long addPayment(Payment paymentDTO) {
         return paymentMapper.savePayment(paymentDTO);
@@ -115,11 +118,24 @@ public class PaymentService {
 
         for(int i=0 ; i<payments.size(); i++){
             cartMapper.deleteCart(Cart.builder()
-                    .product_id(paymentList.get(i).getProduct().getProduct_id())
+                    .product_id(payments.get(i).getProduct_id())
                     .size(paymentList.get(i).getSize())
                     .created_who(who)
                     .build());
         }
+        String name = userLogMapper.findNickname(who);
+        for(int i=0; i<payments.size(); i++){
+            userLogMapper.insertUserLog(UserLog.builder()
+                    .created_who(who)
+                    .name(name)
+                    .created_at(LocalDateTime.now())
+                    .doit("PAYMENT")
+                    .product_id(payments.get(i).getProduct_id())
+                    .build());
+        }
+
+
+
 
         return new CommonResponse(200,"주문이 완료되었습니다.");
     }
