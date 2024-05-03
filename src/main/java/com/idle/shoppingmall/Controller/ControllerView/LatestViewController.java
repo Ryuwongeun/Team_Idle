@@ -58,9 +58,7 @@ public class LatestViewController {
     @PostMapping("/view/GET/productLatestPriceDown")
     public List<Product> findAllByPdPriceDown(@RequestParam(defaultValue = "1") int page){
         int startPage = (page-1) * PAGESIZE;
-        System.out.println("startPage : "+startPage);
         int endPage = PAGESIZE;
-        System.out.println("pageSize : " + endPage);
         List<Product> productsWithPriceDown = productService.findAllByPdPriceDown(startPage,endPage);
         System.out.println("size : " + productsWithPriceDown.size());
         return productsWithPriceDown;

@@ -2,7 +2,7 @@ let i = 1;
 let state = 1;
 
 window.onload = () => {
-    GetProductListRequest(`/GET/manage/product`);
+    GetProductListRequest(`/manage/view/product`);
 }
 
 function redirectTo(id) {
@@ -43,7 +43,7 @@ function GetProductListRequest(url){
                     <tr class="table-row" >
                         <td class="px-4 py-2">${item.id}</td>
                         <td class="px-4 py-2">${item.brand_name}</td>
-                        <td class="px-4 py-2">${item.name}</td>
+                        <td class="px-4 py-2">${item.product_name}</td>
                         <td class="px-4 py-2">${item.price}</td>
                         <td class="px-4 py-2">${item.amount}</td>
                         <td class="px-4 py-2">${item.sales}</td>
@@ -172,6 +172,78 @@ function GetBrandListRequest(url){
             dataContainer.innerHTML = manageHtml;
             i *= -1;
             state = 3
+            setTopBtn(i,state);
+        })
+        .catch(error => {
+            console.error('Error fetching user data:', error);
+        });
+}
+
+
+function redirectToCS(id) {
+    location.href = `/manage/cs/?id=${id}`;
+}
+
+function GetCSListRequest(url){
+    const headers = {
+        'Content-Type': 'application/json',
+    };
+    fetch(url, {
+        method: 'POST',
+        headers: headers
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Thymeleaf로 직접 데이터 추가
+            const dataContainer = document.getElementById('field');
+            console.log(url);
+            let manageHtml =
+                `
+                <thead>
+                    <tr class="table-header">
+                        <th class=" px-4 py-2 text-left">문의 번호</th>
+                        <th class=" px-4 py-2 text-left">문의 고객 번호</th>
+                        <th order="1" class="sort-label px-4 py-2 text-left" value=1>문의 날짜</th>
+                        <th order="1" class="sort-label px-4 py-2 text-left" value=2>상태</th>
+                        <th class=" px-4 py-2 text-left">환불하기</th>
+                    </tr>
+                </thead>
+                <tbody>
+                `
+            // 데이터 배열을 순회하면서 각 항목을 HTML로 변환
+            manageHtml += data.map(item => {
+                let btn;
+                if(item.state == "OK" || item.state == "Cancel"){
+                    btn = `
+                    <td class="px-4 py-2">
+                            <button class="bg-blue-500 text-white font-bold py-1 px-2 rounded" 
+                            >응답 완료!</button>
+                        </td>`
+                }
+                else{
+                    btn = `
+                    <td class="px-4 py-2">
+                            <button class="bg-red-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded" 
+                            onclick=redirectToCS(${item.cs_id})>응답하기</button>
+                        </td>`
+                }
+                return `
+                <!-- Repeat for each row -->
+                    <tr class="table-row" >
+                        <td class="px-4 py-2">${item.cs_id}</td>
+                        <td class="px-4 py-2">${item.created_who}</td>
+                        <td class="px-4 py-2">${item.created_at}</td>
+                        <td class="px-4 py-2">${item.state}</td>
+                        ${btn}
+                    </tr>
+                <!-- ... more rows ... -->
+                
+            `;
+            }).join(''); // 배열의 모든 항목을 하나의 문자열로 결합
+            manageHtml += `</tbody>`;
+            dataContainer.innerHTML = manageHtml;
+            i *= -1;
+            state = 4
             setTopBtn(i,state);
         })
         .catch(error => {

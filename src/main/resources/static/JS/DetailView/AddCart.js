@@ -1,7 +1,6 @@
 const CartBtn = document.getElementById('cartBtn');
 
 CartBtn.addEventListener('click', () => {
-    const id = queryParam.get('id');
     console.log("click")
     console.log(id)
     let count = parseInt(document.getElementById('quantity').value);

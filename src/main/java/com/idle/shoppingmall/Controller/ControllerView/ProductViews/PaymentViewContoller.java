@@ -2,7 +2,7 @@ package com.idle.shoppingmall.Controller.ControllerView.ProductViews;
 
 
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListDTOtoSession;
-import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListViewDTO;
+import com.idle.shoppingmall.ResponseDTO.Payment.PaymentListViewResponse;
 import com.idle.shoppingmall.Entity.Product.Product;
 import com.idle.shoppingmall.Service.Product.ProductService;
 import jakarta.servlet.http.HttpSession;
@@ -25,10 +25,10 @@ public class PaymentViewContoller {
         if(keys==null){
             return "redirect:/login";
         }
-        List<PaymentListViewDTO> list = IntStream.range(0, keys.size())
+        List<PaymentListViewResponse> list = IntStream.range(0, keys.size())
                 .mapToObj(i -> {
                     Product product =  keys.get(i).getProduct();
-                    return new PaymentListViewDTO(product.getProduct_name(), product.getProduct_price(), keys.get(i).getSize(),
+                    return new PaymentListViewResponse(product.getProduct_name(), product.getProduct_price(), keys.get(i).getSize(),
                             keys.get(i).getCount(),
                             product.getProduct_img());
                 })

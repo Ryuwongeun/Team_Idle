@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고객센터</title>
+    <script defer src="/JS/sendData.js"></script>
+    <script defer src="/JS/addCS.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="http://code.jQuery.com/jquery-3.7.1.min.js"></script>
     <script>
@@ -19,8 +21,6 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/CSS/Common/form.css">
-    <link rel="stylesheet" href="/CSS/UseOnce/info.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,11 +54,33 @@
     <header class="bg-black py-7">
         <!--        topMenu-->
         <div id="TopMenu"></div>
-        <!--        검색 창-->
-        <div id="search-container"></div>
-        <!--    sideMenu-->
-        <div id="side-menu"></div>
+<!--        &lt;!&ndash;        검색 창&ndash;&gt;-->
+<!--        <div id="search-container"></div>-->
+<!--        &lt;!&ndash;    sideMenu&ndash;&gt;-->
+<!--        <div id="side-menu"></div>-->
     </header>
+
+    <div class="container mx-auto">
+        <div action="submit_inquiry.php" method="post" class="mt-8 max-w-sm mx-auto">
+            <div class="mb-4">
+                <label for="user_name" class="block text-gray-700 font-bold mb-2">이름:</label>
+                <input type="text" id="user_name" name="name" th:value="${user_name}" readonly
+                       class="w-full px-3 py-2 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="payment_id" class="block text-gray-700 font-bold mb-2">주문번호:</label>
+                <input type="text" id="payment_id" name="payment_id" th:value="${payment_id}" readonly
+                       class="w-full px-3 py-2 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="content" class="block text-gray-700 font-bold mb-2">환불 사유</label>
+                <textarea id="content" name="content" rows="4" required
+                          class="w-full px-3 py-2 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+            <button id="csBtn"
+                    class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded focus:outline-none focus:bg-lightpink-600">문의하기</button>
+        </div>
+    </div>
     <div class="container">
         <h1>고객센터</h1>
         <h2>연락처 정보</h2>
@@ -84,27 +106,6 @@
                 <p>A: 신용카드, 체크카드, 계좌이체, 페이팔 등 다양한 결제 수단을 이용하실 수 있습니다.</p>
             </li>
         </ul>
-    </div>
-    <div class="container mx-auto">
-        <form action="submit_inquiry.php" method="post" class="mt-8 max-w-sm mx-auto">
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-bold mb-2">이름:</label>
-                <input type="text" id="name" name="name" required
-                       class="w-full px-3 py-2 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-bold mb-2">이메일:</label>
-                <input type="email" id="email" name="email" required
-                       class="w-full px-3 py-2 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-                <label for="inquiry" class="block text-gray-700 font-bold mb-2">문의 내용:</label>
-                <textarea id="inquiry" name="inquiry" rows="4" required
-                          class="w-full px-3 py-2 border rounded-lg placeholder-gray-400 focus:outline-none focus:border-blue-500"></textarea>
-            </div>
-            <button type="submit"
-                    class="w-full bg-pink-500 text-white font-bold py-3 px-6 rounded focus:outline-none focus:bg-lightpink-600">문의하기</button>
-        </form>
     </div>
 <div id="Footer"></div>
 </body>

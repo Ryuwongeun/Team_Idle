@@ -13,7 +13,7 @@
         </foreach>
     </insert>
 
-    <insert id="setDelivery" useGeneratedKeys="true" keyProperty="delivery_id">
+    <insert id="setDelivery" parameterType="com.idle.shoppingmall.Entity.Delivery" useGeneratedKeys="true" keyProperty="delivery_id">
         insert into delivery(tg_pnum, tg_address, state, created_at)
         values (#{data.tg_pnum}, #{data.address}, #{data.state}, #{data.created_at})
     </insert>

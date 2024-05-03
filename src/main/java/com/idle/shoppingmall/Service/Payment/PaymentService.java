@@ -3,11 +3,13 @@ package com.idle.shoppingmall.Service.Payment;
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.PaymentListDTOtoSession;
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.RequestPayDTO;
 import com.idle.shoppingmall.Controller.ControllerView.ProductViews.DTO.SalesDTO;
+import com.idle.shoppingmall.Entity.Cart;
 import com.idle.shoppingmall.Entity.Delivery;
 import com.idle.shoppingmall.Entity.Key.DetailKey;
 import com.idle.shoppingmall.Entity.Payment;
 import com.idle.shoppingmall.Entity.Product.ProductDetail;
 import com.idle.shoppingmall.ResponseDTO.Common.CommonResponse;
+import com.idle.shoppingmall.mapper.CartMapper;
 import com.idle.shoppingmall.mapper.Payment.PaymentMapper;
 import com.idle.shoppingmall.mapper.Product.ProductDetailMapper;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,7 @@ import java.util.stream.IntStream;
 public class PaymentService {
     private final PaymentMapper paymentMapper;
     private final ProductDetailMapper productMapper;
+    private final CartMapper cartMapper;
 
     public Long addPayment(Payment paymentDTO) {
         return paymentMapper.savePayment(paymentDTO);
@@ -38,6 +41,7 @@ public class PaymentService {
         return paymentMapper.delete(paymentId);
     }
 
+    //결제 전 상품 재고 확인 API
     @Transactional(readOnly = true)
     public CommonResponse checkProduct(List<PaymentListDTOtoSession> paymentList){
         List<String> isStockInsufficient = paymentList.stream()
@@ -61,9 +65,12 @@ public class PaymentService {
         return new CommonResponse(200, "결제 가능");
     }
 
+
+    //결제 후 결제, 배송 데이터 기록 API
     @Transactional
     public CommonResponse payAndDelivery(RequestPayDTO dto, Long who, List<PaymentListDTOtoSession> paymentList) {
 //        상품 존재 유무 예외 처리
+        System.out.println("실행중");
         List<String> details = paymentList.stream()
                 .map(payment ->{ Integer result = productMapper.sales(new SalesDTO(
                         payment.getProduct().getProduct_id(),
@@ -73,18 +80,21 @@ public class PaymentService {
                 })
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
-        if (details.size() > 0) {
+        if (details.size() == 0) {
             String result = details.stream()
                     .collect(Collectors.joining(", "));
             return new CommonResponse(500,"상품 : "+result+ "는 존재하지 않는 상품입니다.");
         }
 
+        System.out.println("실행중");
         Delivery delivery = Delivery.builder()
                 .tg_pnum(dto.getPhone())
                 .address(dto.getAddress())
                 .state("WAIT")
                 .created_at(LocalDateTime.now())
+                .updated_at(LocalDateTime.now())
                 .build();
+        System.out.println("번호 뜸 "+delivery.getTg_pnum());
         paymentMapper.setDelivery(delivery);
         System.out.println("delivery : " + delivery.getDelivery_id());
 
@@ -101,8 +111,16 @@ public class PaymentService {
                         .build())
                 .toList();
         paymentMapper.setPayment(payments);
+        System.out.println("실행중 111111111111111111111");
+
+        for(int i=0 ; i<payments.size(); i++){
+            cartMapper.deleteCart(Cart.builder()
+                    .product_id(paymentList.get(i).getProduct().getProduct_id())
+                    .size(paymentList.get(i).getSize())
+                    .created_who(who)
+                    .build());
+        }
 
         return new CommonResponse(200,"주문이 완료되었습니다.");
-
     }
 }

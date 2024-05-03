@@ -7,9 +7,11 @@ import com.idle.shoppingmall.mapper.Manage.DTO.ProductSortRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -24,29 +26,34 @@ public class ManageViewController {
         return "/Manage/ManageMain";
     }
 
-    @PostMapping("/GET/manage/product")
+    @PostMapping("/manage/view/product")
     public ResponseEntity<List<MProductListView>> getProduct() {
         List<MProductListView> products = mProductService.getList(0, PAGINGSIZE);
         return ResponseEntity.ok().body(products);
     }
 
+    @GetMapping("/manage/cs/")
+    public String getCSList(@RequestParam(defaultValue = "1") Long id, Model model){
+        model.addAttribute("id", id);
+        return "/Manage/AddCSAnswer";
+    }
 
-    @PostMapping("/GET/manage/brand")
+    @PostMapping("/manage/view/brand")
     public ResponseEntity<List<MProductListView>> getBrand() {
         List<MProductListView> products = mProductService.getList(0, PAGINGSIZE);
         return ResponseEntity.ok().body(products);
     }
 
-    @PostMapping("/GET/manage/product/search")
+    @PostMapping("/manage/view/product/search")
     public ResponseEntity<List<MProductListView>> getProductByName(
             @ModelAttribute ProductSortRequest request) {
         int id = request.getId();
-        String product_name = request.getProduct_name();
+        String product_name = request.getName();
         System.out.println("search name : " + product_name);
         String order = null;
         if (id > 0) {
             if (id == 1) {
-                order = "price DESC";
+                order = "product_price DESC";
             }
             if (id == 2) {
                 order = "amount DESC";
@@ -56,7 +63,7 @@ public class ManageViewController {
             }
         } else {
             if (id == -1) {
-                order = "price ASC";
+                order = "product_price ASC";
             }
             if (id == -2) {
                 order = "amount ASC";

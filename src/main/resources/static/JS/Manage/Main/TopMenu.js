@@ -1,6 +1,7 @@
 const topProductBtn = document.getElementById('ProductTop');
 const topOrderBtn = document.getElementById('OrderTop');
 const topBrandBtn = document.getElementById('BrandTop');
+const topCSBtn = document.getElementById('CSTop');
 
 function setTopBtn(i, value){
     const sortLabels = document.querySelectorAll('.sort-label')
@@ -16,13 +17,16 @@ function setTopBtn(i, value){
 
             console.log(val)
             if(value == 1) {
-                GetProductListRequest(`/GET/manage/product/search?id=${val}&name=${searchValue}&paging=1`);
+                GetProductListRequest(`/manage/view/product/search?id=${val}&name=${searchValue}&page=1`);
             }
             else if(value == 2){
-                GetOrderListRequest(`/GET/manage/order/search?id=${val}&name=${searchValue}`);
+                GetOrderListRequest(`/manage/view/order/search?id=${val}&name=${searchValue}`);
             }
             else if(value == 3){
-                GetBrandListRequest(`/GET/manage/brand/search?id=${val}&name=${searchValue}`);
+                GetBrandListRequest(`/manage/view/brand/search?id=${val}&name=${searchValue}`);
+            }
+            else if(value == 4){
+                GetCSListRequest(`/manage/GET/cs/search?name=${searchValue}&page=1`);
             }
         });
     });
@@ -38,17 +42,22 @@ function colorChange(clickElement){
 
 
 topProductBtn.addEventListener('click', function(){
-    GetProductListRequest(`/GET/manage/product`);
+    GetProductListRequest(`/manage/view/product`);
     colorChange(this);
 });
 
 topOrderBtn.addEventListener('click', function(){
-    GetOrderListRequest(`/GET/manage/order/search?page=0`);
+    GetOrderListRequest(`/manage/view/order/search?page=0`);
     colorChange(this);
 });
 
 topBrandBtn.addEventListener('click', function(){
-    GetBrandListRequest(`/GET/manage/brand/search?page=0`);
+    GetBrandListRequest(`/manage/view/brand/search?page=0`);
+    colorChange(this);
+});
+
+topCSBtn.addEventListener('click', function(){
+    GetCSListRequest(`/manage/GET/cs/search?page=0`);
     colorChange(this);
 });
 

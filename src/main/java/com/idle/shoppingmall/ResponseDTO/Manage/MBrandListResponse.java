@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Mapper;
 @AllArgsConstructor
 public class MBrandListResponse {
     private Long brand_id;
-    private String name;
+    private String brand_name;
     private String sales;
     private int count;
 }
