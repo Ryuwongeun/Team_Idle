@@ -7,7 +7,6 @@ window.onload = () => {
     GetListRequestCategory(`/view/GET/category?category=${pd_category}&page=1`);
 }
 let page =1;//현재 페이지 번호
-
 function redirectTo(id){
     location.href=`/product/?id=${id}`;
 }
